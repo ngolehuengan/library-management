@@ -8,17 +8,17 @@ Thỏa điều kiện 1 và 2 thì tiếp tục chấm đồ án theo thang đi�
 + Đầy đủ các chức năng xem, thêm, sửa, xoá, tìm kiếm: 50%
 + Form thiết kế đẹp hợp lý, sử dụng control hay hợp lý mới lạ (menu, tree view, tab, timer, picture…): 10%
   - Giao diện Mượn/Trả Sách:
-    _ Hệ thống hiển thị các thuộc tính và box nhập tương ứng.
-    _ Người quản lý nhập liệu và click button Mượn.
-    _ Hệ thống kiểm trả và trả về trạng thái mượn thành công hay không.
+    + Hệ thống hiển thị các thuộc tính và box nhập tương ứng.
+    + Người quản lý nhập liệu và click button Mượn.
+    + Hệ thống kiểm trả và trả về trạng thái mượn thành công hay không.
   - Giao diện Mượn/Trả Sách và click chọn phiếu mượn từ list bên dưới/nhập thông tin phiếu mượn, sau đó ấn gia hạn. Hệ thống hiển thị box nhập số ngày gia hạn (không quá số ngày mượn tối đa) và button Lưu.
   - Giao diện Xử Lý Phạt:
-    _ Hệ thống hiển thị các nội dung tờ phiếu phạt và box nhập tương ứng.
-    _ Người quản lý nhập liệu và click Lưu.
+    + Hệ thống hiển thị các nội dung tờ phiếu phạt và box nhập tương ứng.
+    + Người quản lý nhập liệu và click Lưu.
   - Giao diện Báo Cáo Thống Kê:
-    _ Hệ thống hiển thị các Hàm Thống Kê.
-    _ Người quản lý chọn nội dung mong muốn.
-    _ Chọn đầu ra (Excel/PDF/Printer) và click thực thi.
+    + Hệ thống hiển thị các Hàm Thống Kê.
+    + Người quản lý chọn nội dung mong muốn.
+    + Chọn đầu ra (Excel/PDF/Printer) và click thực thi.
 + Tìm kiếm nâng cao 10% (AND, OR,…)
 + Thống kê: 20% (tối thiểu 3 hàm thống kê)
   - DS sách báo mất: 4%
