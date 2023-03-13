@@ -34,15 +34,15 @@ Thỏa điều kiện 1 và 2 thì tiếp tục chấm đồ án theo thang đi�
 --------------------------------------------------------------------------------------------------------------------------------
 # Nhận việc
 + Ngân: 25%
-  + Chức năng cơ bản: 12.5%
-  + Tìm kiếm nâng cao: 2.5%
-  + Giao diện: 10%
+  - Chức năng cơ bản: 12.5%
+  - Tìm kiếm nâng cao: 2.5%
+  - Giao diện: 10%
 + Nhân: 25%
-  + Chức năng cơ bản: 12.5%
-  + Tìm kiếm nâng cao: 2.5%
+  - Chức năng cơ bản: 12.5%
+  - Tìm kiếm nâng cao: 2.5%
 + Thủy: 25%
-  + Chức năng cơ bản: 12.5%
-  + Tìm kiếm nâng cao: 2.5%
+  - Chức năng cơ bản: 12.5%
+  - Tìm kiếm nâng cao: 2.5%
 + Tình: 25%
-  + Chức năng cơ bản: 12.5%
-  + Tìm kiếm nâng cao: 2.5%
+  - Chức năng cơ bản: 12.5%
+  - Tìm kiếm nâng cao: 2.5%
