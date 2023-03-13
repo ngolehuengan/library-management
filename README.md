@@ -7,6 +7,10 @@
 Thỏa điều kiện 1 và 2 thì tiếp tục chấm đồ án theo thang điểm:
 + Đầy đủ các chức năng xem, thêm, sửa, xoá, tìm kiếm: 50%
 + Form thiết kế đẹp hợp lý, sử dụng control hay hợp lý mới lạ (menu, tree view, tab, timer, picture…): 10%
+  - Giao diện Hệ Thống:
+    + Quản Lý Đầu Sách
+    + Quản Lý Độc Giả
+    + Nội Quy
   - Giao diện Mượn/Trả Sách:
     + Hệ thống hiển thị các thuộc tính và box nhập tương ứng.
     + Người quản lý nhập liệu và click button Mượn.
@@ -40,9 +44,12 @@ Thỏa điều kiện 1 và 2 thì tiếp tục chấm đồ án theo thang đi�
 + Nhân: 25%
   - Chức năng cơ bản: 12.5%
   - Tìm kiếm nâng cao: 2.5%
+  - 10%
 + Thủy: 25%
   - Chức năng cơ bản: 12.5%
   - Tìm kiếm nâng cao: 2.5%
+  - 10%
 + Tình: 25%
   - Chức năng cơ bản: 12.5%
   - Tìm kiếm nâng cao: 2.5%
+  - 10%
