@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  database:
+    platform: linux/x86_64
+    image: mysql:8.0.32-debian
+    container_name: library-database
+    restart: always
+    environment:
+      - MYSQL_DATABASE=root
+      - MYSQL_ROOT_PASSWORD=admin123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/init:/docker-entrypoint-initdb.d/:ro
+  phpmyadmin:
+    image: phpmyadmin:5.2.1-apache
+    container_name: library-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: database
+      PMA_USER: root
+      PMA_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    depends_on:
+      - database

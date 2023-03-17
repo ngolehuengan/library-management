@@ -1,17 +1,21 @@
-package Entity;
+package DTO;
 
 /**
  *
  * @author ant1006
  */
-public class Publisher {
-    private String ID, name;
+public class Category {
+    private String ID;
+    private String name;
 
-    public Publisher(String ID, String name) {
+    public Category() {
+    }
+    
+    public Category(String ID, String name) {
         this.ID = ID;
         this.name = name;
     }
-//------------------------------------------------------------------------------
+
     public String getID() {
         return ID;
     }
@@ -26,5 +30,10 @@ public class Publisher {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" + "ID=" + ID + ", name=" + name + '}';
     }
 }

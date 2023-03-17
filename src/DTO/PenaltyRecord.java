@@ -1,4 +1,4 @@
-package Entity;
+package DTO;
 
 import java.util.Date;
 
@@ -7,12 +7,15 @@ import java.util.Date;
  * @author ant1006
  */
 public class PenaltyRecord {
-    private String ID; 
+    private String ID;          //PK
     private Date recordDate;
-    private String librarianID; //ma thu thu tiep nhan
-    private String readerID;
+    private String librarianID; //FK
+    private String readerID;    //FK
     private String content;  //noi dung vi pham
     private String solution; //huong xu ly
+
+    public PenaltyRecord() {
+    }
 
     public PenaltyRecord(String ID, Date recordDate, String librarianID, String readerID, String content, String solution) {
         this.ID = ID;
@@ -25,10 +28,6 @@ public class PenaltyRecord {
 
     public String getID() {
         return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
     }
 
     public Date getRecordDate() {

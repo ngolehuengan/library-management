@@ -1,17 +1,21 @@
-package Entity;
+package DTO;
 
 /**
  *
  * @author ant1006
  */
 public class Author {
-    private String ID, fullName;
+    private String ID;
+    private String fullName;
+
+    public Author() {
+    }
 
     public Author(String ID, String fullName) {
         this.ID = ID;
         this.fullName = fullName;
     }
-//------------------------------------------------------------------------------
+
     public String getID() {
         return ID;
     }
@@ -26,5 +30,10 @@ public class Author {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" + "ID=" + ID + ", fullName=" + fullName + '}';
     }
 }
