@@ -1,4 +1,4 @@
-package Entity;
+package DTO;
 
 import java.util.Date;
 
@@ -6,7 +6,8 @@ import java.util.Date;
  *
  * @author ant1006
  */
-public class PersonalInfo {
+abstract class PersonalInfo {
+
     private String citizenID; //CCCD
     private String fullName;
     private Date birthday;
@@ -14,6 +15,9 @@ public class PersonalInfo {
     private String phoneNumber;
     private String address;
     // ảnh ??
+
+    public PersonalInfo() {
+    }
 
     public PersonalInfo(String citizenID, String fullName, Date birthday, boolean isMale, String phoneNumber, String address) {
         this.citizenID = citizenID;
@@ -72,6 +76,9 @@ public class PersonalInfo {
         this.address = address;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "PersonalInfo{" + "citizenID=" + citizenID + ", fullName=" + fullName + ", birthday=" + birthday + ", Sex=" + (isMale ? "Male" : "Female") + ", phoneNumber=" + phoneNumber + ", address=" + address + '}';
+    }
+
 }

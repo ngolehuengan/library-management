@@ -1,4 +1,4 @@
-package Entity;
+package DTO;
 
 import java.util.Date;
 
@@ -9,6 +9,9 @@ import java.util.Date;
 public class Librarian extends PersonalInfo {
     private String ID;         //ma thu thu
 
+    public Librarian() {
+        super();
+    }
     public Librarian(String ID, String citizenID, String fullName, Date birthday, boolean isMale, String phoneNumber, String address) {
         super(citizenID, fullName, birthday, isMale, phoneNumber, address);
         this.ID = ID;
