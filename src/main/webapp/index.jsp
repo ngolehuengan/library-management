@@ -5,9 +5,9 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-Type" content="text/html"; charset=UTF-8>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="src/images/sgu-logo.png" type="image/icon-x"/>
+        <link rel="shortcut icon" href="src/images/sgu-logo.png" type="image/x-icon"/>
         <title>Thư viện SGU</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
