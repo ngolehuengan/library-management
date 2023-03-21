@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class Librarian extends PersonalInfo {
     private String ID;         //ma thu thu
+    private boolean exists = true;       //đang hiện hữu
 
     public Librarian() {
         super();

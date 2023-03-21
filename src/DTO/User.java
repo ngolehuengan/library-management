@@ -9,6 +9,7 @@ public class User {
     private String password;
     private int role; //cap 1 cap 2 cap 3
     private String personalID; //mã thủ thư (cấp 2 3) hoặc mã độc giả (1)
+    private boolean exists = true;       //đang hiện hữu
 
     public User(String username, String password, int role, String personalID) {
         this.username = username;

@@ -9,6 +9,7 @@ public class Location {
     private String name;
     private int capacity; //sức chứa ? quyển
     // thêm thuộc tính hình ảnh hay sao đó
+    private boolean exists = true;       //đang hiện hữu
 
     public Location() {
     }

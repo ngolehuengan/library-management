@@ -12,6 +12,7 @@ public class Reader {
     private String LoSID;          //lecturer or student ID
     private Date registrationDate; //thoi gian dang ky
     private int duration;          //thoi han
+    private boolean exists = true;       //đang hiện hữu
 
 
 }

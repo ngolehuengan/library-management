@@ -11,7 +11,8 @@ public class LoanShip {
     private Date loanDate;
     private String librarianID; //FK
     private String readerID;    //FK
-    
+    private boolean exists = true;       //đang hiện hữu
+   
     public LoanShip() {
     }
 
