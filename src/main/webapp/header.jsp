@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
         <!DOCTYPE html>
         <html lang="vi">
 
@@ -8,17 +9,31 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="shortcut icon" href="resources/images/sgu-logo.ico" type="image/x-icon" />
             <title>Thư viện SGU</title>
-            
-            <link rel="stylesheet" href="resources/css/all.css">
-            
+
+            <script src="https://kit.fontawesome.com/6f98f62eac.js" crossorigin="anonymous"></script>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+                crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="resources/css/root.css">
+            <link rel="stylesheet" href="resources/css/template.css">
         </head>
 
         <body>
             <header id="header">
                 <div class="container row">
-                    <a href="" class="col-xs-12 col-sm-7 navbar-brand"><img src="src/images/header-logo.png"
-                            alt="SGU Library"></a>
-                    <div class="col-xs-12 col-sm-5 cursor-hover">
+                    <div class="col-md-7"><a href="localhost:8080/SGULibrary/" class="navbar-brand"><img
+                                src="resources/images/header-logo.png" alt="SGU Library"></a></div>
+                    <div class="col-md-5 cursor-hover">
                         <div class="link-header">
                             <ul class="contact-menu">
                                 <li><a href="https://sgu.edu.vn/">Website SGU</a></li>

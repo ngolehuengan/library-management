@@ -1,4 +1,7 @@
-.link-header>* {
-    display: flex;
-    justify-content: flex-end;
+.link-header {
+    text-align: right;
+}
+
+.link-header li {
+    display: inline-block;
 }
