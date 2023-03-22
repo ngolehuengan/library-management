@@ -1,6 +1,11 @@
 #header {
     background-color: var(--bs-green-light);
-    border-bottom: 1px solid var(--bs-green);
+}
+
+/* border-bottom: 1px solid var(--bs-green); */
+nav, nav>* {
+    padding: 0;
+    width: 100%;
 }
 
 #header>*>*>* {
@@ -17,23 +22,25 @@ img {
     color: var(--bs-blue-dark);
 }
 
+.link-header ul {
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
 .link-header li {
     display: inline-block;
     padding: 0 10px;
 }
 
-.link-header li:hover,  .link-header a:hover{
+.link-header li:hover,
+.link-header a:hover {
     color: var(--bs-white);
     background-color: var(--bs-blue-dark);
-    transition: 1s;
+    transition: 0.8s;
     border-radius: 5px;
-    padding: 5px;
 }
 
-
-/* .col-xs-12,
-.col-ms-7,
-.col-xs-12,
-.col-ms-5 {
-    width: 100%;
-} */
+.menu-header{
+    background-color: var(--bs-green);
+    height: fit-content;
+}

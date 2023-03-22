@@ -18,13 +18,15 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script> -->
+    <script src="resources/bootstrap/js/popper.min.js" integrity="sha384-"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js" integrity="sha384-"></script>
     <!-- <link rel="stylesheet" href="resources/css/root.css"> -->
     <link rel="stylesheet" href="resources/css/template.css">
 </head>
 
 <body>
-    <header id="header">
-        <nav class="navbar">
+    <header id="header" class="fixed-top">
+        <nav class="navbar navbar-default">
             <div class="container">
                 <a href="localhost:8080/SGULibrary/" class="col-xs-12 col-ms-7 navbar-brand"><img
                         src="resources/images/header-logo.png" alt="SGU Library"></a>
@@ -55,9 +57,38 @@
                         </ul>
                     </div>
                 </div>
-
-                
             </div>
+
+            <div>
+                <nav class="navbar navbar-expand-md bg-success" aria-label="#bs-example-navbar-collapse-1">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"><i class="fa-sharp fa-solid fa-house fa-xs"></i></a>
+                        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                        data-bs-toggle="dropdown">Menu thả xuống</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Link QuanTriMang</a></li>
+                                        <li><a class="dropdown-item" href="#">Công nghệ</a></li>
+                                        <li><a class="dropdown-item" href="#">Đời sống</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
         </nav>
     </header>
     <footer id="footer"></footer>

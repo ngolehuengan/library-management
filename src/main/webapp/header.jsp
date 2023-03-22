@@ -21,7 +21,7 @@
             <header id="header">
                 <nav class="navbar">
                     <div class="container">
-                        <a href="localhost:8080/SGULibrary/" class="col-xs-12 col-ms-7 navbar-brand"><img
+                        <a href="localhost:8080/SGULibrary/" class="col-xs-12 col-ms-7 navbar-brand banner-header"><img
                                 src="resources/images/header-logo.png" alt="SGU Library"></a>
                         <div class="col-xs-12 col-ms-5">
                             <!-- edit elements -->
