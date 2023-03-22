@@ -1,7 +1,39 @@
+#header {
+    background-color: var(--bs-green-light);
+    border-bottom: 1px solid var(--bs-green);
+}
+
+#header>*>*>* {
+    display: inline-block;
+    padding: 10px;
+}
+
+img {
+    max-width: 100%;
+}
+
 .link-header {
-    text-align: right;
+    text-align: center;
+    color: var(--bs-blue-dark);
 }
 
 .link-header li {
     display: inline-block;
+    padding: 0 10px;
 }
+
+.link-header li:hover,  .link-header a:hover{
+    color: var(--bs-white);
+    background-color: var(--bs-blue-dark);
+    transition: 1s;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+/* .col-xs-12,
+.col-ms-7,
+.col-xs-12,
+.col-ms-5 {
+    width: 100%;
+} */
