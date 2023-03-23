@@ -1,16 +1,15 @@
-#header {
+#header>.fixed-top {
+    padding: 0;
     background-color: var(--bs-green-light);
 }
 
-/* border-bottom: 1px solid var(--bs-green); */
-nav, nav>* {
-    padding: 0;
-    width: 100%;
-}
-
-#header>*>*>* {
+#header>*>.container>* {
     display: inline-block;
     padding: 10px;
+}
+
+nav>* {
+    width: 100%;
 }
 
 img {
@@ -40,7 +39,36 @@ img {
     border-radius: 5px;
 }
 
-.menu-header{
-    background-color: var(--bs-green);
-    height: fit-content;
+.menu-header>* {
+    padding: 0;
+}
+
+.menu-header i,
+.menu-header .nav-link {
+    color: var(--bs-white);
+}
+
+.menu-header .nav-item {
+    font-weight: bold;
+}
+
+.menu-header .nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.menu-header .dropdown-menu {
+    left: auto;
+}
+
+.menu-header .navbar-brand{
+    border: 1px solid var(--bs-white);
+}
+
+.menu-header .dropdown-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer {
+    height: 5000px;
 }
