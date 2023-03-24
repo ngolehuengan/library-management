@@ -1,4 +1,4 @@
-#header>.fixed-top {
+#header>.sticky-top {
     padding: 0;
     background-color: var(--bs-green-light);
 }
@@ -60,15 +60,22 @@ img {
     left: auto;
 }
 
-.menu-header .navbar-brand{
+.menu-header .navbar-brand {
     border: 1px solid var(--bs-white);
 }
 
-.menu-header .dropdown-item{
+.menu-header .dropdown-item {
     display: flex;
     justify-content: space-between;
 }
 
 #footer {
-    height: 5000px;
+    color: var(--bs-white);
+    background-color: var(--bs-black);
+    padding: 20px;
+    text-align: center;
+}
+
+#footer>.container>*:last-child {
+    margin: 0;
 }
