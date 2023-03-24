@@ -19,12 +19,12 @@
         </head>
 
         <body>
-            <header id="header" class="">
-                <nav class="navbar navbar-default fixed-top" aria-label="#">
+            <header id="header">
+                <nav class="navbar navbar-default sticky-top" aria-label="#">
                     <div class="container">
-                        <a href="localhost:8080/SGULibrary/" class="col-xs-12 col-ms-7 navbar-brand"><img
+                        <a href="localhost:8080/SGULibrary/" class="col-ms-7 navbar-brand"><img
                                 src="resources/images/header-logo.png" alt="SGU Library"></a>
-                        <div class="col-xs-12 col-ms-5">
+                        <div class="col-ms-5">
                             <!-- edit elements -->
                             <div class="link-header">
                                 <ul class="contact-menu">
@@ -56,68 +56,68 @@
 
                     <div class="menu-header">
                         <nav class="navbar navbar-expand-md bg-success" aria-label="#">
-                            <div class="container navbar">
-                                <a class="navbar-brand btn" href="localhost:8080/SGULibrary/"><i
-                                        class="fa-sharp fa-solid fa-house fa-xs"></i></a>
-                                <ul class="navbar-nav container">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">GIỚI
-                                            THIỆU</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">GIỚI THIỆU CHUNG</a></li>
-                                            <li><a class="dropdown-item" href="#">NỘI QUY</a></li>
-                                            <li><a class="dropdown-item" href="#">SƠ ĐỒ BỐ TRÍ</a></li>
-                                            <li><a class="dropdown-item" href="#">DỊCH VỤ CUNG CẤP</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">TÀI
-                                            LIỆU</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">TÁT CẢ</a></li>
-                                            <li><a class="dropdown-item" href="#">ĐỀ XUẤT<i class="fa-brands fa-hotjar"
-                                                        style="color: var(--bs-red)"></i></a></li>
-                                            <li><a class="dropdown-item" href="#">LUẬN VĂN - LUẬN ÁN - ĐTNCKH</a></li>
-                                            <li><a class="dropdown-item" href="#">PHÂN LOẠI MÔN/CHUYÊN NGÀNH</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">DỊCH
-                                            VỤ</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">MƯỢN SÁCH</a></li>
-                                            <li><a class="dropdown-item" href="#">TRẢ SÁCH</a></li>
-                                            <li><a class="dropdown-item" href="#">GIA HẠN</a></li>
-                                            <li><a class="dropdown-item" href="#">BÁO MẤT</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">THƯ
-                                            VIỆN SỐ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">THÔNG BÁO</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <form class="form-control">
-                                            <input type="search" name="name" placeholder="Tìm kiếm" required />
-                                            <button type="submit" class="btn btn-success">
-                                                <em class="fas fa-search"></em>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">TÀI
-                                            KHOẢN</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">ĐĂNG NHẬP</a></li>
-                                            <li><a class="dropdown-item" href="#">ĐĂNG KÝ</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul class="navbar-nav container">
+                                <li class="nav-item">
+                                    <a class="navbar-brand btn" href="localhost:8080/SGULibrary/"><i
+                                            class="fa-sharp fa-solid fa-house fa-xs"></i></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">GIỚI
+                                        THIỆU</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">GIỚI THIỆU CHUNG</a></li>
+                                        <li><a class="dropdown-item" href="#">NỘI QUY</a></li>
+                                        <li><a class="dropdown-item" href="#">SƠ ĐỒ BỐ TRÍ</a></li>
+                                        <li><a class="dropdown-item" href="#">DỊCH VỤ CUNG CẤP</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">TÀI
+                                        LIỆU</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">TÁT CẢ</a></li>
+                                        <li><a class="dropdown-item" href="#">ĐỀ XUẤT<i class="fa-brands fa-hotjar"
+                                                    style="color: var(--bs-red)"></i></a></li>
+                                        <li><a class="dropdown-item" href="#">LUẬN VĂN - LUẬN ÁN - ĐTNCKH</a></li>
+                                        <li><a class="dropdown-item" href="#">PHÂN LOẠI MÔN/CHUYÊN NGÀNH</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">DỊCH
+                                        VỤ</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">MƯỢN SÁCH</a></li>
+                                        <li><a class="dropdown-item" href="#">TRẢ SÁCH</a></li>
+                                        <li><a class="dropdown-item" href="#">GIA HẠN</a></li>
+                                        <li><a class="dropdown-item" href="#">BÁO MẤT</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">THƯ
+                                        VIỆN SỐ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">THÔNG BÁO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form class="form-control">
+                                        <input class="search-input" type="search" name="name" placeholder="Tìm kiếm"
+                                            required />
+                                        <button type="submit" class="btn btn-success">
+                                            <em class="fas fa-search"></em>
+                                        </button>
+                                    </form>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">TÀI
+                                        KHOẢN</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">ĐĂNG NHẬP</a></li>
+                                        <li><a class="dropdown-item" href="#">ĐĂNG KÝ</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </nav>
                     </div>
-
                 </nav>
             </header>
