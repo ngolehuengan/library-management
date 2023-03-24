@@ -101,7 +101,7 @@
                             </li>
                             <li class="nav-item">
                                 <form class="form-control">
-                                    <input class="search-input" type="text" name="name" placeholder="Tìm kiếm"
+                                    <input class="search-input" type="text" placeholder="Tìm kiếm"
                                         required />
                                     <button type="submit" class="btn btn-success">
                                         <em class="fas fa-search"></em>
