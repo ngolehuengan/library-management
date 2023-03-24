@@ -1,26 +1,26 @@
 package DAL;
 
-import DTO.User;
+import DTO.Account;
 
 /**
  *
  * @author ant1006
  */
 public class DAOUser extends ConnectDB {
-    public boolean insert(User element) {
+    public boolean insert(Account element) {
         return true;
     }
     
-    public boolean update(String username, User element) {
+    public boolean update(String username, Account element) {
         return true;
     }
     
-    public boolean delete(User element) {
+    public boolean delete(Account element) {
         return true;
     }
     
-    public User login(String username, String password) {
-        User user = null;
+    public Account login(String username, String password) {
+        Account user = null;
         try {
             
         } catch (Exception e) {}
