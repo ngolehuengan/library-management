@@ -65,12 +65,20 @@ img {
 }
 
 .menu-header .nav-item:hover .dropdown-menu {
-    display: block;
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+    transition: 0.8s;
 }
 
 .menu-header .dropdown-menu {
-    left: auto;
-    margin: 0;
+    display: block;
+    visibility: hidden;
+    transform: translateY(-20%);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.2s;
+    transition-delay: 1s;
 }
 
 .menu-header .dropdown-item {
@@ -81,6 +89,7 @@ img {
 
 .menu-header .dropdown-item:hover {
     background-color: var(--bs-green-light);
+    transition: 0.8s;
 }
 
 .menu-header .form-control {
@@ -114,11 +123,6 @@ img {
 .menu-header .form-control .search-input:valid {
     width: 150px;
     background-color: var(--bs-white);
-}
-
-.search-button {
-    cursor: pointer;
-    background: transparent;
 }
 
 #footer {
