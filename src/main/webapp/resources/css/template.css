@@ -1,9 +1,13 @@
-#header>.sticky-top {
+#header {
     padding: 0;
     background-color: var(--bs-green-light);
 }
 
-#header>*>.container>* {
+#header>* {
+    padding-bottom: 0;
+}
+
+#header>*.container>* {
     display: inline-block;
     padding: 10px;
 }
@@ -47,6 +51,7 @@ img {
 .menu-header i,
 .menu-header .nav-link {
     color: var(--bs-white);
+    text-align: center;
 }
 
 .menu-header .nav-item {
@@ -62,6 +67,20 @@ img {
     background-color: var(--bs-green-light);
     color: var(--bs-blue-dark);
     transition: 1s;
+}
+
+.menu-header .dropdown,
+.menu-header .dropdown>.dropdown-toggle {
+    border-radius: 5px;
+    transition-delay: 1s;
+    transition: 0;
+}
+
+.menu-header .dropdown:hover,
+.menu-header .dropdown:hover>.dropdown-toggle {
+    background-color: var(--bs-white);
+    color: var(--bs-blue-dark) !important;
+    transition: 0.8s;
 }
 
 .menu-header .nav-item:hover .dropdown-menu {
