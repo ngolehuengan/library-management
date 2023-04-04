@@ -12,8 +12,8 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <div class="card card-primary">
-                                <div class="card-header bg-success">
-                                    <h3 class="card-title" style="color:var(--bs-white)">Đăng nhập</h3>
+                                <div class="card-header bg-success text-center">
+                                    <h3 class="card-title" style="color:var(--bs-white)">ĐĂNG NHẬP</h3>
                                 </div>
                                 <form role="form" action="${pageContext.request.contextPath}/Login" method="post">
                                     <div class="row justify-content-center card-body" style="margin-bottom: -34px;">
@@ -28,8 +28,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Mật khẩu</label> <input type="password"
-                                                class="form-control" name="password" id="exampleInputPassword1"
-                                                placeholder="Nhập mật khẩu" required>
+                                                class="form-control" name="password" placeholder="Nhập mật khẩu"
+                                                required>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                                name="rememberMe" value="Y"> <label class="form-check-label"
+                                                for="exampleCheck1">Nhớ tài
+                                                khoản</label>
                                         </div>
                                     </div>
                                     <div class="card-footer bg-success text-center">
