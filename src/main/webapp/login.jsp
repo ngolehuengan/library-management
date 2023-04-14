@@ -34,7 +34,7 @@
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" id="exampleCheck1"
                                                 name="rememberMe" value="Y"> <label class="form-check-label"
-                                                for="exampleCheck1">Nhớ tài
+                                                for="exampleCheck1" style="font-size: 15px; opacity: 0.7;">Nhớ tài
                                                 khoản</label>
                                         </div>
                                     </div>

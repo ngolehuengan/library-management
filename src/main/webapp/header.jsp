@@ -58,6 +58,7 @@
                                     <a class="navbar-brand btn" href="${pageContext.request.contextPath}"><i
                                             class="fa-sharp fa-solid fa-house fa-xs"></i></a>
                                 </li>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">GIỚI
                                         THIỆU</a>
@@ -72,47 +73,99 @@
                                         <li><a class="dropdown-item" href="#">DỊCH VỤ CUNG CẤP</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">TÀI
-                                        LIỆU</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">TÁT CẢ</a></li>
-                                        <li><a class="dropdown-item" href="#">ĐỀ XUẤT<i class="fa-brands fa-hotjar"
-                                                    style="color: var(--bs-red)"></i></a></li>
-                                        <li><a class="dropdown-item" href="#">LUẬN VĂN - LUẬN ÁN - ĐTNCKH</a></li>
-                                        <li><a class="dropdown-item" href="#">PHÂN LOẠI MÔN/CHUYÊN NGÀNH</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">DỊCH
-                                        VỤ</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">MƯỢN SÁCH</a></li>
-                                        <li><a class="dropdown-item" href="#">TRẢ SÁCH</a></li>
-                                        <li><a class="dropdown-item" href="#">GIA HẠN</a></li>
-                                        <li><a class="dropdown-item" href="#">BÁO MẤT</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">THƯ
-                                        VIỆN SỐ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link"
-                                        href="${pageContext.request.contextPath}/views/content/noti.jsp">THÔNG BÁO</a>
-                                </li>
-                                <li class="nav-item">
-                                    <form class="form-control">
-                                        <input class="search-input" type="text" name="search" value=""
-                                            placeholder="Tìm kiếm" required />
-                                        <button type="submit" class="btn btn-success">
-                                            <em class="fas fa-search"></em>
-                                        </button>
-                                    </form>
-                                </li>
-                                <li class="nav-item"><a class="nav-link"
-                                        href="${pageContext.request.contextPath}/login.jsp">ĐĂNG NHẬP</a></li>
 
+                                <li class="nav-item dropdown">
+                                    <%-- <% if () { %>
+                                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">TÀI
+                                            LIỆU</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">TÁT CẢ</a></li>
+                                            <li><a class="dropdown-item" href="#">ĐỀ XUẤT<i class="fa-brands fa-hotjar"
+                                                        style="color: var(--bs-red)"></i></a></li>
+                                            <li><a class="dropdown-item" href="#">LUẬN VĂN - LUẬN ÁN - ĐTNCKH</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">PHÂN LOẠI MÔN/CHUYÊN NGÀNH</a>
+                                            </li>
+                                        </ul>
+                                        <% } else { %> --%>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">QUẢN LÝ TÀI LIỆU</a>
+                                </li>
+                                <%-- <% } %> --%>
+                                    </li>
+
+                                    <%-- <% if () { %>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" role="button"
+                                                data-bs-toggle="dropdown">DỊCH
+                                                VỤ</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">MƯỢN SÁCH</a></li>
+                                                <li><a class="dropdown-item" href="#">TRẢ SÁCH</a></li>
+                                                <li><a class="dropdown-item" href="#">GIA HẠN</a></li>
+                                                <li><a class="dropdown-item" href="#">BÁO MẤT</a></li>
+                                            </ul>
+                                        </li>
+                                        <% } else { %> --%>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="">MƯỢN TRẢ</a>
+                                            </li>
+                                            <%-- <% } %> --%>
+
+                                                <li class="nav-item">
+                                                    <%-- <% if () { %>
+                                                        <a class="nav-link" href="">THƯ
+                                                            VIỆN SỐ</a>
+                                                        <% } else { %> --%>
+                                                            <a class="nav-link" href="">QUẢN LÝ ĐỘC GIẢ</a>
+                                                            <%-- <% } %> --%>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <%-- <% if () { %>
+                                                        <a class="nav-link"
+                                                            href="${pageContext.request.contextPath}/views/content/noti.jsp">THÔNG
+                                                            BÁO</a>
+                                                        <% } else { %> --%>
+                                                            <a class="nav-link"
+                                                                href="${pageContext.request.contextPath}">BÁO CÁO
+                                                                THỐNG KÊ</a>
+                                                            <%-- <% } %> --%>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <form class="form-control">
+                                                        <input class="search-input" type="text" name="search" value=""
+                                                            placeholder="Tìm kiếm" required />
+                                                        <button type="submit" class="btn btn-success">
+                                                            <em class="fas fa-search"></em>
+                                                        </button>
+                                                    </form>
+                                                </li>
+
+                                                <%-- <% if (request.getSession().getAttribute("User") !=null) { %>
+                                                    <% User user=(User) request.getSession().getAttribute("User"); %>
+                                                        <li class="nav-item dropdown">
+                                                            <img src="" class="img-circle elevation-2" alt="User Image">
+                                                            <a class="nav-link dropdown-toggle" role="button"
+                                                                data-bs-toggle="dropdown">
+                                                                <%=user.getUsername()%>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a href="${pageContext.request.contextPath}/Logout"
+                                                                                class="dropdown-item"><i
+                                                                                    class="fas fa-circle nav-icon"></i>ĐĂNG
+                                                                                XUẤT</a>
+                                                                        </li>
+                                                                    </ul>
+                                                            </a>
+                                                        </li>
+                                                        <% } else { %> --%>
+                                                            <li class="nav-item">
+                                                                <a href="${pageContext.request.contextPath}/login.jsp"
+                                                                    class="nav-link">ĐĂNG
+                                                                    NHẬP</a>
+                                                            </li>
+                                                            <%-- <% } %> --%>
                             </ul>
                         </nav>
                     </div>
