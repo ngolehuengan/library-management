@@ -1,4 +1,4 @@
-package GUI.reader;
+package GUI.librarian;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,8 +20,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Home extends JFrame {
 	/**
@@ -62,7 +62,6 @@ public class Home extends JFrame {
 
 		initMenuBar();
 		initHeader();
-
 	}
 
 	// ----------Menu Bar----------
@@ -89,35 +88,19 @@ public class Home extends JFrame {
 		mnInfo.add(mntmInfoNoti);
 
 		// ---------------------------------------------------
-		mnBook = new JMenu("Tài Liệu");
+		mnBook = new JMenu("Quản Lý Tài Liệu");
 		mnBook.setForeground(new Color(255, 255, 255));
 		mnBook.setBorder(new EmptyBorder(5, 25, 5, 25));
 		menuBar.add(mnBook);
 
-		mntmBookAll = new JMenuItem("Tất Cả");
-		mnBook.add(mntmBookAll);
+		mntmNewMenuItem_1 = new JMenuItem("Tài Liệu");
+		mnBook.add(mntmNewMenuItem_1);
 
-		mntmBookTop = new JMenuItem("Đề Xuất");
-		mnBook.add(mntmBookTop);
-
-		mntmBookNew = new JMenuItem("Mới");
-		mnBook.add(mntmBookNew);
-
-		mnBook.addSeparator();
-
-		mntmBookDocument = new JMenuItem("Luận Văn - Luận Án - Đề Tài NCKH");
-		mnBook.add(mntmBookDocument);
-
-		mntmBookSpecial = new JMenuItem("Phân Loại Môn - Ngành");
-		mnBook.add(mntmBookSpecial);
-
-		mnBook.addSeparator();
-
-		mntmBookSearch = new JMenuItem("Tra Cứu");
-		mnBook.add(mntmBookSearch);
+		mntmNewMenuItem = new JMenuItem("Thanh Lý");
+		mnBook.add(mntmNewMenuItem);
 
 		// ---------------------------------------------------
-		mnService = new JMenu("Dịch Vụ");
+		mnService = new JMenu("Quản Lý Mượn Trả");
 		mnService.setForeground(new Color(255, 255, 255));
 		mnService.setBorder(new EmptyBorder(5, 25, 5, 25));
 		menuBar.add(mnService);
@@ -127,6 +110,26 @@ public class Home extends JFrame {
 
 		mntmServiceOff = new JMenuItem("Mượn Sách");
 		mnService.add(mntmServiceOff);
+
+		// ---------------------------------------------------
+		mnNewMenu = new JMenu("Quản Lý Độc Giả");
+		mnNewMenu.setBackground(new Color(0, 153, 51));
+		mnNewMenu.setForeground(new Color(255, 255, 255));
+		mnNewMenu.setBorder(new EmptyBorder(5, 25, 5, 25));
+		menuBar.add(mnNewMenu);
+
+		mntmNewMenuItem_2 = new JMenuItem("New menu item");
+		mnNewMenu.add(mntmNewMenuItem_2);
+
+		// ---------------------------------------------------
+		mnNewMenu_1 = new JMenu("Thống Kê");
+		mnNewMenu_1.setBackground(new Color(0, 153, 51));
+		mnNewMenu_1.setForeground(new Color(255, 255, 255));
+		mnNewMenu_1.setBorder(new EmptyBorder(5, 25, 5, 25));
+		menuBar.add(mnNewMenu_1);
+
+		mntmNewMenuItem_3 = new JMenuItem("New menu item");
+		mnNewMenu_1.add(mntmNewMenuItem_3);
 
 		// ---------------------------------------------------
 		mnUser = new JMenu("Tài Khoản");
@@ -313,15 +316,8 @@ public class Home extends JFrame {
 	private JMenuItem mntmInfoRule;
 	private JMenuItem mntmInfoMap;
 	private JMenuItem mntmInfoService;
-	private JMenuItem mntmInfoNoti;
 
 	private JMenu mnBook;
-	private JMenuItem mntmBookAll;
-	private JMenuItem mntmBookTop;
-	private JMenuItem mntmBookNew;
-	private JMenuItem mntmBookDocument;
-	private JMenuItem mntmBookSpecial;
-	private JMenuItem mntmBookSearch;
 
 	private JMenu mnService;
 	private JMenuItem mntmServiceOnl;
@@ -331,6 +327,14 @@ public class Home extends JFrame {
 	private JMenuItem mntmUserInfo;
 	private JMenuItem mntmUserSetting;
 	private JMenuItem mntmUserLogout;
+	private JMenuItem mntmInfoNoti;
+	private JMenu mnNewMenu;
+	private JMenu mnNewMenu_1;
+
+	private JMenuItem mntmNewMenuItem;
+	private JMenuItem mntmNewMenuItem_1;
+	private JMenuItem mntmNewMenuItem_2;
+	private JMenuItem mntmNewMenuItem_3;
 
 	private GroupLayout gl_header;
 	private JPanel header;
