@@ -162,7 +162,7 @@ public class Home extends JFrame {
 		mnUser.setBorder(new EmptyBorder(5, 25, 5, 25));
 		menuBar.add(mnUser);
 
-		mntmUserInfo = new JMenuItem("Thông Tin Tài Khoản");
+		mntmUserInfo = new JMenuItem("Thông Tin Cá Nhân");
 		mnUser.add(mntmUserInfo);
 
 		mntmUserSetting = new JMenuItem("Cài Đặt");
