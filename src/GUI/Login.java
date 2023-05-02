@@ -100,75 +100,76 @@ public class Login extends JFrame {
 		showPwdIcon.setIcon(new ImageIcon(
 				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\eye.png"));
 
-		// ----------Template----------
-		groupLayout = new GroupLayout(contentPane);
+		GroupLayout groupLayout = new GroupLayout(contentPane);
 		groupLayout.setHorizontalGroup(
-				groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(97)
+					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+					.addGap(26)
+					.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+					.addGap(104))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-								.addGap(97)
-								.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-								.addGap(26)
-								.addComponent(btnReset, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(104, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addGroup(groupLayout.createSequentialGroup()
-												.addGap(58)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 59,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(lblUsername))
-												.addPreferredGap(ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-														.addComponent(username)
-														.addComponent(password, GroupLayout.DEFAULT_SIZE, 158,
-																Short.MAX_VALUE)
-														.addComponent(chckbxRememberMe, GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addPreferredGap(ComponentPlacement.RELATED)
-												.addComponent(showPwdIcon, GroupLayout.PREFERRED_SIZE, 16,
-														GroupLayout.PREFERRED_SIZE))
-										.addGroup(groupLayout.createSequentialGroup()
-												.addGap(36)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-														.addComponent(separator, Alignment.TRAILING,
-																GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-														.addComponent(separator_1, Alignment.TRAILING,
-																GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))))
-								.addGap(43))
+							.addGap(58)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblPassword, GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+									.addGap(19))
+								.addComponent(lblUsername, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGap(58)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(username)
+								.addComponent(password, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+								.addComponent(chckbxRememberMe, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(showPwdIcon, GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
-								.addGap(141)
-								.addComponent(lblLogin)
-								.addContainerGap(152, Short.MAX_VALUE)));
+							.addGap(36)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(separator, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+								.addComponent(separator_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))))
+					.addGap(43))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(141)
+					.addComponent(lblLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(152))
+		);
 		groupLayout.setVerticalGroup(
-				groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblLogin, GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+					.addGap(10)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+					.addGap(2)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(lblLogin)
-								.addGap(10)
-								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 12, Short.MAX_VALUE)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addGroup(groupLayout.createSequentialGroup()
-												.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-														.addComponent(username, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(lblUsername))
-												.addGap(34)
-												.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-														.addComponent(password, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(lblPassword)))
-										.addComponent(showPwdIcon))
-								.addGap(18)
-								.addComponent(chckbxRememberMe)
-								.addGap(17)
-								.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnLogin)
-										.addComponent(btnReset))
-								.addGap(18)));
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(2)
+									.addComponent(username))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(3)
+									.addComponent(lblUsername, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+							.addGap(34)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(password)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(3)
+									.addComponent(lblPassword, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+						.addComponent(showPwdIcon))
+					.addGap(18)
+					.addComponent(chckbxRememberMe)
+					.addGap(17)
+					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 6, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(18))
+		);
 		contentPane.setLayout(groupLayout);
 	}
 
@@ -184,5 +185,4 @@ public class Login extends JFrame {
 	private JCheckBox chckbxRememberMe;
 	private JButton btnLogin;
 	private JButton btnReset;
-	private GroupLayout groupLayout;
 }
