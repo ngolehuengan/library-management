@@ -1,25 +1,25 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Toolkit;
 
-import javax.swing.JFrame;
-
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JSeparator;
-import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JPasswordField;
-import javax.swing.JCheckBox;
+import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
-	
-
-	//private
+	//----------private----------
+	private JPanel contentPane;
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
 	private JLabel lblLogin;
@@ -31,7 +31,7 @@ public class Login extends JFrame {
 	private JButton btnLogin;
 	private JButton btnReset;
 	private GroupLayout groupLayout;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -55,13 +55,16 @@ public class Login extends JFrame {
 	}
 	
 	private void init() {
-		//Frame
+		//----------Frame----------
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds (550, 250, 439, 281);
+		setBounds (550, 250, 439, 293);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\sgu-logo.png"));
 		setTitle("THƯ VIỆN SGU");
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
 		
-		//Elements
+		//----------Elements----------
 		lblLogin = new JLabel("ĐĂNG NHẬP");
 		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
@@ -80,8 +83,8 @@ public class Login extends JFrame {
 		btnLogin = new JButton("Đăng nhập");
 		btnReset = new JButton("Xóa");
 		
-		//Template
-		groupLayout = new GroupLayout(getContentPane());
+		//----------Template----------
+		groupLayout = new GroupLayout(contentPane);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -138,6 +141,6 @@ public class Login extends JFrame {
 						.addComponent(btnReset))
 					.addGap(18))
 		);
-		getContentPane().setLayout(groupLayout);
+		contentPane.setLayout(groupLayout);
 	}
 }
