@@ -352,6 +352,7 @@ public class Home extends JFrame {
 	}
 
 	private void addImageBook(JPanel imgPnl, JLabel img) {
+		removeClickListener(imgPnl);
 		imgPnl.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -480,9 +481,17 @@ public class Home extends JFrame {
 			manageBookBook();
 			cardLayout.show(pnlCards, "pnlBook");
 		});
-		btnBook.addActionListener(e -> {
+		btnPhoto.addActionListener(e -> {
 			manageBookPhoto();
 			cardLayout.show(pnlCards, "pnlPhoto");
+		});
+		btnKltn.addActionListener(e -> {
+			manageBookKltn();
+			cardLayout.show(pnlCards, "pnlKltn");
+		});
+		btnOther.addActionListener(e -> {
+			manageBookOther();
+			cardLayout.show(pnlCards, "pnlOther");
 		});
 		cardLayout = (CardLayout) pnlCards.getLayout();
 	}
@@ -493,6 +502,8 @@ public class Home extends JFrame {
 		manageBookAll();
 		manageBookBook();
 		manageBookPhoto();
+		manageBookKltn();
+		manageBookOther();
 	}
 
 	// Default Panels
@@ -564,7 +575,7 @@ public class Home extends JFrame {
 	}
 
 	// All Panels
-	@SuppressWarnings({ "rawtypes" })
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void manageBookAll() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
@@ -593,48 +604,49 @@ public class Home extends JFrame {
 				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
 		imgAll.setHorizontalAlignment(SwingConstants.CENTER);
 
-		GroupLayout gl_imageBookPanel = new GroupLayout(imageAllPanel);
-		gl_imageBookPanel.setHorizontalGroup(
-				gl_imageBookPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_imageBookPanel.createSequentialGroup()
+		GroupLayout gl_imgPnl = new GroupLayout(imageAllPanel);
+		gl_imgPnl.setHorizontalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(imgAll, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
 								.addContainerGap()));
-		gl_imageBookPanel.setVerticalGroup(
-				gl_imageBookPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_imageBookPanel.createSequentialGroup()
+		gl_imgPnl.setVerticalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_imgPnl.createSequentialGroup()
 								.addComponent(imgAll, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
 								.addGap(0)));
-		imageAllPanel.setLayout(gl_imageBookPanel);
+		imageAllPanel.setLayout(gl_imgPnl);
 
 		JLabel lblIdAll = new JLabel("Mã tài liệu");
-		JTextField textIdAll = new JTextField();
-		textIdAll.setEnabled(false);
-		textIdAll.setColumns(10);
+		JTextField txtIdAll = new JTextField();
+		txtIdAll.setEnabled(false);
+		txtIdAll.setColumns(10);
 
 		JLabel lblCateAll = new JLabel("Loại tài liệu");
 		JComboBox cbbCateAll = new JComboBox();
+		cbbCateAll.setModel(new DefaultComboBoxModel(new String[] { "" }));
 		cbbCateAll.setEnabled(false);
 
 		JLabel lblTitleAll = new JLabel("Nhan đề");
-		JTextField textTitileAll = new JTextField();
-		textTitileAll.setEnabled(false);
-		textTitileAll.setColumns(10);
+		JTextField txtTitileAll = new JTextField();
+		txtTitileAll.setEnabled(false);
+		txtTitileAll.setColumns(10);
 
 		JLabel lblValueAll = new JLabel("Giá trị");
-		JTextField textValueAll = new JTextField();
-		textValueAll.setEnabled(false);
-		textValueAll.setColumns(10);
+		JTextField txtValueAll = new JTextField();
+		txtValueAll.setEnabled(false);
+		txtValueAll.setColumns(10);
 
 		JLabel lblCountAll = new JLabel("Số lượng");
-		JTextField textCountAll = new JTextField();
-		textCountAll.setEnabled(false);
-		textCountAll.setColumns(10);
+		JTextField txtCountAll = new JTextField();
+		txtCountAll.setEnabled(false);
+		txtCountAll.setColumns(10);
 
 		JLabel lblNumberAll = new JLabel("Số có sẵn");
-		JTextField textNumberAll = new JTextField();
-		textNumberAll.setEnabled(false);
-		textNumberAll.setColumns(10);
+		JTextField txtNumberAll = new JTextField();
+		txtNumberAll.setEnabled(false);
+		txtNumberAll.setColumns(10);
 
 		JCheckBox chckbxInvalidAll = new JCheckBox("Cho phép mượn");
 		chckbxInvalidAll.setEnabled(false);
@@ -667,10 +679,10 @@ public class Home extends JFrame {
 																		.createParallelGroup(Alignment.LEADING)
 																		.addComponent(cbbCateAll, 0, 145,
 																				Short.MAX_VALUE)
-																		.addComponent(textTitileAll,
+																		.addComponent(txtTitileAll,
 																				GroupLayout.DEFAULT_SIZE, 141,
 																				Short.MAX_VALUE)
-																		.addComponent(textIdAll,
+																		.addComponent(txtIdAll,
 																				GroupLayout.DEFAULT_SIZE, 145,
 																				Short.MAX_VALUE)))
 														.addGroup(gl_details.createSequentialGroup()
@@ -691,13 +703,13 @@ public class Home extends JFrame {
 																.addGap(18)
 																.addGroup(gl_details
 																		.createParallelGroup(Alignment.LEADING)
-																		.addComponent(textValueAll,
+																		.addComponent(txtValueAll,
 																				GroupLayout.DEFAULT_SIZE, 180,
 																				Short.MAX_VALUE)
-																		.addComponent(textCountAll,
+																		.addComponent(txtCountAll,
 																				GroupLayout.DEFAULT_SIZE, 180,
 																				Short.MAX_VALUE)
-																		.addComponent(textNumberAll,
+																		.addComponent(txtNumberAll,
 																				GroupLayout.DEFAULT_SIZE, 180,
 																				Short.MAX_VALUE)))
 														.addComponent(chckbxInvalidAll, GroupLayout.DEFAULT_SIZE,
@@ -719,7 +731,7 @@ public class Home extends JFrame {
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 														.addComponent(lblIdAll)
-														.addComponent(textIdAll, GroupLayout.PREFERRED_SIZE,
+														.addComponent(txtIdAll, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 												.addGap(24)
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
@@ -729,22 +741,22 @@ public class Home extends JFrame {
 												.addGap(24)
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 														.addComponent(lblTitleAll)
-														.addComponent(textTitileAll, GroupLayout.PREFERRED_SIZE,
+														.addComponent(txtTitileAll, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblValueAll)
-										.addComponent(textValueAll, GroupLayout.PREFERRED_SIZE,
+										.addComponent(txtValueAll, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblCountAll)
-										.addComponent(textCountAll, GroupLayout.PREFERRED_SIZE,
+										.addComponent(txtCountAll, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNumberAll)
-										.addComponent(textNumberAll, GroupLayout.PREFERRED_SIZE,
+										.addComponent(txtNumberAll, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addComponent(chckbxInvalidAll)
@@ -780,6 +792,7 @@ public class Home extends JFrame {
 						.addComponent(details, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
 		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
@@ -792,28 +805,37 @@ public class Home extends JFrame {
 		manageBookTab.setLayout(gl_table);
 
 		edit.addActionListener(e -> {
-			chckbxInvalidAll.setEnabled(true);
 			addImageBook(imageAllPanel, imgAll);
+			chckbxInvalidAll.setEnabled(true);
 		});
 		add.addActionListener(e -> {
-			chckbxInvalidAll.setEnabled(false);
 			removeClickListener(imageAllPanel);
+			chckbxInvalidAll.setEnabled(false);
 		});
 		delete.addActionListener(e -> {
-			chckbxInvalidAll.setEnabled(false);
-			imgAll.setIcon(new ImageIcon(
-					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
 			removeClickListener(imageAllPanel);
-		});
-		save.addActionListener(e -> {
 			chckbxInvalidAll.setEnabled(false);
-			removeClickListener(imageAllPanel);
-		});
-		reset.addActionListener(e -> {
-			if(chckbxInvalidAll.isEnabled()) {
-				chckbxInvalidAll.setSelected(false);
+			if (txtCountAll.getText().equals("0")) {
 				imgAll.setIcon(new ImageIcon(
 						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				txtIdAll.setText("");
+				cbbCateAll.setSelectedIndex(0);
+				txtTitileAll.setText("");
+				txtValueAll.setText("");
+				txtCountAll.setText("");
+				txtNumberAll.setText("");
+				chckbxInvalidAll.setSelected(false);
+			}
+		});
+		save.addActionListener(e -> {
+			removeClickListener(imageAllPanel);
+			chckbxInvalidAll.setEnabled(false);
+		});
+		reset.addActionListener(e -> {
+			if (chckbxInvalidAll.isEnabled()) {
+				imgAll.setIcon(new ImageIcon(
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				chckbxInvalidAll.setSelected(false);
 			}
 		});
 	}
@@ -841,36 +863,36 @@ public class Home extends JFrame {
 		view.setForeground(new Color(255, 255, 255));
 		view.setBackground(new Color(0, 153, 51));
 
-		JPanel imageBookPanel = new JPanel();
-		imageBookPanel.setBackground(new Color(204, 204, 204));
-		imageBookPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		JLabel imgBook = new JLabel(new ImageIcon(
+		JPanel imgPnl = new JPanel();
+		imgPnl.setBackground(new Color(204, 204, 204));
+		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel img = new JLabel(new ImageIcon(
 				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
-		imgBook.setHorizontalAlignment(SwingConstants.CENTER);
+		img.setHorizontalAlignment(SwingConstants.CENTER);
 
-		GroupLayout gl_imageBookPanel = new GroupLayout(imageBookPanel);
-		gl_imageBookPanel.setHorizontalGroup(
-				gl_imageBookPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_imageBookPanel.createSequentialGroup()
+		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
+		gl_imgPnl.setHorizontalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(imgBook, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
 								.addContainerGap()));
-		gl_imageBookPanel.setVerticalGroup(
-				gl_imageBookPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_imageBookPanel.createSequentialGroup()
-								.addComponent(imgBook, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+		gl_imgPnl.setVerticalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_imgPnl.createSequentialGroup()
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
 								.addGap(0)));
-		imageBookPanel.setLayout(gl_imageBookPanel);
+		imgPnl.setLayout(gl_imgPnl);
 
 		JLabel lblIsbnBook = new JLabel("ISBN");
-		JTextField textIsbnBook = new JTextField();
-		textIsbnBook.setEnabled(false);
-		textIsbnBook.setColumns(10);
+		JTextField txtIsbnBook = new JTextField();
+		txtIsbnBook.setEnabled(false);
+		txtIsbnBook.setColumns(10);
 
 		JLabel lblTitleBook = new JLabel("Nhan đề");
-		JTextField textTitleBook = new JTextField();
-		textTitleBook.setEnabled(false);
-		textTitleBook.setColumns(10);
+		JTextField txtTitleBook = new JTextField();
+		txtTitleBook.setEnabled(false);
+		txtTitleBook.setColumns(10);
 
 		JLabel lblCateBook = new JLabel("Thể loại");
 		JComboBox cbbCateBook = new JComboBox();
@@ -878,14 +900,14 @@ public class Home extends JFrame {
 		cbbCateBook.setEnabled(false);
 
 		JLabel lblAuthorBook = new JLabel("Tác giả");
-		JTextField textAuthorBook = new JTextField();
-		textAuthorBook.setEnabled(false);
-		textAuthorBook.setColumns(10);
+		JTextField txtAuthorBook = new JTextField();
+		txtAuthorBook.setEnabled(false);
+		txtAuthorBook.setColumns(10);
 
 		JLabel lblNxbBook = new JLabel("Nhà xuất bản");
-		JTextField textNxbBook = new JTextField();
-		textNxbBook.setEnabled(false);
-		textNxbBook.setColumns(10);
+		JTextField txtNxbBook = new JTextField();
+		txtNxbBook.setEnabled(false);
+		txtNxbBook.setColumns(10);
 
 		JLabel lblYearBook = new JLabel("Năm xuất bản");
 		JComboBox cbbYearBook = new JComboBox();
@@ -893,11 +915,11 @@ public class Home extends JFrame {
 		cbbYearBook.setEnabled(false);
 
 		JLabel lblDescripBook = new JLabel("Mô tả");
-		JTextArea textAreaDescripBook = new JTextArea();
-		textAreaDescripBook.setLineWrap(true);
-		textAreaDescripBook.setEnabled(false);
+		JTextArea txtAreaDescripBook = new JTextArea();
+		txtAreaDescripBook.setLineWrap(true);
+		txtAreaDescripBook.setEnabled(false);
 		JScrollPane scrollPaneDescrip = new JScrollPane();
-		scrollPaneDescrip.setViewportView(textAreaDescripBook);
+		scrollPaneDescrip.setViewportView(txtAreaDescripBook);
 
 		gl_details = new GroupLayout(details);
 		gl_details.setHorizontalGroup(
@@ -906,7 +928,7 @@ public class Home extends JFrame {
 								.addGap(81)
 								.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
 										.addGroup(gl_details.createSequentialGroup()
-												.addComponent(imageBookPanel, GroupLayout.PREFERRED_SIZE, 87,
+												.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87,
 														GroupLayout.PREFERRED_SIZE)
 												.addGap(18)
 												.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
@@ -918,8 +940,8 @@ public class Home extends JFrame {
 												.addGap(18)
 												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
 														.addComponent(cbbCateBook, 0, 145, Short.MAX_VALUE)
-														.addComponent(textTitleBook)
-														.addComponent(textIsbnBook, GroupLayout.DEFAULT_SIZE, 145,
+														.addComponent(txtTitleBook)
+														.addComponent(txtIsbnBook, GroupLayout.DEFAULT_SIZE, 145,
 																Short.MAX_VALUE)))
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
@@ -936,9 +958,9 @@ public class Home extends JFrame {
 														.addComponent(scrollPaneDescrip, GroupLayout.DEFAULT_SIZE, 225,
 																Short.MAX_VALUE)
 														.addComponent(cbbYearBook, 0, 215, Short.MAX_VALUE)
-														.addComponent(textAuthorBook, GroupLayout.DEFAULT_SIZE, 180,
+														.addComponent(txtAuthorBook, GroupLayout.DEFAULT_SIZE, 180,
 																Short.MAX_VALUE)
-														.addComponent(textNxbBook, GroupLayout.DEFAULT_SIZE, 180,
+														.addComponent(txtNxbBook, GroupLayout.DEFAULT_SIZE, 180,
 																Short.MAX_VALUE)
 														.addGroup(gl_details.createSequentialGroup()
 																.addComponent(save, GroupLayout.PREFERRED_SIZE, 58,
@@ -951,17 +973,17 @@ public class Home extends JFrame {
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(59)
 								.addGroup(gl_details.createParallelGroup(Alignment.TRAILING)
-										.addComponent(imageBookPanel, GroupLayout.PREFERRED_SIZE, 101,
+										.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 101,
 												GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 														.addComponent(lblIsbnBook)
-														.addComponent(textIsbnBook, GroupLayout.PREFERRED_SIZE,
+														.addComponent(txtIsbnBook, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 												.addGap(24)
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 														.addComponent(lblTitleBook)
-														.addComponent(textTitleBook, GroupLayout.PREFERRED_SIZE,
+														.addComponent(txtTitleBook, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 												.addGap(24)
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
@@ -971,12 +993,12 @@ public class Home extends JFrame {
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblAuthorBook)
-										.addComponent(textAuthorBook, GroupLayout.PREFERRED_SIZE,
+										.addComponent(txtAuthorBook, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNxbBook)
-										.addComponent(textNxbBook, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										.addComponent(txtNxbBook, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
@@ -1022,86 +1044,105 @@ public class Home extends JFrame {
 		table = new JTable();
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"STT", "ISBN", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NXB", "NĂM XB", "MÔ TẢ"
-			}
-		));
+				new Object[][] {
+				},
+				new String[] {
+						"STT", "ISBN", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NXB", "NĂM XB", "MÔ TẢ"
+				}));
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
 
 		edit.addActionListener(e -> {
-			addImageBook(imageBookPanel, imgBook);
-			textIsbnBook.setEnabled(false);
-			textTitleBook.setEnabled(true);
+			addImageBook(imgPnl, img);
+
+			txtIsbnBook.setEnabled(false);
+			txtTitleBook.setEnabled(true);
 			cbbCateBook.setEnabled(true);
-			textAuthorBook.setEnabled(true);
-			textNxbBook.setEnabled(true);
+			txtAuthorBook.setEnabled(true);
+			txtNxbBook.setEnabled(true);
 			cbbYearBook.setEnabled(true);
-			textAreaDescripBook.setEnabled(true);
+			txtAreaDescripBook.setEnabled(true);
 		});
 		add.addActionListener(e -> {
-			addImageBook(imageBookPanel, imgBook);
+			addImageBook(imgPnl, img);
 
-			textIsbnBook.setEnabled(true);
-			textTitleBook.setEnabled(true);
+			txtIsbnBook.setEnabled(true);
+			txtTitleBook.setEnabled(true);
 			cbbCateBook.setEnabled(true);
-			textAuthorBook.setEnabled(true);
-			textNxbBook.setEnabled(true);
+			txtAuthorBook.setEnabled(true);
+			txtNxbBook.setEnabled(true);
 			cbbYearBook.setEnabled(true);
-			textAreaDescripBook.setEnabled(true);
+			txtAreaDescripBook.setEnabled(true);
+
+			txtIsbnBook.setText("");
+			txtTitleBook.setText("");
+			cbbCateBook.setSelectedIndex(0);
+			txtAuthorBook.setText("");
+			txtNxbBook.setText("");
+			cbbYearBook.setSelectedIndex(0);
+			txtAreaDescripBook.setText("");
 		});
 		delete.addActionListener(e -> {
-			imgBook.setIcon(new ImageIcon(
+			removeClickListener(imgPnl);
+			img.setIcon(new ImageIcon(
 					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
-			removeClickListener(imageBookPanel);
 
-			textIsbnBook.setEnabled(false);
-			textTitleBook.setEnabled(false);
+			txtIsbnBook.setEnabled(false);
+			txtTitleBook.setEnabled(false);
 			cbbCateBook.setEnabled(false);
-			textAuthorBook.setEnabled(false);
-			textNxbBook.setEnabled(false);
+			txtAuthorBook.setEnabled(false);
+			txtNxbBook.setEnabled(false);
 			cbbYearBook.setEnabled(false);
-			textAreaDescripBook.setEnabled(false);
+			txtAreaDescripBook.setEnabled(false);
+
+			txtIsbnBook.setText("");
+			txtTitleBook.setText("");
+			cbbCateBook.setSelectedIndex(0);
+			txtAuthorBook.setText("");
+			txtNxbBook.setText("");
+			cbbYearBook.setSelectedIndex(0);
+			txtAreaDescripBook.setText("");
 		});
 		save.addActionListener(e -> {
-			removeClickListener(imageBookPanel);
+			removeClickListener(imgPnl);
 
-			textIsbnBook.setEnabled(false);
-			textTitleBook.setEnabled(false);
+			txtIsbnBook.setEnabled(false);
+			txtTitleBook.setEnabled(false);
 			cbbCateBook.setEnabled(false);
-			textAuthorBook.setEnabled(false);
-			textNxbBook.setEnabled(false);
+			txtAuthorBook.setEnabled(false);
+			txtNxbBook.setEnabled(false);
 			cbbYearBook.setEnabled(false);
-			textAreaDescripBook.setEnabled(false);
+			txtAreaDescripBook.setEnabled(false);
 		});
 		reset.addActionListener(e -> {
-			imgBook.setIcon(new ImageIcon(
-					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+			if (txtIsbnBook.isEnabled()) {
+				img.setIcon(new ImageIcon(
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
 
-			if (textIsbnBook.isEnabled()) {
-				textIsbnBook.setText("");
-				textTitleBook.setText("");
+				txtIsbnBook.setText("");
+				txtTitleBook.setText("");
 				cbbCateBook.setSelectedIndex(0);
-				textAuthorBook.setText("");
-				textNxbBook.setText("");
+				txtAuthorBook.setText("");
+				txtNxbBook.setText("");
 				cbbYearBook.setSelectedIndex(0);
-				textAreaDescripBook.setText("");
-			} else if (!textIsbnBook.isEnabled() && textTitleBook.isEnabled()) {
-				textTitleBook.setText("");
+				txtAreaDescripBook.setText("");
+			} else if (!txtIsbnBook.isEnabled() && txtTitleBook.isEnabled()) {
+				img.setIcon(new ImageIcon(
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+				txtTitleBook.setText("");
 				cbbCateBook.setSelectedIndex(0);
-				textAuthorBook.setText("");
-				textNxbBook.setText("");
+				txtAuthorBook.setText("");
+				txtNxbBook.setText("");
 				cbbYearBook.setSelectedIndex(0);
-				textAreaDescripBook.setText("");
+				txtAreaDescripBook.setText("");
 			}
 		});
 	}
 
 	// Photo Panels
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void manageBookPhoto() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
@@ -1123,178 +1164,146 @@ public class Home extends JFrame {
 		view.setForeground(new Color(255, 255, 255));
 		view.setBackground(new Color(0, 153, 51));
 
-		JPanel imageBookPanel = new JPanel();
-		imageBookPanel.setBackground(new Color(204, 204, 204));
-		imageBookPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		JLabel imgBook = new JLabel(new ImageIcon(
+		JPanel imgPnl = new JPanel();
+		imgPnl.setBackground(new Color(204, 204, 204));
+		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel img = new JLabel(new ImageIcon(
 				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
-		imgBook.setHorizontalAlignment(SwingConstants.CENTER);
+		img.setHorizontalAlignment(SwingConstants.CENTER);
 
-		GroupLayout gl_imageBookPanel = new GroupLayout(imageBookPanel);
-		gl_imageBookPanel.setHorizontalGroup(
-				gl_imageBookPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_imageBookPanel.createSequentialGroup()
+		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
+		gl_imgPnl.setHorizontalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(imgBook, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
 								.addContainerGap()));
-		gl_imageBookPanel.setVerticalGroup(
-				gl_imageBookPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_imageBookPanel.createSequentialGroup()
-								.addComponent(imgBook, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+		gl_imgPnl.setVerticalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_imgPnl.createSequentialGroup()
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
 								.addGap(0)));
-		imageBookPanel.setLayout(gl_imageBookPanel);
+		imgPnl.setLayout(gl_imgPnl);
 
-		JLabel lblIsbnBook = new JLabel("ISBN");
-		JTextField textIsbnBook = new JTextField();
-		textIsbnBook.setEnabled(false);
-		textIsbnBook.setColumns(10);
+		JLabel lblTitlePhoto = new JLabel("Nhan đề");
+		JTextField txtTitlePhoto = new JTextField();
+		txtTitlePhoto.setEnabled(false);
+		txtTitlePhoto.setColumns(10);
 
-		JLabel lblTitleBook = new JLabel("Nhan đề");
-		JTextField textTitleBook = new JTextField();
-		textTitleBook.setEnabled(false);
-		textTitleBook.setColumns(10);
+		JLabel lblCatePhoto = new JLabel("Thể loại");
+		JComboBox cbbCatePhoto = new JComboBox();
+		cbbCatePhoto.setModel(new DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbCatePhoto.setEnabled(false);
 
-		JLabel lblCateBook = new JLabel("Thể loại");
-		JComboBox cbbCateBook = new JComboBox();
-		cbbCateBook.setEnabled(false);
+		JLabel lblAuthorPhoto = new JLabel("Tác giả");
+		JTextField txtAuthorPhoto = new JTextField();
+		txtAuthorPhoto.setEnabled(false);
+		txtAuthorPhoto.setColumns(10);
 
-		JLabel lblAuthorBook = new JLabel("Tác giả");
-		JTextField textAuthorBook = new JTextField();
-		textAuthorBook.setEnabled(false);
-		textAuthorBook.setColumns(10);
+		JLabel lblYearPhoto = new JLabel("Năm xuất bản");
+		JComboBox cbbYearPhoto = new JComboBox();
+		cbbYearPhoto.setModel(new DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbYearPhoto.setEnabled(false);
 
-		JLabel lblNxbBook = new JLabel("Nhà xuất bản");
-		JTextField textNxbBook = new JTextField();
-		textNxbBook.setEnabled(false);
-		textNxbBook.setColumns(10);
-
-		JLabel lblYearBook = new JLabel("Năm xuất bản");
-		JComboBox cbbYearBook = new JComboBox();
-		cbbYearBook.setEnabled(false);
-
-		JLabel lblDescripBook = new JLabel("Mô tả");
-		JTextArea textAreaDescripBook = new JTextArea();
-		textAreaDescripBook.setLineWrap(true);
-		textAreaDescripBook.setEnabled(false);
+		JLabel lblDescripPhoto = new JLabel("Mô tả");
+		JTextArea txtAreaDescripPhoto = new JTextArea();
+		txtAreaDescripPhoto.setLineWrap(true);
+		txtAreaDescripPhoto.setEnabled(false);
 		JScrollPane scrollPaneDescrip = new JScrollPane();
-		scrollPaneDescrip.setViewportView(textAreaDescripBook);
+		scrollPaneDescrip.setViewportView(txtAreaDescripPhoto);
 
 		gl_details = new GroupLayout(details);
 		gl_details.setHorizontalGroup(
-				gl_details.createParallelGroup(Alignment.TRAILING)
+				gl_details.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+								.addGap(81)
+								.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
 										.addGroup(gl_details.createSequentialGroup()
-												.addGap(81)
-												.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87,
+														GroupLayout.PREFERRED_SIZE)
+												.addGap(18)
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
 														.addGroup(gl_details.createSequentialGroup()
-																.addComponent(imageBookPanel,
-																		GroupLayout.PREFERRED_SIZE, 87,
-																		GroupLayout.PREFERRED_SIZE)
-																.addGap(18)
+																.addComponent(lblTitlePhoto)
+																.addPreferredGap(ComponentPlacement.RELATED))
+														.addGroup(gl_details.createSequentialGroup()
 																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING, false)
-																		.addComponent(lblIsbnBook,
+																		.createParallelGroup(Alignment.TRAILING, false)
+																		.addComponent(lblAuthorPhoto, Alignment.LEADING,
 																				GroupLayout.DEFAULT_SIZE,
 																				GroupLayout.DEFAULT_SIZE,
 																				Short.MAX_VALUE)
-																		.addComponent(lblCateBook,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(lblTitleBook))
+																		.addComponent(lblCatePhoto, Alignment.LEADING,
+																				GroupLayout.DEFAULT_SIZE, 45,
+																				Short.MAX_VALUE))
+																.addPreferredGap(ComponentPlacement.RELATED)))
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+														.addGroup(gl_details.createSequentialGroup()
 																.addGap(18)
 																.addGroup(gl_details
 																		.createParallelGroup(Alignment.LEADING)
-																		.addComponent(cbbCateBook, 0, 145,
+																		.addComponent(txtAuthorPhoto,
+																				GroupLayout.DEFAULT_SIZE, 163,
 																				Short.MAX_VALUE)
-																		.addComponent(textTitleBook)
-																		.addComponent(textIsbnBook,
-																				GroupLayout.DEFAULT_SIZE, 145,
+																		.addComponent(cbbCatePhoto, 0, 158,
 																				Short.MAX_VALUE)))
 														.addGroup(gl_details.createSequentialGroup()
-																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING, false)
-																		.addComponent(lblAuthorBook,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(lblNxbBook,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(lblYearBook,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(lblDescripBook,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE))
-																.addGap(18)
-																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING)
-																		.addComponent(scrollPaneDescrip,
-																				GroupLayout.DEFAULT_SIZE, 225,
-																				Short.MAX_VALUE)
-																		.addComponent(cbbYearBook, 0, 215,
-																				Short.MAX_VALUE)
-																		.addComponent(textAuthorBook,
-																				GroupLayout.DEFAULT_SIZE, 180,
-																				Short.MAX_VALUE)
-																		.addComponent(textNxbBook,
-																				GroupLayout.DEFAULT_SIZE, 180,
-																				Short.MAX_VALUE)))))
+																.addGap(19)
+																.addComponent(txtTitlePhoto, GroupLayout.DEFAULT_SIZE,
+																		162, Short.MAX_VALUE))))
 										.addGroup(gl_details.createSequentialGroup()
-												.addGap(207)
-												.addComponent(save, GroupLayout.PREFERRED_SIZE, 58,
-														GroupLayout.PREFERRED_SIZE)))
-								.addContainerGap(104, Short.MAX_VALUE)));
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblYearPhoto)
+														.addComponent(lblDescripPhoto))
+												.addGap(18)
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+														.addComponent(scrollPaneDescrip, GroupLayout.DEFAULT_SIZE, 225,
+																Short.MAX_VALUE)
+														.addComponent(cbbYearPhoto, 0, GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE)
+														.addGroup(gl_details.createSequentialGroup()
+																.addComponent(save, GroupLayout.PREFERRED_SIZE, 58,
+																		GroupLayout.PREFERRED_SIZE)
+																.addGap(18)
+																.addComponent(reset)))))
+								.addContainerGap(79, Short.MAX_VALUE)));
 		gl_details.setVerticalGroup(
 				gl_details.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
-								.addGap(59)
-								.addGroup(gl_details.createParallelGroup(Alignment.TRAILING)
-										.addComponent(imageBookPanel, GroupLayout.PREFERRED_SIZE, 101,
+								.addGap(63)
+								.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+										.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 101,
 												GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-														.addComponent(lblIsbnBook)
-														.addComponent(textIsbnBook, GroupLayout.PREFERRED_SIZE,
+														.addComponent(lblTitlePhoto)
+														.addComponent(txtTitlePhoto, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-												.addGap(24)
+												.addGap(18)
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-														.addComponent(lblTitleBook)
-														.addComponent(textTitleBook, GroupLayout.PREFERRED_SIZE,
+														.addComponent(lblCatePhoto)
+														.addComponent(cbbCatePhoto, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-												.addGap(24)
+												.addGap(18)
 												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-														.addComponent(lblCateBook)
-														.addComponent(cbbCateBook, GroupLayout.PREFERRED_SIZE,
+														.addComponent(lblAuthorPhoto)
+														.addComponent(txtAuthorPhoto, GroupLayout.PREFERRED_SIZE,
 																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblAuthorBook)
-										.addComponent(textAuthorBook, GroupLayout.PREFERRED_SIZE,
+										.addComponent(lblYearPhoto)
+										.addComponent(cbbYearPhoto, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblNxbBook)
-										.addComponent(textNxbBook, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblYearBook)
-										.addComponent(cbbYearBook, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblDescripBook)
+										.addComponent(lblDescripPhoto)
 										.addComponent(scrollPaneDescrip, GroupLayout.PREFERRED_SIZE, 118,
 												GroupLayout.PREFERRED_SIZE))
-								.addGap(97)
-								.addComponent(save)
-								.addGap(183)));
+								.addGap(184)
+								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+										.addComponent(save)
+										.addComponent(reset))
+								.addGap(301)));
 		details.setLayout(gl_details);
 
 		scrollPane = new JScrollPane((Component) null);
@@ -1303,50 +1312,526 @@ public class Home extends JFrame {
 				gl_pnl.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnl.createSequentialGroup()
 								.addComponent(details, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_pnl.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_pnl.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_pnl.createSequentialGroup()
 												.addGap(6)
 												.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 573,
 														Short.MAX_VALUE))
 										.addGroup(gl_pnl.createSequentialGroup()
-												.addGap(282)
+												.addGap(260)
 												.addComponent(view, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-												.addGap(244)))));
+												.addGap(245)))));
 		gl_pnl.setVerticalGroup(
 				gl_pnl.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnl.createSequentialGroup()
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 536, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
 								.addComponent(view)
-								.addContainerGap(174, Short.MAX_VALUE))
+								.addContainerGap(188, Short.MAX_VALUE))
 						.addComponent(details, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
 		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
-						"STT", "ISBN", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NXB", "NĂM XB", "MÔ TẢ"
+						"STT", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NĂM XB", "MÔ TẢ"
 				}));
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
 
-		edit.addActionListener(e -> imageBookPanel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// Change image book using dialog
-				imgChooser = new JFileChooser();
-				imgFilter = new FileNameExtensionFilter("image", "jpg", "png");
-				imgChooser.setFileFilter(imgFilter);
-				imgChooser.setMultiSelectionEnabled(false);
+		edit.addActionListener(e -> {
+			addImageBook(imgPnl, img);
 
-				if (imgChooser.showDialog(imgChooser, "Choose Image") == JFileChooser.APPROVE_OPTION) {
-					File f = imgChooser.getSelectedFile();
-					imgBook.setIcon(new ImageIcon(f.getAbsolutePath()));
-				}
+			txtTitlePhoto.setEnabled(true);
+			cbbCatePhoto.setEnabled(true);
+			txtAuthorPhoto.setEnabled(true);
+			cbbYearPhoto.setEnabled(true);
+			txtAreaDescripPhoto.setEnabled(true);
+		});
+		add.addActionListener(e -> {
+			addImageBook(imgPnl, img);
+
+			txtTitlePhoto.setEnabled(true);
+			cbbCatePhoto.setEnabled(true);
+			txtAuthorPhoto.setEnabled(true);
+			cbbYearPhoto.setEnabled(true);
+			txtAreaDescripPhoto.setEnabled(true);
+
+			txtTitlePhoto.setText("");
+			cbbCatePhoto.setSelectedIndex(0);
+			txtAuthorPhoto.setText("");
+			cbbYearPhoto.setSelectedIndex(0);
+			txtAreaDescripPhoto.setText("");
+		});
+		delete.addActionListener(e -> {
+			removeClickListener(imgPnl);
+			img.setIcon(new ImageIcon(
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+			txtTitlePhoto.setEnabled(false);
+			cbbCatePhoto.setEnabled(false);
+			txtAuthorPhoto.setEnabled(false);
+			cbbYearPhoto.setEnabled(false);
+			txtAreaDescripPhoto.setEnabled(false);
+
+			txtTitlePhoto.setText("");
+			cbbCatePhoto.setSelectedIndex(0);
+			txtAuthorPhoto.setText("");
+			cbbYearPhoto.setSelectedIndex(0);
+			txtAreaDescripPhoto.setText("");
+		});
+		save.addActionListener(e -> {
+			removeClickListener(imgPnl);
+
+			txtTitlePhoto.setEnabled(false);
+			cbbCatePhoto.setEnabled(false);
+			txtAuthorPhoto.setEnabled(false);
+			cbbYearPhoto.setEnabled(false);
+			txtAreaDescripPhoto.setEnabled(false);
+		});
+		reset.addActionListener(e -> {
+			if (txtTitlePhoto.isEnabled()) {
+				img.setIcon(new ImageIcon(
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+				txtTitlePhoto.setText("");
+				cbbCatePhoto.setSelectedIndex(0);
+				txtAuthorPhoto.setText("");
+				cbbYearPhoto.setSelectedIndex(0);
+				txtAreaDescripPhoto.setText("");
 			}
-		}));
+		});
+	}
+
+	// KLTN Panels
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void manageBookKltn() {
+		pnl = new JPanel();
+		pnl.setBackground(new Color(204, 255, 204));
+		pnlCards.add(pnl, "pnlKltn");
+
+		details = new JPanel();
+		details.setBorder(
+				new TitledBorder(null, "Thông Tin Chi Tiết", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+
+		save = new JButton("Lưu");
+		save.setBackground(new Color(0, 153, 51));
+		save.setForeground(new Color(255, 255, 255));
+
+		reset = new JButton("Reset");
+		reset.setBackground(new Color(0, 153, 51));
+		reset.setForeground(new Color(255, 255, 255));
+
+		view = new JButton("Xem");
+		view.setForeground(new Color(255, 255, 255));
+		view.setBackground(new Color(0, 153, 51));
+
+		JPanel imgPnl = new JPanel();
+		imgPnl.setBackground(new Color(204, 204, 204));
+		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel img = new JLabel(new ImageIcon(
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+		img.setHorizontalAlignment(SwingConstants.CENTER);
+
+		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
+		gl_imgPnl.setHorizontalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+								.addContainerGap()));
+		gl_imgPnl.setVerticalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_imgPnl.createSequentialGroup()
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+								.addGap(0)));
+		imgPnl.setLayout(gl_imgPnl);
+
+		JLabel lblTitleKltn = new JLabel("Nhan đề");
+		JTextField txtTitleKltn = new JTextField();
+		txtTitleKltn.setEnabled(false);
+		txtTitleKltn.setColumns(10);
+
+		JLabel lblCateKltn = new JLabel("Chuyên ngành");
+		JComboBox cbbCateKltn = new JComboBox();
+		cbbCateKltn.setModel(new DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbCateKltn.setEnabled(false);
+
+		JLabel lblAuthorKltn = new JLabel("Tác giả");
+		JTextField txtAuthorKltn = new JTextField();
+		txtAuthorKltn.setEnabled(false);
+		txtAuthorKltn.setColumns(10);
+
+		JLabel lblYearKltn = new JLabel("Năm bảo vệ");
+		JComboBox cbbYearKltn = new JComboBox();
+		cbbYearKltn.setModel(new DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbYearKltn.setEnabled(false);
+
+		JLabel lblDescripKltn = new JLabel("Mô tả");
+		JTextArea txtAreaDescripKltn = new JTextArea();
+		txtAreaDescripKltn.setLineWrap(true);
+		txtAreaDescripKltn.setEnabled(false);
+		JScrollPane scrollPaneDescrip = new JScrollPane();
+		scrollPaneDescrip.setViewportView(txtAreaDescripKltn);
+
+		gl_details = new GroupLayout(details);
+		gl_details.setHorizontalGroup(
+				gl_details.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGap(81)
+								.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
+										.addGroup(gl_details.createSequentialGroup()
+												.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87,
+														GroupLayout.PREFERRED_SIZE)
+												.addGap(18)
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
+														.addComponent(lblCateKltn, GroupLayout.DEFAULT_SIZE,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+														.addComponent(lblTitleKltn, GroupLayout.DEFAULT_SIZE,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+														.addComponent(lblAuthorKltn, GroupLayout.DEFAULT_SIZE,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+												.addGap(19)
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
+														.addComponent(txtAuthorKltn)
+														.addComponent(txtTitleKltn, GroupLayout.DEFAULT_SIZE, 132,
+																Short.MAX_VALUE)
+														.addComponent(cbbCateKltn, Alignment.TRAILING, 0,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+										.addGroup(gl_details.createSequentialGroup()
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblYearKltn)
+														.addComponent(lblDescripKltn))
+												.addGap(18)
+												.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+														.addComponent(scrollPaneDescrip, GroupLayout.DEFAULT_SIZE, 225,
+																Short.MAX_VALUE)
+														.addGroup(gl_details.createSequentialGroup()
+																.addComponent(save, GroupLayout.PREFERRED_SIZE, 58,
+																		GroupLayout.PREFERRED_SIZE)
+																.addGap(18)
+																.addComponent(reset))
+														.addComponent(cbbYearKltn, 0, 249, Short.MAX_VALUE))))
+								.addContainerGap(89, Short.MAX_VALUE)));
+		gl_details.setVerticalGroup(
+				gl_details.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGap(63)
+								.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+										.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 101,
+												GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_details.createSequentialGroup()
+												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+														.addComponent(lblTitleKltn)
+														.addComponent(txtTitleKltn, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+												.addGap(18)
+												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+														.addComponent(lblAuthorKltn)
+														.addComponent(txtAuthorKltn, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+												.addGap(18)
+												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+														.addComponent(lblCateKltn)
+														.addComponent(cbbCateKltn, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+								.addGap(18)
+								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblYearKltn)
+										.addComponent(cbbYearKltn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE))
+								.addGap(18)
+								.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblDescripKltn)
+										.addComponent(scrollPaneDescrip, GroupLayout.PREFERRED_SIZE, 118,
+												GroupLayout.PREFERRED_SIZE))
+								.addGap(184)
+								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+										.addComponent(save)
+										.addComponent(reset))
+								.addGap(301)));
+		details.setLayout(gl_details);
+
+		scrollPane = new JScrollPane((Component) null);
+		gl_pnl = new GroupLayout(pnl);
+		gl_pnl.setHorizontalGroup(
+				gl_pnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnl.createSequentialGroup()
+								.addComponent(details, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_pnl.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_pnl.createSequentialGroup()
+												.addGap(6)
+												.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 573,
+														Short.MAX_VALUE))
+										.addGroup(gl_pnl.createSequentialGroup()
+												.addGap(260)
+												.addComponent(view, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+												.addGap(245)))));
+		gl_pnl.setVerticalGroup(
+				gl_pnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnl.createSequentialGroup()
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 536, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(view)
+								.addContainerGap(188, Short.MAX_VALUE))
+						.addComponent(details, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "CHUYÊN NGÀNH", "NĂM BẢO VỆ", "MÔ TẢ"
+				}));
+		scrollPane.setViewportView(table);
+		pnl.setLayout(gl_pnl);
+		manageBookTab.setLayout(gl_table);
+
+		edit.addActionListener(e -> {
+			addImageBook(imgPnl, img);
+
+			txtTitleKltn.setEnabled(true);
+			txtAuthorKltn.setEnabled(true);
+			cbbCateKltn.setEnabled(true);
+			cbbYearKltn.setEnabled(true);
+			txtAreaDescripKltn.setEnabled(true);
+		});
+		add.addActionListener(e -> {
+			addImageBook(imgPnl, img);
+
+			txtTitleKltn.setEnabled(true);
+			txtAuthorKltn.setEnabled(true);
+			cbbCateKltn.setEnabled(true);
+			cbbYearKltn.setEnabled(true);
+			txtAreaDescripKltn.setEnabled(true);
+
+			txtTitleKltn.setText("");
+			txtAuthorKltn.setText("");
+			cbbCateKltn.setSelectedIndex(0);
+			cbbYearKltn.setSelectedIndex(0);
+			txtAreaDescripKltn.setText("");
+		});
+		delete.addActionListener(e -> {
+			removeClickListener(imgPnl);
+			img.setIcon(new ImageIcon(
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+			txtTitleKltn.setEnabled(false);
+			txtAuthorKltn.setEnabled(false);
+			cbbCateKltn.setEnabled(false);
+			cbbYearKltn.setEnabled(false);
+			txtAreaDescripKltn.setEnabled(false);
+
+			txtTitleKltn.setText("");
+			txtAuthorKltn.setText("");
+			cbbCateKltn.setSelectedIndex(0);
+			cbbYearKltn.setSelectedIndex(0);
+			txtAreaDescripKltn.setText("");
+		});
+		save.addActionListener(e -> {
+			removeClickListener(imgPnl);
+
+			txtTitleKltn.setEnabled(false);
+			txtAuthorKltn.setEnabled(false);
+			cbbCateKltn.setEnabled(false);
+			cbbYearKltn.setEnabled(false);
+			txtAreaDescripKltn.setEnabled(false);
+		});
+		reset.addActionListener(e -> {
+			if (txtTitleKltn.isEnabled()) {
+				img.setIcon(new ImageIcon(
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+				txtTitleKltn.setText("");
+				txtAuthorKltn.setText("");
+				cbbCateKltn.setSelectedIndex(0);
+				cbbYearKltn.setSelectedIndex(0);
+				txtAreaDescripKltn.setText("");
+			}
+		});
+	}
+
+	// Other Panels
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void manageBookOther() {
+		pnl = new JPanel();
+		pnl.setBackground(new Color(204, 255, 204));
+		pnlCards.add(pnl, "pnlOther");
+
+		details = new JPanel();
+		details.setBorder(
+				new TitledBorder(null, "Thông Tin Chi Tiết", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+
+		save = new JButton("Lưu");
+		save.setBackground(new Color(0, 153, 51));
+		save.setForeground(new Color(255, 255, 255));
+
+		reset = new JButton("Reset");
+		reset.setBackground(new Color(0, 153, 51));
+		reset.setForeground(new Color(255, 255, 255));
+
+		view = new JButton("Xem");
+		view.setForeground(new Color(255, 255, 255));
+		view.setBackground(new Color(0, 153, 51));
+
+		JPanel imgPnl = new JPanel();
+		imgPnl.setBackground(new Color(204, 204, 204));
+		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel img = new JLabel(new ImageIcon(
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+		img.setHorizontalAlignment(SwingConstants.CENTER);
+
+		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
+		gl_imgPnl.setHorizontalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+								.addContainerGap()));
+		gl_imgPnl.setVerticalGroup(
+				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_imgPnl.createSequentialGroup()
+								.addComponent(img, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+								.addGap(0)));
+		imgPnl.setLayout(gl_imgPnl);
+
+		JLabel lblTitleOther = new JLabel("Nhan đề");
+		JTextField txtTitleOther = new JTextField();
+		txtTitleOther.setEnabled(false);
+		txtTitleOther.setColumns(10);
+
+		JLabel lblDescripOther = new JLabel("Mô tả");
+		JTextArea txtAreaDescripOther = new JTextArea();
+		txtAreaDescripOther.setLineWrap(true);
+		txtAreaDescripOther.setEnabled(false);
+		JScrollPane scrollPaneDescrip = new JScrollPane();
+		scrollPaneDescrip.setViewportView(txtAreaDescripOther);
+
+		gl_details = new GroupLayout(details);
+		gl_details.setHorizontalGroup(
+			gl_details.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_details.createSequentialGroup()
+					.addGap(81)
+					.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblTitleOther)
+						.addGroup(gl_details.createSequentialGroup()
+							.addComponent(lblDescripOther)
+							.addGap(46)
+							.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrollPaneDescrip, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+								.addGroup(gl_details.createSequentialGroup()
+									.addComponent(save, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(reset))
+								.addComponent(txtTitleOther, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))))
+					.addContainerGap(113, Short.MAX_VALUE))
+				.addGroup(gl_details.createSequentialGroup()
+					.addGap(185)
+					.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(219, Short.MAX_VALUE))
+		);
+		gl_details.setVerticalGroup(
+			gl_details.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_details.createSequentialGroup()
+					.addGap(63)
+					.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTitleOther)
+						.addComponent(txtTitleOther, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(24)
+					.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblDescripOther)
+						.addComponent(scrollPaneDescrip, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
+					.addGap(184)
+					.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+						.addComponent(save)
+						.addComponent(reset))
+					.addGap(301))
+		);
+		details.setLayout(gl_details);
+
+		scrollPane = new JScrollPane((Component) null);
+		gl_pnl = new GroupLayout(pnl);
+		gl_pnl.setHorizontalGroup(
+				gl_pnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnl.createSequentialGroup()
+								.addComponent(details, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_pnl.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_pnl.createSequentialGroup()
+												.addGap(6)
+												.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 573,
+														Short.MAX_VALUE))
+										.addGroup(gl_pnl.createSequentialGroup()
+												.addGap(260)
+												.addComponent(view, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+												.addGap(245)))));
+		gl_pnl.setVerticalGroup(
+				gl_pnl.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnl.createSequentialGroup()
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 536, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(view)
+								.addContainerGap(188, Short.MAX_VALUE))
+						.addComponent(details, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ"
+				}));
+		scrollPane.setViewportView(table);
+		pnl.setLayout(gl_pnl);
+		manageBookTab.setLayout(gl_table);
+
+		edit.addActionListener(e -> {
+			addImageBook(imgPnl, img);
+
+			txtTitleOther.setEnabled(true);
+			txtAreaDescripOther.setEnabled(true);
+		});
+		add.addActionListener(e -> {
+			addImageBook(imgPnl, img);
+
+			txtTitleOther.setEnabled(true);
+			txtAreaDescripOther.setEnabled(true);
+
+			txtTitleOther.setText("");
+			txtAreaDescripOther.setText("");
+		});
+		delete.addActionListener(e -> {
+			removeClickListener(imgPnl);
+			img.setIcon(new ImageIcon(
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+			txtTitleOther.setEnabled(false);
+			txtAreaDescripOther.setEnabled(false);
+
+			txtTitleOther.setText("");
+			txtAreaDescripOther.setText("");
+		});
+		save.addActionListener(e -> {
+			removeClickListener(imgPnl);
+
+			txtTitleOther.setEnabled(false);
+			txtAreaDescripOther.setEnabled(false);
+		});
+		reset.addActionListener(e -> {
+			if (txtTitleOther.isEnabled()) {
+				img.setIcon(new ImageIcon(
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+
+				txtTitleOther.setText("");
+				txtAreaDescripOther.setText("");
+			}
+		});
 	}
 
 	// ----------Manage Service----------
