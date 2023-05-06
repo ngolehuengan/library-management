@@ -7,32 +7,28 @@ import java.util.Vector;
  *
  * @author ant1006
  */
-public class ImportRecord {
+public class ReleaseRecord {
     
     private int ID;          
     private Date date;
     private String code;
-    private double totalPrice = 0;
     private int totalQuantity = 0;    
     private Librarian librarian; 
-    private Vector<IPDetail> details = new Vector<>();
+    private Vector<RLDetail> details = new Vector<>();
     
-    private class IPDetail {
+    private class RLDetail {
         private int ID;
         private Document document;
-        private double price;
         private int quantity;
 
-        public IPDetail(int ID, Document document, double price, int quantity) {
+        public RLDetail(int ID, Document document, int quantity) {
             this.ID = ID;
             this.document = document;
-            this.price = price;
             this.quantity = quantity;
         }
 
-        public IPDetail(Document document, double price, int quantity) {
+        public RLDetail(Document document, int quantity) {
             this.document = document;
-            this.price = price;
             this.quantity = quantity;
         }
 
@@ -52,14 +48,6 @@ public class ImportRecord {
             this.document = document;
         }
 
-        public double getPrice() {
-            return price;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-
         public int getQuantity() {
             return quantity;
         }
@@ -70,17 +58,16 @@ public class ImportRecord {
         
     }
     
-    public ImportRecord(int ID, Date date, String code, double totalPrice, int totalQuantity, Librarian librarian, Vector<IPDetail> details) {
+    public ReleaseRecord(int ID, Date date, String code, int totalQuantity, Librarian librarian, Vector<RLDetail> details) {
         this.ID = ID;
         this.date = date;
         this.code = code;
-        this.totalPrice = totalPrice;
         this.totalQuantity = totalQuantity;
         this.librarian = librarian;
         this.details = details;
     }
 
-    public ImportRecord(Date date, Librarian librarian) {
+    public ReleaseRecord(Date date, Librarian librarian) {
         this.date = date;
         this.librarian = librarian;
     }
@@ -109,14 +96,6 @@ public class ImportRecord {
         this.code = code;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
     public int getTotalQuantity() {
         return totalQuantity;
     }
@@ -133,11 +112,11 @@ public class ImportRecord {
         this.librarian = librarian;
     }
 
-    public Vector<IPDetail> getDetails() {
+    public Vector<RLDetail> getDetails() {
         return details;
     }
 
-    public void setDetails(Vector<IPDetail> details) {
+    public void setDetails(Vector<RLDetail> details) {
         this.details = details;
     }
 }

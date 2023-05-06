@@ -6,45 +6,26 @@ import java.util.Vector;
  * 
  * @author ant1006
  */
-public class Book extends Document {
-
-    private String ISBN;    
+public class Copy extends Document {
     private Vector<Category> category = new Vector<>();
     private Vector<Author> author = new Vector<>();   
-    private Publisher publisher;                    
     private int publishingYear;
-    
-    public Book() {
-        super();
-    }
 
-    public Book(String ISBN, String title, Vector<Category> category, Vector<Author> author, Publisher publisher, int publishingYear, String description, String image) {
+    public Copy(String title, Vector<Category> category, Vector<Author> author, int publishingYear, String description, String image) {
         super(title, description, image);
-        this.ISBN = ISBN;
         this.category = category;
         this.author = author;
-        this.publisher = publisher;
         this.publishingYear = publishingYear;
     }
 
-    public Book(int ID, String code, String ISBN, String title, Publisher publisher, int publishingYear, String description, String image) {
+    public Copy(int ID, String code, String title, int publishingYear, String description, String image) {
         super(ID, code, title, description, image);
-        this.ISBN = ISBN;
-        this.publisher = publisher;
         this.publishingYear = publishingYear;
     }
 
     @Override
     public String getCode() {
-        return "BK_" + this.getID();
-    }
-
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+        return "CP_" + this.getID();
     }
 
     public Vector<Category> getCategory() {
@@ -62,15 +43,6 @@ public class Book extends Document {
     public void setAuthor(Vector<Author> author) {
         this.author = author;
     }
-
-    public Publisher getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
-
 
     public int getPublishingYear() {
         return publishingYear;
