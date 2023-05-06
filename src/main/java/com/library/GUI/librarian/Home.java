@@ -1,4 +1,4 @@
-package GUI.librarian;
+package main.java.com.library.GUI.librarian;
 
 import static javax.swing.SwingConstants.TOP;
 import java.awt.BorderLayout;
@@ -1722,17 +1722,19 @@ public class Home extends JFrame {
 							.addComponent(lblDescripOther)
 							.addGap(46)
 							.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPaneDescrip, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-								.addGroup(gl_details.createSequentialGroup()
-									.addComponent(save, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(reset))
-								.addComponent(txtTitleOther, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))))
-					.addContainerGap(113, Short.MAX_VALUE))
+								.addComponent(scrollPaneDescrip)
+								.addComponent(txtTitleOther, GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))))
+					.addContainerGap(109, Short.MAX_VALUE))
 				.addGroup(gl_details.createSequentialGroup()
 					.addGap(185)
 					.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(219, Short.MAX_VALUE))
+				.addGroup(gl_details.createSequentialGroup()
+					.addGap(176)
+					.addComponent(save, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(reset)
+					.addContainerGap(180, Short.MAX_VALUE))
 		);
 		gl_details.setVerticalGroup(
 			gl_details.createParallelGroup(Alignment.LEADING)
@@ -1747,11 +1749,11 @@ public class Home extends JFrame {
 					.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblDescripOther)
 						.addComponent(scrollPaneDescrip, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
-					.addGap(184)
+					.addGap(183)
 					.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
 						.addComponent(save)
 						.addComponent(reset))
-					.addGap(301))
+					.addGap(320))
 		);
 		details.setLayout(gl_details);
 
