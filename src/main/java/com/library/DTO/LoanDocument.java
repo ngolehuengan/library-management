@@ -1,4 +1,4 @@
-package DTO;
+package main.java.com.library.DTO;
 
 import java.sql.Date;
 
@@ -8,7 +8,7 @@ import java.sql.Date;
  */
 public class LoanDocument {
 
-    private int ID;          
+    private int ID;
     private String loanCode;
     private Document document;
     private String notes;
@@ -19,7 +19,8 @@ public class LoanDocument {
     private double fine;
     private Librarian librarian;
 
-    public LoanDocument(int ID, String loanCode, Document document, String notes, Reader reader, Date borrowDate, Date appointmentDate, Date returnDate, double fine, Librarian librarian) {
+    public LoanDocument(int ID, String loanCode, Document document, String notes, Reader reader, Date borrowDate,
+            Date appointmentDate, Date returnDate, double fine, Librarian librarian) {
         this.ID = ID;
         this.loanCode = loanCode;
         this.document = document;
@@ -111,6 +112,5 @@ public class LoanDocument {
     public void setLibrarian(Librarian librarian) {
         this.librarian = librarian;
     }
-            
 
 }

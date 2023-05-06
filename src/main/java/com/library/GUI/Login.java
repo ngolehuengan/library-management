@@ -1,9 +1,7 @@
 package main.java.com.library.GUI;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
-
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,13 +13,18 @@ import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
+
+import main.java.com.library.GUI.librarian.Home;
+
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JToggleButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class Login extends JFrame {
 	/**
 	 * Create the frame.
@@ -58,6 +61,13 @@ public class Login extends JFrame {
 		password = new JPasswordField();
 
 		btnLogin = new JButton("Đăng nhập");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home frame = new Home();
+				frame.setExtendedState(MAXIMIZED_BOTH);
+				frame.setVisible(true);
+			}
+		});
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.setBackground(new Color(0, 153, 51));
 		btnReset = new JButton("Xóa");

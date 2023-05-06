@@ -42,22 +42,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 
+@SuppressWarnings("serial")
 public class Home extends JFrame {
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				Home frame = new Home();
-				frame.setExtendedState(MAXIMIZED_BOTH);
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
-
 	/**
 	 * Create the frame.
 	 */

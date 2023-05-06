@@ -1,4 +1,4 @@
-package DTO;
+package main.java.com.library.DTO;
 
 import java.sql.Date;
 import java.util.Vector;
@@ -8,8 +8,8 @@ import java.util.Vector;
  * @author ant1006
  */
 public class LoanShip {
-    
-    private int ID;          
+
+    private int ID;
     private String code;
     private Reader reader;
     private Date borrowDate;
@@ -18,7 +18,7 @@ public class LoanShip {
     private int returnQuantity;
     private Librarian librarian;
     private Vector<LoanDetail> details = new Vector<>();
-    
+
     private class LoanDetail {
         private int ID;
         private Document document;
@@ -60,7 +60,8 @@ public class LoanShip {
         }
     }
 
-    public LoanShip(int ID, String code, Reader reader, Date borrowDate, Date appointmentDate, int brQuantity, int returnQuantity, Librarian librarian) {
+    public LoanShip(int ID, String code, Reader reader, Date borrowDate, Date appointmentDate, int brQuantity,
+            int returnQuantity, Librarian librarian) {
         this.ID = ID;
         this.code = code;
         this.reader = reader;
@@ -149,5 +150,5 @@ public class LoanShip {
 
     public void setDetails(Vector<LoanDetail> details) {
         this.details = details;
-    }        
+    }
 }

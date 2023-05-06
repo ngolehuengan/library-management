@@ -1,4 +1,4 @@
-package DTO;
+package main.java.com.library.DTO;
 
 /**
  *
@@ -17,7 +17,6 @@ public class Specialized {
         this.name = name;
     }
 
-    
     public Specialized(int ID, String code, String name) {
         this.ID = ID;
         this.code = code;

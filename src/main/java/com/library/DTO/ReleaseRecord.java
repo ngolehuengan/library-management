@@ -1,4 +1,4 @@
-package DTO;
+package main.java.com.library.DTO;
 
 import java.sql.Date;
 import java.util.Vector;
@@ -8,14 +8,14 @@ import java.util.Vector;
  * @author ant1006
  */
 public class ReleaseRecord {
-    
-    private int ID;          
+
+    private int ID;
     private Date date;
     private String code;
-    private int totalQuantity = 0;    
-    private Librarian librarian; 
+    private int totalQuantity = 0;
+    private Librarian librarian;
     private Vector<RLDetail> details = new Vector<>();
-    
+
     private class RLDetail {
         private int ID;
         private Document document;
@@ -55,10 +55,11 @@ public class ReleaseRecord {
         public void setQuantity(int quantity) {
             this.quantity = quantity;
         }
-        
+
     }
-    
-    public ReleaseRecord(int ID, Date date, String code, int totalQuantity, Librarian librarian, Vector<RLDetail> details) {
+
+    public ReleaseRecord(int ID, Date date, String code, int totalQuantity, Librarian librarian,
+            Vector<RLDetail> details) {
         this.ID = ID;
         this.date = date;
         this.code = code;

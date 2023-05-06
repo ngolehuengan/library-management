@@ -1,8 +1,7 @@
-package DAL;
+package main.java.com.library.DAL;
 
 import java.sql.*;
 import java.util.Vector;
-
 
 /**
  *
@@ -16,7 +15,7 @@ public class ConnectDB {
     private final String username = "root";
     private final String password = "qltv@1234";
     protected Connection conn;
-    
+
     public boolean getConnection() {
         try {
             conn = DriverManager.getConnection(url, username, password);
@@ -26,21 +25,22 @@ public class ConnectDB {
             return false;
         }
     }
-    
+
     public void closeConnection() {
         try {
-            if (conn!=null) conn.close();
+            if (conn != null)
+                conn.close();
         } catch (Exception ex) {
             System.out.println("ERROR in class ConnectDB");
         }
     }
-    
-    public Vector<Vector<Object>> executeQuery(String sql){
+
+    public Vector<Vector<Object>> executeQuery(String sql) {
         Vector<Vector<Object>> table = new Vector<>();
         if (getConnection())
             try {
                 Statement stm = conn.createStatement();
-                ResultSet rs = stm.executeQuery(sql); 
+                ResultSet rs = stm.executeQuery(sql);
                 while (rs.next()) {
                     Vector<Object> row = new Vector<>();
                     ResultSetMetaData rsmd = rs.getMetaData();
@@ -57,7 +57,7 @@ public class ConnectDB {
             }
         return table;
     }
-    
+
     public int executeUpdate(String sql) {
         int rs = -1;
         if (getConnection())

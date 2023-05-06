@@ -1,4 +1,4 @@
-package DTO;
+package main.java.com.library.DTO;
 
 import java.sql.Date;
 
@@ -7,13 +7,13 @@ import java.sql.Date;
  * @author ant1006
  */
 public class Receipt {
-    
-    private int ID;          
+
+    private int ID;
     private Date date;
     private String code;
     private Reader reader;
-    private double proceeds;    
-    private Librarian librarian; 
+    private double proceeds;
+    private Librarian librarian;
 
     public Receipt(int ID, Date date, String code, Reader reader, double proceeds, Librarian librarian) {
         this.ID = ID;

@@ -1,4 +1,4 @@
-package DTO;
+package main.java.com.library.DTO;
 
 /**
  *
