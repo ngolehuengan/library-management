@@ -33,9 +33,9 @@ public abstract class Document {
     public int getID() {
         return ID;
     }
-
-    public void setID(int ID) {
-        this.ID = ID;
+    
+    public String getCode() {
+        return code;
     }
 
     public String getTitle() {
@@ -61,6 +61,4 @@ public abstract class Document {
     public void setImage(String image) {
         this.image = image;
     }
-    
-    public abstract String getCode();
 }

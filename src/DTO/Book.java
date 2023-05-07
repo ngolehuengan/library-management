@@ -34,11 +34,6 @@ public class Book extends Document {
         this.publishingYear = publishingYear;
     }
 
-    @Override
-    public String getCode() {
-        return "BK_" + this.getID();
-    }
-
     public String getISBN() {
         return ISBN;
     }
@@ -78,5 +73,10 @@ public class Book extends Document {
 
     public void setPublishingYear(int publishingYear) {
         this.publishingYear = publishingYear;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" + "ID=" + ID + ", code=" + code + ", ISBN=" + ISBN + ", title=" + title + ", category=" + category + ", author=" + author + ", publisher=" + publisher + ", publishingYear=" + publishingYear + ", description=" + description + ", image=" + image + '}';
     }
 }

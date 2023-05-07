@@ -25,11 +25,6 @@ public class Theses extends Document {
         this.defenseYear = defenseYear;
     }
 
-    @Override
-    public String getCode() {
-        return "TH_" + this.getID();
-    }
-
     public Vector<Author> getAuthor() {
         return author;
     }

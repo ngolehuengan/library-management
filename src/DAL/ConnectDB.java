@@ -22,7 +22,7 @@ public class ConnectDB {
             conn = DriverManager.getConnection(url, username, password);
             return true;
         } catch (Exception e) {
-            System.out.println("ERROR in class ConnectDB");
+            e.printStackTrace();
             return false;
         }
     }
@@ -30,8 +30,8 @@ public class ConnectDB {
     public void closeConnection() {
         try {
             if (conn!=null) conn.close();
-        } catch (Exception ex) {
-            System.out.println("ERROR in class ConnectDB");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     
@@ -51,7 +51,7 @@ public class ConnectDB {
                     table.add(row);
                 }
             } catch (Exception ex) {
-                System.out.println("ERROR in class ConnectDB");
+                ex.printStackTrace();
             } finally {
                 closeConnection();
             }
@@ -65,7 +65,7 @@ public class ConnectDB {
                 Statement stm = conn.createStatement();
                 rs = stm.executeUpdate(sql);
             } catch (Exception ex) {
-                System.out.println("ERROR in class ConnectDB");
+                ex.printStackTrace();
             } finally {
                 closeConnection();
             }
