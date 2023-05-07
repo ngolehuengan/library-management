@@ -1,264 +1,56 @@
-package main.java.com.library.GUI.librarian;
+package main.java.com.library.GUI.components;
 
-import static javax.swing.SwingConstants.TOP;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.EventQueue;
-import java.awt.Toolkit;
+import java.awt.Component;
+import java.awt.event.ComponentListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JTextField;
-import javax.swing.JSplitPane;
-import java.awt.Component;
-import java.awt.CardLayout;
-import java.awt.event.ComponentListener;
-import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
-@SuppressWarnings("serial")
-public class Home extends JFrame {
-	/**
-	 * Create the frame.
-	 */
-	public Home() {
-		init();
-	}
-
-	private void init() {
-		// ----------Frame----------
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(0, 0, 1264, 810);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\sgu-logo.png"));
-		setTitle("THƯ VIỆN SGU");
-
-		contentPane = new JPanel();
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
-
-		initHeader();
-		initTab();
-	}
-
-	// ----------Header----------
-	private void initHeader() {
-		header = new JPanel();
-		header.setBackground(new Color(204, 255, 204));
-		contentPane.add(header, BorderLayout.NORTH);
-
-		JLabel logo = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\header-logo.png"));
-
-		JLabel lblLinkWeb = new JLabel("Website-SGU");
-		lblLinkWeb.setForeground(new Color(0, 51, 153));
-		lblLinkWeb.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					Desktop.getDesktop().browse(new URI("https://sgu.edu.vn/"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		JLabel lblLinkTTDT = new JLabel("Thông Tin Đào Tạo");
-		lblLinkTTDT.setForeground(new Color(0, 51, 153));
-		lblLinkTTDT.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					Desktop.getDesktop().browse(new URI("http://thongtindaotao.sgu.edu.vn/"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		JLabel lblLinkMail = new JLabel("Web-mail");
-		lblLinkMail.setForeground(new Color(0, 51, 153));
-		lblLinkMail.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					Desktop.getDesktop().browse(new URI("http://mail.lib.sgu.edu.vn:3000/"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		JLabel fbIcon = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\facebook.png"));
-		fbIcon.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					Desktop.getDesktop().browse(new URI("https://www.facebook.com/trungtamhoclieusgu"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		JLabel mailIcon = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\mail.png"));
-		mailIcon.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					Desktop.getDesktop().browse(new URI("https://mail.google.com/"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		JLabel ytbIcon = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\youtube.png"));
-		ytbIcon.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					Desktop.getDesktop().browse(new URI("https://www.youtube.com/@TuoitreaihocSaiGon"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		GroupLayout gl_header = new GroupLayout(header);
-		gl_header.setHorizontalGroup(
-				gl_header.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_header.createSequentialGroup()
-								.addComponent(logo, GroupLayout.PREFERRED_SIZE, 469, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-								.addGroup(gl_header.createParallelGroup(Alignment.LEADING)
-										.addGroup(Alignment.TRAILING, gl_header.createSequentialGroup()
-												.addComponent(lblLinkWeb, GroupLayout.PREFERRED_SIZE, 102,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(37)
-												.addComponent(lblLinkTTDT, GroupLayout.PREFERRED_SIZE, 120,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(43)
-												.addComponent(lblLinkMail, GroupLayout.PREFERRED_SIZE, 63,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(127))
-										.addGroup(Alignment.TRAILING, gl_header.createSequentialGroup()
-												.addComponent(fbIcon, GroupLayout.PREFERRED_SIZE, 45,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(36)
-												.addComponent(mailIcon, GroupLayout.PREFERRED_SIZE, 45,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(38)
-												.addComponent(ytbIcon, GroupLayout.PREFERRED_SIZE, 45,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(182)))));
-		gl_header.setVerticalGroup(
-				gl_header.createParallelGroup(Alignment.TRAILING)
-						.addComponent(logo, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-						.addGroup(Alignment.LEADING, gl_header.createSequentialGroup()
-								.addGap(22)
-								.addGroup(gl_header.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblLinkTTDT)
-										.addComponent(lblLinkMail)
-										.addComponent(lblLinkWeb))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(gl_header.createParallelGroup(Alignment.LEADING)
-										.addComponent(fbIcon)
-										.addComponent(ytbIcon)
-										.addComponent(mailIcon))
-								.addContainerGap(15, Short.MAX_VALUE)));
-		header.setLayout(gl_header);
-	}
-
-	// ----------Tab----------
-	private void initTab() {
-		tabbedPane = new JTabbedPane(TOP);
+public class Menu {
+	public static void init(JComponent contentPane) {
+		tabbedPane = new JTabbedPane(javax.swing.SwingConstants.TOP);
 		tabbedPane.setForeground(new Color(255, 255, 255));
 		tabbedPane.setBackground(new Color(0, 153, 51));
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 
 		initManageBook();
-		initManageService();
-		initManageReader();
-
 		statisticalTab = new JPanel();
 		tabbedPane.addTab("Thống Kê", null, statisticalTab, null);
 
 		userTab = new JPanel();
 		tabbedPane.addTab("Thông Tin Tài Khoản", null, userTab, null);
-
-		JPanel panel = new JPanel();
-		GroupLayout gl_userTab = new GroupLayout(userTab);
-		gl_userTab.setHorizontalGroup(
-				gl_userTab.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_userTab.createSequentialGroup()
-								.addGap(111)
-								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1022, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(102, Short.MAX_VALUE)));
-		gl_userTab.setVerticalGroup(
-				gl_userTab.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_userTab.createSequentialGroup()
-								.addGap(146)
-								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(165, Short.MAX_VALUE)));
-		panel.setLayout(new CardLayout(0, 0));
-		userTab.setLayout(gl_userTab);
 	}
-
-	private void handle() {
+	
+	private static void handle() {
 		handle = new JPanel();
 		handle.setBorder(new TitledBorder(null, "Xử Lý", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 
@@ -282,7 +74,7 @@ public class Home extends JFrame {
 
 		print = new JButton("  In");
 		print.setIcon(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\printing.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\icons\\printing.png"));
 		print.setBackground(new Color(0, 153, 51));
 		print.setForeground(new Color(255, 255, 255));
 
@@ -290,11 +82,11 @@ public class Home extends JFrame {
 		upload.setBackground(new Color(0, 153, 51));
 		upload.setForeground(new Color(255, 255, 255));
 		upload.setIcon(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\upload.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\icons\\upload.png"));
 
 		download = new JButton("  Tải xuống");
 		download.setIcon(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\downloads.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\icons\\downloads.png"));
 		download.setForeground(new Color(255, 255, 255));
 		download.setBackground(new Color(0, 153, 51));
 
@@ -337,7 +129,7 @@ public class Home extends JFrame {
 		handle.setLayout(gl_handle);
 	}
 
-	private void addImageBook(JPanel imgPnl, JLabel img) {
+	private static void addImageBook(JPanel imgPnl, JLabel img) {
 		removeClickListener(imgPnl);
 		imgPnl.addMouseListener(new MouseAdapter() {
 			@Override
@@ -356,7 +148,7 @@ public class Home extends JFrame {
 		});
 	}
 
-	private void removeClickListener(JComponent jComponent) {
+	private static void removeClickListener(JComponent jComponent) {
 		ComponentListener[] cls = jComponent.getComponentListeners();
 		if (cls != null)
 			for (ComponentListener cl : cls)
@@ -370,7 +162,7 @@ public class Home extends JFrame {
 
 	// ----------Manage----------
 	// ----------Manage Book----------
-	private void initManageBook() {
+	private static void initManageBook() {
 		manageBookTab = new JPanel();
 		manageBookTab.setBackground(new Color(204, 255, 204));
 		tabbedPane.addTab("Quản Lý Tài Liệu", null, manageBookTab, null);
@@ -483,7 +275,7 @@ public class Home extends JFrame {
 	}
 
 	// ----------Manage Book Panels----------
-	private void manageBookPanels() {
+	private static void manageBookPanels() {
 		manageBookDefault();
 		manageBookAll();
 		manageBookBook();
@@ -493,7 +285,7 @@ public class Home extends JFrame {
 	}
 
 	// Default Panels
-	private void manageBookDefault() {
+	private static void manageBookDefault() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlDefault");
@@ -561,8 +353,8 @@ public class Home extends JFrame {
 	}
 
 	// All Panels
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void manageBookAll() {
+	@SuppressWarnings({ "rawtypes", "unchecked", "serial" })
+	private static void manageBookAll() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlAll");
@@ -587,7 +379,7 @@ public class Home extends JFrame {
 		imageAllPanel.setBackground(new Color(204, 204, 204));
 		imageAllPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		JLabel imgAll = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 		imgAll.setHorizontalAlignment(SwingConstants.CENTER);
 
 		GroupLayout gl_imgPnl = new GroupLayout(imageAllPanel);
@@ -785,7 +577,11 @@ public class Home extends JFrame {
 				new String[] {
 						"STT", "LOẠI TÀI LIỆU", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ", "SỐ LƯỢNG", "SỐ CÓ SẴN",
 						"MƯỢN ĐƯỢC"
-				}));
+				}) {
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+			}
+		});
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
@@ -803,7 +599,7 @@ public class Home extends JFrame {
 			chckbxInvalidAll.setEnabled(false);
 			if (txtCountAll.getText().equals("0")) {
 				imgAll.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 				txtIdAll.setText("");
 				cbbCateAll.setSelectedIndex(0);
 				txtTitileAll.setText("");
@@ -820,15 +616,15 @@ public class Home extends JFrame {
 		reset.addActionListener(e -> {
 			if (chckbxInvalidAll.isEnabled()) {
 				imgAll.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 				chckbxInvalidAll.setSelected(false);
 			}
 		});
 	}
 
 	// Book Panels
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void manageBookBook() {
+	@SuppressWarnings({ "rawtypes", "unchecked", "serial" })
+	private static void manageBookBook() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlBook");
@@ -853,7 +649,7 @@ public class Home extends JFrame {
 		imgPnl.setBackground(new Color(204, 204, 204));
 		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		JLabel img = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 		img.setHorizontalAlignment(SwingConstants.CENTER);
 
 		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
@@ -1034,7 +830,11 @@ public class Home extends JFrame {
 				},
 				new String[] {
 						"STT", "ISBN", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NXB", "NĂM XB", "MÔ TẢ"
-				}));
+				}) {
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+			}
+		});
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
@@ -1072,7 +872,7 @@ public class Home extends JFrame {
 		delete.addActionListener(e -> {
 			removeClickListener(imgPnl);
 			img.setIcon(new ImageIcon(
-					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 			txtIsbnBook.setEnabled(false);
 			txtTitleBook.setEnabled(false);
@@ -1104,7 +904,7 @@ public class Home extends JFrame {
 		reset.addActionListener(e -> {
 			if (txtIsbnBook.isEnabled()) {
 				img.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 				txtIsbnBook.setText("");
 				txtTitleBook.setText("");
@@ -1115,7 +915,7 @@ public class Home extends JFrame {
 				txtAreaDescripBook.setText("");
 			} else if (!txtIsbnBook.isEnabled() && txtTitleBook.isEnabled()) {
 				img.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 				txtTitleBook.setText("");
 				cbbCateBook.setSelectedIndex(0);
@@ -1128,8 +928,8 @@ public class Home extends JFrame {
 	}
 
 	// Photo Panels
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void manageBookPhoto() {
+	@SuppressWarnings({ "rawtypes", "unchecked", "serial" })
+	private static void manageBookPhoto() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlPhoto");
@@ -1154,7 +954,7 @@ public class Home extends JFrame {
 		imgPnl.setBackground(new Color(204, 204, 204));
 		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		JLabel img = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 		img.setHorizontalAlignment(SwingConstants.CENTER);
 
 		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
@@ -1323,7 +1123,11 @@ public class Home extends JFrame {
 				},
 				new String[] {
 						"STT", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NĂM XB", "MÔ TẢ"
-				}));
+				}) {
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+			}
+		});
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
@@ -1355,7 +1159,7 @@ public class Home extends JFrame {
 		delete.addActionListener(e -> {
 			removeClickListener(imgPnl);
 			img.setIcon(new ImageIcon(
-					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 			txtTitlePhoto.setEnabled(false);
 			cbbCatePhoto.setEnabled(false);
@@ -1381,7 +1185,7 @@ public class Home extends JFrame {
 		reset.addActionListener(e -> {
 			if (txtTitlePhoto.isEnabled()) {
 				img.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 				txtTitlePhoto.setText("");
 				cbbCatePhoto.setSelectedIndex(0);
@@ -1393,8 +1197,8 @@ public class Home extends JFrame {
 	}
 
 	// KLTN Panels
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void manageBookKltn() {
+	@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
+	private static void manageBookKltn() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlKltn");
@@ -1419,7 +1223,7 @@ public class Home extends JFrame {
 		imgPnl.setBackground(new Color(204, 204, 204));
 		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		JLabel img = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 		img.setHorizontalAlignment(SwingConstants.CENTER);
 
 		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
@@ -1572,7 +1376,11 @@ public class Home extends JFrame {
 				},
 				new String[] {
 						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "CHUYÊN NGÀNH", "NĂM BẢO VỆ", "MÔ TẢ"
-				}));
+				}) {
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+			}
+		});
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
@@ -1604,7 +1412,7 @@ public class Home extends JFrame {
 		delete.addActionListener(e -> {
 			removeClickListener(imgPnl);
 			img.setIcon(new ImageIcon(
-					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 			txtTitleKltn.setEnabled(false);
 			txtAuthorKltn.setEnabled(false);
@@ -1630,7 +1438,7 @@ public class Home extends JFrame {
 		reset.addActionListener(e -> {
 			if (txtTitleKltn.isEnabled()) {
 				img.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 				txtTitleKltn.setText("");
 				txtAuthorKltn.setText("");
@@ -1642,8 +1450,8 @@ public class Home extends JFrame {
 	}
 
 	// Other Panels
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void manageBookOther() {
+	@SuppressWarnings("serial")
+	private static void manageBookOther() {
 		pnl = new JPanel();
 		pnl.setBackground(new Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlOther");
@@ -1668,7 +1476,7 @@ public class Home extends JFrame {
 		imgPnl.setBackground(new Color(204, 204, 204));
 		imgPnl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		JLabel img = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 		img.setHorizontalAlignment(SwingConstants.CENTER);
 
 		GroupLayout gl_imgPnl = new GroupLayout(imgPnl);
@@ -1699,48 +1507,49 @@ public class Home extends JFrame {
 
 		gl_details = new GroupLayout(details);
 		gl_details.setHorizontalGroup(
-			gl_details.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_details.createSequentialGroup()
-					.addGap(81)
-					.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblTitleOther)
+				gl_details.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
-							.addComponent(lblDescripOther)
-							.addGap(46)
-							.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPaneDescrip)
-								.addComponent(txtTitleOther, GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))))
-					.addContainerGap(109, Short.MAX_VALUE))
-				.addGroup(gl_details.createSequentialGroup()
-					.addGap(185)
-					.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(219, Short.MAX_VALUE))
-				.addGroup(gl_details.createSequentialGroup()
-					.addGap(176)
-					.addComponent(save, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(reset)
-					.addContainerGap(180, Short.MAX_VALUE))
-		);
+								.addGap(90)
+								.addGroup(gl_details.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblTitleOther, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 275,
+												Short.MAX_VALUE)
+										.addComponent(lblDescripOther, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 275,
+												Short.MAX_VALUE)
+										.addComponent(scrollPaneDescrip, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+												275, Short.MAX_VALUE)
+										.addComponent(txtTitleOther, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 275,
+												Short.MAX_VALUE))
+								.addGap(126))
+						.addGroup(gl_details.createSequentialGroup()
+								.addGap(161)
+								.addComponent(save, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+								.addGap(18)
+								.addComponent(reset)
+								.addContainerGap(195, Short.MAX_VALUE))
+						.addGroup(gl_details.createSequentialGroup()
+								.addGap(187)
+								.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(217, Short.MAX_VALUE)));
 		gl_details.setVerticalGroup(
-			gl_details.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_details.createSequentialGroup()
-					.addGap(63)
-					.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblTitleOther)
-						.addComponent(txtTitleOther, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(24)
-					.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblDescripOther)
-						.addComponent(scrollPaneDescrip, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
-					.addGap(183)
-					.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-						.addComponent(save)
-						.addComponent(reset))
-					.addGap(320))
-		);
+				gl_details.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGap(63)
+								.addComponent(imgPnl, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+								.addGap(18)
+								.addComponent(lblTitleOther)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(txtTitleOther, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(26)
+								.addComponent(lblDescripOther)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(scrollPaneDescrip, GroupLayout.PREFERRED_SIZE, 118,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(127)
+								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+										.addComponent(save)
+										.addComponent(reset))
+								.addGap(334)));
 		details.setLayout(gl_details);
 
 		scrollPane = new JScrollPane((Component) null);
@@ -1774,7 +1583,11 @@ public class Home extends JFrame {
 				},
 				new String[] {
 						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ"
-				}));
+				}) {
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+			}
+		});
 		scrollPane.setViewportView(table);
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
@@ -1797,7 +1610,7 @@ public class Home extends JFrame {
 		delete.addActionListener(e -> {
 			removeClickListener(imgPnl);
 			img.setIcon(new ImageIcon(
-					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+					"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 			txtTitleOther.setEnabled(false);
 			txtAreaDescripOther.setEnabled(false);
@@ -1814,58 +1627,44 @@ public class Home extends JFrame {
 		reset.addActionListener(e -> {
 			if (txtTitleOther.isEnabled()) {
 				img.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\images\\image-gallery.png"));
+						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
 
 				txtTitleOther.setText("");
 				txtAreaDescripOther.setText("");
 			}
 		});
 	}
+	
+	// Private
+	private static JTabbedPane tabbedPane;
+	private static JPanel statisticalTab;
+	private static JPanel userTab;
+	
+	private static JPanel manageBookTab;
 
-	// ----------Manage Service----------
-	private void initManageService() {
+	private static GroupLayout gl_table;
+	private static JScrollPane scrollPane;
+	private static JTable table;
+	private static JPanel handle;
+	private static JButton add;
+	private static JButton edit;
+	private static JButton delete;
+	private static JButton search;
+	private static JTextField searchField;
+	private static JButton download;
+	private static JButton upload;
+	private static JButton print;
+	private static JButton save;
+	private static JButton reset;
+	private static JButton view;
 
-	}
+	private static CardLayout cardLayout;
+	private static JPanel pnlCards;
+	private static JPanel details;
+	private static JPanel pnl;
+	private static GroupLayout gl_details;
+	private static GroupLayout gl_pnl;
 
-	// ----------Manage Reader----------
-	private void initManageReader() {
-
-	}
-
-	// ----------private----------
-	private JPanel contentPane;
-	private JPanel header;
-
-	private JTabbedPane tabbedPane;
-	private JPanel manageBookTab;
-	// private JPanel manageServiceTab;
-	// private JPanel manageReaderTab;
-	private JPanel statisticalTab;
-	private JPanel userTab;
-
-	private GroupLayout gl_table;
-	private JScrollPane scrollPane;
-	private JTable table;
-	private JPanel handle;
-	private JButton add;
-	private JButton edit;
-	private JButton delete;
-	private JButton search;
-	private JTextField searchField;
-	private JButton download;
-	private JButton upload;
-	private JButton print;
-	private JButton save;
-	private JButton reset;
-	private JButton view;
-
-	private CardLayout cardLayout;
-	private JPanel pnlCards;
-	private JPanel details;
-	private JPanel pnl;
-	private GroupLayout gl_details;
-	private GroupLayout gl_pnl;
-
-	private JFileChooser imgChooser;
-	private FileNameExtensionFilter imgFilter;
+	private static JFileChooser imgChooser;
+	private static FileNameExtensionFilter imgFilter;
 }
