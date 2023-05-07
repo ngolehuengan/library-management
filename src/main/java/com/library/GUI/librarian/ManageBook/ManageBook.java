@@ -1,89 +1,83 @@
 package main.java.com.library.GUI.librarian.ManageBook;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Component;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.TitledBorder;
-
-import main.java.com.library.GUI.handle.Handle;
-
 public class ManageBook {
-	public static void init(JTabbedPane tabbedPane) {
-		manageBookTab = new JPanel();
-		manageBookTab.setBackground(new Color(204, 255, 204));
+	public static void init(javax.swing.JTabbedPane tabbedPane) {
+		manageBookTab = new javax.swing.JPanel();
+		manageBookTab.setBackground(new java.awt.Color(204, 255, 204));
 		tabbedPane.addTab("Quản Lý Tài Liệu", null, manageBookTab, null);
 		handle();
-		splitPane = new JSplitPane();
 
-		gl_table = new GroupLayout(manageBookTab);
+		// Main Frame = Handle + SplitPane (Menu Side + Tabs)
+		splitPane = new javax.swing.JSplitPane();
+		javax.swing.GroupLayout gl_table = new javax.swing.GroupLayout(manageBookTab);
 		gl_table.setHorizontalGroup(
-				gl_table.createParallelGroup(Alignment.TRAILING)
+				gl_table.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addGroup(gl_table.createSequentialGroup()
 								.addContainerGap()
-								.addGroup(gl_table.createParallelGroup(Alignment.TRAILING)
-										.addComponent(handle, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1225,
+								.addGroup(gl_table.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+										.addComponent(handle, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.DEFAULT_SIZE, 1225,
 												Short.MAX_VALUE)
-										.addComponent(splitPane, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1215,
+										.addComponent(splitPane, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.PREFERRED_SIZE, 1215,
 												Short.MAX_VALUE))
 								.addGap(10)));
 		gl_table.setVerticalGroup(
-				gl_table.createParallelGroup(Alignment.LEADING)
+				gl_table.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_table.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(handle, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(splitPane, GroupLayout.PREFERRED_SIZE, 417, Short.MAX_VALUE)
+								.addComponent(handle, javax.swing.GroupLayout.PREFERRED_SIZE, 67,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 417, Short.MAX_VALUE)
 								.addContainerGap()));
 
-		// Menu Side
-		JPanel menuSide = new JPanel();
-		menuSide.setBackground(new Color(0, 153, 51));
+		// Menu Side - Left
+		menuSide = new javax.swing.JPanel();
+		menuSide.setBackground(new java.awt.Color(0, 153, 51));
 		splitPane.setLeftComponent(menuSide);
 
-		JButton btnAll = new JButton("TẤT CẢ");
-		btnAll.setForeground(new Color(255, 255, 255));
-		btnAll.setBackground(new Color(0, 153, 51));
+		btnAll = new javax.swing.JButton("TẤT CẢ");
+		btnAll.setForeground(new java.awt.Color(255, 255, 255));
+		btnAll.setBackground(new java.awt.Color(0, 153, 51));
 
-		JButton btnBook = new JButton("SÁCH");
-		btnBook.setForeground(new Color(255, 255, 255));
-		btnBook.setBackground(new Color(0, 153, 51));
+		btnBook = new javax.swing.JButton("SÁCH");
+		btnBook.setForeground(new java.awt.Color(255, 255, 255));
+		btnBook.setBackground(new java.awt.Color(0, 153, 51));
 
-		JButton btnPhoto = new JButton("TÀI LIỆU PHOTO");
-		btnPhoto.setForeground(new Color(255, 255, 255));
-		btnPhoto.setBackground(new Color(0, 153, 51));
+		btnPhoto = new javax.swing.JButton("TÀI LIỆU PHOTO");
+		btnPhoto.setForeground(new java.awt.Color(255, 255, 255));
+		btnPhoto.setBackground(new java.awt.Color(0, 153, 51));
 
-		JButton btnKltn = new JButton("LUẬN ÁN/ LUẬN VĂN/ KHÓA LUẬN TN");
-		btnKltn.setForeground(new Color(255, 255, 255));
-		btnKltn.setBackground(new Color(0, 153, 51));
+		btnKltn = new javax.swing.JButton("LUẬN ÁN/ LUẬN VĂN/ KHÓA LUẬN TN");
+		btnKltn.setForeground(new java.awt.Color(255, 255, 255));
+		btnKltn.setBackground(new java.awt.Color(0, 153, 51));
 
-		JButton btnOther = new JButton("KHÁC");
-		btnOther.setForeground(new Color(255, 255, 255));
-		btnOther.setBackground(new Color(0, 153, 51));
+		btnOther = new javax.swing.JButton("KHÁC");
+		btnOther.setForeground(new java.awt.Color(255, 255, 255));
+		btnOther.setBackground(new java.awt.Color(0, 153, 51));
 
-		GroupLayout gl_menuSide = new GroupLayout(menuSide);
+		javax.swing.GroupLayout gl_menuSide = new javax.swing.GroupLayout(menuSide);
 		gl_menuSide.setHorizontalGroup(
-				gl_menuSide.createParallelGroup(Alignment.LEADING)
+				gl_menuSide.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_menuSide.createSequentialGroup()
 								.addContainerGap()
-								.addGroup(gl_menuSide.createParallelGroup(Alignment.LEADING)
-										.addComponent(btnBook, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 107,
+								.addGroup(gl_menuSide.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(btnBook, javax.swing.GroupLayout.Alignment.TRAILING,
+												javax.swing.GroupLayout.DEFAULT_SIZE, 107,
 												Short.MAX_VALUE)
-										.addComponent(btnPhoto, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(btnKltn, GroupLayout.PREFERRED_SIZE, 107, Short.MAX_VALUE)
-										.addComponent(btnOther, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-										.addComponent(btnAll, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+										.addComponent(btnPhoto, javax.swing.GroupLayout.Alignment.TRAILING,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(btnKltn, javax.swing.GroupLayout.PREFERRED_SIZE, 107,
+												Short.MAX_VALUE)
+										.addComponent(btnOther, javax.swing.GroupLayout.DEFAULT_SIZE, 107,
+												Short.MAX_VALUE)
+										.addComponent(btnAll, javax.swing.GroupLayout.DEFAULT_SIZE, 107,
+												Short.MAX_VALUE))
 								.addContainerGap()));
 		gl_menuSide.setVerticalGroup(
-				gl_menuSide.createParallelGroup(Alignment.LEADING)
+				gl_menuSide.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_menuSide.createSequentialGroup()
 								.addGap(130)
 								.addComponent(btnAll)
@@ -98,55 +92,62 @@ public class ManageBook {
 								.addGap(108)));
 		menuSide.setLayout(gl_menuSide);
 
-		// MenuSide Tabs
-		cardLayout = new CardLayout();
-		pnlCards = new JPanel();
+		// MenuSide Tabs - Right
+		cardLayout = new java.awt.CardLayout();
+		pnlCards = new javax.swing.JPanel();
 		splitPane.setRightComponent(pnlCards);
 		pnlCards.setLayout(cardLayout);
 
-		pnl = new JPanel();
-		pnl.setBackground(new Color(204, 255, 204));
+		// --Default Tab = Details + Table
+		pnl = new javax.swing.JPanel();
+		pnl.setBackground(new java.awt.Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlDefault");
 
-		details = new JPanel();
+		// ---Details
+		details = new javax.swing.JPanel();
 		details.setBorder(
-				new TitledBorder(null, "Thông Tin Chi Tiết", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
+						javax.swing.border.TitledBorder.TOP, null, null));
 
-		gl_details = new GroupLayout(details);
+		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details.setHorizontalGroup(
-				gl_details.createParallelGroup(Alignment.LEADING)
+				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(177)
 								.addGap(18)
 								.addContainerGap(179, Short.MAX_VALUE)));
 		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(Alignment.TRAILING)
+				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addGroup(gl_details.createSequentialGroup()
 								.addContainerGap(513, Short.MAX_VALUE)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE))
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE))
 								.addGap(29)));
 		details.setLayout(gl_details);
 
-		scrollPane = new JScrollPane((Component) null);
-		gl_pnl = new GroupLayout(pnl);
+		// --Table
+		scrollPane = new javax.swing.JScrollPane();
+		javax.swing.GroupLayout gl_pnl = new javax.swing.GroupLayout(pnl);
 		gl_pnl.setHorizontalGroup(
-				gl_pnl.createParallelGroup(Alignment.LEADING)
+				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_pnl.createSequentialGroup()
-								.addComponent(details, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)));
+								.addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 512,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)));
 		gl_pnl.setVerticalGroup(
-				gl_pnl.createParallelGroup(Alignment.TRAILING)
-						.addComponent(details, GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-						.addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE));
+				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+						.addComponent(details, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+						.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING,
+								javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE));
 		pnl.setLayout(gl_pnl);
 		manageBookTab.setLayout(gl_table);
 
 		// Action Changed Tab
 		btnAll.addActionListener(e -> {
-			ManageBookAll.init(manageBookTab, cardLayout, pnlCards, splitPane, add, edit, delete, save, reset, view);
+			ManageBookAll.init(manageBookTab, pnlCards, add, edit, delete, save, reset, view);
 			cardLayout.show(pnlCards, "pnlAll");
 		});
+
 		// btnBook.addActionListener(e -> {
 		// ManageBookBook.init(manageBookTab);
 		// cardLayout.show(pnlCards, "pnlBook");
@@ -165,10 +166,11 @@ public class ManageBook {
 		// });
 		// cardLayout = (CardLayout) pnlCards.getLayout();
 	}
-	
+
 	private static void handle() {
-		handle = new JPanel();
-		handle.setBorder(new TitledBorder(null, "Xử Lý", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		handle = new javax.swing.JPanel();
+		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
+				javax.swing.border.TitledBorder.TOP, null, null));
 
 		add = new javax.swing.JButton("Thêm");
 		add.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,18 +191,21 @@ public class ManageBook {
 		searchField.setColumns(10);
 
 		print = new javax.swing.JButton("  In");
-		print.setIcon(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/printing.png")));
+		print.setIcon(
+				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/printing.png")));
 		print.setBackground(new java.awt.Color(0, 153, 51));
 		print.setForeground(new java.awt.Color(255, 255, 255));
 
 		upload = new javax.swing.JButton("  Đăng tải");
 		upload.setBackground(new java.awt.Color(0, 153, 51));
 		upload.setForeground(new java.awt.Color(255, 255, 255));
-		upload.setIcon(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/upload.png")));
+		upload.setIcon(
+				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/upload.png")));
 
 		download = new javax.swing.JButton("  Tải xuống");
 		download.setIcon(
-				new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/downloads.png")));
+				new javax.swing.ImageIcon(
+						ManageBook.class.getResource("../../../../../resources/icons/downloads.png")));
 		download.setForeground(new java.awt.Color(255, 255, 255));
 		download.setBackground(new java.awt.Color(0, 153, 51));
 
@@ -216,7 +221,7 @@ public class ManageBook {
 		view.setForeground(new java.awt.Color(255, 255, 255));
 		view.setBackground(new java.awt.Color(0, 153, 51));
 
-		gl_handle = new javax.swing.GroupLayout(handle);
+		javax.swing.GroupLayout gl_handle = new javax.swing.GroupLayout(handle);
 		gl_handle.setHorizontalGroup(
 				gl_handle.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_handle.createSequentialGroup()
@@ -259,19 +264,21 @@ public class ManageBook {
 	}
 
 	// Private
-	private static JPanel manageBookTab;
-	private static JPanel handle;
-	private static JSplitPane splitPane;
-	private static GroupLayout gl_table;
-	private static JPanel pnl;
-	private static GroupLayout gl_pnl;
-	private static JPanel details;
-	private static GroupLayout gl_details;
-	private static JScrollPane scrollPane;
-	private static CardLayout cardLayout;
-	private static JPanel pnlCards;
+	private static javax.swing.JPanel manageBookTab;
+	private static javax.swing.JSplitPane splitPane;
+	private static javax.swing.JPanel menuSide;
+	private static javax.swing.JButton btnAll;
+	private static javax.swing.JButton btnBook;
+	private static javax.swing.JButton btnPhoto;
+	private static javax.swing.JButton btnKltn;
+	private static javax.swing.JButton btnOther;
+	private static java.awt.CardLayout cardLayout;
+	private static javax.swing.JPanel pnlCards;
+	private static javax.swing.JPanel pnl;
+	private static javax.swing.JPanel details;
+	private static javax.swing.JScrollPane scrollPane;
 
-	private static javax.swing.GroupLayout gl_handle;
+	private static javax.swing.JPanel handle;
 	private static javax.swing.JButton add;
 	private static javax.swing.JButton edit;
 	private static javax.swing.JButton delete;
