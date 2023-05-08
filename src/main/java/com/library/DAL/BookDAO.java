@@ -148,7 +148,7 @@ public class BookDAO extends ConnectDB {
     }
 
     public Book getByCode(String code) {
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM BOOK WHERE dcm_code=" + code);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM BOOK WHERE dcm_code='" + code + "'");
         if (table.isEmpty()) {
             return null;
         }
@@ -158,7 +158,7 @@ public class BookDAO extends ConnectDB {
     }
 
     public Book getByISBN(String ISBN) {
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM BOOK WHERE isbn=" + ISBN);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM BOOK WHERE isbn='" + ISBN + "'");
         if (table.isEmpty()) {
             return null;
         }
@@ -222,27 +222,5 @@ public class BookDAO extends ConnectDB {
             category.add(e);
         }
         return category;
-    }
-    
-    public static void main (String[] args) {
-        BookDAO dao = new BookDAO();
-        Vector<Book> vt = dao.getAll();
-        for (int i = 0; i < vt.size(); i++) {
-            System.out.println(vt.get(i).toString());
-        }
-//        Book e = new Book();
-//        e.setISBN("9786047747936");
-//        e.setTitle("Kính vạn hoa");
-//        e.setPublisher(new Publisher(10,"NXB VAN HOC"));
-//        e.setPublishingYear(2021);
-//        e.setDescription("Câu chuyện tình yêu giữa nhân vật chính và nhân vật nữ đặc biệt ở Hà Nội thập niên 1930");
-//        e.setImage("/anh_bia/kinh_van_hoa");
-//        Vector<Author> at = new Vector<>();
-//        at.add(new Author(4,"Nguyễn Khải"));
-//        e.setAuthor(at);
-//        Vector<Category> ct = new Vector<>();
-//        ct.add(new Category(4,"Tiểu thuyết"));
-//        e.setCategory(ct);
-//        System.out.println(dao.insert(e));
     }
 }

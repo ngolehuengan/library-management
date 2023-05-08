@@ -10,7 +10,7 @@ import java.util.Vector;
 public class CategoryDAO extends ConnectDB {
 //--insert--
     public boolean insert(Category element) {
-        int rs = executeUpdate("INSERT INTO CATEGORY VALUES (category_name) VALUES (" + element.getName() + "')");                                 
+        int rs = executeUpdate("INSERT INTO CATEGORY VALUES (category_name) VALUES ('" + element.getName() + "')");                                 
         if (rs > 0) return true;
         return false;
     }   
@@ -46,7 +46,7 @@ public class CategoryDAO extends ConnectDB {
     }
     
     public Category getByName(String name) {
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM CATEGORY WHERE category_name='"+name);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM CATEGORY WHERE category_name='"+name+"'");
         if (table.isEmpty())
             return null;
         Vector<Object> row = table.get(0);

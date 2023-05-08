@@ -1,5 +1,6 @@
 package main.java.com.library.DTO;
 
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -78,5 +79,5 @@ public class Book extends Document {
     @Override
     public String toString() {
         return "Book{" + "ID=" + ID + ", code=" + code + ", ISBN=" + ISBN + ", title=" + title + ", category=" + category + ", author=" + author + ", publisher=" + publisher + ", publishingYear=" + publishingYear + ", description=" + description + ", image=" + image + '}';
-    }
+    }    
 }

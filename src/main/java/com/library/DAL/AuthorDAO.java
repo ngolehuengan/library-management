@@ -10,7 +10,7 @@ import java.util.Vector;
 public class AuthorDAO extends ConnectDB {
 //--insert--
     public boolean insert(Author element) {
-        int rs = executeUpdate("INSERT INTO AUTHOR(author_name) VALUES (" + element.getName() + "')");
+        int rs = executeUpdate("INSERT INTO AUTHOR(author_name) VALUES ('" + element.getName() + "')");
         if (rs > 0) return true;
         return false;
     }   
@@ -48,7 +48,7 @@ public class AuthorDAO extends ConnectDB {
     }
     
     public Author getByName(String name) {
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM AUTHOR WHERE author_name='"+name);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM AUTHOR WHERE author_name='"+name+"'");
         if (table.isEmpty()) {
             return null;
         }

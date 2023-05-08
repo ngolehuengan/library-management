@@ -10,7 +10,7 @@ import java.util.Vector;
 public class SpecializedDAO extends ConnectDB {
 //--insert--
     public boolean insert(Specialized element) {
-        int rs = executeUpdate("INSERT INTO SPECIALIZED VALUES (spcl_name) VALUES (" + element.getName() + "')");
+        int rs = executeUpdate("INSERT INTO SPECIALIZED VALUES (spcl_name) VALUES ('" + element.getName() + "')");
         if (rs > 0) return true;
         return false;
     }   
@@ -40,7 +40,7 @@ public class SpecializedDAO extends ConnectDB {
     
     public Specialized getByCode(String code) {
         Specialized result = null;
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM SPECIALIZED WHERE spcl_code='"+code);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM SPECIALIZED WHERE spcl_code='"+code+"'");
         Vector<Object> row = table.get(0);
         result = new Specialized((int)row.get(0),(String)row.get(1),(String)row.get(2));
         return result;
@@ -48,7 +48,7 @@ public class SpecializedDAO extends ConnectDB {
 
     public Specialized getByName(String name) {
         Specialized result = null;
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM SPECIALIZED WHERE spcl_name='"+name);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM SPECIALIZED WHERE spcl_name='"+name+"'");
         Vector<Object> row = table.get(0);
         result = new Specialized((int)row.get(0),(String)row.get(1),(String)row.get(2));
         return result;

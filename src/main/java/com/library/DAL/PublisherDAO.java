@@ -10,7 +10,7 @@ import java.util.Vector;
 public class PublisherDAO extends ConnectDB {
 //--insert--
     public boolean insert(Publisher element) {
-        int rs = executeUpdate("INSERT INTO PUBLISHER VALUES (publisher_name) VALUES (" + element.getName() + "')");
+        int rs = executeUpdate("INSERT INTO PUBLISHER VALUES (publisher_name) VALUES ('" + element.getName() + "')");
         if (rs > 0) return true;
         return false;
     }   
@@ -40,7 +40,7 @@ public class PublisherDAO extends ConnectDB {
     }
     
     public Publisher getByName(String name) {
-        Vector<Vector<Object>> table = executeQuery("SELECT * FROM PUBLISHER WHERE publisher_name='"+name);
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM PUBLISHER WHERE publisher_name='"+name+"'");
         if (table.isEmpty()) 
             return null;
         Vector<Object> row = table.get(0);
