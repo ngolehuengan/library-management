@@ -1,4 +1,4 @@
-package main.java.com.library.GUI.librarian.ManageBook;
+package main.java.com.library.GUI.forms.ManageBook;
 
 public class ManageBook {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {

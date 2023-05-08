@@ -1,4 +1,4 @@
-package main.java.com.library.GUI.librarian.ManageBook;
+package main.java.com.library.GUI.forms.ManageBook;
 
 import main.java.com.library.GUI.handle.Handle;
 

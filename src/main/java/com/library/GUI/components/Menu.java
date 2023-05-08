@@ -1,6 +1,6 @@
 package main.java.com.library.GUI.components;
 
-import main.java.com.library.GUI.librarian.ManageBook.ManageBook;
+import main.java.com.library.GUI.forms.ManageBook.ManageBook;
 
 public class Menu {
 	public static void init(javax.swing.JComponent contentPane) {

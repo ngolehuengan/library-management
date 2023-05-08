@@ -1,7 +1,5 @@
 package main.java.com.library.GUI;
 
-import main.java.com.library.GUI.librarian.MainFrame;
-
 @SuppressWarnings("serial")
 public class Login extends javax.swing.JFrame {
 	/**
@@ -114,6 +112,8 @@ public class Login extends javax.swing.JFrame {
 		botPnl.add(btnReset);
 
 		// Action
+		this.getRootPane().setDefaultButton(btnLogin);
+		
 		tglbtnShowHidePwd.addActionListener(e -> {
 			if (tglbtnShowHidePwd.isSelected())
 				txtPwd.setEchoChar((char) 0);
@@ -128,11 +128,11 @@ public class Login extends javax.swing.JFrame {
 			if (new String(txtPwd.getPassword()).equals(""))
 				sb.append("Mật khẩu không hợp lệ !\n");
 			if (sb.length() > 0) {
-				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "INVALIDATION",
+				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				MainFrame frame = new MainFrame();
+				main.java.com.library.GUI.role.admin.MainFrame frame = new main.java.com.library.GUI.role.admin.MainFrame();
 				frame.setVisible(true);
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				this.dispose();
