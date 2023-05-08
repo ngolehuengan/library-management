@@ -10,33 +10,33 @@ public class ManageBookAll {
 		pnl.setBackground(new java.awt.Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlAll");
 
-		// ---Details
+		// ----Details
 		details = new javax.swing.JPanel();
 		details.setBorder(
 				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
 						javax.swing.border.TitledBorder.TOP, null, null));
 
-		// ---Details: Image
-		imageAllPanel = new javax.swing.JPanel();
-		imageAllPanel.setBackground(new java.awt.Color(204, 204, 204));
-		imageAllPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
-		imgAll = new javax.swing.JLabel(new javax.swing.ImageIcon(
-				ManageBookAll.class.getResource("../../../../../resources/images/image-gallery.png")));
-		imgAll.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		// ----Details: Image
+		imgPnl = new javax.swing.JPanel();
+		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
+		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
+		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+		img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-		javax.swing.GroupLayout gl_imgPnl = new javax.swing.GroupLayout(imageAllPanel);
+		javax.swing.GroupLayout gl_imgPnl = new javax.swing.GroupLayout(imgPnl);
 		gl_imgPnl.setHorizontalGroup(
 				gl_imgPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(imgAll, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+								.addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
 								.addContainerGap()));
 		gl_imgPnl.setVerticalGroup(
 				gl_imgPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_imgPnl.createSequentialGroup()
-								.addComponent(imgAll, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+								.addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
 								.addGap(0)));
-		imageAllPanel.setLayout(gl_imgPnl);
+		imgPnl.setLayout(gl_imgPnl);
 
 		// ---Details: Info
 		lblIdAll = new javax.swing.JLabel("Mã tài liệu");
@@ -50,9 +50,9 @@ public class ManageBookAll {
 		cbbCateAll.setEnabled(false);
 
 		lblTitleAll = new javax.swing.JLabel("Nhan đề");
-		txtTitileAll = new javax.swing.JTextField();
-		txtTitileAll.setEnabled(false);
-		txtTitileAll.setColumns(10);
+		txtTitleAll = new javax.swing.JTextField();
+		txtTitleAll.setEnabled(false);
+		txtTitleAll.setColumns(10);
 
 		lblValueAll = new javax.swing.JLabel("Giá trị");
 		txtValueAll = new javax.swing.JTextField();
@@ -83,7 +83,7 @@ public class ManageBookAll {
 														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
 																false)
 														.addGroup(gl_details.createSequentialGroup()
-																.addComponent(imageAllPanel,
+																.addComponent(imgPnl,
 																		javax.swing.GroupLayout.PREFERRED_SIZE,
 																		87, javax.swing.GroupLayout.PREFERRED_SIZE)
 																.addGap(18)
@@ -106,7 +106,7 @@ public class ManageBookAll {
 																				javax.swing.GroupLayout.Alignment.LEADING)
 																		.addComponent(cbbCateAll, 0, 145,
 																				Short.MAX_VALUE)
-																		.addComponent(txtTitileAll,
+																		.addComponent(txtTitleAll,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				141,
 																				Short.MAX_VALUE)
@@ -163,7 +163,7 @@ public class ManageBookAll {
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(59)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(imageAllPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 101,
+										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 101,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details
@@ -184,7 +184,7 @@ public class ManageBookAll {
 												.addGroup(gl_details
 														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(lblTitleAll)
-														.addComponent(txtTitileAll,
+														.addComponent(txtTitleAll,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -264,24 +264,24 @@ public class ManageBookAll {
 
 		// Action
 		ManageBook.add.addActionListener(e -> {
-			Handle.removeClickListener(imageAllPanel);
+			Handle.removeClickListener(imgPnl);
 			chckbxInvalidAll.setEnabled(false);
 		});
 
 		ManageBook.edit.addActionListener(e -> {
-			Handle.addImageBook(imageAllPanel, imgAll);
+			Handle.addImageBook(imgPnl, img);
 			chckbxInvalidAll.setEnabled(true);
 		});
 
 		ManageBook.delete.addActionListener(e -> {
-			Handle.removeClickListener(imageAllPanel);
+			Handle.removeClickListener(imgPnl);
 			chckbxInvalidAll.setEnabled(false);
 			if (txtCountAll.getText().equals("0")) {
-				imgAll.setIcon(new javax.swing.ImageIcon(
-						ManageBookAll.class.getResource("../../../../../resources/images/image-gallery.png")));
+				img.setIcon(new javax.swing.ImageIcon(
+						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 				txtIdAll.setText("");
 				cbbCateAll.setSelectedIndex(0);
-				txtTitileAll.setText("");
+				txtTitleAll.setText("");
 				txtValueAll.setText("");
 				txtCountAll.setText("");
 				txtNumberAll.setText("");
@@ -290,14 +290,14 @@ public class ManageBookAll {
 		});
 
 		ManageBook.save.addActionListener(e -> {
-			Handle.removeClickListener(imageAllPanel);
+			Handle.removeClickListener(imgPnl);
 			chckbxInvalidAll.setEnabled(false);
 		});
 
 		ManageBook.reset.addActionListener(e -> {
 			if (chckbxInvalidAll.isEnabled()) {
-				imgAll.setIcon(new javax.swing.ImageIcon(
-						ManageBookAll.class.getResource("../../../../../resources/images/image-gallery.png")));
+				img.setIcon(new javax.swing.ImageIcon(
+						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 				chckbxInvalidAll.setSelected(false);
 			}
 		});
@@ -306,15 +306,15 @@ public class ManageBookAll {
 	// Private
 	private static javax.swing.JPanel pnl;
 	private static javax.swing.JPanel details;
-	private static javax.swing.JPanel imageAllPanel;
-	private static javax.swing.JLabel imgAll;
+	private static javax.swing.JPanel imgPnl;
+	private static javax.swing.JLabel img;
 	private static javax.swing.JLabel lblIdAll;
 	private static javax.swing.JTextField txtIdAll;
 	private static javax.swing.JLabel lblCateAll;
 	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox cbbCateAll;
 	private static javax.swing.JLabel lblTitleAll;
-	private static javax.swing.JTextField txtTitileAll;
+	private static javax.swing.JTextField txtTitleAll;
 	private static javax.swing.JLabel lblValueAll;
 	private static javax.swing.JTextField txtValueAll;
 	private static javax.swing.JLabel lblCountAll;

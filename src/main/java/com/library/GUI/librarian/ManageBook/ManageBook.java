@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.librarian.ManageBook;
 
+import javax.swing.BoxLayout;
+
 public class ManageBook {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		manageBookTab = new javax.swing.JPanel();
@@ -8,6 +10,9 @@ public class ManageBook {
 		handle();
 
 		// Main Frame = Handle + SplitPane (Menu Side + Tabs)
+		BoxLayout bl = new BoxLayout(manageBookTab, BoxLayout.Y_AXIS);
+		manageBookTab.setLayout(bl);
+
 		splitPane = new javax.swing.JSplitPane();
 		javax.swing.GroupLayout gl_table = new javax.swing.GroupLayout(manageBookTab);
 		gl_table.setHorizontalGroup(
@@ -148,23 +153,25 @@ public class ManageBook {
 			cardLayout.show(pnlCards, "pnlAll");
 		});
 
-		// btnBook.addActionListener(e -> {
-		// ManageBookBook.init(manageBookTab);
-		// cardLayout.show(pnlCards, "pnlBook");
-		// });
-		// btnPhoto.addActionListener(e -> {
-		// ManageBookPhoto.init(manageBookTab);
-		// cardLayout.show(pnlCards, "pnlPhoto");
-		// });
-		// btnKltn.addActionListener(e -> {
-		// ManageBookKltn.init(manageBookTab);
-		// cardLayout.show(pnlCards, "pnlKltn");
-		// });
-		// btnOther.addActionListener(e -> {
-		// ManageBookOther.init(manageBookTab);
-		// cardLayout.show(pnlCards, "pnlOther");
-		// });
-		// cardLayout = (CardLayout) pnlCards.getLayout();
+		btnBook.addActionListener(e -> {
+			ManageBookBook.init(manageBookTab, pnlCards);
+			cardLayout.show(pnlCards, "pnlBook");
+		});
+
+		btnPhoto.addActionListener(e -> {
+			ManageBookPhoto.init(manageBookTab, pnlCards);
+			cardLayout.show(pnlCards, "pnlPhoto");
+		});
+
+		btnKltn.addActionListener(e -> {
+			ManageBookKltn.init(manageBookTab, pnlCards);
+			cardLayout.show(pnlCards, "pnlKltn");
+		});
+
+		btnOther.addActionListener(e -> {
+			ManageBookOther.init(manageBookTab, pnlCards);
+			cardLayout.show(pnlCards, "pnlOther");
+		});
 	}
 
 	// Handle
