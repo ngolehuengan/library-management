@@ -14,7 +14,7 @@ public class BookDAO extends ConnectDB {
 // -----------------------------------------------------------------------------
 // Obj doesnt have id nor code
     public int objExistCheck(Book element) {
-        Vector<Vector<Object>> table = executeQuery("SELECT existing_logic FROM BOOK WHERE isbn=" + element.getISBN());
+        Vector<Vector<Object>> table = executeQuery("SELECT existing_logic FROM BOOK WHERE isbn='" + element.getISBN()+"'");
         if (table.isEmpty()) {
             return -1;
         }
@@ -48,7 +48,7 @@ public class BookDAO extends ConnectDB {
     
 // -----------------------------------------------------------------------------    
     public boolean updateTitle(int id, String newData) {
-        int rs = executeUpdate("UPDATE BOOK SET title=" + newData + "WHERE book_id=" + id);
+        int rs = executeUpdate("UPDATE BOOK SET title='" + newData + "' WHERE book_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -92,7 +92,7 @@ public class BookDAO extends ConnectDB {
     }
 
     public boolean updateDescription(int id, String newData) {
-        int rs = executeUpdate("UPDATE BOOK SET description=" + newData + "WHERE book_id=" + id);
+        int rs = executeUpdate("UPDATE BOOK SET description='" + newData + "'WHERE book_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -100,7 +100,7 @@ public class BookDAO extends ConnectDB {
     }
 
     public boolean updateImage(int id, String newData) {
-        int rs = executeUpdate("UPDATE BOOK SET image=" + newData + "WHERE book_id=" + id);
+        int rs = executeUpdate("UPDATE BOOK SET image='" + newData + "' WHERE book_id=" + id);
         if (rs > 0) {
             return true;
         }

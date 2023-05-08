@@ -32,7 +32,7 @@ public class ThesesDAO extends ConnectDB {
 // insert author and category
     
     public boolean insert(Theses e) {
-        int rs = executeUpdate("INSERT INTO THESES(title,specialized_id,defense_year,description,image) VALUES ("
+        int rs = executeUpdate("INSERT INTO THESES(title,spcl_id,defense_year,description,image) VALUES ("
                 + "'" + e.getTitle() + "',"
                       + e.getSpecialized().getID() + ","
                       + e.getDefenseYear() + ","
@@ -48,7 +48,7 @@ public class ThesesDAO extends ConnectDB {
     
 // -----------------------------------------------------------------------------    
     public boolean updateTitle(int id, String newData) {
-        int rs = executeUpdate("UPDATE THESES SET title=" + newData + "WHERE theses_id=" + id);
+        int rs = executeUpdate("UPDATE THESES SET title='" + newData + "' WHERE theses_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -66,7 +66,7 @@ public class ThesesDAO extends ConnectDB {
     }
     
     public boolean updateSpecialized(int id, Specialized newData) {
-        int rs = executeUpdate("UPDATE THESES SET specialized_id=" + newData.getID() + "WHERE theses_id=" + id);
+        int rs = executeUpdate("UPDATE THESES SET spcl_id=" + newData.getID() + "WHERE theses_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -82,7 +82,7 @@ public class ThesesDAO extends ConnectDB {
     }
 
     public boolean updateDescription(int id, String newData) {
-        int rs = executeUpdate("UPDATE THESES SET description=" + newData + "WHERE theses_id=" + id);
+        int rs = executeUpdate("UPDATE THESES SET description='" + newData + "' WHERE theses_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -90,7 +90,7 @@ public class ThesesDAO extends ConnectDB {
     }
 
     public boolean updateImage(int id, String newData) {
-        int rs = executeUpdate("UPDATE THESES SET image=" + newData + "WHERE theses_id=" + id);
+        int rs = executeUpdate("UPDATE THESES SET image='" + newData + "' WHERE theses_id=" + id);
         if (rs > 0) {
             return true;
         }

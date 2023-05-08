@@ -39,7 +39,7 @@ public class OtherDAO extends ConnectDB {
 
 // -----------------------------------------------------------------------------    
     public boolean updateTitle(int id, String newData) {
-        int rs = executeUpdate("UPDATE OTHER SET title=" + newData + "WHERE other_id=" + id);
+        int rs = executeUpdate("UPDATE OTHER SET title='" + newData + "' WHERE other_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -47,7 +47,7 @@ public class OtherDAO extends ConnectDB {
     }
 
     public boolean updateDescription(int id, String newData) {
-        int rs = executeUpdate("UPDATE OTHER SET description=" + newData + "WHERE other_id=" + id);
+        int rs = executeUpdate("UPDATE OTHER SET description='" + newData + "' WHERE other_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -55,7 +55,7 @@ public class OtherDAO extends ConnectDB {
     }
 
     public boolean updateImage(int id, String newData) {
-        int rs = executeUpdate("UPDATE OTHER SET image=" + newData + "WHERE other_id=" + id);
+        int rs = executeUpdate("UPDATE OTHER SET image='" + newData + "' WHERE other_id=" + id);
         if (rs > 0) {
             return true;
         }
