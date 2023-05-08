@@ -10,10 +10,7 @@ import java.util.Vector;
 public class SpecializedDAO extends ConnectDB {
 //--insert--
     public boolean insert(Specialized element) {
-        int rs = executeUpdate("INSERT INTO SPECIALIZED VALUES (" 
-                                    + element.getID() + ",'" 
-                                    + element.getCode() + ",'" 
-                                    + element.getName() + "')");
+        int rs = executeUpdate("INSERT INTO SPECIALIZED VALUES (spcl_name) VALUES (" + element.getName() + "')");
         if (rs > 0) return true;
         return false;
     }   

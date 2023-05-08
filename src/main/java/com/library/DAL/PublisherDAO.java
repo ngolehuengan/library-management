@@ -10,9 +10,7 @@ import java.util.Vector;
 public class PublisherDAO extends ConnectDB {
 //--insert--
     public boolean insert(Publisher element) {
-        int rs = executeUpdate("INSERT INTO PUBLISHER VALUES (" 
-                                    + element.getID() + ",'" 
-                                    + element.getName() + "')");
+        int rs = executeUpdate("INSERT INTO PUBLISHER VALUES (publisher_name) VALUES (" + element.getName() + "')");
         if (rs > 0) return true;
         return false;
     }   

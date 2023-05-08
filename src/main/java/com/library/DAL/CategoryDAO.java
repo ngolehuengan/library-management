@@ -10,9 +10,7 @@ import java.util.Vector;
 public class CategoryDAO extends ConnectDB {
 //--insert--
     public boolean insert(Category element) {
-        int rs = executeUpdate("INSERT INTO CATEGORY VALUES (" 
-                                    + element.getID() + ",'" 
-                                    + element.getName() + "')");
+        int rs = executeUpdate("INSERT INTO CATEGORY VALUES (category_name) VALUES (" + element.getName() + "')");                                 
         if (rs > 0) return true;
         return false;
     }   
@@ -67,5 +65,13 @@ public class CategoryDAO extends ConnectDB {
             list.add(new Category(id,name));
         }
         return list;
+    }
+    
+    public Vector<Category> getByID(Vector<Integer> vt) {
+        Vector<Category> rs = new Vector<>();
+        for (int i = 0; i < vt.size(); i++) {
+            rs.add(getByID(vt.get(i)));
+        }
+        return rs;
     }
 }

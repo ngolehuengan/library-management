@@ -11,19 +11,19 @@ import java.util.Vector;
  * @author ant1006
  */
 public class BookDAO extends ConnectDB {
-//// -----------------------------------------------------------------------------
-//// Obj doesnt have id nor code
-//
-//    public int objExistCheck(Book element) {
-//        Vector<Vector<Object>> table = executeQuery("SELECT existing_logic FROM BOOK WHERE isbn=" + element.getISBN());
-//        if (table.isEmpty()) {
-//            return -1;
-//        }
-//        if ((boolean) table.get(0).get(0)) {
-//            return 1;
-//        }
-//        return 0;
-//    }
+// -----------------------------------------------------------------------------
+// Obj doesnt have id nor code
+
+    public int objExistCheck(Book element) {
+        Vector<Vector<Object>> table = executeQuery("SELECT existing_logic FROM BOOK WHERE isbn=" + element.getISBN());
+        if (table.isEmpty()) {
+            return -1;
+        }
+        if ((boolean) table.get(0).get(0)) {
+            return 1;
+        }
+        return 0;
+    }
 //
 //    public int objCorrectCheck(Book element) {
 //        Vector<Vector<Object>> table = executeQuery("SELECT * FROM BOOK WHERE isbn=" + element.getISBN());
@@ -128,7 +128,14 @@ public class BookDAO extends ConnectDB {
         }
         return false;
     }
-
+    
+    public boolean recover(int id) {
+        int rs = executeUpdate("UPDATE BOOK SET existing_logic=true WHERE book_id=" + id);
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
 // -----------------------------------------------------------------------------
     public Book getByID(int id) {
         Vector<Vector<Object>> table = executeQuery("SELECT * FROM BOOK WHERE book_id=" + id);

@@ -5,7 +5,7 @@ package main.java.com.library.DTO;
  * @author ant1006
  */
 public class Publisher {
-    private int ID;
+    private int ID = 0;
     private String name;
 
     public Publisher() {
