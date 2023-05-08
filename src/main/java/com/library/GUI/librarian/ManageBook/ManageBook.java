@@ -1,7 +1,5 @@
 package main.java.com.library.GUI.librarian.ManageBook;
 
-import javax.swing.BoxLayout;
-
 public class ManageBook {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		manageBookTab = new javax.swing.JPanel();
