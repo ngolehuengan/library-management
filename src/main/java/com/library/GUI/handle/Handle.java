@@ -21,7 +21,7 @@ public class Handle {
     }
 
     public static void removeClickListener(javax.swing.JComponent jComponent) {
-    	java.awt.event.ComponentListener[] cls = jComponent.getComponentListeners();
+        java.awt.event.ComponentListener[] cls = jComponent.getComponentListeners();
         if (cls != null)
             for (java.awt.event.ComponentListener cl : cls)
                 jComponent.removeComponentListener(cl);

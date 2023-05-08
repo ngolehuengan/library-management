@@ -13,14 +13,16 @@ public class ManageBookOther {
 		// ---Details
 		details = new javax.swing.JPanel();
 		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
+				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
+						javax.swing.border.TitledBorder.TOP, null, null));
 
 		// ----Details: Image
 		imgPnl = new javax.swing.JPanel();
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		img = new javax.swing.JLabel(
-				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+				new javax.swing.ImageIcon(
+						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 		img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
 		javax.swing.GroupLayout gl_imgPnl = new javax.swing.GroupLayout(imgPnl);
@@ -56,13 +58,17 @@ public class ManageBookOther {
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(90)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 275,
+										.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.DEFAULT_SIZE, 275,
 												Short.MAX_VALUE)
-										.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 275,
+										.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.DEFAULT_SIZE, 275,
 												Short.MAX_VALUE)
-										.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE,
+										.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
 												275, Short.MAX_VALUE)
-										.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 275,
+										.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.DEFAULT_SIZE, 275,
 												Short.MAX_VALUE))
 								.addGap(126))
 						.addGroup(gl_details.createSequentialGroup()
@@ -74,17 +80,20 @@ public class ManageBookOther {
 								.addContainerGap(195, Short.MAX_VALUE))
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(187)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addContainerGap(217, Short.MAX_VALUE)));
 		gl_details.setVerticalGroup(
 				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(63)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 101,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGap(18)
 								.addComponent(lblTitleOther)
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(txtTitleOther, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+								.addComponent(txtTitleOther, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGap(26)
 								.addComponent(lblDescripOther)
@@ -147,15 +156,16 @@ public class ManageBookOther {
 		ManageBook.add.addActionListener(e -> {
 			Handle.addImageBook(imgPnl, img);
 			img.setIcon(
-					new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
-			
+					new javax.swing.ImageIcon(
+							ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+
 			txtTitleOther.setEnabled(true);
 			txtAreaDescripOther.setEnabled(true);
-			
+
 			txtTitleOther.setText("");
 			txtAreaDescripOther.setText("");
 		});
-		
+
 		ManageBook.edit.addActionListener(e -> {
 			Handle.addImageBook(imgPnl, img);
 
@@ -166,7 +176,8 @@ public class ManageBookOther {
 		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
 			img.setIcon(
-					new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+					new javax.swing.ImageIcon(
+							ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
 			txtTitleOther.setEnabled(false);
 			txtAreaDescripOther.setEnabled(false);

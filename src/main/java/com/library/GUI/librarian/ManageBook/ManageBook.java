@@ -10,9 +10,6 @@ public class ManageBook {
 		handle();
 
 		// Main Frame = Handle + SplitPane (Menu Side + Tabs)
-		BoxLayout bl = new BoxLayout(manageBookTab, BoxLayout.Y_AXIS);
-		manageBookTab.setLayout(bl);
-
 		splitPane = new javax.swing.JSplitPane();
 		javax.swing.GroupLayout gl_table = new javax.swing.GroupLayout(manageBookTab);
 		gl_table.setHorizontalGroup(
