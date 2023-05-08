@@ -1,270 +1,284 @@
 package main.java.com.library.GUI.librarian.ManageBook;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Component;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.table.DefaultTableModel;
-
 import main.java.com.library.GUI.handle.Handle;
 
-public class ManageBookAll {	
-	public static void init(JComponent manageBookTab,CardLayout cardLayout, JComponent pnlCards, JSplitPane splitPane, JButton add, JButton edit, JButton delete, JButton save, JButton reset, JButton view) {
-		pnlCards = new JPanel();
-		splitPane.setRightComponent(pnlCards);
-		pnlCards.setLayout(new CardLayout(0, 0));
-		
-		pnl = new JPanel();
-		pnl.setBackground(new Color(204, 255, 204));
+public class ManageBookAll {
+	@SuppressWarnings({ "unchecked", "serial", "rawtypes" })
+	public static void init(javax.swing.JComponent manageBookTab, javax.swing.JComponent pnlCards) {
+		// --All Documents Tab = Details + Table
+		pnl = new javax.swing.JPanel();
+		pnl.setBackground(new java.awt.Color(204, 255, 204));
 		pnlCards.add(pnl, "pnlAll");
-		
-		details = new JPanel();
+
+		// ---Details
+		details = new javax.swing.JPanel();
 		details.setBorder(
-				new TitledBorder(null, "Thông Tin Chi Tiết", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
+						javax.swing.border.TitledBorder.TOP, null, null));
 
-		JPanel imageAllPanel = new JPanel();
-		imageAllPanel.setBackground(new Color(204, 204, 204));
-		imageAllPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		JLabel imgAll = new JLabel(new ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
-		imgAll.setHorizontalAlignment(SwingConstants.CENTER);
+		// ---Details: Image
+		imageAllPanel = new javax.swing.JPanel();
+		imageAllPanel.setBackground(new java.awt.Color(204, 204, 204));
+		imageAllPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
+		imgAll = new javax.swing.JLabel(new javax.swing.ImageIcon(
+				ManageBookAll.class.getResource("../../../../../resources/images/image-gallery.png")));
+		imgAll.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-		GroupLayout gl_imgPnl = new GroupLayout(imageAllPanel);
+		javax.swing.GroupLayout gl_imgPnl = new javax.swing.GroupLayout(imageAllPanel);
 		gl_imgPnl.setHorizontalGroup(
-				gl_imgPnl.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
+				gl_imgPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(imgAll, GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+								.addComponent(imgAll, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
 								.addContainerGap()));
 		gl_imgPnl.setVerticalGroup(
-				gl_imgPnl.createParallelGroup(Alignment.LEADING)
+				gl_imgPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_imgPnl.createSequentialGroup()
-								.addComponent(imgAll, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+								.addComponent(imgAll, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
 								.addGap(0)));
 		imageAllPanel.setLayout(gl_imgPnl);
 
-		JLabel lblIdAll = new JLabel("Mã tài liệu");
-		JTextField txtIdAll = new JTextField();
+		// ---Details: Info
+		lblIdAll = new javax.swing.JLabel("Mã tài liệu");
+		txtIdAll = new javax.swing.JTextField();
 		txtIdAll.setEnabled(false);
 		txtIdAll.setColumns(10);
 
-		JLabel lblCateAll = new JLabel("Loại tài liệu");
-		JComboBox cbbCateAll = new JComboBox();
-		cbbCateAll.setModel(new DefaultComboBoxModel(new String[] { "" }));
+		lblCateAll = new javax.swing.JLabel("Loại tài liệu");
+		cbbCateAll = new javax.swing.JComboBox();
+		cbbCateAll.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
 		cbbCateAll.setEnabled(false);
 
-		JLabel lblTitleAll = new JLabel("Nhan đề");
-		JTextField txtTitileAll = new JTextField();
+		lblTitleAll = new javax.swing.JLabel("Nhan đề");
+		txtTitileAll = new javax.swing.JTextField();
 		txtTitileAll.setEnabled(false);
 		txtTitileAll.setColumns(10);
 
-		JLabel lblValueAll = new JLabel("Giá trị");
-		JTextField txtValueAll = new JTextField();
+		lblValueAll = new javax.swing.JLabel("Giá trị");
+		txtValueAll = new javax.swing.JTextField();
 		txtValueAll.setEnabled(false);
 		txtValueAll.setColumns(10);
 
-		JLabel lblCountAll = new JLabel("Số lượng");
-		JTextField txtCountAll = new JTextField();
+		lblCountAll = new javax.swing.JLabel("Số lượng");
+		txtCountAll = new javax.swing.JTextField();
 		txtCountAll.setEnabled(false);
 		txtCountAll.setColumns(10);
 
-		JLabel lblNumberAll = new JLabel("Số có sẵn");
-		JTextField txtNumberAll = new JTextField();
+		lblNumberAll = new javax.swing.JLabel("Số có sẵn");
+		txtNumberAll = new javax.swing.JTextField();
 		txtNumberAll.setEnabled(false);
 		txtNumberAll.setColumns(10);
 
-		JCheckBox chckbxInvalidAll = new JCheckBox("Cho phép mượn");
+		chckbxInvalidAll = new javax.swing.JCheckBox("Cho phép mượn");
 		chckbxInvalidAll.setEnabled(false);
 
-		gl_details = new GroupLayout(details);
+		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details.setHorizontalGroup(
-				gl_details.createParallelGroup(Alignment.TRAILING)
+				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addGroup(gl_details.createSequentialGroup()
 												.addGap(81)
-												.addGroup(gl_details.createParallelGroup(Alignment.LEADING, false)
+												.addGroup(gl_details
+														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+																false)
 														.addGroup(gl_details.createSequentialGroup()
-																.addComponent(imageAllPanel, GroupLayout.PREFERRED_SIZE,
-																		87, GroupLayout.PREFERRED_SIZE)
+																.addComponent(imageAllPanel,
+																		javax.swing.GroupLayout.PREFERRED_SIZE,
+																		87, javax.swing.GroupLayout.PREFERRED_SIZE)
 																.addGap(18)
 																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING, false)
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.LEADING,
+																				false)
 																		.addComponent(lblIdAll,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				Short.MAX_VALUE)
 																		.addComponent(lblTitleAll,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				Short.MAX_VALUE)
 																		.addComponent(lblCateAll))
 																.addGap(18)
 																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING)
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.LEADING)
 																		.addComponent(cbbCateAll, 0, 145,
 																				Short.MAX_VALUE)
 																		.addComponent(txtTitileAll,
-																				GroupLayout.DEFAULT_SIZE, 141,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				141,
 																				Short.MAX_VALUE)
 																		.addComponent(txtIdAll,
-																				GroupLayout.DEFAULT_SIZE, 145,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				145,
 																				Short.MAX_VALUE)))
 														.addGroup(gl_details.createSequentialGroup()
 																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING, false)
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.LEADING,
+																				false)
 																		.addComponent(lblValueAll,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				Short.MAX_VALUE)
 																		.addComponent(lblCountAll,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				Short.MAX_VALUE)
 																		.addComponent(lblNumberAll,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				Short.MAX_VALUE))
 																.addGap(18)
 																.addGroup(gl_details
-																		.createParallelGroup(Alignment.LEADING)
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.LEADING)
 																		.addComponent(txtValueAll,
-																				GroupLayout.DEFAULT_SIZE, 180,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				180,
 																				Short.MAX_VALUE)
 																		.addComponent(txtCountAll,
-																				GroupLayout.DEFAULT_SIZE, 180,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				180,
 																				Short.MAX_VALUE)
 																		.addComponent(txtNumberAll,
-																				GroupLayout.DEFAULT_SIZE, 180,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				180,
 																				Short.MAX_VALUE)))
-														.addComponent(chckbxInvalidAll, GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+														.addComponent(chckbxInvalidAll,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 										.addGroup(gl_details.createSequentialGroup()
 												.addGap(174)
-												.addComponent(save, GroupLayout.PREFERRED_SIZE, 58,
-														GroupLayout.PREFERRED_SIZE)
+												.addComponent(ManageBook.save, javax.swing.GroupLayout.PREFERRED_SIZE,
+														58,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
 												.addGap(18)
-												.addComponent(reset)))
+												.addComponent(ManageBook.reset)))
 								.addContainerGap(90, Short.MAX_VALUE)));
 		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(Alignment.LEADING)
+				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(59)
-								.addGroup(gl_details.createParallelGroup(Alignment.TRAILING)
-										.addComponent(imageAllPanel, GroupLayout.PREFERRED_SIZE, 101,
-												GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+										.addComponent(imageAllPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 101,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_details.createSequentialGroup()
-												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+												.addGroup(gl_details
+														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(lblIdAll)
-														.addComponent(txtIdAll, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+														.addComponent(txtIdAll, javax.swing.GroupLayout.PREFERRED_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.PREFERRED_SIZE))
 												.addGap(24)
-												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+												.addGroup(gl_details
+														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(lblCateAll)
-														.addComponent(cbbCateAll, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+														.addComponent(cbbCateAll,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.PREFERRED_SIZE))
 												.addGap(24)
-												.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+												.addGroup(gl_details
+														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(lblTitleAll)
-														.addComponent(txtTitileAll, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+														.addComponent(txtTitileAll,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.PREFERRED_SIZE))))
 								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(lblValueAll)
-										.addComponent(txtValueAll, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(txtValueAll, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(lblCountAll)
-										.addComponent(txtCountAll, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(txtCountAll, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(lblNumberAll)
-										.addComponent(txtNumberAll, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(txtNumberAll, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addComponent(chckbxInvalidAll)
 								.addGap(198)
-								.addGroup(gl_details.createParallelGroup(Alignment.BASELINE)
-										.addComponent(save)
-										.addComponent(reset))
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(ManageBook.save)
+										.addComponent(ManageBook.reset))
 								.addGap(73)));
 		details.setLayout(gl_details);
 
-		scrollPane = new JScrollPane((Component) null);
-		gl_pnl = new GroupLayout(pnl);
+		// ---Table
+		scrollPane = new javax.swing.JScrollPane();
+		javax.swing.GroupLayout gl_pnl = new javax.swing.GroupLayout(pnl);
 		gl_pnl.setHorizontalGroup(
-				gl_pnl.createParallelGroup(Alignment.LEADING)
+				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_pnl.createSequentialGroup()
-								.addComponent(details, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_pnl.createParallelGroup(Alignment.LEADING)
+								.addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 512,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addGroup(gl_pnl.createSequentialGroup()
 												.addGap(6)
-												.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 573,
+												.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 573,
 														Short.MAX_VALUE))
-										.addGroup(Alignment.TRAILING, gl_pnl.createSequentialGroup()
+										.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_pnl
+												.createSequentialGroup()
 												.addGap(261)
-												.addComponent(view, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+												.addComponent(ManageBook.view, javax.swing.GroupLayout.PREFERRED_SIZE,
+														0, Short.MAX_VALUE)
 												.addGap(231)))));
 		gl_pnl.setVerticalGroup(
-				gl_pnl.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, gl_pnl.createSequentialGroup()
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 528, GroupLayout.PREFERRED_SIZE)
+				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+						.addGroup(javax.swing.GroupLayout.Alignment.LEADING, gl_pnl.createSequentialGroup()
+								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 528,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGap(18)
-								.addComponent(view)
+								.addComponent(ManageBook.view)
 								.addContainerGap(62, Short.MAX_VALUE))
-						.addComponent(details, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+						.addComponent(details, javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+		pnl.setLayout(gl_pnl);
 
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new DefaultTableModel(
+		table = new javax.swing.JTable();
+		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+		table.setModel(new javax.swing.table.DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
 						"STT", "LOẠI TÀI LIỆU", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ", "SỐ LƯỢNG", "SỐ CÓ SẴN",
 						"MƯỢN ĐƯỢC"
 				}) {
+			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
 			}
 		});
 		scrollPane.setViewportView(table);
-		pnl.setLayout(gl_pnl);
-		manageBookTab.setLayout(gl_table);
 
-		edit.addActionListener(e -> {
+		// Action
+		ManageBook.add.addActionListener(e -> {
+			Handle.removeClickListener(imageAllPanel);
+			chckbxInvalidAll.setEnabled(false);
+		});
+
+		ManageBook.edit.addActionListener(e -> {
 			Handle.addImageBook(imageAllPanel, imgAll);
 			chckbxInvalidAll.setEnabled(true);
 		});
-		add.addActionListener(e -> {
-			Handle.removeClickListener(imageAllPanel);
-			chckbxInvalidAll.setEnabled(false);
-		});
-		delete.addActionListener(e -> {
+
+		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imageAllPanel);
 			chckbxInvalidAll.setEnabled(false);
 			if (txtCountAll.getText().equals("0")) {
-				imgAll.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
+				imgAll.setIcon(new javax.swing.ImageIcon(
+						ManageBookAll.class.getResource("../../../../../resources/images/image-gallery.png")));
 				txtIdAll.setText("");
 				cbbCateAll.setSelectedIndex(0);
 				txtTitileAll.setText("");
@@ -274,25 +288,40 @@ public class ManageBookAll {
 				chckbxInvalidAll.setSelected(false);
 			}
 		});
-		save.addActionListener(e -> {
+
+		ManageBook.save.addActionListener(e -> {
 			Handle.removeClickListener(imageAllPanel);
 			chckbxInvalidAll.setEnabled(false);
 		});
-		reset.addActionListener(e -> {
+
+		ManageBook.reset.addActionListener(e -> {
 			if (chckbxInvalidAll.isEnabled()) {
-				imgAll.setIcon(new ImageIcon(
-						"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\images\\image-gallery.png"));
+				imgAll.setIcon(new javax.swing.ImageIcon(
+						ManageBookAll.class.getResource("../../../../../resources/images/image-gallery.png")));
 				chckbxInvalidAll.setSelected(false);
 			}
 		});
 	}
-	
+
 	// Private
-	private static JPanel pnl;
-	private static GroupLayout gl_pnl;
-	private static JPanel details;
-	private static GroupLayout gl_details;
-	private static JScrollPane scrollPane;
-	private static JTable table;
-	private static GroupLayout gl_table;
+	private static javax.swing.JPanel pnl;
+	private static javax.swing.JPanel details;
+	private static javax.swing.JPanel imageAllPanel;
+	private static javax.swing.JLabel imgAll;
+	private static javax.swing.JLabel lblIdAll;
+	private static javax.swing.JTextField txtIdAll;
+	private static javax.swing.JLabel lblCateAll;
+	@SuppressWarnings("rawtypes")
+	private static javax.swing.JComboBox cbbCateAll;
+	private static javax.swing.JLabel lblTitleAll;
+	private static javax.swing.JTextField txtTitileAll;
+	private static javax.swing.JLabel lblValueAll;
+	private static javax.swing.JTextField txtValueAll;
+	private static javax.swing.JLabel lblCountAll;
+	private static javax.swing.JTextField txtCountAll;
+	private static javax.swing.JLabel lblNumberAll;
+	private static javax.swing.JTextField txtNumberAll;
+	private static javax.swing.JCheckBox chckbxInvalidAll;
+	private static javax.swing.JScrollPane scrollPane;
+	private static javax.swing.JTable table;
 }

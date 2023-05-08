@@ -31,6 +31,7 @@ public class ManageBook {
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 417, Short.MAX_VALUE)
 								.addContainerGap()));
+		manageBookTab.setLayout(gl_table);
 
 		// Menu Side - Left
 		menuSide = new javax.swing.JPanel();
@@ -124,7 +125,7 @@ public class ManageBook {
 								.addGap(29)));
 		details.setLayout(gl_details);
 
-		// --Table
+		// ---Table
 		scrollPane = new javax.swing.JScrollPane();
 		javax.swing.GroupLayout gl_pnl = new javax.swing.GroupLayout(pnl);
 		gl_pnl.setHorizontalGroup(
@@ -140,11 +141,10 @@ public class ManageBook {
 						.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING,
 								javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE));
 		pnl.setLayout(gl_pnl);
-		manageBookTab.setLayout(gl_table);
 
 		// Action Changed Tab
 		btnAll.addActionListener(e -> {
-			ManageBookAll.init(manageBookTab, pnlCards, add, edit, delete, save, reset, view);
+			ManageBookAll.init(manageBookTab, pnlCards);
 			cardLayout.show(pnlCards, "pnlAll");
 		});
 
@@ -167,6 +167,7 @@ public class ManageBook {
 		// cardLayout = (CardLayout) pnlCards.getLayout();
 	}
 
+	// Handle
 	private static void handle() {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
@@ -265,6 +266,7 @@ public class ManageBook {
 
 	// Private
 	private static javax.swing.JPanel manageBookTab;
+	private static javax.swing.JPanel handle;
 	private static javax.swing.JSplitPane splitPane;
 	private static javax.swing.JPanel menuSide;
 	private static javax.swing.JButton btnAll;
@@ -278,16 +280,15 @@ public class ManageBook {
 	private static javax.swing.JPanel details;
 	private static javax.swing.JScrollPane scrollPane;
 
-	private static javax.swing.JPanel handle;
-	private static javax.swing.JButton add;
-	private static javax.swing.JButton edit;
-	private static javax.swing.JButton delete;
-	private static javax.swing.JButton search;
-	private static javax.swing.JTextField searchField;
-	private static javax.swing.JButton download;
-	private static javax.swing.JButton upload;
-	private static javax.swing.JButton print;
-	private static javax.swing.JButton save;
-	private static javax.swing.JButton reset;
-	private static javax.swing.JButton view;
+	public static javax.swing.JButton add;
+	public static javax.swing.JButton edit;
+	public static javax.swing.JButton delete;
+	public static javax.swing.JButton search;
+	public static javax.swing.JTextField searchField;
+	public static javax.swing.JButton download;
+	public static javax.swing.JButton upload;
+	public static javax.swing.JButton print;
+	public static javax.swing.JButton save;
+	public static javax.swing.JButton reset;
+	public static javax.swing.JButton view;
 }
