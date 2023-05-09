@@ -1,6 +1,7 @@
 package main.java.com.library.GUI;
 
-@SuppressWarnings("serial")
+import java.awt.Toolkit;
+
 public class Login extends javax.swing.JFrame {
 	/**
 	 * Create the frame.
@@ -12,7 +13,8 @@ public class Login extends javax.swing.JFrame {
 	private void init() {
 		// ----------Frame----------
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(550, 250, 396, 256);
+		setBounds((Toolkit.getDefaultToolkit().getScreenSize().width - 396) / 2,
+				(Toolkit.getDefaultToolkit().getScreenSize().height - 256) / 2, 396, 256);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit()
 				.getImage(this.getClass().getResource("../../../resources/icons/sgu-logo.png")));
 		setTitle("CHÀO MỪNG ĐẾN VỚI THƯ VIỆN SGU");
@@ -36,10 +38,10 @@ public class Login extends javax.swing.JFrame {
 		mainPnl.setLayout(new java.awt.BorderLayout(0, 0));
 		mainPnl.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(mainPnl, java.awt.BorderLayout.CENTER);
-		
+
 		javax.swing.JSeparator separator = new javax.swing.JSeparator();
 		mainPnl.add(separator, java.awt.BorderLayout.NORTH);
-		
+
 		separator = new javax.swing.JSeparator();
 		mainPnl.add(separator, java.awt.BorderLayout.SOUTH);
 
@@ -47,10 +49,10 @@ public class Login extends javax.swing.JFrame {
 		mainFormPnl = new javax.swing.JPanel();
 		mainFormPnl.setBackground(new java.awt.Color(204, 255, 204));
 		mainPnl.add(mainFormPnl, java.awt.BorderLayout.CENTER);
-		
+
 		java.awt.GridBagLayout gbl_mainFormPnl = new java.awt.GridBagLayout();
 		mainFormPnl.setLayout(gbl_mainFormPnl);
-		
+
 		lblUsername = new javax.swing.JLabel("Tên tài khoản");
 		lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 		java.awt.GridBagConstraints gbc_lblUsername = new java.awt.GridBagConstraints();
@@ -59,7 +61,7 @@ public class Login extends javax.swing.JFrame {
 		gbc_lblUsername.gridx = 0;
 		gbc_lblUsername.gridy = 0;
 		mainFormPnl.add(lblUsername, gbc_lblUsername);
-		
+
 		txtUsername = new javax.swing.JTextField();
 		java.awt.GridBagConstraints gbc_txtUsername = new java.awt.GridBagConstraints();
 		gbc_txtUsername.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -68,7 +70,7 @@ public class Login extends javax.swing.JFrame {
 		gbc_txtUsername.gridy = 0;
 		mainFormPnl.add(txtUsername, gbc_txtUsername);
 		txtUsername.setColumns(15);
-		
+
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
 		lblPwd.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 		java.awt.GridBagConstraints gbc_lblPwd = new java.awt.GridBagConstraints();
@@ -77,7 +79,7 @@ public class Login extends javax.swing.JFrame {
 		gbc_lblPwd.gridx = 0;
 		gbc_lblPwd.gridy = 1;
 		mainFormPnl.add(lblPwd, gbc_lblPwd);
-		
+
 		txtPwd = new javax.swing.JPasswordField();
 		java.awt.GridBagConstraints gbc_txtPwd = new java.awt.GridBagConstraints();
 		gbc_txtPwd.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -85,7 +87,7 @@ public class Login extends javax.swing.JFrame {
 		gbc_txtPwd.gridx = 1;
 		gbc_txtPwd.gridy = 1;
 		mainFormPnl.add(txtPwd, gbc_txtPwd);
-		
+
 		tglbtnShowHidePwd = new javax.swing.JToggleButton(
 				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/eye.png")));
 		tglbtnShowHidePwd.setSelectedIcon(
@@ -95,12 +97,12 @@ public class Login extends javax.swing.JFrame {
 		gbc_tglbtnShowHidePwd.gridx = 2;
 		gbc_tglbtnShowHidePwd.gridy = 1;
 		mainFormPnl.add(tglbtnShowHidePwd, gbc_tglbtnShowHidePwd);
-		
+
 		// Bottom Panel
 		botPnl = new javax.swing.JPanel();
 		botPnl.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(botPnl, java.awt.BorderLayout.SOUTH);
-		
+
 		btnLogin = new javax.swing.JButton("Đăng nhập");
 		btnLogin.setForeground(new java.awt.Color(255, 255, 255));
 		btnLogin.setBackground(new java.awt.Color(0, 153, 51));
@@ -113,7 +115,7 @@ public class Login extends javax.swing.JFrame {
 
 		// Action
 		this.getRootPane().setDefaultButton(btnLogin);
-		
+
 		tglbtnShowHidePwd.addActionListener(e -> {
 			if (tglbtnShowHidePwd.isSelected())
 				txtPwd.setEchoChar((char) 0);
@@ -132,6 +134,7 @@ public class Login extends javax.swing.JFrame {
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
+				// check role
 				main.java.com.library.GUI.role.admin.MainFrame frame = new main.java.com.library.GUI.role.admin.MainFrame();
 				frame.setVisible(true);
 				frame.setExtendedState(MAXIMIZED_BOTH);

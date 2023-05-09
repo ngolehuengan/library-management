@@ -3,39 +3,18 @@ package main.java.com.library.GUI.forms.ManageBook;
 public class ManageBook {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		manageBookTab = new javax.swing.JPanel();
-		manageBookTab.setBackground(new java.awt.Color(204, 255, 204));
+		manageBookTab.setLayout(new java.awt.BorderLayout(0, 0));
 		tabbedPane.addTab("Quản Lý Tài Liệu", null, manageBookTab, null);
 		handle();
 
 		// Main Frame = Handle + SplitPane (Menu Side + Tabs)
 		splitPane = new javax.swing.JSplitPane();
-		javax.swing.GroupLayout gl_table = new javax.swing.GroupLayout(manageBookTab);
-		gl_table.setHorizontalGroup(
-				gl_table.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addGroup(gl_table.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(gl_table.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(handle, javax.swing.GroupLayout.Alignment.LEADING,
-												javax.swing.GroupLayout.DEFAULT_SIZE, 1225,
-												Short.MAX_VALUE)
-										.addComponent(splitPane, javax.swing.GroupLayout.Alignment.LEADING,
-												javax.swing.GroupLayout.PREFERRED_SIZE, 1215,
-												Short.MAX_VALUE))
-								.addGap(10)));
-		gl_table.setVerticalGroup(
-				gl_table.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_table.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(handle, javax.swing.GroupLayout.PREFERRED_SIZE, 67,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 417, Short.MAX_VALUE)
-								.addContainerGap()));
-		manageBookTab.setLayout(gl_table);
+		manageBookTab.add(handle, java.awt.BorderLayout.NORTH);
+		manageBookTab.add(splitPane, java.awt.BorderLayout.CENTER);
 
 		// Menu Side - Left
 		menuSide = new javax.swing.JPanel();
-		menuSide.setBackground(new java.awt.Color(0, 153, 51));
+		menuSide.setLayout(new java.awt.GridLayout(5, 1));
 		splitPane.setLeftComponent(menuSide);
 
 		btnAll = new javax.swing.JButton("TẤT CẢ");
@@ -58,89 +37,19 @@ public class ManageBook {
 		btnOther.setForeground(new java.awt.Color(255, 255, 255));
 		btnOther.setBackground(new java.awt.Color(0, 153, 51));
 
-		javax.swing.GroupLayout gl_menuSide = new javax.swing.GroupLayout(menuSide);
-		gl_menuSide.setHorizontalGroup(
-				gl_menuSide.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_menuSide.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(gl_menuSide.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(btnBook, javax.swing.GroupLayout.Alignment.TRAILING,
-												javax.swing.GroupLayout.DEFAULT_SIZE, 107,
-												Short.MAX_VALUE)
-										.addComponent(btnPhoto, javax.swing.GroupLayout.Alignment.TRAILING,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(btnKltn, javax.swing.GroupLayout.PREFERRED_SIZE, 107,
-												Short.MAX_VALUE)
-										.addComponent(btnOther, javax.swing.GroupLayout.DEFAULT_SIZE, 107,
-												Short.MAX_VALUE)
-										.addComponent(btnAll, javax.swing.GroupLayout.DEFAULT_SIZE, 107,
-												Short.MAX_VALUE))
-								.addContainerGap()));
-		gl_menuSide.setVerticalGroup(
-				gl_menuSide.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_menuSide.createSequentialGroup()
-								.addGap(130)
-								.addComponent(btnAll)
-								.addGap(18)
-								.addComponent(btnBook)
-								.addGap(18)
-								.addComponent(btnPhoto)
-								.addGap(18)
-								.addComponent(btnKltn)
-								.addGap(18)
-								.addComponent(btnOther)
-								.addGap(108)));
-		menuSide.setLayout(gl_menuSide);
+		menuSide.add(btnAll);
+		menuSide.add(btnBook);
+		menuSide.add(btnPhoto);
+		menuSide.add(btnKltn);
+		menuSide.add(btnOther);
 
 		// MenuSide Tabs - Right
 		cardLayout = new java.awt.CardLayout();
 		pnlCards = new javax.swing.JPanel();
-		splitPane.setRightComponent(pnlCards);
 		pnlCards.setLayout(cardLayout);
+		splitPane.setRightComponent(pnlCards);
 
-		// --Default Tab = Details + Table
-		pnl = new javax.swing.JPanel();
-		pnl.setBackground(new java.awt.Color(204, 255, 204));
-		pnlCards.add(pnl, "pnlDefault");
-
-		// ---Details
-		details = new javax.swing.JPanel();
-		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
-
-		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
-		gl_details.setHorizontalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGap(177)
-								.addGap(18)
-								.addContainerGap(179, Short.MAX_VALUE)));
-		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addGroup(gl_details.createSequentialGroup()
-								.addContainerGap(513, Short.MAX_VALUE)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE))
-								.addGap(29)));
-		details.setLayout(gl_details);
-
-		// ---Table
-		scrollPane = new javax.swing.JScrollPane();
-		javax.swing.GroupLayout gl_pnl = new javax.swing.GroupLayout(pnl);
-		gl_pnl.setHorizontalGroup(
-				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_pnl.createSequentialGroup()
-								.addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 512,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)));
-		gl_pnl.setVerticalGroup(
-				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addComponent(details, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-						.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING,
-								javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE));
-		pnl.setLayout(gl_pnl);
+		ManageBookAll.init(manageBookTab, pnlCards);
 
 		// Action Changed Tab
 		btnAll.addActionListener(e -> {
@@ -268,7 +177,6 @@ public class ManageBook {
 
 	// Private
 	private static javax.swing.JPanel manageBookTab;
-	private static javax.swing.JPanel handle;
 	private static javax.swing.JSplitPane splitPane;
 	private static javax.swing.JPanel menuSide;
 	private static javax.swing.JButton btnAll;
@@ -278,10 +186,8 @@ public class ManageBook {
 	private static javax.swing.JButton btnOther;
 	private static java.awt.CardLayout cardLayout;
 	private static javax.swing.JPanel pnlCards;
-	private static javax.swing.JPanel pnl;
-	private static javax.swing.JPanel details;
-	private static javax.swing.JScrollPane scrollPane;
 
+	private static javax.swing.JPanel handle;
 	public static javax.swing.JButton add;
 	public static javax.swing.JButton edit;
 	public static javax.swing.JButton delete;

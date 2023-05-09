@@ -6,39 +6,31 @@ public class ManageBookKltn {
 	@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
 	static void init(javax.swing.JComponent manageKltnTab, javax.swing.JComponent pnlCards) {
 		// --KLTN Documents Tab = Details + Table
-		pnl = new javax.swing.JPanel();
-		pnl.setBackground(new java.awt.Color(204, 255, 204));
-		pnlCards.add(pnl, "pnlKltn");
+		splitPane = new javax.swing.JSplitPane();
+		pnlCards.add(splitPane, "pnlKltn");
 
 		// ---Details
 		details = new javax.swing.JPanel();
+		splitPane.setLeftComponent(details);
 		details.setBorder(
 				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
 						javax.swing.border.TitledBorder.TOP, null, null));
+		details.setLayout(new java.awt.BorderLayout(0, 0));
+		
+		// ----Details: Info
+				detailsInfo = new javax.swing.JPanel();
+				details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
-		// ----Details: Image
+		// -----Details: Image
 		imgPnl = new javax.swing.JPanel();
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
+		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
 		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
 				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
-		img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
-		javax.swing.GroupLayout gl_imgPnl = new javax.swing.GroupLayout(imgPnl);
-		gl_imgPnl.setHorizontalGroup(
-				gl_imgPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_imgPnl.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-								.addContainerGap()));
-		gl_imgPnl.setVerticalGroup(
-				gl_imgPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_imgPnl.createSequentialGroup()
-								.addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-								.addGap(0)));
-		imgPnl.setLayout(gl_imgPnl);
-
-		// ---Details: Info
+		// -----Details: InfoForm
 		lblTitleKltn = new javax.swing.JLabel("Nhan đề");
 		txtTitleKltn = new javax.swing.JTextField();
 		txtTitleKltn.setEnabled(false);
@@ -66,13 +58,13 @@ public class ManageBookKltn {
 		scrollPane = new javax.swing.JScrollPane();
 		scrollPane.setViewportView(txtAreaDescripKltn);
 
-		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
+		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(
 				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
-								.addGap(81)
+								.addGap(80)
 								.addGroup(gl_details
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addGroup(gl_details.createSequentialGroup()
 												.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
 														javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -88,13 +80,12 @@ public class ManageBookKltn {
 														.addComponent(lblAuthorKltn,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addGap(19)
+												.addGap(18)
 												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-																false)
+														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 														.addComponent(txtAuthorKltn)
 														.addComponent(txtTitleKltn,
-																javax.swing.GroupLayout.DEFAULT_SIZE, 132,
+																javax.swing.GroupLayout.DEFAULT_SIZE, 145,
 																Short.MAX_VALUE)
 														.addComponent(cbbCateKltn,
 																javax.swing.GroupLayout.Alignment.TRAILING, 0,
@@ -108,22 +99,16 @@ public class ManageBookKltn {
 												.addGroup(gl_details
 														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 														.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE,
-																225,
+																180,
 																Short.MAX_VALUE)
-														.addGroup(gl_details.createSequentialGroup()
-																.addComponent(ManageBook.save,
-																		javax.swing.GroupLayout.PREFERRED_SIZE, 58,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(18)
-																.addComponent(ManageBook.reset))
-														.addComponent(cbbYearKltn, 0, 249, Short.MAX_VALUE))))
-								.addContainerGap(89, Short.MAX_VALUE)));
+														.addComponent(cbbYearKltn, 0, 180, Short.MAX_VALUE))))
+								.addGap(80)));
 		gl_details.setVerticalGroup(
 				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(gl_details.createSequentialGroup()
-								.addGap(63)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 101,
+								.addGap(60)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details
@@ -133,7 +118,7 @@ public class ManageBookKltn {
 																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(18)
+												.addGap(24)
 												.addGroup(gl_details
 														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(lblAuthorKltn)
@@ -141,7 +126,7 @@ public class ManageBookKltn {
 																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(18)
+												.addGap(24)
 												.addGroup(gl_details
 														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(lblCateKltn)
@@ -158,44 +143,23 @@ public class ManageBookKltn {
 								.addGap(18)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(lblDescripKltn)
-										.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 118,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(184)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(ManageBook.save)
-										.addComponent(ManageBook.reset))
-								.addGap(301)));
-		details.setLayout(gl_details);
+										.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+												javax.swing.GroupLayout.PREFERRED_SIZE))));
+		detailsInfo.setLayout(gl_details);
 
+		// -----Details: Handle
+				detailsHandle = new javax.swing.JPanel();
+				detailsHandle.add(ManageBook.save);
+				detailsHandle.add(ManageBook.reset);
+				details.add(detailsHandle, java.awt.BorderLayout.SOUTH);
+				
 		// ---Table
+		tablePnl = new javax.swing.JPanel();
+		splitPane.setRightComponent(tablePnl);
+		tablePnl.setLayout(new java.awt.BorderLayout(0, 0));
+		
 		scrollPane = new javax.swing.JScrollPane();
-		javax.swing.GroupLayout gl_pnl = new javax.swing.GroupLayout(pnl);
-		gl_pnl.setHorizontalGroup(
-				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_pnl.createSequentialGroup()
-								.addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 512,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addGroup(gl_pnl.createSequentialGroup()
-												.addGap(6)
-												.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 573,
-														Short.MAX_VALUE))
-										.addGroup(gl_pnl.createSequentialGroup()
-												.addGap(260)
-												.addComponent(ManageBook.view, javax.swing.GroupLayout.PREFERRED_SIZE,
-														0, Short.MAX_VALUE)
-												.addGap(245)))));
-		gl_pnl.setVerticalGroup(
-				gl_pnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_pnl.createSequentialGroup()
-								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 536,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(ManageBook.view)
-								.addContainerGap(188, Short.MAX_VALUE))
-						.addComponent(details, javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-		pnl.setLayout(gl_pnl);
+		tablePnl.add(scrollPane, java.awt.BorderLayout.CENTER);
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -212,6 +176,11 @@ public class ManageBookKltn {
 		});
 		scrollPane.setViewportView(table);
 
+		tableHandle = new javax.swing.JPanel();
+		tableHandle.add(ManageBook.view);
+		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
+		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
+		
 		// Action
 		ManageBook.add.addActionListener(e -> {
 			Handle.addImageBook(imgPnl, img);
@@ -284,8 +253,9 @@ public class ManageBookKltn {
 	}
 
 	// Private
-	private static javax.swing.JPanel pnl;
+	private static javax.swing.JSplitPane splitPane;
 	private static javax.swing.JPanel details;
+	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JPanel imgPnl;
 	private static javax.swing.JLabel img;
 	private static javax.swing.JLabel lblTitleKltn;
@@ -300,6 +270,9 @@ public class ManageBookKltn {
 	private static javax.swing.JComboBox cbbYearKltn;
 	private static javax.swing.JLabel lblDescripKltn;
 	private static javax.swing.JTextArea txtAreaDescripKltn;
+	private static javax.swing.JPanel detailsHandle;
+	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JScrollPane scrollPane;
 	private static javax.swing.JTable table;
+	private static javax.swing.JPanel tableHandle;	
 }

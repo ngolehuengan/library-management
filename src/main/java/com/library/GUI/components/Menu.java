@@ -1,6 +1,7 @@
 package main.java.com.library.GUI.components;
 
 import main.java.com.library.GUI.forms.ManageBook.ManageBook;
+import main.java.com.library.GUI.forms.ManageInventory.ManageInventory;
 
 public class Menu {
 	public static void init(javax.swing.JComponent contentPane) {
@@ -10,12 +11,10 @@ public class Menu {
 		contentPane.add(tabbedPane, java.awt.BorderLayout.CENTER);
 
 		// Tabs
-		statisticalTab = new javax.swing.JPanel();
-		tabbedPane.addTab("Quy Định", null, statisticalTab, null);
+//		statisticalTab = new javax.swing.JPanel();
+//		tabbedPane.addTab("Quy Định", null, statisticalTab, null);
 		
-		statisticalTab = new javax.swing.JPanel();
-		tabbedPane.addTab("Quản Lý Kho", null, statisticalTab, null);
-		
+		ManageInventory.init(tabbedPane);
 		ManageBook.init(tabbedPane);
 		
 		statisticalTab = new javax.swing.JPanel();
