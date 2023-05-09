@@ -60,91 +60,72 @@ public class ManageBookKltn {
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGap(80)
-								.addGroup(gl_details
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(gl_details.createSequentialGroup()
-												.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addGap(18)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(lblCateKltn, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(lblTitleKltn,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(lblAuthorKltn,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addGap(18)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(txtAuthorKltn)
-														.addComponent(txtTitleKltn,
-																javax.swing.GroupLayout.DEFAULT_SIZE, 145,
-																Short.MAX_VALUE)
-														.addComponent(cbbCateKltn,
-																javax.swing.GroupLayout.Alignment.TRAILING, 0,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-										.addGroup(gl_details.createSequentialGroup()
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(lblYearKltn)
-														.addComponent(lblDescripKltn))
-												.addGap(18)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE,
-																180,
-																Short.MAX_VALUE)
-														.addComponent(cbbYearKltn, 0, 180, Short.MAX_VALUE))))
-								.addGap(80)));
-		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGap(60)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+				gl_details.createSequentialGroup()
+						.addGap(80)
+						.addGroup(gl_details
+								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(gl_details.createSequentialGroup()
+										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_details.createSequentialGroup()
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(lblTitleKltn)
-														.addComponent(txtTitleKltn,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(24)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(lblAuthorKltn)
-														.addComponent(txtAuthorKltn,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(24)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(lblCateKltn)
-														.addComponent(cbbCateKltn,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))))
-								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblYearKltn)
-										.addComponent(cbbYearKltn, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(lblDescripKltn)
-										.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-												javax.swing.GroupLayout.PREFERRED_SIZE))));
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+														false)
+												.addComponent(lblCateKltn)
+												.addComponent(lblTitleKltn)
+												.addComponent(lblAuthorKltn))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(txtAuthorKltn)
+												.addComponent(txtTitleKltn,
+														javax.swing.GroupLayout.DEFAULT_SIZE, 145,
+														Short.MAX_VALUE)
+												.addComponent(cbbCateKltn,
+														javax.swing.GroupLayout.Alignment.TRAILING, 0, 145,
+														Short.MAX_VALUE)))
+								.addGroup(gl_details.createSequentialGroup()
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(lblYearKltn)
+												.addComponent(lblDescripKltn))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 180,
+														Short.MAX_VALUE)
+												.addComponent(cbbYearKltn, 0, 180, Short.MAX_VALUE))))
+						.addGap(80));
+		gl_details.setVerticalGroup(
+				gl_details.createSequentialGroup()
+						.addGap(80)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_details.createSequentialGroup()
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(lblTitleKltn)
+												.addComponent(txtTitleKltn))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(lblAuthorKltn)
+												.addComponent(txtAuthorKltn))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(lblCateKltn)
+												.addComponent(cbbCateKltn))))
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(lblYearKltn)
+								.addComponent(cbbYearKltn))
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(lblDescripKltn)
+								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+										javax.swing.GroupLayout.PREFERRED_SIZE)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

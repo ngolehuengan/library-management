@@ -66,104 +66,81 @@ public class ManageBookAll {
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGap(80)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(gl_details.createSequentialGroup()
-												.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addGap(18)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(lblIdAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(lblTitleAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(lblCateAll))
-												.addGap(18)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(cbbCateAll, 0, 145, Short.MAX_VALUE)
-														.addComponent(txtTitleAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																145, Short.MAX_VALUE)
-														.addComponent(txtIdAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																145, Short.MAX_VALUE)))
-										.addGroup(gl_details.createSequentialGroup()
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(lblValueAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(lblCountAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(lblNumberAll,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addGap(18)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(txtValueAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																180, Short.MAX_VALUE)
-														.addComponent(txtCountAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-																180, Short.MAX_VALUE)
-														.addComponent(txtNumberAll,
-																javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-																Short.MAX_VALUE)))
-										.addComponent(chckbxInvalidAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-								.addGap(80)));
-		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGap(60)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+				gl_details.createSequentialGroup()
+						.addGap(80)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(gl_details.createSequentialGroup()
+										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_details.createSequentialGroup()
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(lblIdAll)
-														.addComponent(txtIdAll, javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(24)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(lblCateAll)
-														.addComponent(cbbCateAll,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(24)
-												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(lblTitleAll)
-														.addComponent(txtTitleAll,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))))
-								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblValueAll)
-										.addComponent(txtValueAll, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblCountAll)
-										.addComponent(txtCountAll, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(18)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblNumberAll)
-										.addComponent(txtNumberAll, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(18)
-								.addComponent(chckbxInvalidAll)));
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+														false)
+												.addComponent(lblIdAll)
+												.addComponent(lblTitleAll)
+												.addComponent(lblCateAll))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(cbbCateAll, 0, 145, Short.MAX_VALUE)
+												.addComponent(txtTitleAll, javax.swing.GroupLayout.DEFAULT_SIZE,
+														145, Short.MAX_VALUE)
+												.addComponent(txtIdAll, javax.swing.GroupLayout.DEFAULT_SIZE,
+														145, Short.MAX_VALUE)))
+								.addGroup(gl_details.createSequentialGroup()
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+														false)
+												.addComponent(lblValueAll)
+												.addComponent(lblCountAll)
+												.addComponent(lblNumberAll))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(txtValueAll, javax.swing.GroupLayout.DEFAULT_SIZE,
+														180, Short.MAX_VALUE)
+												.addComponent(txtCountAll, javax.swing.GroupLayout.DEFAULT_SIZE,
+														180, Short.MAX_VALUE)
+												.addComponent(txtNumberAll,
+														javax.swing.GroupLayout.DEFAULT_SIZE, 180,
+														Short.MAX_VALUE)))
+								.addComponent(chckbxInvalidAll))
+						.addGap(80));
+		gl_details.setVerticalGroup(
+				gl_details.createSequentialGroup()
+						.addGap(80)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_details.createSequentialGroup()
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(lblIdAll)
+												.addComponent(txtIdAll))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(lblCateAll)
+												.addComponent(cbbCateAll))
+										.addGap(24)
+										.addGroup(gl_details
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(lblTitleAll)
+												.addComponent(txtTitleAll))))
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(lblValueAll)
+								.addComponent(txtValueAll))
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(lblCountAll)
+								.addComponent(txtCountAll))
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(lblNumberAll)
+								.addComponent(txtNumberAll))
+						.addGap(24)
+						.addComponent(chckbxInvalidAll));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

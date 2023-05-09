@@ -44,10 +44,10 @@ public class ManageBook {
 		menuSide.add(btnOther);
 
 		// MenuSide Tabs - Right
-		cardLayout = new java.awt.CardLayout();
 		pnlCards = new javax.swing.JPanel();
-		pnlCards.setLayout(cardLayout);
 		splitPane.setRightComponent(pnlCards);
+		cardLayout = new java.awt.CardLayout();
+		pnlCards.setLayout(cardLayout);
 
 		ManageBookAll.init(manageBookTab, pnlCards);
 
@@ -149,7 +149,6 @@ public class ManageBook {
 		view = new javax.swing.JButton("Xem");
 		view.setForeground(new java.awt.Color(255, 255, 255));
 		view.setBackground(new java.awt.Color(0, 153, 51));
-
 	}
 
 	// Private
