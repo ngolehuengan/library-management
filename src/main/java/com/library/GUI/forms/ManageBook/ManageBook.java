@@ -83,6 +83,10 @@ public class ManageBook {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
 				javax.swing.border.TitledBorder.TOP, null, null));
+		handle.setLayout(new java.awt.BorderLayout(0, 0));
+
+		handleBase = new javax.swing.JPanel();
+		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
 		add = new javax.swing.JButton("Thêm");
 		add.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +104,16 @@ public class ManageBook {
 		search.setBackground(new java.awt.Color(0, 153, 51));
 		search.setForeground(new java.awt.Color(255, 255, 255));
 		searchField = new javax.swing.JTextField();
-		searchField.setColumns(10);
+		searchField.setColumns(20);
+
+		handleBase.add(add);
+		handleBase.add(edit);
+		handleBase.add(delete);
+		handleBase.add(searchField);
+		handleBase.add(search);
+
+		handleOpt = new javax.swing.JPanel();
+		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
 		print = new javax.swing.JButton("  In");
 		print.setIcon(
@@ -121,6 +134,10 @@ public class ManageBook {
 		download.setForeground(new java.awt.Color(255, 255, 255));
 		download.setBackground(new java.awt.Color(0, 153, 51));
 
+		handleOpt.add(upload);
+		handleOpt.add(download);
+		handleOpt.add(print);
+
 		save = new javax.swing.JButton("Lưu");
 		save.setBackground(new java.awt.Color(0, 153, 51));
 		save.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,46 +150,6 @@ public class ManageBook {
 		view.setForeground(new java.awt.Color(255, 255, 255));
 		view.setBackground(new java.awt.Color(0, 153, 51));
 
-		javax.swing.GroupLayout gl_handle = new javax.swing.GroupLayout(handle);
-		gl_handle.setHorizontalGroup(
-				gl_handle.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_handle.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(add)
-								.addGap(18)
-								.addComponent(edit)
-								.addGap(18)
-								.addComponent(delete)
-								.addGap(18)
-								.addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 262,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(search)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312,
-										Short.MAX_VALUE)
-								.addComponent(download)
-								.addGap(18)
-								.addComponent(upload)
-								.addGap(18)
-								.addComponent(print)
-								.addContainerGap()));
-		gl_handle.setVerticalGroup(
-				gl_handle.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_handle.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(gl_handle.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(add)
-										.addComponent(edit)
-										.addComponent(delete)
-										.addComponent(print)
-										.addComponent(search)
-										.addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(upload)
-										.addComponent(download))
-								.addContainerGap(20, Short.MAX_VALUE)));
-		handle.setLayout(gl_handle);
 	}
 
 	// Private
@@ -188,6 +165,8 @@ public class ManageBook {
 	private static javax.swing.JPanel pnlCards;
 
 	private static javax.swing.JPanel handle;
+	private static javax.swing.JPanel handleBase;
+	private static javax.swing.JPanel handleOpt;
 	public static javax.swing.JButton add;
 	public static javax.swing.JButton edit;
 	public static javax.swing.JButton delete;

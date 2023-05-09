@@ -16,10 +16,10 @@ public class ManageBookKltn {
 				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
 						javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
-		
+
 		// ----Details: Info
-				detailsInfo = new javax.swing.JPanel();
-				details.add(detailsInfo, java.awt.BorderLayout.CENTER);
+		detailsInfo = new javax.swing.JPanel();
+		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		// -----Details: Image
 		imgPnl = new javax.swing.JPanel();
@@ -148,16 +148,16 @@ public class ManageBookKltn {
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
-				detailsHandle = new javax.swing.JPanel();
-				detailsHandle.add(ManageBook.save);
-				detailsHandle.add(ManageBook.reset);
-				details.add(detailsHandle, java.awt.BorderLayout.SOUTH);
-				
+		detailsHandle = new javax.swing.JPanel();
+		detailsHandle.add(ManageBook.save);
+		detailsHandle.add(ManageBook.reset);
+		details.add(detailsHandle, java.awt.BorderLayout.SOUTH);
+
 		// ---Table
 		tablePnl = new javax.swing.JPanel();
 		splitPane.setRightComponent(tablePnl);
 		tablePnl.setLayout(new java.awt.BorderLayout(0, 0));
-		
+
 		scrollPane = new javax.swing.JScrollPane();
 		tablePnl.add(scrollPane, java.awt.BorderLayout.CENTER);
 
@@ -180,7 +180,7 @@ public class ManageBookKltn {
 		tableHandle.add(ManageBook.view);
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
-		
+
 		// Action
 		ManageBook.add.addActionListener(e -> {
 			Handle.addImageBook(imgPnl, img);
@@ -274,5 +274,5 @@ public class ManageBookKltn {
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JScrollPane scrollPane;
 	private static javax.swing.JTable table;
-	private static javax.swing.JPanel tableHandle;	
+	private static javax.swing.JPanel tableHandle;
 }

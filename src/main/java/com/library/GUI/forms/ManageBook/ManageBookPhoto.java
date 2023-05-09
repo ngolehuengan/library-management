@@ -91,7 +91,8 @@ public class ManageBookPhoto {
 																Short.MAX_VALUE)))
 										.addGroup(gl_details.createSequentialGroup()
 												.addGroup(gl_details
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+																false)
 														.addComponent(lblYearPhoto,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
