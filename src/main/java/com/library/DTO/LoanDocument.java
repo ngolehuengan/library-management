@@ -1,8 +1,5 @@
-package DTO;
+package main.java.com.library.DTO;
 
-import main.java.com.library.DTO.Document;
-import main.java.com.library.DTO.Reader;
-import main.java.com.library.DTO.Librarian;
 import java.sql.Date;
 
 /**

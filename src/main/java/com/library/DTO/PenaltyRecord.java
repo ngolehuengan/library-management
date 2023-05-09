@@ -1,7 +1,5 @@
-package DTO;
+package main.java.com.library.DTO;
 
-import main.java.com.library.DTO.Reader;
-import main.java.com.library.DTO.Librarian;
 import java.sql.Date;
 
 /**
@@ -10,33 +8,33 @@ import java.sql.Date;
  */
 public class PenaltyRecord {
     
-    private int ID;          //PK
+    private int ID;          
     private Date recordDate;
     private String code;
-    private Reader reader;   //FK
-    private String content;  //noi dung vi pham
-    private String solution; //huong xu ly
+    private int readerID; 
+    private String content;  
+    private String solution; 
     private double fine;
-    private Librarian librarian; 
+    private int librarianID; 
 
-    public PenaltyRecord(int ID, Date recordDate, String code, Reader reader, String content, String solution, double fine, Librarian librarian) {
+    public PenaltyRecord(int ID, Date recordDate, String code, int readerID, String content, String solution, double fine, int librarianID) {
         this.ID = ID;
         this.recordDate = recordDate;
         this.code = code;
-        this.reader = reader;
+        this.readerID = readerID;
         this.content = content;
         this.solution = solution;
         this.fine = fine;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
  
-    public PenaltyRecord(Date recordDate, Reader reader, String content, String solution, double fine, Librarian librarian) {
+    public PenaltyRecord(Date recordDate, int readerID, String content, String solution, double fine, int librarianID) {
         this.recordDate = recordDate;
-        this.reader = reader;
+        this.readerID = readerID;
         this.content = content;
         this.solution = solution;
         this.fine = fine;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
     public int getID() {
@@ -63,12 +61,12 @@ public class PenaltyRecord {
         this.code = code;
     }
 
-    public Reader getReader() {
-        return reader;
+    public int getReaderID() {
+        return readerID;
     }
 
-    public void setReader(Reader reader) {
-        this.reader = reader;
+    public void setReaderID(int readerID) {
+        this.readerID = readerID;
     }
 
     public String getContent() {
@@ -95,11 +93,11 @@ public class PenaltyRecord {
         this.fine = fine;
     }
 
-    public Librarian getLibrarian() {
-        return librarian;
+    public int getLibrarianID() {
+        return librarianID;
     }
 
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
     }
 }

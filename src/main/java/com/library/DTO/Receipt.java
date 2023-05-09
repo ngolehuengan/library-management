@@ -13,22 +13,22 @@ public class Receipt {
     private String code;
     private Reader reader;
     private double proceeds;    
-    private Librarian librarian; 
+    private int librarianID; 
 
-    public Receipt(int ID, Date date, String code, Reader reader, double proceeds, Librarian librarian) {
+    public Receipt(int ID, Date date, String code, Reader reader, double proceeds, int librarianID) {
         this.ID = ID;
         this.date = date;
         this.code = code;
         this.reader = reader;
         this.proceeds = proceeds;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
-    public Receipt(Date date, Reader reader, double proceeds, Librarian librarian) {
+    public Receipt(Date date, Reader reader, double proceeds, int librarianID) {
         this.date = date;
         this.reader = reader;
         this.proceeds = proceeds;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
     public int getID() {
@@ -71,11 +71,11 @@ public class Receipt {
         this.proceeds = proceeds;
     }
 
-    public Librarian getLibrarian() {
-        return librarian;
+    public int getLibrarianID() {
+        return librarianID;
     }
 
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
     }
 }

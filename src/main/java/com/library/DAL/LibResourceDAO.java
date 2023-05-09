@@ -121,7 +121,7 @@ public class LibResourceDAO extends ConnectDB {
     private LibResource getDTO(Vector<Object> row) {
         int id = (int) row.get(0);
         String code = (String) row.get(1);
-        Document document = getDocument(code); 
+        Document document = new DocumentDAO().getByCode(code); 
         double price = (double) row.get(2);
         int totalQuantity = (int) row.get(3);
         int availableQuantity = (int) row.get(4);
@@ -130,15 +130,5 @@ public class LibResourceDAO extends ConnectDB {
 
         LibResource element = new LibResource(id, document, price, totalQuantity, availableQuantity, borrowable);
         return element;
-    }
-    
-    private Document getDocument(String code) {
-        if (code.contains("BK"))
-            return new BookDAO().getByCode(code);
-        if (code.contains("CP"))
-            return new CopyDAO().getByCode(code);
-        if (code.contains("TH"))
-            return new ThesesDAO().getByCode(code);
-        return new OtherDAO().getByCode(code);
     }
 }

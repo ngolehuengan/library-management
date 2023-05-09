@@ -1,8 +1,5 @@
-package DTO;
+package main.java.com.library.DTO;
 
-import main.java.com.library.DTO.Document;
-import main.java.com.library.DTO.Reader;
-import main.java.com.library.DTO.Librarian;
 import java.sql.Date;
 import java.util.Vector;
 
@@ -10,40 +7,24 @@ import java.util.Vector;
  *
  * @author ant1006
  */
-public class LoanShip {
-    
+public class LoanShip {																					
     private int ID;          
     private String code;
-    private Reader reader;
+    private int readerID;
     private Date borrowDate;
     private Date appointmentDate;
-    private int brQuantity;
-    private int returnQuantity;
-    private Librarian librarian;
+    private int brQuantity = 0;
+    private int returnQuantity = 0;
+    private int librarianID;
     private Vector<LoanDetail> details = new Vector<>();
     
     private class LoanDetail {
-        private int ID;
         private Document document;
         private boolean returned;
-
-        public LoanDetail(int ID, Document document, boolean returned) {
-            this.ID = ID;
-            this.document = document;
-            this.returned = returned;
-        }
 
         public LoanDetail(Document document, boolean returned) {
             this.document = document;
             this.returned = returned;
-        }
-
-        public int getID() {
-            return ID;
-        }
-
-        public void setID(int ID) {
-            this.ID = ID;
         }
 
         public Document getDocument() {
@@ -63,23 +44,23 @@ public class LoanShip {
         }
     }
 
-    public LoanShip(int ID, String code, Reader reader, Date borrowDate, Date appointmentDate, int brQuantity, int returnQuantity, Librarian librarian) {
+    public LoanShip(int ID, String code, int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int returnQuantity, int librarianID) {
         this.ID = ID;
         this.code = code;
-        this.reader = reader;
+        this.readerID = readerID;
         this.borrowDate = borrowDate;
         this.appointmentDate = appointmentDate;
         this.brQuantity = brQuantity;
         this.returnQuantity = returnQuantity;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
-    public LoanShip(Reader reader, Date borrowDate, Date appointmentDate, int brQuantity, Librarian librarian) {
-        this.reader = reader;
+    public LoanShip(int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int librarianID) {
+        this.readerID = readerID;
         this.borrowDate = borrowDate;
         this.appointmentDate = appointmentDate;
         this.brQuantity = brQuantity;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
     public int getID() {
@@ -98,12 +79,12 @@ public class LoanShip {
         this.code = code;
     }
 
-    public Reader getReader() {
-        return reader;
+    public int getReaderID() {
+        return readerID;
     }
 
-    public void setReader(Reader reader) {
-        this.reader = reader;
+    public void setReaderID(int readerID) {
+        this.readerID = readerID;
     }
 
     public Date getBorrowDate() {
@@ -138,12 +119,12 @@ public class LoanShip {
         this.returnQuantity = returnQuantity;
     }
 
-    public Librarian getLibrarian() {
-        return librarian;
+    public int getLibrarianID() {
+        return librarianID;
     }
 
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
     }
 
     public Vector<LoanDetail> getDetails() {
@@ -152,5 +133,11 @@ public class LoanShip {
 
     public void setDetails(Vector<LoanDetail> details) {
         this.details = details;
-    }        
+        this.brQuantity = details.size();
+    }    
+
+    public void addDetail(LoanDetail details) {
+        this.details.add(details);
+        this.brQuantity++;
+    }    
 }
