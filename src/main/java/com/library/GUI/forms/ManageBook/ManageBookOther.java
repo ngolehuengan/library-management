@@ -35,10 +35,10 @@ public class ManageBookOther {
 		lblTitleOther = new javax.swing.JLabel("Nhan đề");
 		txtTitleOther = new javax.swing.JTextField();
 		txtTitleOther.setEnabled(false);
-		txtTitleOther.setColumns(10);
+		txtTitleOther.setColumns(30);
 
 		lblDescripOther = new javax.swing.JLabel("Mô tả");
-		txtAreaDescripOther = new javax.swing.JTextArea();
+		txtAreaDescripOther = new javax.swing.JTextArea(7, 1);
 		txtAreaDescripOther.setLineWrap(true);
 		txtAreaDescripOther.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
@@ -49,38 +49,25 @@ public class ManageBookOther {
 				gl_details.createSequentialGroup()
 						.addGap(80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING,
-										javax.swing.GroupLayout.DEFAULT_SIZE, 360,
-										Short.MAX_VALUE)
-								.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING,
-										javax.swing.GroupLayout.DEFAULT_SIZE, 360,
-										Short.MAX_VALUE)
-								.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										360, Short.MAX_VALUE)
-								.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING,
-										javax.swing.GroupLayout.DEFAULT_SIZE, 360,
-										Short.MAX_VALUE))
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING))
 						.addGap(80));
 		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGap(80)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGap(24)
 								.addComponent(lblTitleOther)
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(txtTitleOther, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtTitleOther)
 								.addGap(24)
 								.addComponent(lblDescripOther)
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-										javax.swing.GroupLayout.PREFERRED_SIZE)));
+								.addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

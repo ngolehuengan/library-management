@@ -35,12 +35,12 @@ public class ManageBookBook {
 		lblIsbnBook = new javax.swing.JLabel("ISBN");
 		txtIsbnBook = new javax.swing.JTextField();
 		txtIsbnBook.setEnabled(false);
-		txtIsbnBook.setColumns(10);
+		txtIsbnBook.setColumns(15);
 
 		lblTitleBook = new javax.swing.JLabel("Nhan đề");
 		txtTitleBook = new javax.swing.JTextField();
 		txtTitleBook.setEnabled(false);
-		txtTitleBook.setColumns(10);
+		txtTitleBook.setColumns(15);
 
 		lblCateBook = new javax.swing.JLabel("Thể loại");
 		cbbCateBook = new javax.swing.JComboBox();
@@ -50,12 +50,12 @@ public class ManageBookBook {
 		lblAuthorBook = new javax.swing.JLabel("Tác giả");
 		txtAuthorBook = new javax.swing.JTextField();
 		txtAuthorBook.setEnabled(false);
-		txtAuthorBook.setColumns(10);
+		txtAuthorBook.setColumns(15);
 
 		lblNxbBook = new javax.swing.JLabel("Nhà xuất bản");
 		txtNxbBook = new javax.swing.JTextField();
 		txtNxbBook.setEnabled(false);
-		txtNxbBook.setColumns(10);
+		txtNxbBook.setColumns(15);
 
 		lblYearBook = new javax.swing.JLabel("Năm xuất bản");
 		cbbYearBook = new javax.swing.JComboBox();
@@ -63,7 +63,7 @@ public class ManageBookBook {
 		cbbYearBook.setEnabled(false);
 
 		lblDescripBook = new javax.swing.JLabel("Mô tả");
-		txtAreaDescripBook = new javax.swing.JTextArea();
+		txtAreaDescripBook = new javax.swing.JTextArea(7, 1);
 		txtAreaDescripBook.setLineWrap(true);
 		txtAreaDescripBook.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
@@ -79,19 +79,16 @@ public class ManageBookBook {
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(24)
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblIsbnBook)
 												.addComponent(lblCateBook)
 												.addComponent(lblTitleBook))
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(cbbCateBook, 0, 145, Short.MAX_VALUE)
-												.addComponent(txtTitleBook, javax.swing.GroupLayout.DEFAULT_SIZE, 145,
-														Short.MAX_VALUE)
-												.addComponent(txtIsbnBook, javax.swing.GroupLayout.DEFAULT_SIZE, 145,
-														Short.MAX_VALUE)))
+												.addComponent(cbbCateBook)
+												.addComponent(txtTitleBook)
+												.addComponent(txtIsbnBook)))
 								.addGroup(gl_details.createSequentialGroup()
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
@@ -103,13 +100,10 @@ public class ManageBookBook {
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)
-												.addComponent(cbbYearBook, 0, 180, Short.MAX_VALUE)
-												.addComponent(txtAuthorBook, javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)
-												.addComponent(txtNxbBook, javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE))))
+												.addComponent(scrollPane)
+												.addComponent(cbbYearBook)
+												.addComponent(txtAuthorBook)
+												.addComponent(txtNxbBook))))
 						.addGap(80));
 		gl_details.setVerticalGroup(
 				gl_details.createSequentialGroup()
@@ -145,10 +139,9 @@ public class ManageBookBook {
 								.addComponent(lblYearBook)
 								.addComponent(cbbYearBook))
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
 								.addComponent(lblDescripBook)
-								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-										javax.swing.GroupLayout.PREFERRED_SIZE)));
+								.addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

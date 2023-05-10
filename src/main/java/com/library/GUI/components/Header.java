@@ -142,7 +142,7 @@ public class Header {
 										.addGap(195))));
 		gl_header.setVerticalGroup(
 				gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+						.addComponent(logo, 0, 76, Short.MAX_VALUE)
 						.addGroup(javax.swing.GroupLayout.Alignment.LEADING, gl_header.createSequentialGroup()
 								.addGap(22)
 								.addGroup(gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

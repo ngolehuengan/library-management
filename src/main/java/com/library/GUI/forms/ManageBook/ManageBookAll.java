@@ -34,7 +34,7 @@ public class ManageBookAll {
 		lblIdAll = new javax.swing.JLabel("Mã tài liệu");
 		txtIdAll = new javax.swing.JTextField();
 		txtIdAll.setEnabled(false);
-		txtIdAll.setColumns(10);
+		txtIdAll.setColumns(15);
 
 		lblCateAll = new javax.swing.JLabel("Loại tài liệu");
 		cbbCateAll = new javax.swing.JComboBox();
@@ -44,22 +44,22 @@ public class ManageBookAll {
 		lblTitleAll = new javax.swing.JLabel("Nhan đề");
 		txtTitleAll = new javax.swing.JTextField();
 		txtTitleAll.setEnabled(false);
-		txtTitleAll.setColumns(10);
+		txtTitleAll.setColumns(15);
 
 		lblValueAll = new javax.swing.JLabel("Giá trị");
 		txtValueAll = new javax.swing.JTextField();
 		txtValueAll.setEnabled(false);
-		txtValueAll.setColumns(10);
+		txtValueAll.setColumns(15);
 
 		lblCountAll = new javax.swing.JLabel("Số lượng");
 		txtCountAll = new javax.swing.JTextField();
 		txtCountAll.setEnabled(false);
-		txtCountAll.setColumns(10);
+		txtCountAll.setColumns(15);
 
 		lblNumberAll = new javax.swing.JLabel("Số có sẵn");
 		txtNumberAll = new javax.swing.JTextField();
 		txtNumberAll.setEnabled(false);
-		txtNumberAll.setColumns(10);
+		txtNumberAll.setColumns(15);
 
 		chckbxInvalidAll = new javax.swing.JCheckBox("Cho phép mượn");
 		chckbxInvalidAll.setEnabled(false);
@@ -74,36 +74,28 @@ public class ManageBookAll {
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(24)
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblIdAll)
 												.addComponent(lblTitleAll)
 												.addComponent(lblCateAll))
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(cbbCateAll, 0, 145, Short.MAX_VALUE)
-												.addComponent(txtTitleAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-														145, Short.MAX_VALUE)
-												.addComponent(txtIdAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-														145, Short.MAX_VALUE)))
+												.addComponent(cbbCateAll)
+												.addComponent(txtTitleAll)
+												.addComponent(txtIdAll)))
 								.addGroup(gl_details.createSequentialGroup()
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblValueAll)
 												.addComponent(lblCountAll)
 												.addComponent(lblNumberAll))
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(txtValueAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-														180, Short.MAX_VALUE)
-												.addComponent(txtCountAll, javax.swing.GroupLayout.DEFAULT_SIZE,
-														180, Short.MAX_VALUE)
-												.addComponent(txtNumberAll,
-														javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)))
+												.addComponent(txtValueAll)
+												.addComponent(txtCountAll)
+												.addComponent(txtNumberAll)))
 								.addComponent(chckbxInvalidAll))
 						.addGap(80));
 		gl_details.setVerticalGroup(

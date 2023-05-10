@@ -19,7 +19,7 @@ public class ManageBook {
 
 		btnAll = new javax.swing.JButton("TẤT CẢ");
 		btnAll.setForeground(new java.awt.Color(255, 255, 255));
-		btnAll.setBackground(new java.awt.Color(0, 153, 51));
+		btnAll.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnBook = new javax.swing.JButton("SÁCH");
 		btnBook.setForeground(new java.awt.Color(255, 255, 255));
@@ -29,7 +29,7 @@ public class ManageBook {
 		btnPhoto.setForeground(new java.awt.Color(255, 255, 255));
 		btnPhoto.setBackground(new java.awt.Color(0, 153, 51));
 
-		btnKltn = new javax.swing.JButton("LUẬN ÁN/ LUẬN VĂN/ KHÓA LUẬN TN");
+		btnKltn = new javax.swing.JButton("LUẬN");
 		btnKltn.setForeground(new java.awt.Color(255, 255, 255));
 		btnKltn.setBackground(new java.awt.Color(0, 153, 51));
 
@@ -54,26 +54,51 @@ public class ManageBook {
 		// Action Changed Tab
 		btnAll.addActionListener(e -> {
 			ManageBookAll.init(pnlCards);
+			btnAll.setBackground(new java.awt.Color(0, 102, 0));
+			btnBook.setBackground(new java.awt.Color(0, 153, 51));
+			btnPhoto.setBackground(new java.awt.Color(0, 153, 51));
+			btnKltn.setBackground(new java.awt.Color(0, 153, 51));
+			btnOther.setBackground(new java.awt.Color(0, 153, 51));
 			cardLayout.show(pnlCards, "pnlAll");
 		});
 
 		btnBook.addActionListener(e -> {
 			ManageBookBook.init(pnlCards);
+			btnAll.setBackground(new java.awt.Color(0, 153, 51));
+			btnBook.setBackground(new java.awt.Color(0, 102, 0));
+			btnPhoto.setBackground(new java.awt.Color(0, 153, 51));
+			btnKltn.setBackground(new java.awt.Color(0, 153, 51));
+			btnOther.setBackground(new java.awt.Color(0, 153, 51));
 			cardLayout.show(pnlCards, "pnlBook");
 		});
 
 		btnPhoto.addActionListener(e -> {
 			ManageBookPhoto.init(pnlCards);
+			btnAll.setBackground(new java.awt.Color(0, 153, 51));
+			btnBook.setBackground(new java.awt.Color(0, 153, 51));
+			btnPhoto.setBackground(new java.awt.Color(0, 102, 0));
+			btnKltn.setBackground(new java.awt.Color(0, 153, 51));
+			btnOther.setBackground(new java.awt.Color(0, 153, 51));
 			cardLayout.show(pnlCards, "pnlPhoto");
 		});
 
 		btnKltn.addActionListener(e -> {
 			ManageBookKltn.init(pnlCards);
+			btnAll.setBackground(new java.awt.Color(0, 153, 51));
+			btnBook.setBackground(new java.awt.Color(0, 153, 51));
+			btnPhoto.setBackground(new java.awt.Color(0, 153, 51));
+			btnKltn.setBackground(new java.awt.Color(0, 102, 0));
+			btnOther.setBackground(new java.awt.Color(0, 153, 51));
 			cardLayout.show(pnlCards, "pnlKltn");
 		});
 
 		btnOther.addActionListener(e -> {
 			ManageBookOther.init(pnlCards);
+			btnAll.setBackground(new java.awt.Color(0, 153, 51));
+			btnBook.setBackground(new java.awt.Color(0, 153, 51));
+			btnPhoto.setBackground(new java.awt.Color(0, 153, 51));
+			btnKltn.setBackground(new java.awt.Color(0, 153, 51));
+			btnOther.setBackground(new java.awt.Color(0, 102, 0));
 			cardLayout.show(pnlCards, "pnlOther");
 		});
 	}

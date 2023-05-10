@@ -34,7 +34,7 @@ public class ManageBookPhoto {
 		lblTitlePhoto = new javax.swing.JLabel("Nhan đề");
 		txtTitlePhoto = new javax.swing.JTextField();
 		txtTitlePhoto.setEnabled(false);
-		txtTitlePhoto.setColumns(10);
+		txtTitlePhoto.setColumns(15);
 
 		lblCatePhoto = new javax.swing.JLabel("Thể loại");
 		cbbCatePhoto = new javax.swing.JComboBox();
@@ -44,7 +44,7 @@ public class ManageBookPhoto {
 		lblAuthorPhoto = new javax.swing.JLabel("Tác giả");
 		txtAuthorPhoto = new javax.swing.JTextField();
 		txtAuthorPhoto.setEnabled(false);
-		txtAuthorPhoto.setColumns(10);
+		txtAuthorPhoto.setColumns(15);
 
 		lblYearPhoto = new javax.swing.JLabel("Năm xuất bản");
 		cbbYearPhoto = new javax.swing.JComboBox();
@@ -52,7 +52,7 @@ public class ManageBookPhoto {
 		cbbYearPhoto.setEnabled(false);
 
 		lblDescripPhoto = new javax.swing.JLabel("Mô tả");
-		txtAreaDescripPhoto = new javax.swing.JTextArea();
+		txtAreaDescripPhoto = new javax.swing.JTextArea(7, 1);
 		txtAreaDescripPhoto.setLineWrap(true);
 		txtAreaDescripPhoto.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
@@ -68,33 +68,26 @@ public class ManageBookPhoto {
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(24)
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblTitlePhoto)
 												.addComponent(lblAuthorPhoto)
 												.addComponent(lblCatePhoto))
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(cbbCatePhoto, 0, 145, Short.MAX_VALUE)
-												.addComponent(txtTitlePhoto,
-														javax.swing.GroupLayout.DEFAULT_SIZE, 145,
-														Short.MAX_VALUE)
-												.addComponent(txtAuthorPhoto,
-														javax.swing.GroupLayout.DEFAULT_SIZE, 145,
-														Short.MAX_VALUE)))
+												.addComponent(cbbCatePhoto)
+												.addComponent(txtTitlePhoto)
+												.addComponent(txtAuthorPhoto)))
 								.addGroup(gl_details.createSequentialGroup()
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblYearPhoto)
 												.addComponent(lblDescripPhoto))
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)
-												.addComponent(cbbYearPhoto, 0, 180, Short.MAX_VALUE))))
+												.addComponent(scrollPane)
+												.addComponent(cbbYearPhoto))))
 						.addGap(80));
 		gl_details.setVerticalGroup(
 				gl_details.createSequentialGroup()
@@ -122,10 +115,9 @@ public class ManageBookPhoto {
 								.addComponent(lblYearPhoto)
 								.addComponent(cbbYearPhoto))
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
 								.addComponent(lblDescripPhoto)
-								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-										javax.swing.GroupLayout.PREFERRED_SIZE)));
+								.addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

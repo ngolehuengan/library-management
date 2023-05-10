@@ -34,7 +34,7 @@ public class ManageBookKltn {
 		lblTitleKltn = new javax.swing.JLabel("Nhan đề");
 		txtTitleKltn = new javax.swing.JTextField();
 		txtTitleKltn.setEnabled(false);
-		txtTitleKltn.setColumns(10);
+		txtTitleKltn.setColumns(15);
 
 		lblCateKltn = new javax.swing.JLabel("Chuyên ngành");
 		cbbCateKltn = new javax.swing.JComboBox();
@@ -44,7 +44,7 @@ public class ManageBookKltn {
 		lblAuthorKltn = new javax.swing.JLabel("Tác giả");
 		txtAuthorKltn = new javax.swing.JTextField();
 		txtAuthorKltn.setEnabled(false);
-		txtAuthorKltn.setColumns(10);
+		txtAuthorKltn.setColumns(15);
 
 		lblYearKltn = new javax.swing.JLabel("Năm bảo vệ");
 		cbbYearKltn = new javax.swing.JComboBox();
@@ -52,7 +52,7 @@ public class ManageBookKltn {
 		cbbYearKltn.setEnabled(false);
 
 		lblDescripKltn = new javax.swing.JLabel("Mô tả");
-		txtAreaDescripKltn = new javax.swing.JTextArea();
+		txtAreaDescripKltn = new javax.swing.JTextArea(7, 1);
 		txtAreaDescripKltn.setLineWrap(true);
 		txtAreaDescripKltn.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
@@ -65,12 +65,10 @@ public class ManageBookKltn {
 						.addGroup(gl_details
 								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addGroup(gl_details.createSequentialGroup()
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(24)
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblCateKltn)
 												.addComponent(lblTitleKltn)
 												.addComponent(lblAuthorKltn))
@@ -78,30 +76,24 @@ public class ManageBookKltn {
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 												.addComponent(txtAuthorKltn)
-												.addComponent(txtTitleKltn,
-														javax.swing.GroupLayout.DEFAULT_SIZE, 145,
-														Short.MAX_VALUE)
-												.addComponent(cbbCateKltn,
-														javax.swing.GroupLayout.Alignment.TRAILING, 0, 145,
-														Short.MAX_VALUE)))
+												.addComponent(txtTitleKltn)
+												.addComponent(cbbCateKltn)))
 								.addGroup(gl_details.createSequentialGroup()
 										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 												.addComponent(lblYearKltn)
 												.addComponent(lblDescripKltn))
 										.addGap(24)
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)
-												.addComponent(cbbYearKltn, 0, 180, Short.MAX_VALUE))))
+												.addComponent(scrollPane)
+												.addComponent(cbbYearKltn))))
 						.addGap(80));
 		gl_details.setVerticalGroup(
 				gl_details.createSequentialGroup()
 						.addGap(80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_details.createSequentialGroup()
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -122,10 +114,9 @@ public class ManageBookKltn {
 								.addComponent(lblYearKltn)
 								.addComponent(cbbYearKltn))
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
 								.addComponent(lblDescripKltn)
-								.addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-										javax.swing.GroupLayout.PREFERRED_SIZE)));
+								.addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

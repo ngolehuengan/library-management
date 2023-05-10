@@ -2,6 +2,8 @@ package main.java.com.library.GUI.components;
 
 import main.java.com.library.GUI.forms.ManageBook.ManageBook;
 import main.java.com.library.GUI.forms.ManageInventory.ManageInventory;
+import main.java.com.library.GUI.forms.ManageService.ManageService;
+import main.java.com.library.GUI.forms.Slip.Slip;
 
 public class Menu {
 	public static void init(javax.swing.JComponent contentPane) {
@@ -13,12 +15,12 @@ public class Menu {
 		// Tabs
 //		statisticalTab = new javax.swing.JPanel();
 //		tabbedPane.addTab("Quy Định", null, statisticalTab, null);
+//		
+//		ManageInventory.init(tabbedPane);
+//		ManageBook.init(tabbedPane);
+		ManageService.init(tabbedPane);
 		
-		ManageInventory.init(tabbedPane);
-		ManageBook.init(tabbedPane);
-		
-		statisticalTab = new javax.swing.JPanel();
-		tabbedPane.addTab("Quản Lý Nghiệp Vụ", null, statisticalTab, null);
+//		Slip.init(tabbedPane);
 		
 		statisticalTab = new javax.swing.JPanel();
 		tabbedPane.addTab("Quản Lý Độc Giả", null, statisticalTab, null);

@@ -21,7 +21,7 @@ public class ManageInventory {
 
 		btnImport = new javax.swing.JButton("NHẬP");
 		btnImport.setForeground(new java.awt.Color(255, 255, 255));
-		btnImport.setBackground(new java.awt.Color(0, 153, 51));
+		btnImport.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnLiquidate = new javax.swing.JButton("THANH LÝ");
 		btnLiquidate.setForeground(new java.awt.Color(255, 255, 255));
@@ -41,16 +41,19 @@ public class ManageInventory {
 		// Action Changed Tab
 		btnImport.addActionListener(e -> {
 			ManageInventoryImport.init(pnlCards);
+			btnLiquidate.setBackground(new java.awt.Color(0, 153, 51));
+			btnImport.setBackground(new java.awt.Color(0, 102, 0));
 			cardLayout.show(pnlCards, "pnlImport");
 		});
 
 		btnLiquidate.addActionListener(e -> {
 			ManageInventoryLiquidate.init(pnlCards);
+			btnImport.setBackground(new java.awt.Color(0, 153, 51));
+			btnLiquidate.setBackground(new java.awt.Color(0, 102, 0));
 			cardLayout.show(pnlCards, "pnlLiquidate");
 		});
 	}
 
-	// Handle
 	// Handle
 	private static void handle() {
 		handle = new javax.swing.JPanel();
@@ -117,7 +120,7 @@ public class ManageInventory {
 		view = new javax.swing.JButton("Xem");
 		view.setForeground(new java.awt.Color(255, 255, 255));
 		view.setBackground(new java.awt.Color(0, 153, 51));
-		
+
 		addCthd = new javax.swing.JButton("Thêm CTHĐ");
 		addCthd.setBackground(new java.awt.Color(0, 153, 51));
 		addCthd.setForeground(new java.awt.Color(255, 255, 255));

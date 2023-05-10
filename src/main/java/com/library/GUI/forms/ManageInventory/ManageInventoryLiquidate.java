@@ -3,7 +3,7 @@ package main.java.com.library.GUI.forms.ManageInventory;
 public class ManageInventoryLiquidate {
 	@SuppressWarnings({ "serial" })
 	static void init(javax.swing.JComponent pnlCards) {
-		// --Import Documents Tab = Details + Table
+		// --Liquidity Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
 		pnlCards.add(splitPane, "pnlLiquidate");
 
@@ -11,7 +11,8 @@ public class ManageInventoryLiquidate {
 		details = new javax.swing.JPanel();
 		splitPane.setLeftComponent(details);
 		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết Hóa Đơn", javax.swing.border.TitledBorder.LEADING,
+				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết Hóa Đơn",
+						javax.swing.border.TitledBorder.LEADING,
 						javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
@@ -22,38 +23,38 @@ public class ManageInventoryLiquidate {
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
 		txtPerson = new javax.swing.JTextField();
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(10);
+		txtPerson.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
 		txtDate = new javax.swing.JTextField();
 		txtDate.setEnabled(false);
-		txtPerson.setColumns(10);
+		txtDate.setColumns(20);
 
 		lblId = new javax.swing.JLabel("Mã hóa đơn");
 		txtId = new javax.swing.JTextField();
 		txtId.setEnabled(false);
-		txtId.setColumns(10);
+		txtId.setColumns(20);
 
 		lblSumCount = new javax.swing.JLabel("Tổng số lượng");
 		txtSumCount = new javax.swing.JTextField();
 		txtSumCount.setEnabled(false);
-		txtSumCount.setColumns(10);
+		txtSumCount.setColumns(20);
 
 		lblDcmCode = new javax.swing.JLabel("Mã tài liệu");
 		txtDcmCode = new javax.swing.JTextField();
 		txtDcmCode.setEnabled(false);
-		txtDcmCode.setColumns(10);
+		txtDcmCode.setColumns(20);
 
 		lblCount = new javax.swing.JLabel("Số lượng");
 		txtCount = new javax.swing.JTextField();
 		txtCount.setEnabled(false);
-		txtCount.setColumns(10);
+		txtCount.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(
 				gl_details.createSequentialGroup()
 						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 								.addComponent(lblPerson)
 								.addComponent(lblDate)
 								.addComponent(lblId)
@@ -63,17 +64,12 @@ public class ManageInventoryLiquidate {
 						.addGap(24)
 						.addGroup(gl_details
 								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(txtPerson, javax.swing.GroupLayout.DEFAULT_SIZE,
-										200, Short.MAX_VALUE)
-								.addComponent(txtDate, 0, 200, Short.MAX_VALUE)
-								.addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE,
-										200, Short.MAX_VALUE)
-								.addComponent(txtSumCount, javax.swing.GroupLayout.DEFAULT_SIZE,
-										200, Short.MAX_VALUE)
-								.addComponent(txtDcmCode, javax.swing.GroupLayout.DEFAULT_SIZE,
-										200, Short.MAX_VALUE)
-								.addComponent(txtCount, javax.swing.GroupLayout.DEFAULT_SIZE,
-										200, Short.MAX_VALUE))
+								.addComponent(txtPerson)
+								.addComponent(txtDate)
+								.addComponent(txtId)
+								.addComponent(txtSumCount)
+								.addComponent(txtDcmCode)
+								.addComponent(txtCount))
 						.addGap(80));
 		gl_details.setVerticalGroup(
 				gl_details.createSequentialGroup()
@@ -111,9 +107,9 @@ public class ManageInventoryLiquidate {
 
 		// ---Table = Parent + Sub
 		gridTablePnl = new javax.swing.JPanel();
-		gridTablePnl.setLayout(new java.awt.GridLayout(2,1));
+		gridTablePnl.setLayout(new java.awt.GridLayout(2, 1));
 		splitPane.setRightComponent(gridTablePnl);
-		
+
 		// ----Table: Parent
 		tablePnl = new javax.swing.JPanel();
 		tablePnl.setLayout(new java.awt.BorderLayout(0, 0));
@@ -141,7 +137,7 @@ public class ManageInventoryLiquidate {
 		tableHandle.add(ManageInventory.view);
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
-		
+
 		// ----Table: Sub
 		subTablePnl = new javax.swing.JPanel();
 		subTablePnl.setLayout(new java.awt.BorderLayout(0, 0));
@@ -241,7 +237,7 @@ public class ManageInventoryLiquidate {
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JPanel subTablePnl;
 	private static javax.swing.JTable table;
-	private static javax.swing.JPanel tableHandle;	
+	private static javax.swing.JPanel tableHandle;
 	private static javax.swing.JTable subTable;
 	private static javax.swing.JPanel subTableHandle;
 }
