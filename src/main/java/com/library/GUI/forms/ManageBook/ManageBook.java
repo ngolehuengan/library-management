@@ -49,31 +49,31 @@ public class ManageBook {
 		cardLayout = new java.awt.CardLayout();
 		pnlCards.setLayout(cardLayout);
 
-		ManageBookAll.init(manageBookTab, pnlCards);
+		ManageBookAll.init(pnlCards);
 
 		// Action Changed Tab
 		btnAll.addActionListener(e -> {
-			ManageBookAll.init(manageBookTab, pnlCards);
+			ManageBookAll.init(pnlCards);
 			cardLayout.show(pnlCards, "pnlAll");
 		});
 
 		btnBook.addActionListener(e -> {
-			ManageBookBook.init(manageBookTab, pnlCards);
+			ManageBookBook.init(pnlCards);
 			cardLayout.show(pnlCards, "pnlBook");
 		});
 
 		btnPhoto.addActionListener(e -> {
-			ManageBookPhoto.init(manageBookTab, pnlCards);
+			ManageBookPhoto.init(pnlCards);
 			cardLayout.show(pnlCards, "pnlPhoto");
 		});
 
 		btnKltn.addActionListener(e -> {
-			ManageBookKltn.init(manageBookTab, pnlCards);
+			ManageBookKltn.init(pnlCards);
 			cardLayout.show(pnlCards, "pnlKltn");
 		});
 
 		btnOther.addActionListener(e -> {
-			ManageBookOther.init(manageBookTab, pnlCards);
+			ManageBookOther.init(pnlCards);
 			cardLayout.show(pnlCards, "pnlOther");
 		});
 	}

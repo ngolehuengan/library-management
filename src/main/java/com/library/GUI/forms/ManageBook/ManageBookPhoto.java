@@ -4,7 +4,7 @@ import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookPhoto {
 	@SuppressWarnings({ "serial", "unchecked", "rawtypes" })
-	static void init(javax.swing.JComponent managePhotoTab, javax.swing.JComponent pnlCards) {
+	static void init(javax.swing.JComponent pnlCards) {
 		// --Photo Documents Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
 		pnlCards.add(splitPane, "pnlPhoto");

@@ -4,7 +4,7 @@ import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookBook {
 	@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
-	public static void init(javax.swing.JComponent manageBookTab, javax.swing.JComponent pnlCards) {
+	public static void init(javax.swing.JComponent pnlCards) {
 		// --Books Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
 		pnlCards.add(splitPane, "pnlBook");

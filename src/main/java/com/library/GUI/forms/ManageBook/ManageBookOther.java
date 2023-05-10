@@ -4,7 +4,7 @@ import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookOther {
 	@SuppressWarnings("serial")
-	static void init(javax.swing.JComponent ManageBookTab, javax.swing.JComponent pnlCards) {
+	static void init(javax.swing.JComponent pnlCards) {
 		// --Other Documents Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
 		pnlCards.add(splitPane, "pnlOther");
