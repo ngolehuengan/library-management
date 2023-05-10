@@ -9,7 +9,7 @@ import java.sql.Date;
 public class PenaltyRecord {
     
     private int ID;          
-    private Date recordDate;
+    private Date date;
     private String code;
     private int readerID; 
     private String content;  
@@ -17,9 +17,9 @@ public class PenaltyRecord {
     private double fine;
     private int librarianID; 
 
-    public PenaltyRecord(int ID, Date recordDate, String code, int readerID, String content, String solution, double fine, int librarianID) {
+    public PenaltyRecord(int ID, Date date, String code, int readerID, String content, String solution, double fine, int librarianID) {
         this.ID = ID;
-        this.recordDate = recordDate;
+        this.date = date;
         this.code = code;
         this.readerID = readerID;
         this.content = content;
@@ -28,8 +28,8 @@ public class PenaltyRecord {
         this.librarianID = librarianID;
     }
  
-    public PenaltyRecord(Date recordDate, int readerID, String content, String solution, double fine, int librarianID) {
-        this.recordDate = recordDate;
+    public PenaltyRecord(Date date, int readerID, String content, String solution, double fine, int librarianID) {
+        this.date = date;
         this.readerID = readerID;
         this.content = content;
         this.solution = solution;
@@ -45,12 +45,12 @@ public class PenaltyRecord {
         this.ID = ID;
     }
 
-    public Date getRecordDate() {
-        return recordDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setRecordDate(Date recordDate) {
-        this.recordDate = recordDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getCode() {
