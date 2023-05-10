@@ -3,7 +3,6 @@ package main.java.com.library.DAL;
 import java.sql.Date;
 import java.util.Vector;
 import main.java.com.library.DTO.Book;
-import main.java.com.library.DTO.Document;
 import main.java.com.library.DTO.ImportRecord;
 import main.java.com.library.DTO.IPDetail;
 
@@ -27,7 +26,7 @@ public class ImportRecordDAO extends ConnectDB {
             for (int i = 0; i < dts.size(); i++) {
                 IPDetail dt = dts.get(i);
                 rs += executeUpdate("INSERT INTO IMPORT_DETAIL VALUES (" + id + ",'"
-                        + dt.getDocument().getCode() + "',"
+                        + dt.getDcmCode() + "',"
                         + dt.getPrice() + ","
                         + dt.getQuantity() + ")");
             }
@@ -114,10 +113,10 @@ public class ImportRecordDAO extends ConnectDB {
             Vector<Object> row = tb.get(i);
             // Convert sang DTO details va add vao vector
             String code = (String) row.get(1);
-            Document document = new DocumentDAO().getByCode(code);
+            String title = new DocumentDAO().getByCode(code).getTitle();
             double price = (double) row.get(2);
             int quantity = (int) row.get(3);
-            details.add(new IPDetail(document, price, quantity));
+            details.add(new IPDetail(code, title, price, quantity));
         }
         return details;
     }

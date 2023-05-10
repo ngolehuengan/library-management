@@ -6,22 +6,45 @@ package main.java.com.library.DTO;
  */
 public class IPDetail {
 
-    private Document document;
+    private String dcmCode;
+    private String title;
     private double price;
     private int quantity;
 
-    public IPDetail(Document document, double price, int quantity) {
-        this.document = document;
+    public IPDetail(String dcmCode, double price, int quantity) {
+        this.dcmCode = dcmCode;
         this.price = price;
         this.quantity = quantity;
     }
 
-    public Document getDocument() {
-        return document;
+    public IPDetail(String dcmCode, String title, double price, int quantity) {
+        this.dcmCode = dcmCode;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    
+    public IPDetail(Document document, double price, int quantity) {
+        this.dcmCode = document.getCode();
+        this.title = document.getTitle();
+        this.price = price;
+        this.quantity = quantity;
+    }
+    
+    public String getDcmCode() {
+        return dcmCode;
     }
 
-    public void setDocument(Document document) {
-        this.document = document;
+    public void setDcmCode(String dcmCode) {
+        this.dcmCode = dcmCode;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public double getPrice() {

@@ -66,7 +66,7 @@ public class ThesesDAO extends ConnectDB {
     }
     
     public boolean updateSpecialized(int id, Specialized newData) {
-        int rs = executeUpdate("UPDATE THESES SET spcl_id=" + newData.getID() + "WHERE theses_id=" + id);
+        int rs = executeUpdate("UPDATE THESES SET spcl_id=" + newData.getID() + " WHERE theses_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -74,7 +74,7 @@ public class ThesesDAO extends ConnectDB {
     }
 
     public boolean updateDefenseYear(int id, int newData) {
-        int rs = executeUpdate("UPDATE THESES SET defense_year=" + newData + "WHERE theses_id=" + id);
+        int rs = executeUpdate("UPDATE THESES SET defense_year=" + newData + " WHERE theses_id=" + id);
         if (rs > 0) {
             return true;
         }

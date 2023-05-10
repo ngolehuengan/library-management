@@ -37,6 +37,10 @@ public abstract class Document {
     public String getCode() {
         return code;
     }
+    
+    public String getType() {
+        return this.getClass().getSimpleName();
+    }
 
     public String getTitle() {
         return title;

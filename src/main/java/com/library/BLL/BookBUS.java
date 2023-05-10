@@ -1,5 +1,6 @@
 package main.java.com.library.BLL;
 
+import java.sql.Date;
 import java.util.Vector;
 import main.java.com.library.DAL.AuthorDAO;
 import main.java.com.library.DAL.BookDAO;
@@ -154,11 +155,11 @@ public class BookBUS {
 // -----------------------------------------------------------------------------
         
     public static void main (String[] args) {
-        BookBUS bus = new BookBUS();
-        Vector<Book> vt = bus.getTable();
-        for (int i = 0; i < vt.size(); i++) {
-            System.out.println(vt.get(i).toString());
-        }
+//        BookBUS bus = new BookBUS();
+//        Vector<Book> vt = bus.getTable();
+//        for (int i = 0; i < vt.size(); i++) {
+//            System.out.println(vt.get(i).toString());
+//        }
         
 //        System.out.println(bus.delete(vt.get(1)));
         
@@ -169,19 +170,19 @@ public class BookBUS {
 //        
 //        System.out.println(bus.edit(e.getID(),e));
 
-        Book e = new Book();
-        e.setISBN("9786047796887");
-        e.setTitle("Truyện Kiều");
-        Vector<Category> ct = new Vector<>();
-        ct.add(new Category(10,"Thơ"));
-        e.setCategory(ct);
-        Vector<Author> at = new Vector<>();
-        at.add(new Author("Nguyễn Du"));
-        e.setAuthor(at);
-        e.setPublisher(new Publisher("NXB HOI NHA VAN"));
-        e.setPublishingYear(2021);
-        e.setDescription("Một trong những tác phẩm văn học lớn nhất của Việt Nam, kể về câu chuyện tình cảm của Kiều với Thúy Vân");
-        e.setImage("/anh_bia/truyen_kieu");
-        System.out.println(bus.add(e));
+//        Book e = new Book();
+//        e.setISBN("9786047796887");
+//        e.setTitle("Truyện Kiều");
+//        Vector<Category> ct = new Vector<>();
+//        ct.add(new Category(10,"Thơ"));
+//        e.setCategory(ct);
+//        Vector<Author> at = new Vector<>();
+//        at.add(new Author("Nguyễn Du"));
+//        e.setAuthor(at);
+//        e.setPublisher(new Publisher("NXB HOI NHA VAN"));
+//        e.setPublishingYear(2021);
+//        e.setDescription("Một trong những tác phẩm văn học lớn nhất của Việt Nam, kể về câu chuyện tình cảm của Kiều với Thúy Vân");
+//        e.setImage("/anh_bia/truyen_kieu");
+//        System.out.println(bus.add(e));
     }
 }

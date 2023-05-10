@@ -43,23 +43,71 @@ public class LibResourceDAO extends ConnectDB {
         }
         return false;
     }
+    public boolean updatePrice(String code, double newData) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET price=" + newData + " WHERE dcm_code='" + code + "'");
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
     public boolean updateTotalQuantity(int id, int newData) {
-        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET total_quantity=" + newData + "WHERE rs_id=" + id);
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET total_quantity=" + newData + " WHERE rs_id=" + id);
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
+    public boolean addTotalQuantity(String code, int data) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET total_quantity=total_quantity+" + data + " WHERE dcm_code='" + code + "'");
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
+    public boolean subtractTotalQuantity(String code, int data) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET total_quantity=total_quantity-" + data + " WHERE dcm_code='" + code + "'");
         if (rs > 0) {
             return true;
         }
         return false;
     }
     public boolean updateAvailableQuantity(int id, int newData) {
-        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET available_quantity=" + newData + "WHERE rs_id=" + id);
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET available_quantity=" + newData + " WHERE rs_id=" + id);
         if (rs > 0) {
             return true;
         }
         return false;
     }
-        
+    public boolean addAvailableQuantity(String code, int data) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET available_quantity=available_quantity+" + data + " WHERE dcm_code='" + code + "'");
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
+    public boolean subtractAvailableQuantity(String code, int data) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET available_quantity=available_quantity-" + data + " WHERE dcm_code='" + code + "'");
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
+    public boolean incAvailableQuantity(int id) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET available_quantity=available_quantity+1 WHERE rs_id=" + id);
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
+    public boolean decAvailableQuantity(int id) {
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET available_quantity=available_quantity-1 WHERE rs_id=" + id);
+        if (rs > 0) {
+            return true;
+        }
+        return false;
+    }
     public boolean updateBorrowable(int id, boolean newData) {
-        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET borrowable_logic=" + newData + "WHERE rs_id=" + id);
+        int rs = executeUpdate("UPDATE LIBRARY_RESOURCE SET borrowable_logic=" + newData + " WHERE rs_id=" + id);
         if (rs > 0) {
             return true;
         }

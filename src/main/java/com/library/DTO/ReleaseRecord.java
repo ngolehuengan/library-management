@@ -90,4 +90,9 @@ public class ReleaseRecord {
         details.add(e);
         totalQuantity += e.getQuantity();
     }
+    
+    public void removeDetail(RLDetail e) {
+        details.remove(e);
+        totalQuantity += e.getQuantity();
+    }
 }

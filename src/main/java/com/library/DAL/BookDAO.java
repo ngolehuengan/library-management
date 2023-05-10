@@ -76,7 +76,7 @@ public class BookDAO extends ConnectDB {
     }
     
     public boolean updatePublisher(int id, Publisher newData) {
-        int rs = executeUpdate("UPDATE BOOK SET publisher_id=" + newData.getID() + "WHERE book_id=" + id);
+        int rs = executeUpdate("UPDATE BOOK SET publisher_id=" + newData.getID() + " WHERE book_id=" + id);
         if (rs > 0) {
             return true;
         }
@@ -84,7 +84,7 @@ public class BookDAO extends ConnectDB {
     }
 
     public boolean updatePublishingYear(int id, int newData) {
-        int rs = executeUpdate("UPDATE BOOK SET publishing_year=" + newData + "WHERE book_id=" + id);
+        int rs = executeUpdate("UPDATE BOOK SET publishing_year=" + newData + " WHERE book_id=" + id);
         if (rs > 0) {
             return true;
         }

@@ -31,12 +31,14 @@ public class LibResourceBUS {
         LibResourceDAO dao = new LibResourceDAO();
         LibResource pre = dao.getByID(id);
         
-        if (pre.isBorrowable() != e.isBorrowable()) {
-            if (dao.updateBorrowable(id, e.isBorrowable())) {
-                return "Lưu thay đổi!";
-            }
-            return "Thất bại!";
+        if (pre.getPrice()!= e.getPrice()) {
+            if (!dao.updatePrice(id, e.getPrice())) 
+                return "Thất bại!";
         }
-        return "";
+        if (pre.isBorrowable() != e.isBorrowable()) {
+            if (!dao.updateBorrowable(id, e.isBorrowable())) 
+                return "Thất bại!";
+        }
+        return "Lưu thành công";
     }
 }

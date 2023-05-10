@@ -103,4 +103,10 @@ public class ImportRecord {
         totalPrice += e.getPrice()*e.getQuantity();
         totalQuantity += e.getQuantity();
     }
+    
+    public void removeDetail(IPDetail e) {
+        details.remove(e);
+        totalPrice -= e.getPrice()*e.getQuantity();
+        totalQuantity -= e.getQuantity();
+    }    
 }

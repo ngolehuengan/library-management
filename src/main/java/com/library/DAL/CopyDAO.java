@@ -78,7 +78,7 @@ public class CopyDAO extends ConnectDB {
     }
 
     public boolean updatePublishingYear(int id, int newData) {
-        int rs = executeUpdate("UPDATE COPY SET publishing_year=" + newData + "WHERE copy_id=" + id);
+        int rs = executeUpdate("UPDATE COPY SET publishing_year=" + newData + " WHERE copy_id=" + id);
         if (rs > 0) {
             return true;
         }

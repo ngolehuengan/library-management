@@ -7,7 +7,7 @@ import java.util.Vector;
  *
  * @author ant1006
  */
-public class LoanShip {																					
+public class LoanSlip {																					
     private int ID;          
     private String code;
     private int readerID;
@@ -44,7 +44,7 @@ public class LoanShip {
         }
     }
 
-    public LoanShip(int ID, String code, int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int returnQuantity, int librarianID) {
+    public LoanSlip(int ID, String code, int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int returnQuantity, int librarianID) {
         this.ID = ID;
         this.code = code;
         this.readerID = readerID;
@@ -55,7 +55,7 @@ public class LoanShip {
         this.librarianID = librarianID;
     }
 
-    public LoanShip(int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int librarianID) {
+    public LoanSlip(int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int librarianID) {
         this.readerID = readerID;
         this.borrowDate = borrowDate;
         this.appointmentDate = appointmentDate;
