@@ -149,6 +149,7 @@ public class HistorySlip {
                 return false;
             }
         });
+        table.setAutoCreateRowSorter(true);
         scrollPane.setViewportView(table);
 
         tableHandle = new javax.swing.JPanel();

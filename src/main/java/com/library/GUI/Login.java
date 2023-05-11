@@ -2,6 +2,7 @@ package main.java.com.library.GUI;
 
 import java.awt.Toolkit;
 
+@SuppressWarnings("serial")
 public class Login extends javax.swing.JFrame {
 	/**
 	 * Create the frame.
@@ -161,4 +162,6 @@ public class Login extends javax.swing.JFrame {
 	private javax.swing.JPanel botPnl;
 	private javax.swing.JButton btnLogin;
 	private javax.swing.JButton btnReset;
+	
+	public static int role = 0;
 }

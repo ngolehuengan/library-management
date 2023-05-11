@@ -142,6 +142,7 @@ public class LoanSlip {
                 return false;
             }
         });
+        table.setAutoCreateRowSorter(true);
         scrollPane.setViewportView(table);
 
         tableHandle = new javax.swing.JPanel();
@@ -166,6 +167,7 @@ public class LoanSlip {
                 return false;
             }
         });
+        subTable.setAutoCreateRowSorter(true);
         scrollPane.setViewportView(subTable);
     }
 

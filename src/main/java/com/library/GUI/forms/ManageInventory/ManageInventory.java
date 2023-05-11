@@ -72,16 +72,8 @@ public class ManageInventory {
 		delete.setForeground(new java.awt.Color(255, 255, 255));
 		delete.setBackground(new java.awt.Color(0, 153, 51));
 
-		search = new javax.swing.JButton("Tìm kiếm");
-		search.setBackground(new java.awt.Color(0, 153, 51));
-		search.setForeground(new java.awt.Color(255, 255, 255));
-		searchField = new javax.swing.JTextField();
-		searchField.setColumns(20);
-
 		handleBase.add(add);
 		handleBase.add(delete);
-		handleBase.add(searchField);
-		handleBase.add(search);
 
 		handleOpt = new javax.swing.JPanel();
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
@@ -144,8 +136,6 @@ public class ManageInventory {
 	private static javax.swing.JPanel handleOpt;
 	public static javax.swing.JButton add;
 	public static javax.swing.JButton delete;
-	public static javax.swing.JButton search;
-	public static javax.swing.JTextField searchField;
 	public static javax.swing.JButton download;
 	public static javax.swing.JButton upload;
 	public static javax.swing.JButton print;

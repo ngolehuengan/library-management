@@ -131,6 +131,7 @@ public class ManageInventoryLiquidate {
 				return false;
 			}
 		});
+		table.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(table);
 
 		tableHandle = new javax.swing.JPanel();
@@ -159,6 +160,7 @@ public class ManageInventoryLiquidate {
 				return false;
 			}
 		});
+		subTable.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(subTable);
 
 		subTableHandle = new javax.swing.JPanel();

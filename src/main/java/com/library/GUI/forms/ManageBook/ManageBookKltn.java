@@ -146,6 +146,7 @@ public class ManageBookKltn {
 				return false;
 			}
 		});
+		table.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(table);
 
 		tableHandle = new javax.swing.JPanel();

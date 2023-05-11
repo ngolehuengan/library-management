@@ -4,7 +4,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial" })
 public class ManageServicePenalty extends JFrame {
 	public ManageServicePenalty() {
 		init();
@@ -16,16 +16,20 @@ public class ManageServicePenalty extends JFrame {
 		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("../../../../../resources/icons/sgu-logo.png")));
 		setTitle("BIÊN BẢN PHẠT - THƯ VIỆN SGU");
 		contentPane = new javax.swing.JPanel();
-		contentPane.setBackground(new java.awt.Color(204, 255, 204));
 		setContentPane(contentPane);
 		contentPane.setLayout(new java.awt.BorderLayout(0, 0));
-		
+
 		// Title
+		titlePnl = new javax.swing.JPanel();
+		titlePnl.setLayout(new java.awt.BorderLayout(0, 0));
+		titlePnl.setBackground(new java.awt.Color(204, 255, 204));
+		contentPane.add(titlePnl, java.awt.BorderLayout.NORTH);
 		title = new javax.swing.JLabel("BIÊN BẢN");
 		title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		title.setForeground(new java.awt.Color(0, 102, 0));
 		title.setFont(new java.awt.Font("Tahoma", java.awt.Font.BOLD, 20));
-		contentPane.add(title, java.awt.BorderLayout.NORTH);
+		titlePnl.add(ManageService.print, java.awt.BorderLayout.EAST);
+		titlePnl.add(title, java.awt.BorderLayout.SOUTH);
 
         // ----Details: Info
         details = new javax.swing.JPanel();
@@ -108,7 +112,7 @@ public class ManageServicePenalty extends JFrame {
                         .addGap(80));
         gl_details.setVerticalGroup(
                 gl_details.createSequentialGroup()
-                		.addGap(50)
+                		.addGap(40)
                         .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblId)
                                 .addComponent(txtId))
@@ -144,7 +148,7 @@ public class ManageServicePenalty extends JFrame {
                         .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblPerson)
                                 .addComponent(txtPerson))
-                        .addGap(80));
+                        .addGap(40));
         details.setLayout(gl_details);
 
         // -----Details: Handle
@@ -157,26 +161,27 @@ public class ManageServicePenalty extends JFrame {
 
     // Private
 	private javax.swing.JPanel contentPane;
+	private javax.swing.JPanel titlePnl;
 	private javax.swing.JLabel title;
-    private static javax.swing.JPanel details;
-    private static javax.swing.JLabel lblId;
-    private static javax.swing.JTextField txtId;
-    private static javax.swing.JLabel lblReader;
-    private static javax.swing.JTextField txtReader;
-    private static javax.swing.JLabel lblDate;
-    private static javax.swing.JTextField txtDate;
-    private static javax.swing.JLabel lblValue;
-    private static javax.swing.JTextField txtValue;
-    private static javax.swing.JLabel lblPerson;
-    private static javax.swing.JTextField txtPerson;
-    private static javax.swing.JLabel lblDebt;
-    private static javax.swing.JTextField txtDebt;
-    private static javax.swing.JLabel lblAll;
-    private static javax.swing.JTextField txtAll;
-    private static javax.swing.JLabel lblContent;
-    private static javax.swing.JTextArea txtContent;
-    private static javax.swing.JLabel lblWayHandle;
-    private static javax.swing.JTextArea txtWayHandle;
-    private static javax.swing.JScrollPane scrollPane;
-    private static javax.swing.JPanel detailsHandle;
+    private javax.swing.JPanel details;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JLabel lblReader;
+    private javax.swing.JTextField txtReader;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JLabel lblValue;
+    private javax.swing.JTextField txtValue;
+    private javax.swing.JLabel lblPerson;
+    private javax.swing.JTextField txtPerson;
+    private javax.swing.JLabel lblDebt;
+    private javax.swing.JTextField txtDebt;
+    private javax.swing.JLabel lblAll;
+    private javax.swing.JTextField txtAll;
+    private javax.swing.JLabel lblContent;
+    private javax.swing.JTextArea txtContent;
+    private javax.swing.JLabel lblWayHandle;
+    private javax.swing.JTextArea txtWayHandle;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JPanel detailsHandle;
 }

@@ -142,6 +142,7 @@ public class ManageInventoryImport {
 				return false;
 			}
 		});
+		table.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(table);
 
 		tableHandle = new javax.swing.JPanel();
@@ -170,6 +171,7 @@ public class ManageInventoryImport {
 				return false;
 			}
 		});
+		subTable.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(subTable);
 
 		subTableHandle = new javax.swing.JPanel();

@@ -130,6 +130,7 @@ public class ManageServiceBorrow {
                 return false;
             }
         });
+        table.setAutoCreateRowSorter(true);
         scrollPane.setViewportView(table);
 
         tableHandle = new javax.swing.JPanel();
@@ -149,13 +150,14 @@ public class ManageServiceBorrow {
                 new Object[][] {
                 },
                 new String[] {
-                        "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GHI CHÚ"
+                        "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ"
                 }) {
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return false;
             }
         });
+        subTable.setAutoCreateRowSorter(true);
         scrollPane.setViewportView(subTable);
     }
 
