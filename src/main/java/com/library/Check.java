@@ -1,4 +1,4 @@
-package main.java.com.library.BLL;
+package main.java.com.library;
 
 import java.sql.Date;
 
@@ -8,6 +8,16 @@ import java.sql.Date;
  */
 public class Check {
 
+//    Tính ngày mới sau khi gia hạn theo hằng số 
+    public static Date adjournDate(Date old) {
+        return new Date(System.currentTimeMillis());
+    }
+    
+//    Tính số ngày từ start đến end    
+    public static int getDateDistance(Date start, Date end) {  
+        return 0;
+    }
+    
     public static boolean isISBN(String text) {
         return true;
     }

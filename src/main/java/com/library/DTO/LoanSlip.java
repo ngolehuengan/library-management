@@ -7,59 +7,33 @@ import java.util.Vector;
  *
  * @author ant1006
  */
-public class LoanSlip {																					
+public class LoanSlip {	
     private int ID;          
     private String code;
     private int readerID;
     private Date borrowDate;
     private Date appointmentDate;
-    private int brQuantity = 0;
+    private int borrowQuantity = 0;
     private int returnQuantity = 0;
     private int librarianID;
     private Vector<LoanDetail> details = new Vector<>();
     
-    private class LoanDetail {
-        private Document document;
-        private boolean returned;
-
-        public LoanDetail(Document document, boolean returned) {
-            this.document = document;
-            this.returned = returned;
-        }
-
-        public Document getDocument() {
-            return document;
-        }
-
-        public void setDocument(Document document) {
-            this.document = document;
-        }
-
-        public boolean isReturned() {
-            return returned;
-        }
-
-        public void setReturned(boolean returned) {
-            this.returned = returned;
-        }
-    }
-
-    public LoanSlip(int ID, String code, int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int returnQuantity, int librarianID) {
+    public LoanSlip(int ID, String code, int readerID, Date borrowDate, Date appointmentDate, int borrowQuantity, int returnQuantity, int librarianID) {
         this.ID = ID;
         this.code = code;
         this.readerID = readerID;
         this.borrowDate = borrowDate;
         this.appointmentDate = appointmentDate;
-        this.brQuantity = brQuantity;
+        this.borrowQuantity = borrowQuantity;
         this.returnQuantity = returnQuantity;
         this.librarianID = librarianID;
     }
 
-    public LoanSlip(int readerID, Date borrowDate, Date appointmentDate, int brQuantity, int librarianID) {
+    public LoanSlip(int readerID, Date borrowDate, Date appointmentDate, int borrowQuantity, int librarianID) {
         this.readerID = readerID;
         this.borrowDate = borrowDate;
         this.appointmentDate = appointmentDate;
-        this.brQuantity = brQuantity;
+        this.borrowQuantity = borrowQuantity;
         this.librarianID = librarianID;
     }
 
@@ -103,12 +77,12 @@ public class LoanSlip {
         this.appointmentDate = appointmentDate;
     }
 
-    public int getBrQuantity() {
-        return brQuantity;
+    public int getBorrowQuantity() {
+        return borrowQuantity;
     }
 
-    public void setBrQuantity(int brQuantity) {
-        this.brQuantity = brQuantity;
+    public void setBorrowQuantity(int borrowQuantity) {
+        this.borrowQuantity = borrowQuantity;
     }
 
     public int getReturnQuantity() {
@@ -133,11 +107,11 @@ public class LoanSlip {
 
     public void setDetails(Vector<LoanDetail> details) {
         this.details = details;
-        this.brQuantity = details.size();
+        this.borrowQuantity = details.size();
     }    
 
     public void addDetail(LoanDetail details) {
         this.details.add(details);
-        this.brQuantity++;
+        this.borrowQuantity++;
     }    
 }

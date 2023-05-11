@@ -164,6 +164,19 @@ public class LibResourceDAO extends ConnectDB {
         }
         return vt;
     }
+    
+    public Vector<LibResource> getAvaiResources() {
+        Vector<LibResource> vt = new Vector<>();
+        Vector<Vector<Object>> table = executeQuery("SELECT * FROM LIBRARY_RESOURCE WHERE existing_logic=1 AND available_quantity > 0");
+        for (int i = 0; i < table.size(); i++) {
+            // Lay ra dong du lieu
+            Vector<Object> row = table.get(i);
+            // Convert sang DTO va add vao vector
+            vt.add(getDTO(row));
+        }
+        return vt;
+    }
+    
 
 // -----------------------------------------------------------------------------
     private LibResource getDTO(Vector<Object> row) {
