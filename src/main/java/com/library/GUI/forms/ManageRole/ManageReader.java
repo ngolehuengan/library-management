@@ -83,9 +83,9 @@ public class ManageReader {
 		txtPenalty.setColumns(20);
 
 		lblGender = new javax.swing.JLabel("Giới tính");
-		male = new javax.swing.JRadioButton("Sinh Viên");
+		male = new javax.swing.JRadioButton("Nam");
 		male.setEnabled(false);
-		female = new javax.swing.JRadioButton("CBGV");
+		female = new javax.swing.JRadioButton("Nữ");
 		female.setEnabled(false);
 		btnGroupGd = new javax.swing.ButtonGroup();
 		btnGroupGd.add(male);
