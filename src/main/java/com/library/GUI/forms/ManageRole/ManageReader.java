@@ -83,9 +83,13 @@ public class ManageReader {
 		txtPenalty.setColumns(20);
 
 		lblGender = new javax.swing.JLabel("Giới tính");
-		txtGender = new javax.swing.JTextField();
-		txtGender.setEnabled(false);
-		txtGender.setColumns(20);
+		male = new javax.swing.JRadioButton("Sinh Viên");
+		male.setEnabled(false);
+		female = new javax.swing.JRadioButton("CBGV");
+		female.setEnabled(false);
+		btnGroupGd = new javax.swing.ButtonGroup();
+		btnGroupGd.add(male);
+		btnGroupGd.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
@@ -98,7 +102,13 @@ public class ManageReader {
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
 						.addComponent(txtAddress).addComponent(txtPenalty).addComponent(txtMs).addComponent(txtDepart)
-						.addComponent(txtClass).addComponent(txtGender).addComponent(txtEmail)
+						.addComponent(txtClass).addComponent(txtEmail)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(male))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(female)))
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(roleSv))
@@ -129,7 +139,7 @@ public class ManageReader {
 						.addComponent(lblDate).addComponent(txtDate))
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblGender).addComponent(txtGender))
+						.addComponent(lblGender).addComponent(male).addComponent(female))
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblAddress).addComponent(txtAddress))
@@ -188,10 +198,12 @@ public class ManageReader {
 			txtAddress.setEnabled(true);
 			txtEmail.setEnabled(true);
 			txtPhone.setEnabled(true);
-			txtGender.setEnabled(true);
+			male.setEnabled(true);
+			female.setEnabled(true);
 
 			txtName.setText("");
 			btnGroup.clearSelection();
+			btnGroupGd.clearSelection();
 			txtMs.setText("");
 			txtCmnd.setText("");
 			txtDate.setText("");
@@ -199,7 +211,6 @@ public class ManageReader {
 			txtEmail.setText("");
 			txtPhone.setText("");
 			txtPenalty.setText("0");
-			txtGender.setText("");
 		});
 
 		edit.addActionListener(e -> {
@@ -214,7 +225,35 @@ public class ManageReader {
 			txtAddress.setEnabled(true);
 			txtEmail.setEnabled(true);
 			txtPhone.setEnabled(true);
-			txtGender.setEnabled(true);
+			male.setEnabled(true);
+			female.setEnabled(true);
+		});
+
+		delete.addActionListener(e -> {
+			txtName.setEnabled(false);
+			roleSv.setEnabled(false);
+			roleCbgv.setEnabled(false);
+			txtMs.setEnabled(false);
+			txtDepart.setEnabled(false);
+			txtClass.setEnabled(false);
+			txtCmnd.setEnabled(false);
+			txtDate.setEnabled(false);
+			txtAddress.setEnabled(false);
+			txtEmail.setEnabled(false);
+			txtPhone.setEnabled(false);
+			male.setEnabled(false);
+			female.setEnabled(false);
+
+			txtName.setText("");
+			btnGroup.clearSelection();
+			btnGroupGd.clearSelection();
+			txtMs.setText("");
+			txtCmnd.setText("");
+			txtDate.setText("");
+			txtAddress.setText("");
+			txtEmail.setText("");
+			txtPhone.setText("");
+			txtPenalty.setText("0");
 		});
 
 		save.addActionListener(e -> {
@@ -229,7 +268,8 @@ public class ManageReader {
 			txtAddress.setEnabled(false);
 			txtEmail.setEnabled(false);
 			txtPhone.setEnabled(false);
-			txtGender.setEnabled(false);
+			male.setEnabled(false);
+			female.setEnabled(false);
 		});
 
 		reset.addActionListener(e -> {
@@ -245,17 +285,18 @@ public class ManageReader {
 				txtAddress.setEnabled(true);
 				txtEmail.setEnabled(true);
 				txtPhone.setEnabled(true);
-				txtGender.setEnabled(true);
+				male.setEnabled(true);
+				female.setEnabled(true);
 
 				txtName.setText("");
 				btnGroup.clearSelection();
+				btnGroupGd.clearSelection();
 				txtMs.setText("");
 				txtCmnd.setText("");
 				txtDate.setText("");
 				txtAddress.setText("");
 				txtEmail.setText("");
 				txtPhone.setText("");
-				txtGender.setText("");
 			}
 		});
 	}
@@ -409,7 +450,9 @@ public class ManageReader {
 	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox txtClass;
 	private static javax.swing.JLabel lblGender;
-	private static javax.swing.JTextField txtGender;
+	private static javax.swing.ButtonGroup btnGroupGd;
+	private static javax.swing.JRadioButton male;
+	private static javax.swing.JRadioButton female;
 	private static javax.swing.JPanel detailsHandle;
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JScrollPane scrollPane;

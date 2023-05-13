@@ -3,6 +3,7 @@ package main.java.com.library.GUI.components;
 import main.java.com.library.GUI.Login;
 import main.java.com.library.GUI.forms.ManageBook.ManageBook;
 import main.java.com.library.GUI.forms.ManageInventory.ManageInventory;
+import main.java.com.library.GUI.forms.ManageRole.ManageLibrarian;
 import main.java.com.library.GUI.forms.ManageRole.ManageReader;
 import main.java.com.library.GUI.forms.ManageService.ManageService;
 import main.java.com.library.GUI.forms.Slip.Slip;
@@ -25,8 +26,7 @@ public class Menu {
 		 ManageReader.init(tabbedPane);
 
 		if (Login.role == 0) { // check role
-			statisticalTab = new javax.swing.JPanel();
-			tabbedPane.addTab("Quản Lý Thủ Thư", null, statisticalTab, null);
+			ManageLibrarian.init(tabbedPane);
 		}
 
 		statisticalTab = new javax.swing.JPanel();
