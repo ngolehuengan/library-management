@@ -1,8 +1,5 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
-import main.java.com.library.GUI.forms.ManageBook.ManageBook;
-import main.java.com.library.GUI.handle.Handle;
-
 public class ManageReader {
 	@SuppressWarnings({ "serial", "rawtypes" })
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
@@ -317,7 +314,7 @@ public class ManageReader {
 		filterRole.add(roleSvHandle);
 		filterRole.add(roleCbgvHandle);
 		handleFilter.add(filterRole);
-		
+
 		filterDebt = new javax.swing.JPanel();
 		filterDebt.setBackground(new java.awt.Color(204, 255, 204));
 		lblDebtHandle = new javax.swing.JLabel("Tổng nợ");
@@ -332,7 +329,7 @@ public class ManageReader {
 		filterDebt.add(txtDebtHandle);
 		filterDebt.add(txtUndebtHandle);
 		handleFilter.add(filterDebt);
-		
+
 		filterDepart = new javax.swing.JPanel();
 		filterDepart.setBackground(new java.awt.Color(204, 255, 204));
 		lblDepartHandle = new javax.swing.JLabel("Khoa");
