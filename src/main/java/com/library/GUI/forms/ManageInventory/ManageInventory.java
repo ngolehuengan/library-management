@@ -59,9 +59,11 @@ public class ManageInventory {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
 				javax.swing.border.TitledBorder.TOP, null, null));
+		handle.setBackground(new java.awt.Color(204, 255, 204));
 		handle.setLayout(new java.awt.BorderLayout(0, 0));
 
 		handleBase = new javax.swing.JPanel();
+		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
 		add = new javax.swing.JButton("Thêm");
@@ -76,6 +78,7 @@ public class ManageInventory {
 		handleBase.add(delete);
 
 		handleOpt = new javax.swing.JPanel();
+		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
 		print = new javax.swing.JButton("  In");

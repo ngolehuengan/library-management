@@ -3,6 +3,7 @@ package main.java.com.library.GUI.components;
 import main.java.com.library.GUI.Login;
 import main.java.com.library.GUI.forms.ManageBook.ManageBook;
 import main.java.com.library.GUI.forms.ManageInventory.ManageInventory;
+import main.java.com.library.GUI.forms.ManageRole.ManageReader;
 import main.java.com.library.GUI.forms.ManageService.ManageService;
 import main.java.com.library.GUI.forms.Slip.Slip;
 
@@ -14,25 +15,23 @@ public class Menu {
 		contentPane.add(tabbedPane, java.awt.BorderLayout.CENTER);
 
 		// Tabs
-//		statisticalTab = new javax.swing.JPanel();
-//		tabbedPane.addTab("Quy Định", null, statisticalTab, null);
-		
-		ManageInventory.init(tabbedPane);
-		ManageBook.init(tabbedPane);
-		ManageService.init(tabbedPane);
-		Slip.init(tabbedPane);
-		
-		statisticalTab = new javax.swing.JPanel();
-		tabbedPane.addTab("Quản Lý Độc Giả", null, statisticalTab, null);
-		
-		if(Login.role == 0) { //check role
+		// statisticalTab = new javax.swing.JPanel();
+		// tabbedPane.addTab("Quy Định", null, statisticalTab, null);
+
+//		 ManageInventory.init(tabbedPane);
+//		 ManageBook.init(tabbedPane);
+//		ManageService.init(tabbedPane);
+//		 Slip.init(tabbedPane);
+		 ManageReader.init(tabbedPane);
+
+		if (Login.role == 0) { // check role
 			statisticalTab = new javax.swing.JPanel();
 			tabbedPane.addTab("Quản Lý Thủ Thư", null, statisticalTab, null);
 		}
-		
+
 		statisticalTab = new javax.swing.JPanel();
 		tabbedPane.addTab("Thống Kê", null, statisticalTab, null);
-		
+
 		userTab = new javax.swing.JPanel();
 		tabbedPane.addTab("Thông Tin Tài Khoản", null, userTab, null);
 	}

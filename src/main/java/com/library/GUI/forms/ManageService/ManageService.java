@@ -72,9 +72,11 @@ public class ManageService {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
 				javax.swing.border.TitledBorder.TOP, null, null));
+		handle.setBackground(new java.awt.Color(204, 255, 204));
 		handle.setLayout(new java.awt.BorderLayout(0, 0));
 
 		handleBase = new javax.swing.JPanel();
+		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
 		add = new javax.swing.JButton("Thêm");
@@ -119,6 +121,7 @@ public class ManageService {
 		handleBase.add(search);
 
 		handleOpt = new javax.swing.JPanel();
+		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
 		print = new javax.swing.JButton("  In");
@@ -129,6 +132,10 @@ public class ManageService {
 		adjourn = new javax.swing.JButton("Gia Hạn");
 		adjourn.setBackground(new java.awt.Color(0, 153, 51));
 		adjourn.setForeground(new java.awt.Color(255, 255, 255));
+		
+		find = new javax.swing.JButton("Tìm");
+		find.setBackground(new java.awt.Color(0, 153, 51));
+		find.setForeground(new java.awt.Color(255, 255, 255));
 
 		handleOpt.add(print);
 	}
@@ -157,4 +164,5 @@ public class ManageService {
 	public static javax.swing.JButton collect;
 	public static javax.swing.JButton penalty;
 	public static javax.swing.JButton adjourn;
+	public static javax.swing.JButton find;
 }
