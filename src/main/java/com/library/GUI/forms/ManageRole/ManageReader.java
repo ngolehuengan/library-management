@@ -77,7 +77,7 @@ public class ManageReader {
 		txtPhone.setEnabled(false);
 		txtPhone.setColumns(20);
 
-		lblPenalty = new javax.swing.JLabel("Tổng nợ");
+		lblPenalty = new javax.swing.JLabel("Nợ");
 		txtPenalty = new javax.swing.JTextField();
 		txtPenalty.setEnabled(false);
 		txtPenalty.setColumns(20);
