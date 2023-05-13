@@ -1,6 +1,7 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
-import main.java.com.library.GUI.forms.ManageService.ManageService;
+import main.java.com.library.GUI.forms.ManageBook.ManageBook;
+import main.java.com.library.GUI.handle.Handle;
 
 public class ManageReader {
 	@SuppressWarnings({ "serial", "rawtypes" })
@@ -34,7 +35,9 @@ public class ManageReader {
 
 		lblRole = new javax.swing.JLabel("Loại độc giả");
 		roleSv = new javax.swing.JRadioButton("Sinh Viên");
+		roleSv.setEnabled(false);
 		roleCbgv = new javax.swing.JRadioButton("CBGV");
+		roleCbgv.setEnabled(false);
 		btnGroup = new javax.swing.ButtonGroup();
 		btnGroup.add(roleSv);
 		btnGroup.add(roleCbgv);
@@ -174,9 +177,94 @@ public class ManageReader {
 		tableHandle.add(view);
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
+
+		// Action
+		add.addActionListener(e -> {
+			txtName.setEnabled(true);
+			roleSv.setEnabled(true);
+			roleCbgv.setEnabled(true);
+			txtMs.setEnabled(true);
+			txtDepart.setEnabled(true);
+			txtClass.setEnabled(true);
+			txtCmnd.setEnabled(true);
+			txtDate.setEnabled(true);
+			txtAddress.setEnabled(true);
+			txtEmail.setEnabled(true);
+			txtPhone.setEnabled(true);
+			txtGender.setEnabled(true);
+
+			txtName.setText("");
+			btnGroup.clearSelection();
+			txtMs.setText("");
+			txtCmnd.setText("");
+			txtDate.setText("");
+			txtAddress.setText("");
+			txtEmail.setText("");
+			txtPhone.setText("");
+			txtPenalty.setText("0");
+			txtGender.setText("");
+		});
+
+		edit.addActionListener(e -> {
+			txtName.setEnabled(true);
+			roleSv.setEnabled(true);
+			roleCbgv.setEnabled(true);
+			txtMs.setEnabled(true);
+			txtDepart.setEnabled(true);
+			txtClass.setEnabled(true);
+			txtCmnd.setEnabled(true);
+			txtDate.setEnabled(true);
+			txtAddress.setEnabled(true);
+			txtEmail.setEnabled(true);
+			txtPhone.setEnabled(true);
+			txtGender.setEnabled(true);
+		});
+
+		save.addActionListener(e -> {
+			txtName.setEnabled(false);
+			roleSv.setEnabled(false);
+			roleCbgv.setEnabled(false);
+			txtMs.setEnabled(false);
+			txtDepart.setEnabled(false);
+			txtClass.setEnabled(false);
+			txtCmnd.setEnabled(false);
+			txtDate.setEnabled(false);
+			txtAddress.setEnabled(false);
+			txtEmail.setEnabled(false);
+			txtPhone.setEnabled(false);
+			txtGender.setEnabled(false);
+		});
+
+		reset.addActionListener(e -> {
+			if (txtName.isEnabled()) {
+				txtName.setEnabled(true);
+				roleSv.setEnabled(true);
+				roleCbgv.setEnabled(true);
+				txtMs.setEnabled(true);
+				txtDepart.setEnabled(true);
+				txtClass.setEnabled(true);
+				txtCmnd.setEnabled(true);
+				txtDate.setEnabled(true);
+				txtAddress.setEnabled(true);
+				txtEmail.setEnabled(true);
+				txtPhone.setEnabled(true);
+				txtGender.setEnabled(true);
+
+				txtName.setText("");
+				btnGroup.clearSelection();
+				txtMs.setText("");
+				txtCmnd.setText("");
+				txtDate.setText("");
+				txtAddress.setText("");
+				txtEmail.setText("");
+				txtPhone.setText("");
+				txtGender.setText("");
+			}
+		});
 	}
 
 	// Handle
+	@SuppressWarnings("rawtypes")
 	private static void handle() {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
@@ -211,6 +299,47 @@ public class ManageReader {
 		handleBase.add(delete);
 		handleBase.add(searchField);
 		handleBase.add(search);
+
+		handleFilter = new javax.swing.JPanel(new java.awt.GridLayout(1, 3));
+		handle.add(handleFilter, java.awt.BorderLayout.CENTER);
+
+		filterRole = new javax.swing.JPanel();
+		filterRole.setBackground(new java.awt.Color(204, 255, 204));
+		lblRoleHandle = new javax.swing.JLabel("Loại độc giả");
+		roleSvHandle = new javax.swing.JRadioButton("Sinh Viên");
+		roleSvHandle.setBackground(new java.awt.Color(204, 255, 204));
+		roleCbgvHandle = new javax.swing.JRadioButton("CBGV");
+		roleCbgvHandle.setBackground(new java.awt.Color(204, 255, 204));
+		btnGroup = new javax.swing.ButtonGroup();
+		btnGroup.add(roleSvHandle);
+		btnGroup.add(roleCbgvHandle);
+		filterRole.add(lblRoleHandle);
+		filterRole.add(roleSvHandle);
+		filterRole.add(roleCbgvHandle);
+		handleFilter.add(filterRole);
+		
+		filterDebt = new javax.swing.JPanel();
+		filterDebt.setBackground(new java.awt.Color(204, 255, 204));
+		lblDebtHandle = new javax.swing.JLabel("Tổng nợ");
+		txtDebtHandle = new javax.swing.JRadioButton("Có");
+		txtDebtHandle.setBackground(new java.awt.Color(204, 255, 204));
+		txtUndebtHandle = new javax.swing.JRadioButton("Không");
+		txtUndebtHandle.setBackground(new java.awt.Color(204, 255, 204));
+		btnGroup = new javax.swing.ButtonGroup();
+		btnGroup.add(txtDebtHandle);
+		btnGroup.add(txtUndebtHandle);
+		filterDebt.add(lblDebtHandle);
+		filterDebt.add(txtDebtHandle);
+		filterDebt.add(txtUndebtHandle);
+		handleFilter.add(filterDebt);
+		
+		filterDepart = new javax.swing.JPanel();
+		filterDepart.setBackground(new java.awt.Color(204, 255, 204));
+		lblDepartHandle = new javax.swing.JLabel("Khoa");
+		txtDepartHandle = new javax.swing.JComboBox();
+		filterDepart.add(lblDepartHandle);
+		filterDepart.add(txtDepartHandle);
+		handleFilter.add(filterDepart);
 
 		handleOpt = new javax.swing.JPanel();
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
@@ -277,8 +406,10 @@ public class ManageReader {
 	private static javax.swing.JLabel lblMs;
 	private static javax.swing.JTextField txtMs;
 	private static javax.swing.JLabel lblDepart;
+	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox txtDepart;
 	private static javax.swing.JLabel lblClass;
+	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox txtClass;
 	private static javax.swing.JLabel lblGender;
 	private static javax.swing.JTextField txtGender;
@@ -290,16 +421,29 @@ public class ManageReader {
 
 	private static javax.swing.JPanel handle;
 	private static javax.swing.JPanel handleBase;
+	private static javax.swing.JPanel handleFilter;
+	private static javax.swing.JPanel filterRole;
+	private static javax.swing.JLabel lblRoleHandle;
+	private static javax.swing.JRadioButton roleSvHandle;
+	private static javax.swing.JRadioButton roleCbgvHandle;
+	private static javax.swing.JPanel filterDebt;
+	private static javax.swing.JLabel lblDebtHandle;
+	private static javax.swing.JRadioButton txtDebtHandle;
+	private static javax.swing.JRadioButton txtUndebtHandle;
+	private static javax.swing.JPanel filterDepart;
+	private static javax.swing.JLabel lblDepartHandle;
+	@SuppressWarnings("rawtypes")
+	private static javax.swing.JComboBox txtDepartHandle;
 	private static javax.swing.JPanel handleOpt;
-	public static javax.swing.JButton add;
-	public static javax.swing.JButton edit;
-	public static javax.swing.JButton delete;
-	public static javax.swing.JButton search;
-	public static javax.swing.JTextField searchField;
-	public static javax.swing.JButton download;
-	public static javax.swing.JButton upload;
-	public static javax.swing.JButton print;
-	public static javax.swing.JButton save;
-	public static javax.swing.JButton reset;
-	public static javax.swing.JButton view;
+	private static javax.swing.JButton add;
+	private static javax.swing.JButton edit;
+	private static javax.swing.JButton delete;
+	private static javax.swing.JButton search;
+	private static javax.swing.JTextField searchField;
+	private static javax.swing.JButton download;
+	private static javax.swing.JButton upload;
+	private static javax.swing.JButton print;
+	private static javax.swing.JButton save;
+	private static javax.swing.JButton reset;
+	private static javax.swing.JButton view;
 }
