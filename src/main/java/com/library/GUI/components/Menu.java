@@ -19,11 +19,11 @@ public class Menu {
 		// statisticalTab = new javax.swing.JPanel();
 		// tabbedPane.addTab("Quy Định", null, statisticalTab, null);
 
-//		 ManageInventory.init(tabbedPane);
-//		 ManageBook.init(tabbedPane);
-//		ManageService.init(tabbedPane);
-//		 Slip.init(tabbedPane);
-		 ManageReader.init(tabbedPane);
+		ManageInventory.init(tabbedPane);
+		ManageBook.init(tabbedPane);
+		ManageService.init(tabbedPane);
+		Slip.init(tabbedPane);
+		ManageReader.init(tabbedPane);
 
 		if (Login.role == 0) { // check role
 			ManageLibrarian.init(tabbedPane);

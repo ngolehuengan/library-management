@@ -31,7 +31,7 @@ public class ManageReader {
 		txtName.setColumns(20);
 
 		lblRole = new javax.swing.JLabel("Loại độc giả");
-		roleSv = new javax.swing.JRadioButton("Sinh Viên");
+		roleSv = new javax.swing.JRadioButton("Sinh viên");
 		roleSv.setEnabled(false);
 		roleCbgv = new javax.swing.JRadioButton("CBGV");
 		roleCbgv.setEnabled(false);
@@ -49,8 +49,9 @@ public class ManageReader {
 		txtDepart.setEnabled(false);
 
 		lblClass = new javax.swing.JLabel("Lớp");
-		txtClass = new javax.swing.JComboBox();
+		txtClass = new javax.swing.JTextField();
 		txtClass.setEnabled(false);
+		txtClass.setColumns(20);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
 		txtCmnd = new javax.swing.JTextField();
@@ -77,7 +78,7 @@ public class ManageReader {
 		txtPhone.setEnabled(false);
 		txtPhone.setColumns(20);
 
-		lblPenalty = new javax.swing.JLabel("Nợ");
+		lblPenalty = new javax.swing.JLabel("Tổng nợ");
 		txtPenalty = new javax.swing.JTextField();
 		txtPenalty.setEnabled(false);
 		txtPenalty.setColumns(20);
@@ -302,7 +303,7 @@ public class ManageReader {
 	}
 
 	// Handle
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static void handle() {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
@@ -343,7 +344,7 @@ public class ManageReader {
 
 		filterRole = new javax.swing.JPanel();
 		filterRole.setBackground(new java.awt.Color(204, 255, 204));
-		lblRoleHandle = new javax.swing.JLabel("Loại độc giả");
+		lblRoleHandle = new javax.swing.JLabel("Loại độc giả:");
 		roleSvHandle = new javax.swing.JRadioButton("Sinh Viên");
 		roleSvHandle.setBackground(new java.awt.Color(204, 255, 204));
 		roleCbgvHandle = new javax.swing.JRadioButton("CBGV");
@@ -358,7 +359,7 @@ public class ManageReader {
 
 		filterDebt = new javax.swing.JPanel();
 		filterDebt.setBackground(new java.awt.Color(204, 255, 204));
-		lblDebtHandle = new javax.swing.JLabel("Tổng nợ");
+		lblDebtHandle = new javax.swing.JLabel("Nợ:");
 		txtDebtHandle = new javax.swing.JRadioButton("Có");
 		txtDebtHandle.setBackground(new java.awt.Color(204, 255, 204));
 		txtUndebtHandle = new javax.swing.JRadioButton("Không");
@@ -373,8 +374,9 @@ public class ManageReader {
 
 		filterDepart = new javax.swing.JPanel();
 		filterDepart.setBackground(new java.awt.Color(204, 255, 204));
-		lblDepartHandle = new javax.swing.JLabel("Khoa");
+		lblDepartHandle = new javax.swing.JLabel("Khoa:");
 		txtDepartHandle = new javax.swing.JComboBox();
+		txtDepartHandle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Công Nghệ Thông Tin" }));
 		filterDepart.add(lblDepartHandle);
 		filterDepart.add(txtDepartHandle);
 		handleFilter.add(filterDepart);
@@ -447,8 +449,7 @@ public class ManageReader {
 	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox txtDepart;
 	private static javax.swing.JLabel lblClass;
-	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox txtClass;
+	private static javax.swing.JTextField txtClass;
 	private static javax.swing.JLabel lblGender;
 	private static javax.swing.ButtonGroup btnGroupGd;
 	private static javax.swing.JRadioButton male;

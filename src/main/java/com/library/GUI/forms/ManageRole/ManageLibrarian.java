@@ -1,17 +1,17 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
 public class ManageLibrarian {
-	@SuppressWarnings({ "serial", "rawtypes" })
+	@SuppressWarnings({ "serial" })
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
-		ManageReaderTab = new javax.swing.JPanel();
-		ManageReaderTab.setLayout(new java.awt.BorderLayout(0, 0));
-		tabbedPane.addTab("Quản Lý Độc Giả", null, ManageReaderTab, null);
+		ManageLibrarianTab = new javax.swing.JPanel();
+		ManageLibrarianTab.setLayout(new java.awt.BorderLayout(0, 0));
+		tabbedPane.addTab("Quản Lý Thủ Thư", null, ManageLibrarianTab, null);
 		handle();
 
 		// Main Frame = Handle + SplitPane (Menu Side + Tabs)
 		splitPane = new javax.swing.JSplitPane();
-		ManageReaderTab.add(handle, java.awt.BorderLayout.NORTH);
-		ManageReaderTab.add(splitPane, java.awt.BorderLayout.CENTER);
+		ManageLibrarianTab.add(handle, java.awt.BorderLayout.NORTH);
+		ManageLibrarianTab.add(splitPane, java.awt.BorderLayout.CENTER);
 
 		// --Reader Slip Tab = Details + Table
 		// ---Details
@@ -30,27 +30,15 @@ public class ManageLibrarian {
 		txtName.setEnabled(false);
 		txtName.setColumns(20);
 
-		lblRole = new javax.swing.JLabel("Loại độc giả");
-		roleSv = new javax.swing.JRadioButton("Sinh Viên");
-		roleSv.setEnabled(false);
-		roleCbgv = new javax.swing.JRadioButton("CBGV");
-		roleCbgv.setEnabled(false);
-		btnGroup = new javax.swing.ButtonGroup();
-		btnGroup.add(roleSv);
-		btnGroup.add(roleCbgv);
+		lblUser = new javax.swing.JLabel("Tên tài khoản");
+		txtUser = new javax.swing.JTextField();
+		txtUser.setEnabled(false);
+		txtUser.setColumns(20);
 
-		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField();
-		txtMs.setEnabled(false);
-		txtMs.setColumns(20);
-
-		lblDepart = new javax.swing.JLabel("Khoa");
-		txtDepart = new javax.swing.JComboBox();
-		txtDepart.setEnabled(false);
-
-		lblClass = new javax.swing.JLabel("Lớp");
-		txtClass = new javax.swing.JComboBox();
-		txtClass.setEnabled(false);
+		lblPwd = new javax.swing.JLabel("Mật khẩu");
+		txtPwd = new javax.swing.JTextField();
+		txtPwd.setEnabled(false);
+		txtPwd.setColumns(20);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
 		txtCmnd = new javax.swing.JTextField();
@@ -77,60 +65,41 @@ public class ManageLibrarian {
 		txtPhone.setEnabled(false);
 		txtPhone.setColumns(20);
 
-		lblPenalty = new javax.swing.JLabel("Nợ");
-		txtPenalty = new javax.swing.JTextField();
-		txtPenalty.setEnabled(false);
-		txtPenalty.setColumns(20);
-
 		lblGender = new javax.swing.JLabel("Giới tính");
 		male = new javax.swing.JRadioButton("Nam");
 		male.setEnabled(false);
 		female = new javax.swing.JRadioButton("Nữ");
 		female.setEnabled(false);
-		btnGroupGd = new javax.swing.ButtonGroup();
-		btnGroupGd.add(male);
-		btnGroupGd.add(female);
+		btnGroup = new javax.swing.ButtonGroup();
+		btnGroup.add(male);
+		btnGroup.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-						.addComponent(lblPhone).addComponent(lblName).addComponent(lblRole).addComponent(lblCmnd)
-						.addComponent(lblDate).addComponent(lblAddress).addComponent(lblEmail).addComponent(lblMs)
-						.addComponent(lblDepart).addComponent(lblClass).addComponent(lblGender)
-						.addComponent(lblPenalty))
+				.addGroup(gl_details
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lblPhone)
+						.addComponent(lblName).addComponent(lblCmnd).addComponent(lblDate).addComponent(lblAddress)
+						.addComponent(lblEmail).addComponent(lblGender).addComponent(lblUser).addComponent(lblPwd))
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
-						.addComponent(txtAddress).addComponent(txtPenalty).addComponent(txtMs).addComponent(txtDepart)
-						.addComponent(txtClass).addComponent(txtEmail)
+						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(txtPwd)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(male))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(female)))
-						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(roleSv))
-								.addGap(24)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(roleCbgv))))
+										.addComponent(female))))
 				.addGap(80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
-				.addGap(20)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
-						.addComponent(txtMs))
+						.addComponent(lblUser).addComponent(txtUser))
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblDepart).addComponent(txtDepart))
-				.addGap(20)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblClass).addComponent(txtClass))
+						.addComponent(lblPwd).addComponent(txtPwd))
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
@@ -146,11 +115,8 @@ public class ManageLibrarian {
 				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(20)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPhone).addComponent(txtPhone))
 				.addGap(20).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPenalty).addComponent(txtPenalty))
+						.addComponent(lblPhone).addComponent(txtPhone))
 				.addGap(20));
 		detailsInfo.setLayout(gl_details);
 
@@ -170,8 +136,8 @@ public class ManageLibrarian {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "MÃ ĐỘC GIẢ",
-				"HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ", "NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
+				new String[] { "STT", "MÃ THỦ THƯ", "HỌ TÊN", "TÊN TÀI KHOẢN", "CMND/CCCD", "NGÀY TẠO TK" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -188,11 +154,8 @@ public class ManageLibrarian {
 		// Action
 		add.addActionListener(e -> {
 			txtName.setEnabled(true);
-			roleSv.setEnabled(true);
-			roleCbgv.setEnabled(true);
-			txtMs.setEnabled(true);
-			txtDepart.setEnabled(true);
-			txtClass.setEnabled(true);
+			txtUser.setEnabled(true);
+			txtPwd.setEnabled(true);
 			txtCmnd.setEnabled(true);
 			txtDate.setEnabled(true);
 			txtAddress.setEnabled(true);
@@ -202,24 +165,20 @@ public class ManageLibrarian {
 			female.setEnabled(true);
 
 			txtName.setText("");
+			txtUser.setText("");
+			txtPwd.setText("");
 			btnGroup.clearSelection();
-			btnGroupGd.clearSelection();
-			txtMs.setText("");
 			txtCmnd.setText("");
 			txtDate.setText("");
 			txtAddress.setText("");
 			txtEmail.setText("");
 			txtPhone.setText("");
-			txtPenalty.setText("0");
 		});
 
 		edit.addActionListener(e -> {
 			txtName.setEnabled(true);
-			roleSv.setEnabled(true);
-			roleCbgv.setEnabled(true);
-			txtMs.setEnabled(true);
-			txtDepart.setEnabled(true);
-			txtClass.setEnabled(true);
+			txtUser.setEnabled(true);
+			txtPwd.setEnabled(true);
 			txtCmnd.setEnabled(true);
 			txtDate.setEnabled(true);
 			txtAddress.setEnabled(true);
@@ -231,11 +190,8 @@ public class ManageLibrarian {
 
 		delete.addActionListener(e -> {
 			txtName.setEnabled(false);
-			roleSv.setEnabled(false);
-			roleCbgv.setEnabled(false);
-			txtMs.setEnabled(false);
-			txtDepart.setEnabled(false);
-			txtClass.setEnabled(false);
+			txtUser.setEnabled(false);
+			txtPwd.setEnabled(false);
 			txtCmnd.setEnabled(false);
 			txtDate.setEnabled(false);
 			txtAddress.setEnabled(false);
@@ -245,24 +201,20 @@ public class ManageLibrarian {
 			female.setEnabled(false);
 
 			txtName.setText("");
+			txtUser.setText("");
+			txtPwd.setText("");
 			btnGroup.clearSelection();
-			btnGroupGd.clearSelection();
-			txtMs.setText("");
 			txtCmnd.setText("");
 			txtDate.setText("");
 			txtAddress.setText("");
 			txtEmail.setText("");
 			txtPhone.setText("");
-			txtPenalty.setText("0");
 		});
 
 		save.addActionListener(e -> {
 			txtName.setEnabled(false);
-			roleSv.setEnabled(false);
-			roleCbgv.setEnabled(false);
-			txtMs.setEnabled(false);
-			txtDepart.setEnabled(false);
-			txtClass.setEnabled(false);
+			txtUser.setEnabled(false);
+			txtPwd.setEnabled(false);
 			txtCmnd.setEnabled(false);
 			txtDate.setEnabled(false);
 			txtAddress.setEnabled(false);
@@ -275,11 +227,8 @@ public class ManageLibrarian {
 		reset.addActionListener(e -> {
 			if (txtName.isEnabled()) {
 				txtName.setEnabled(true);
-				roleSv.setEnabled(true);
-				roleCbgv.setEnabled(true);
-				txtMs.setEnabled(true);
-				txtDepart.setEnabled(true);
-				txtClass.setEnabled(true);
+				txtUser.setEnabled(true);
+				txtPwd.setEnabled(true);
 				txtCmnd.setEnabled(true);
 				txtDate.setEnabled(true);
 				txtAddress.setEnabled(true);
@@ -289,9 +238,9 @@ public class ManageLibrarian {
 				female.setEnabled(true);
 
 				txtName.setText("");
+				txtUser.setText("");
+				txtPwd.setText("");
 				btnGroup.clearSelection();
-				btnGroupGd.clearSelection();
-				txtMs.setText("");
 				txtCmnd.setText("");
 				txtDate.setText("");
 				txtAddress.setText("");
@@ -302,7 +251,6 @@ public class ManageLibrarian {
 	}
 
 	// Handle
-	@SuppressWarnings("rawtypes")
 	private static void handle() {
 		handle = new javax.swing.JPanel();
 		handle.setBorder(new javax.swing.border.TitledBorder(null, "Xử Lý", javax.swing.border.TitledBorder.LEADING,
@@ -338,47 +286,6 @@ public class ManageLibrarian {
 		handleBase.add(searchField);
 		handleBase.add(search);
 
-		handleFilter = new javax.swing.JPanel(new java.awt.GridLayout(1, 3));
-		handle.add(handleFilter, java.awt.BorderLayout.CENTER);
-
-		filterRole = new javax.swing.JPanel();
-		filterRole.setBackground(new java.awt.Color(204, 255, 204));
-		lblRoleHandle = new javax.swing.JLabel("Loại độc giả");
-		roleSvHandle = new javax.swing.JRadioButton("Sinh Viên");
-		roleSvHandle.setBackground(new java.awt.Color(204, 255, 204));
-		roleCbgvHandle = new javax.swing.JRadioButton("CBGV");
-		roleCbgvHandle.setBackground(new java.awt.Color(204, 255, 204));
-		btnGroup = new javax.swing.ButtonGroup();
-		btnGroup.add(roleSvHandle);
-		btnGroup.add(roleCbgvHandle);
-		filterRole.add(lblRoleHandle);
-		filterRole.add(roleSvHandle);
-		filterRole.add(roleCbgvHandle);
-		handleFilter.add(filterRole);
-
-		filterDebt = new javax.swing.JPanel();
-		filterDebt.setBackground(new java.awt.Color(204, 255, 204));
-		lblDebtHandle = new javax.swing.JLabel("Tổng nợ");
-		txtDebtHandle = new javax.swing.JRadioButton("Có");
-		txtDebtHandle.setBackground(new java.awt.Color(204, 255, 204));
-		txtUndebtHandle = new javax.swing.JRadioButton("Không");
-		txtUndebtHandle.setBackground(new java.awt.Color(204, 255, 204));
-		btnGroup = new javax.swing.ButtonGroup();
-		btnGroup.add(txtDebtHandle);
-		btnGroup.add(txtUndebtHandle);
-		filterDebt.add(lblDebtHandle);
-		filterDebt.add(txtDebtHandle);
-		filterDebt.add(txtUndebtHandle);
-		handleFilter.add(filterDebt);
-
-		filterDepart = new javax.swing.JPanel();
-		filterDepart.setBackground(new java.awt.Color(204, 255, 204));
-		lblDepartHandle = new javax.swing.JLabel("Khoa");
-		txtDepartHandle = new javax.swing.JComboBox();
-		filterDepart.add(lblDepartHandle);
-		filterDepart.add(txtDepartHandle);
-		handleFilter.add(filterDepart);
-
 		handleOpt = new javax.swing.JPanel();
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
@@ -386,22 +293,15 @@ public class ManageLibrarian {
 		print = new javax.swing.JButton("  In");
 		print.setIcon(new javax.swing.ImageIcon(
 				ManageReader.class.getResource("../../../../../resources/icons/printing.png")));
-		print.setBackground(new java.awt.Color(0, 153, 51));
 		print.setForeground(new java.awt.Color(255, 255, 255));
-
-		upload = new javax.swing.JButton("  Đăng tải");
-		upload.setBackground(new java.awt.Color(0, 153, 51));
-		upload.setForeground(new java.awt.Color(255, 255, 255));
-		upload.setIcon(
-				new javax.swing.ImageIcon(ManageReader.class.getResource("../../../../../resources/icons/upload.png")));
+		print.setBackground(new java.awt.Color(0, 153, 51));
 
 		download = new javax.swing.JButton("  Tải xuống");
 		download.setIcon(new javax.swing.ImageIcon(
 				ManageReader.class.getResource("../../../../../resources/icons/downloads.png")));
 		download.setForeground(new java.awt.Color(255, 255, 255));
 		download.setBackground(new java.awt.Color(0, 153, 51));
-
-		handleOpt.add(upload);
+		
 		handleOpt.add(download);
 		handleOpt.add(print);
 
@@ -419,16 +319,16 @@ public class ManageLibrarian {
 	}
 
 	// Private
-	private static javax.swing.JPanel ManageReaderTab;
+	private static javax.swing.JPanel ManageLibrarianTab;
 	private static javax.swing.JSplitPane splitPane;
 	private static javax.swing.JPanel details;
 	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JLabel lblName;
 	private static javax.swing.JTextField txtName;
-	private static javax.swing.JLabel lblRole;
-	private static javax.swing.JRadioButton roleSv;
-	private static javax.swing.JRadioButton roleCbgv;
-	private static javax.swing.ButtonGroup btnGroup;
+	private static javax.swing.JLabel lblUser;
+	private static javax.swing.JTextField txtUser;
+	private static javax.swing.JLabel lblPwd;
+	private static javax.swing.JTextField txtPwd;
 	private static javax.swing.JLabel lblEmail;
 	private static javax.swing.JTextField txtEmail;
 	private static javax.swing.JLabel lblCmnd;
@@ -439,18 +339,8 @@ public class ManageLibrarian {
 	private static javax.swing.JTextField txtPhone;
 	private static javax.swing.JLabel lblAddress;
 	private static javax.swing.JTextField txtAddress;
-	private static javax.swing.JLabel lblPenalty;
-	private static javax.swing.JTextField txtPenalty;
-	private static javax.swing.JLabel lblMs;
-	private static javax.swing.JTextField txtMs;
-	private static javax.swing.JLabel lblDepart;
-	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox txtDepart;
-	private static javax.swing.JLabel lblClass;
-	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox txtClass;
 	private static javax.swing.JLabel lblGender;
-	private static javax.swing.ButtonGroup btnGroupGd;
+	private static javax.swing.ButtonGroup btnGroup;
 	private static javax.swing.JRadioButton male;
 	private static javax.swing.JRadioButton female;
 	private static javax.swing.JPanel detailsHandle;
@@ -461,19 +351,6 @@ public class ManageLibrarian {
 
 	private static javax.swing.JPanel handle;
 	private static javax.swing.JPanel handleBase;
-	private static javax.swing.JPanel handleFilter;
-	private static javax.swing.JPanel filterRole;
-	private static javax.swing.JLabel lblRoleHandle;
-	private static javax.swing.JRadioButton roleSvHandle;
-	private static javax.swing.JRadioButton roleCbgvHandle;
-	private static javax.swing.JPanel filterDebt;
-	private static javax.swing.JLabel lblDebtHandle;
-	private static javax.swing.JRadioButton txtDebtHandle;
-	private static javax.swing.JRadioButton txtUndebtHandle;
-	private static javax.swing.JPanel filterDepart;
-	private static javax.swing.JLabel lblDepartHandle;
-	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox txtDepartHandle;
 	private static javax.swing.JPanel handleOpt;
 	private static javax.swing.JButton add;
 	private static javax.swing.JButton edit;
@@ -481,7 +358,6 @@ public class ManageLibrarian {
 	private static javax.swing.JButton search;
 	private static javax.swing.JTextField searchField;
 	private static javax.swing.JButton download;
-	private static javax.swing.JButton upload;
 	private static javax.swing.JButton print;
 	private static javax.swing.JButton save;
 	private static javax.swing.JButton reset;
