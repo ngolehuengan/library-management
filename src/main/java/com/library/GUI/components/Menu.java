@@ -6,6 +6,7 @@ import main.java.com.library.GUI.forms.ManageInventory.ManageInventory;
 import main.java.com.library.GUI.forms.ManageRole.ManageLibrarian;
 import main.java.com.library.GUI.forms.ManageRole.ManageReader;
 import main.java.com.library.GUI.forms.ManageService.ManageService;
+import main.java.com.library.GUI.forms.ManageUser.UserInfo;
 import main.java.com.library.GUI.forms.Slip.Slip;
 
 public class Menu {
@@ -32,12 +33,10 @@ public class Menu {
 		statisticalTab = new javax.swing.JPanel();
 		tabbedPane.addTab("Thống Kê", null, statisticalTab, null);
 
-		userTab = new javax.swing.JPanel();
-		tabbedPane.addTab("Thông Tin Tài Khoản", null, userTab, null);
+		UserInfo.init(tabbedPane);
 	}
 
 	// Private
 	private static javax.swing.JTabbedPane tabbedPane;
 	private static javax.swing.JPanel statisticalTab;
-	private static javax.swing.JPanel userTab;
 }

@@ -1,7 +1,5 @@
 package main.java.com.library.GUI;
 
-import java.awt.Toolkit;
-
 @SuppressWarnings("serial")
 public class Login extends javax.swing.JFrame {
 	/**
@@ -14,8 +12,8 @@ public class Login extends javax.swing.JFrame {
 	private void init() {
 		// ----------Frame----------
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds((Toolkit.getDefaultToolkit().getScreenSize().width - 396) / 2,
-				(Toolkit.getDefaultToolkit().getScreenSize().height - 256) / 2, 396, 256);
+		setBounds((java.awt.Toolkit.getDefaultToolkit().getScreenSize().width - 396) / 2,
+				(java.awt.Toolkit.getDefaultToolkit().getScreenSize().height - 256) / 2, 396, 256);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit()
 				.getImage(this.getClass().getResource("../../../resources/icons/sgu-logo.png")));
 		setTitle("CHÀO MỪNG ĐẾN VỚI THƯ VIỆN SGU");
@@ -136,7 +134,7 @@ public class Login extends javax.swing.JFrame {
 				return;
 			} else {
 				// check role
-				main.java.com.library.GUI.role.admin.MainFrame frame = new main.java.com.library.GUI.role.admin.MainFrame();
+				frame = new main.java.com.library.GUI.role.admin.MainFrame();
 				frame.setVisible(true);
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				this.dispose();
@@ -163,5 +161,7 @@ public class Login extends javax.swing.JFrame {
 	private javax.swing.JButton btnLogin;
 	private javax.swing.JButton btnReset;
 	
+	public static main.java.com.library.GUI.role.admin.MainFrame frame;
+	public static main.java.com.library.GUI.role.librarian.MainFrame frame1;
 	public static int role = 0;
 }

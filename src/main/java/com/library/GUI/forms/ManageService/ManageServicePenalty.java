@@ -1,17 +1,13 @@
 package main.java.com.library.GUI.forms.ManageService;
 
-import java.awt.Toolkit;
-
-import javax.swing.JFrame;
-
 @SuppressWarnings({ "serial" })
-public class ManageServicePenalty extends JFrame {
+public class ManageServicePenalty extends javax.swing.JFrame {
 	public ManageServicePenalty() {
 		init();
 	}
 
 	private void init() {
-		setBounds((Toolkit.getDefaultToolkit().getScreenSize().width - 560) / 2, 25, 560, 770);
+		setBounds((java.awt.Toolkit.getDefaultToolkit().getScreenSize().width - 560) / 2, 25, 560, 770);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit()
 				.getImage(this.getClass().getResource("../../../../../resources/icons/sgu-logo.png")));
 		setTitle("BIÊN BẢN PHẠT - THƯ VIỆN SGU");
