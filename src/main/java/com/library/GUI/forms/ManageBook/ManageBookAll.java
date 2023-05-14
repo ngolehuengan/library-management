@@ -12,9 +12,8 @@ public class ManageBookAll {
 		// ---Details
 		details = new javax.swing.JPanel();
 		splitPane.setLeftComponent(details);
-		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
+		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết",
+				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
 		// ----Details: Info
@@ -65,74 +64,47 @@ public class ManageBookAll {
 		chckbxInvalidAll.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80).addGroup(gl_details
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(gl_details.createSequentialGroup()
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(lblIdAll).addComponent(lblTitleAll).addComponent(lblCateAll))
+						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(gl_details.createSequentialGroup()
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-												.addComponent(lblIdAll)
-												.addComponent(lblTitleAll)
-												.addComponent(lblCateAll))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(cbbCateAll)
-												.addComponent(txtTitleAll)
-												.addComponent(txtIdAll)))
-								.addGroup(gl_details.createSequentialGroup()
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-												.addComponent(lblValueAll)
-												.addComponent(lblCountAll)
-												.addComponent(lblNumberAll))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(txtValueAll)
-												.addComponent(txtCountAll)
-												.addComponent(txtNumberAll)))
-								.addComponent(chckbxInvalidAll))
-						.addGap(80));
-		gl_details.setVerticalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_details.createSequentialGroup()
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblIdAll)
-												.addComponent(txtIdAll))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblCateAll)
-												.addComponent(cbbCateAll))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblTitleAll)
-												.addComponent(txtTitleAll))))
+								.addComponent(cbbCateAll).addComponent(txtTitleAll).addComponent(txtIdAll)))
+				.addGroup(gl_details.createSequentialGroup()
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(lblValueAll).addComponent(lblCountAll).addComponent(lblNumberAll))
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblValueAll)
-								.addComponent(txtValueAll))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblCountAll)
-								.addComponent(txtCountAll))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblNumberAll)
-								.addComponent(txtNumberAll))
-						.addGap(24)
-						.addComponent(chckbxInvalidAll));
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(txtValueAll).addComponent(txtCountAll).addComponent(txtNumberAll)))
+				.addComponent(chckbxInvalidAll)).addGap(80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblIdAll).addComponent(txtIdAll))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblCateAll).addComponent(cbbCateAll))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblTitleAll).addComponent(txtTitleAll))))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblValueAll).addComponent(txtValueAll))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblCountAll).addComponent(txtCountAll))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblNumberAll).addComponent(txtNumberAll))
+				.addGap(24).addComponent(chckbxInvalidAll));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -151,13 +123,8 @@ public class ManageBookAll {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"STT", "LOẠI TÀI LIỆU", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ", "SỐ LƯỢNG", "SỐ CÓ SẴN",
-						"MƯỢN ĐƯỢC"
-				}) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "LOẠI TÀI LIỆU",
+				"MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ", "SỐ LƯỢNG", "SỐ CÓ SẴN", "MƯỢN ĐƯỢC" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

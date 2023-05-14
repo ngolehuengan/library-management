@@ -36,16 +36,18 @@ public class ChangePwd extends javax.swing.JFrame {
 		txtRepeatPwd.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(50)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPwd)
-						.addComponent(lblNewPwd).addComponent(lblRepeatPwd))
-				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(txtPwd).addComponent(txtRepeatPwd).addComponent(txtNewPwd))
-				.addGap(50));
+		gl_details
+				.setHorizontalGroup(
+						gl_details.createSequentialGroup().addGap(50)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(lblPwd).addComponent(lblNewPwd).addComponent(lblRepeatPwd))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(txtPwd).addComponent(txtRepeatPwd).addComponent(txtNewPwd))
+								.addGap(50));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
-				.addGroup(
-						gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblPwd)
-								.addComponent(txtPwd))
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPwd).addComponent(txtPwd))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblNewPwd).addComponent(txtNewPwd))
@@ -56,13 +58,13 @@ public class ChangePwd extends javax.swing.JFrame {
 
 		// -----Details: Handle
 		detailsHandle = new javax.swing.JPanel();
-		detailsHandle.add(UserInfo.save);
+		detailsHandle.add(UserInfo.change);
 		detailsHandle.add(UserInfo.reset);
 		detailsHandle.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(detailsHandle, java.awt.BorderLayout.SOUTH);
 
 		// Action
-		UserInfo.save.addActionListener(e -> {
+		UserInfo.change.addActionListener(e -> {
 			StringBuilder sb = new StringBuilder();
 			if (new String(txtPwd.getPassword()).equals(""))
 				sb.append("Mật khẩu không hợp lệ !\n");

@@ -16,7 +16,7 @@ public class UserInfo {
 				javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 		details.setBackground(new java.awt.Color(204, 255, 204));
-		
+
 		ManageUser.add(handle, java.awt.BorderLayout.NORTH);
 		ManageUser.add(details, java.awt.BorderLayout.CENTER);
 
@@ -140,7 +140,7 @@ public class UserInfo {
 			male.setEnabled(true);
 			female.setEnabled(true);
 		});
-		
+
 		save.addActionListener(e -> {
 			txtName.setEnabled(false);
 			txtUser.setEnabled(false);
@@ -178,11 +178,11 @@ public class UserInfo {
 				txtPhone.setText("");
 			}
 		});
-		
+
 		password.addActionListener(e -> {
 			new ChangePwd().setVisible(true);
 		});
-		
+
 		logout.addActionListener(e -> {
 			new Login().setVisible(true);
 			Login.frame.dispose();
@@ -192,9 +192,8 @@ public class UserInfo {
 	// Handle
 	private static void handle() {
 		handle = new javax.swing.JPanel();
-		handle.setBorder(
-				new javax.swing.border.TitledBorder(null, "Cài đặt tài khoản", javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
+		handle.setBorder(new javax.swing.border.TitledBorder(null, "Cài đặt tài khoản",
+				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		handle.setBackground(new java.awt.Color(204, 255, 204));
 		handle.setLayout(new java.awt.BorderLayout(0, 0));
 
@@ -213,8 +212,8 @@ public class UserInfo {
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
 		logout = new javax.swing.JButton(" Đăng xuất");
-		logout.setIcon(new javax.swing.ImageIcon(
-				UserInfo.class.getResource("../../../../../resources/icons/power.png")));
+		logout.setIcon(
+				new javax.swing.ImageIcon(UserInfo.class.getResource("../../../../../resources/icons/power.png")));
 		logout.setForeground(new java.awt.Color(255, 255, 255));
 		logout.setBackground(new java.awt.Color(248, 3, 10));
 
@@ -223,6 +222,10 @@ public class UserInfo {
 		save = new javax.swing.JButton("Lưu");
 		save.setBackground(new java.awt.Color(0, 153, 51));
 		save.setForeground(new java.awt.Color(255, 255, 255));
+
+		change = new javax.swing.JButton("Thay đổi");
+		change.setBackground(new java.awt.Color(0, 153, 51));
+		change.setForeground(new java.awt.Color(255, 255, 255));
 
 		reset = new javax.swing.JButton("Reset");
 		reset.setBackground(new java.awt.Color(0, 153, 51));
@@ -263,7 +266,8 @@ public class UserInfo {
 	private static javax.swing.JPanel handleOpt;
 	private static javax.swing.JButton edit;
 	private static javax.swing.JButton logout;
-	public static javax.swing.JButton save;
+	private static javax.swing.JButton save;
 	public static javax.swing.JButton reset;
+	public static javax.swing.JButton change;
 	private static javax.swing.JButton password;
 }

@@ -156,9 +156,8 @@ public class ManageBook {
 				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/upload.png")));
 
 		download = new javax.swing.JButton("  Tải xuống");
-		download.setIcon(
-				new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/icons/downloads.png")));
+		download.setIcon(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/icons/downloads.png")));
 		download.setForeground(new java.awt.Color(255, 255, 255));
 		download.setBackground(new java.awt.Color(0, 153, 51));
 

@@ -12,9 +12,8 @@ public class ManageBookBook {
 		// ---Details
 		details = new javax.swing.JPanel();
 		splitPane.setLeftComponent(details);
-		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
+		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết",
+				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
 		// ----Details: Info
@@ -26,9 +25,8 @@ public class ManageBookBook {
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(
-				new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
 		// -----Details: InfoForm
@@ -70,78 +68,50 @@ public class ManageBookBook {
 		scrollPane.setViewportView(txtAreaDescripBook);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80).addGroup(gl_details
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(gl_details.createSequentialGroup()
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(24)
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(lblIsbnBook).addComponent(lblCateBook).addComponent(lblTitleBook))
+						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(gl_details.createSequentialGroup()
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-												.addComponent(lblIsbnBook)
-												.addComponent(lblCateBook)
-												.addComponent(lblTitleBook))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(cbbCateBook)
-												.addComponent(txtTitleBook)
-												.addComponent(txtIsbnBook)))
-								.addGroup(gl_details.createSequentialGroup()
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														false)
-												.addComponent(lblAuthorBook)
-												.addComponent(lblNxbBook)
-												.addComponent(lblYearBook)
-												.addComponent(lblDescripBook))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(scrollPane)
-												.addComponent(cbbYearBook)
-												.addComponent(txtAuthorBook)
-												.addComponent(txtNxbBook))))
-						.addGap(80));
-		gl_details.setVerticalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_details.createSequentialGroup()
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblIsbnBook)
-												.addComponent(txtIsbnBook))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblTitleBook)
-												.addComponent(txtTitleBook))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblCateBook)
-												.addComponent(cbbCateBook))))
+								.addComponent(cbbCateBook).addComponent(txtTitleBook).addComponent(txtIsbnBook)))
+				.addGroup(gl_details.createSequentialGroup()
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(lblAuthorBook).addComponent(lblNxbBook).addComponent(lblYearBook)
+								.addComponent(lblDescripBook))
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblAuthorBook)
-								.addComponent(txtAuthorBook))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblNxbBook)
-								.addComponent(txtNxbBook))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblYearBook)
-								.addComponent(cbbYearBook))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-								.addComponent(lblDescripBook)
-								.addComponent(scrollPane)));
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(scrollPane).addComponent(cbbYearBook).addComponent(txtAuthorBook)
+								.addComponent(txtNxbBook))))
+				.addGap(80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblIsbnBook).addComponent(txtIsbnBook))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblTitleBook).addComponent(txtTitleBook))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblCateBook).addComponent(cbbCateBook))))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblAuthorBook).addComponent(txtAuthorBook))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblNxbBook).addComponent(txtNxbBook))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblYearBook).addComponent(cbbYearBook))
+				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+						.addComponent(lblDescripBook).addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -160,12 +130,8 @@ public class ManageBookBook {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"STT", "ISBN", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NXB", "NĂM XB", "MÔ TẢ"
-				}) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
+				new String[] { "STT", "ISBN", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NXB", "NĂM XB", "MÔ TẢ" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

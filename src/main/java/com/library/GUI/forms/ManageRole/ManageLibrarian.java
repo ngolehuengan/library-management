@@ -301,7 +301,7 @@ public class ManageLibrarian {
 				ManageReader.class.getResource("../../../../../resources/icons/downloads.png")));
 		download.setForeground(new java.awt.Color(255, 255, 255));
 		download.setBackground(new java.awt.Color(0, 153, 51));
-		
+
 		handleOpt.add(download);
 		handleOpt.add(print);
 

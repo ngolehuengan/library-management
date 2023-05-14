@@ -114,13 +114,12 @@ public class Header {
 		});
 
 		javax.swing.GroupLayout gl_header = new javax.swing.GroupLayout(header);
-		gl_header.setHorizontalGroup(
-				gl_header.createSequentialGroup().addGap(50)
-						.addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 469,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-						.addGroup(gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_header.createSequentialGroup()
+		gl_header.setHorizontalGroup(gl_header.createSequentialGroup().addGap(50)
+				.addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+				.addGroup(gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+								gl_header.createSequentialGroup()
 										.addComponent(lblLinkWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 102,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(43)
@@ -130,30 +129,24 @@ public class Header {
 										.addComponent(lblLinkMail, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(127))
-								.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_header.createSequentialGroup()
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+								gl_header.createSequentialGroup()
 										.addComponent(fbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 45,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(38)
 										.addComponent(mailIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 45,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(38)
-										.addComponent(ytbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 45,
+										.addGap(38).addComponent(ytbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 45,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(195))));
-		gl_header.setVerticalGroup(
-				gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addComponent(logo, 0, 76, Short.MAX_VALUE)
-						.addGroup(javax.swing.GroupLayout.Alignment.LEADING, gl_header.createSequentialGroup()
-								.addGap(22)
+		gl_header.setVerticalGroup(gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+				.addComponent(logo, 0, 76, Short.MAX_VALUE).addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+						gl_header.createSequentialGroup().addGap(22)
 								.addGroup(gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblLinkTTDT)
-										.addComponent(lblLinkMail)
-										.addComponent(lblLinkWeb))
+										.addComponent(lblLinkTTDT).addComponent(lblLinkMail).addComponent(lblLinkWeb))
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 								.addGroup(gl_header.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(fbIcon)
-										.addComponent(ytbIcon)
-										.addComponent(mailIcon))
+										.addComponent(fbIcon).addComponent(ytbIcon).addComponent(mailIcon))
 								.addContainerGap(22, Short.MAX_VALUE)));
 		header.setLayout(gl_header);
 	}

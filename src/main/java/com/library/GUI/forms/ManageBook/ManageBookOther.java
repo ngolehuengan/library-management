@@ -12,9 +12,8 @@ public class ManageBookOther {
 		// ---Details
 		details = new javax.swing.JPanel();
 		splitPane.setLeftComponent(details);
-		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
+		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết",
+				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
 		// ----Details: Info
@@ -26,9 +25,8 @@ public class ManageBookOther {
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(
-				new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
 		// -----Details: InfoForm
@@ -45,29 +43,24 @@ public class ManageBookOther {
 		scrollPane.setViewportView(txtAreaDescripOther);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING))
-						.addGap(80));
-		gl_details.setVerticalGroup(
-				gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGap(80)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(24)
-								.addComponent(lblTitleOther)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(txtTitleOther)
-								.addGap(24)
-								.addComponent(lblDescripOther)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(scrollPane)));
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING))
+				.addGap(80));
+		gl_details.setVerticalGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+				.addGroup(gl_details.createSequentialGroup().addGap(80)
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(24).addComponent(lblTitleOther)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(txtTitleOther).addGap(24).addComponent(lblDescripOther)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -86,12 +79,8 @@ public class ManageBookOther {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ"
-				}) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
+				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -108,9 +97,8 @@ public class ManageBookOther {
 		// Action
 		ManageBook.add.addActionListener(e -> {
 			Handle.addImageBook(imgPnl, img);
-			img.setIcon(
-					new javax.swing.ImageIcon(
-							ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+			img.setIcon(new javax.swing.ImageIcon(
+					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
 			txtTitleOther.setEnabled(true);
 			txtAreaDescripOther.setEnabled(true);
@@ -128,9 +116,8 @@ public class ManageBookOther {
 
 		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			img.setIcon(
-					new javax.swing.ImageIcon(
-							ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+			img.setIcon(new javax.swing.ImageIcon(
+					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
 			txtTitleOther.setEnabled(false);
 			txtAreaDescripOther.setEnabled(false);

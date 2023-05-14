@@ -10,10 +10,8 @@ public class ManageInventoryImport {
 		// ---Details
 		details = new javax.swing.JPanel();
 		splitPane.setLeftComponent(details);
-		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết Hóa Đơn",
-						javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
+		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết Hóa Đơn",
+				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
 		// ----Details: Info
@@ -56,58 +54,35 @@ public class ManageInventoryImport {
 		txtCount.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblPerson)
-								.addComponent(lblDate)
-								.addComponent(lblId)
-								.addComponent(lblSumValue)
-								.addComponent(lblDcmCode)
-								.addComponent(lblValue)
-								.addComponent(lblCount))
-						.addGap(24)
-						.addGroup(gl_details
-								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(txtPerson)
-								.addComponent(txtDate)
-								.addComponent(txtId)
-								.addComponent(txtSumValue)
-								.addComponent(txtDcmCode)
-								.addComponent(txtValue)
-								.addComponent(txtCount))
-						.addGap(80));
-		gl_details.setVerticalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblId)
-								.addComponent(txtId))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblSumValue)
-								.addComponent(txtSumValue))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblDcmCode)
-								.addComponent(txtDcmCode))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblValue)
-								.addComponent(txtValue))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblCount)
-								.addComponent(txtCount))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblDate)
-								.addComponent(txtDate))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblPerson)
-								.addComponent(txtPerson)));
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+						.addComponent(lblPerson).addComponent(lblDate).addComponent(lblId).addComponent(lblSumValue)
+						.addComponent(lblDcmCode).addComponent(lblValue).addComponent(lblCount))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(txtPerson).addComponent(txtDate).addComponent(txtId).addComponent(txtSumValue)
+						.addComponent(txtDcmCode).addComponent(txtValue).addComponent(txtCount))
+				.addGap(80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
+						.addComponent(txtId))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblSumValue).addComponent(txtSumValue))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDcmCode).addComponent(txtDcmCode))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblValue).addComponent(txtValue))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblCount).addComponent(txtCount))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDate).addComponent(txtDate))
+				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPerson).addComponent(txtPerson)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -131,12 +106,8 @@ public class ManageInventoryImport {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"STT", "NGÀY NHẬP HÓA ĐƠN", "MÃ HÓA ĐƠN", "TỔNG GIÁ TRỊ", "TỔNG SỐ LƯỢNG", "NGƯỜI TIẾP NHẬN"
-				}) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT",
+				"NGÀY NHẬP HÓA ĐƠN", "MÃ HÓA ĐƠN", "TỔNG GIÁ TRỊ", "TỔNG SỐ LƯỢNG", "NGƯỜI TIẾP NHẬN" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -160,12 +131,8 @@ public class ManageInventoryImport {
 
 		subTable = new javax.swing.JTable();
 		subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		subTable.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ ĐƠN", "SỐ LƯỢNG"
-				}) {
+		subTable.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
+				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ ĐƠN", "SỐ LƯỢNG" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

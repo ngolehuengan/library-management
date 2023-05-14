@@ -12,9 +12,8 @@ public class ManageBookKltn {
 		// ---Details
 		details = new javax.swing.JPanel();
 		splitPane.setLeftComponent(details);
-		details.setBorder(
-				new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết", javax.swing.border.TitledBorder.LEADING,
-						javax.swing.border.TitledBorder.TOP, null, null));
+		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết",
+				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
 		// ----Details: Info
@@ -59,64 +58,41 @@ public class ManageBookKltn {
 		scrollPane.setViewportView(txtAreaDescripKltn);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details
-								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(gl_details.createSequentialGroup()
-										.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-												.addComponent(lblCateKltn)
-												.addComponent(lblTitleKltn)
-												.addComponent(lblAuthorKltn))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(txtAuthorKltn)
-												.addComponent(txtTitleKltn)
-												.addComponent(cbbCateKltn)))
-								.addGroup(gl_details.createSequentialGroup()
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-												.addComponent(lblYearKltn)
-												.addComponent(lblDescripKltn))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(scrollPane)
-												.addComponent(cbbYearKltn))))
-						.addGap(80));
-		gl_details.setVerticalGroup(
-				gl_details.createSequentialGroup()
-						.addGap(80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_details.createSequentialGroup()
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblTitleKltn)
-												.addComponent(txtTitleKltn))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblAuthorKltn)
-												.addComponent(txtAuthorKltn))
-										.addGap(24)
-										.addGroup(gl_details
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblCateKltn)
-												.addComponent(cbbCateKltn))))
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80).addGroup(gl_details
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(gl_details.createSequentialGroup()
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblYearKltn)
-								.addComponent(cbbYearKltn))
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(lblCateKltn).addComponent(lblTitleKltn).addComponent(lblAuthorKltn))
 						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-								.addComponent(lblDescripKltn)
-								.addComponent(scrollPane)));
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(txtAuthorKltn).addComponent(txtTitleKltn).addComponent(cbbCateKltn)))
+				.addGroup(gl_details.createSequentialGroup()
+						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(lblYearKltn).addComponent(lblDescripKltn))
+						.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(scrollPane).addComponent(cbbYearKltn))))
+				.addGap(80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_details.createSequentialGroup()
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblTitleKltn).addComponent(txtTitleKltn))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblAuthorKltn).addComponent(txtAuthorKltn))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblCateKltn).addComponent(cbbCateKltn))))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblYearKltn).addComponent(cbbYearKltn))
+				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+						.addComponent(lblDescripKltn).addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -135,12 +111,8 @@ public class ManageBookKltn {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "CHUYÊN NGÀNH", "NĂM BẢO VỆ", "MÔ TẢ"
-				}) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
+				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "CHUYÊN NGÀNH", "NĂM BẢO VỆ", "MÔ TẢ" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

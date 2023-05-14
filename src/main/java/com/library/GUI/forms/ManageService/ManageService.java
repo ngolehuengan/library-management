@@ -125,14 +125,15 @@ public class ManageService {
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
 		print = new javax.swing.JButton("  In");
-		print.setIcon(new javax.swing.ImageIcon(ManageService.class.getResource("../../../../../resources/icons/printing.png")));
+		print.setIcon(new javax.swing.ImageIcon(
+				ManageService.class.getResource("../../../../../resources/icons/printing.png")));
 		print.setBackground(new java.awt.Color(0, 153, 51));
 		print.setForeground(new java.awt.Color(255, 255, 255));
-		
+
 		adjourn = new javax.swing.JButton("Gia Hạn");
 		adjourn.setBackground(new java.awt.Color(0, 153, 51));
 		adjourn.setForeground(new java.awt.Color(255, 255, 255));
-		
+
 		find = new javax.swing.JButton("Tìm");
 		find.setBackground(new java.awt.Color(0, 153, 51));
 		find.setForeground(new java.awt.Color(255, 255, 255));
