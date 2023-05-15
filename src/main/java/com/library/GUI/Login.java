@@ -1,5 +1,7 @@
 package main.java.com.library.GUI;
 
+import main.java.com.library.GUI.forms.MainFrame;
+
 @SuppressWarnings("serial")
 public class Login extends javax.swing.JFrame {
 	/**
@@ -133,8 +135,7 @@ public class Login extends javax.swing.JFrame {
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				// check role
-				frame = new main.java.com.library.GUI.role.admin.MainFrame();
+				frame = new MainFrame();
 				frame.setVisible(true);
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				this.dispose();
@@ -160,8 +161,7 @@ public class Login extends javax.swing.JFrame {
 	private javax.swing.JPanel botPnl;
 	private javax.swing.JButton btnLogin;
 	private javax.swing.JButton btnReset;
-	
-	public static main.java.com.library.GUI.role.admin.MainFrame frame;
-	public static main.java.com.library.GUI.role.librarian.MainFrame frame1;
+
+	public static MainFrame frame;
 	public static int role = 0;
 }
