@@ -7,28 +7,28 @@ import java.sql.Date;
  * @author ant1006
  */
 public class Receipt {
-
-    private int ID;
+    
+    private int ID;          
     private Date date;
     private String code;
-    private Reader reader;
-    private double proceeds;
-    private Librarian librarian;
+    private int readerID;
+    private double proceeds;    
+    private int librarianID; 
 
-    public Receipt(int ID, Date date, String code, Reader reader, double proceeds, Librarian librarian) {
+    public Receipt(int ID, Date date, String code, int readerID, double proceeds, int librarianID) {
         this.ID = ID;
         this.date = date;
         this.code = code;
-        this.reader = reader;
+        this.readerID = readerID;
         this.proceeds = proceeds;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
-    public Receipt(Date date, Reader reader, double proceeds, Librarian librarian) {
+    public Receipt(Date date, int readerID, double proceeds, int librarianID) {
         this.date = date;
-        this.reader = reader;
+        this.readerID = readerID;
         this.proceeds = proceeds;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
     public int getID() {
@@ -55,12 +55,12 @@ public class Receipt {
         this.code = code;
     }
 
-    public Reader getReader() {
-        return reader;
+    public int getReaderID() {
+        return readerID;
     }
 
-    public void setReader(Reader reader) {
-        this.reader = reader;
+    public void setReaderID(int readerID) {
+        this.readerID = readerID;
     }
 
     public double getProceeds() {
@@ -71,11 +71,11 @@ public class Receipt {
         this.proceeds = proceeds;
     }
 
-    public Librarian getLibrarian() {
-        return librarian;
+    public int getLibrarianID() {
+        return librarianID;
     }
 
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
     }
 }

@@ -14,75 +14,24 @@ public class ImportRecord {
     private String code;
     private double totalPrice = 0;
     private int totalQuantity = 0;    
-    private Librarian librarian; 
+    private int librarianID; 
     private Vector<IPDetail> details = new Vector<>();
-    
-    private class IPDetail {
-        private int ID;
-        private Document document;
-        private double price;
-        private int quantity;
 
-        public IPDetail(int ID, Document document, double price, int quantity) {
-            this.ID = ID;
-            this.document = document;
-            this.price = price;
-            this.quantity = quantity;
-        }
-
-        public IPDetail(Document document, double price, int quantity) {
-            this.document = document;
-            this.price = price;
-            this.quantity = quantity;
-        }
-
-        public int getID() {
-            return ID;
-        }
-
-        public void setID(int ID) {
-            this.ID = ID;
-        }
-
-        public Document getDocument() {
-            return document;
-        }
-
-        public void setDocument(Document document) {
-            this.document = document;
-        }
-
-        public double getPrice() {
-            return price;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-
-        public int getQuantity() {
-            return quantity;
-        }
-
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
-        
+    public ImportRecord() {
     }
     
-    public ImportRecord(int ID, Date date, String code, double totalPrice, int totalQuantity, Librarian librarian, Vector<IPDetail> details) {
+    public ImportRecord(int ID, Date date, String code, double totalPrice, int totalQuantity, int librarianID) {
         this.ID = ID;
         this.date = date;
         this.code = code;
         this.totalPrice = totalPrice;
         this.totalQuantity = totalQuantity;
-        this.librarian = librarian;
-        this.details = details;
+        this.librarianID = librarianID;
     }
 
-    public ImportRecord(Date date, Librarian librarian) {
+    public ImportRecord(Date date, int librarianID) {
         this.date = date;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
     public int getID() {
@@ -125,12 +74,12 @@ public class ImportRecord {
         this.totalQuantity = totalQuantity;
     }
 
-    public Librarian getLibrarian() {
-        return librarian;
+    public int getLibrarianID() {
+        return librarianID;
     }
 
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
     }
 
     public Vector<IPDetail> getDetails() {
@@ -139,5 +88,25 @@ public class ImportRecord {
 
     public void setDetails(Vector<IPDetail> details) {
         this.details = details;
+        double price = 0;
+        int quantity = 0;
+        for (IPDetail dt : details) {
+            price += dt.getPrice()*dt.getQuantity();
+            quantity += dt.getQuantity();
+        }
+        this.totalPrice = price;
+        this.totalQuantity = quantity;
     }
+
+    public void addDetail(IPDetail e) {
+        details.add(e);
+        totalPrice += e.getPrice()*e.getQuantity();
+        totalQuantity += e.getQuantity();
+    }
+    
+    public void removeDetail(IPDetail e) {
+        details.remove(e);
+        totalPrice -= e.getPrice()*e.getQuantity();
+        totalQuantity -= e.getQuantity();
+    }    
 }

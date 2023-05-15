@@ -8,69 +8,29 @@ import java.util.Vector;
  * @author ant1006
  */
 public class ReleaseRecord {
-
-    private int ID;
+    
+    private int ID;          
     private Date date;
     private String code;
-    private int totalQuantity = 0;
-    private Librarian librarian;
+    private int totalQuantity = 0;    
+    private int librarianID; 
     private Vector<RLDetail> details = new Vector<>();
 
-    private class RLDetail {
-        private int ID;
-        private Document document;
-        private int quantity;
-
-        public RLDetail(int ID, Document document, int quantity) {
-            this.ID = ID;
-            this.document = document;
-            this.quantity = quantity;
-        }
-
-        public RLDetail(Document document, int quantity) {
-            this.document = document;
-            this.quantity = quantity;
-        }
-
-        public int getID() {
-            return ID;
-        }
-
-        public void setID(int ID) {
-            this.ID = ID;
-        }
-
-        public Document getDocument() {
-            return document;
-        }
-
-        public void setDocument(Document document) {
-            this.document = document;
-        }
-
-        public int getQuantity() {
-            return quantity;
-        }
-
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
-
+    public ReleaseRecord() {
     }
-
-    public ReleaseRecord(int ID, Date date, String code, int totalQuantity, Librarian librarian,
-            Vector<RLDetail> details) {
+    
+    public ReleaseRecord(int ID, Date date, String code, int totalQuantity, int librarianID, Vector<RLDetail> details) {
         this.ID = ID;
         this.date = date;
         this.code = code;
         this.totalQuantity = totalQuantity;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
         this.details = details;
     }
 
-    public ReleaseRecord(Date date, Librarian librarian) {
+    public ReleaseRecord(Date date, int librarianID) {
         this.date = date;
-        this.librarian = librarian;
+        this.librarianID = librarianID;
     }
 
     public int getID() {
@@ -105,12 +65,12 @@ public class ReleaseRecord {
         this.totalQuantity = totalQuantity;
     }
 
-    public Librarian getLibrarian() {
-        return librarian;
+    public int getLibrarianID() {
+        return librarianID;
     }
 
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
     }
 
     public Vector<RLDetail> getDetails() {
@@ -119,5 +79,20 @@ public class ReleaseRecord {
 
     public void setDetails(Vector<RLDetail> details) {
         this.details = details;
+        int quantity = 0;
+        for (RLDetail dt : details) {
+            quantity += dt.getQuantity();
+        }
+        this.totalQuantity = quantity;
+    }
+    
+    public void addDetail(RLDetail e) {
+        details.add(e);
+        totalQuantity += e.getQuantity();
+    }
+    
+    public void removeDetail(RLDetail e) {
+        details.remove(e);
+        totalQuantity += e.getQuantity();
     }
 }

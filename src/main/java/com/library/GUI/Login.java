@@ -1,5 +1,11 @@
 package main.java.com.library.GUI;
 
+import java.util.Vector;
+
+import main.java.com.library.BLL.AccountBUS;
+import main.java.com.library.DTO.Account;
+
+
 @SuppressWarnings("serial")
 public class Login extends javax.swing.JFrame {
 	/**
@@ -134,10 +140,33 @@ public class Login extends javax.swing.JFrame {
 				return;
 			} else {
 				// check role
-				frame = new main.java.com.library.GUI.role.admin.MainFrame();
-				frame.setVisible(true);
-				frame.setExtendedState(MAXIMIZED_BOTH);
-				this.dispose();
+				Account account = new Account();
+				account.setUsername(txtUsername.getText());
+				account.setPassword(new String(txtPwd.getPassword()));
+				try {
+					role = AccountBUS.login(account);
+				} catch (Exception e1) {
+				}
+
+				if (role.get(0) == 0){
+					javax.swing.JOptionPane.showMessageDialog(this, "Tên tài khoản hoặc mật khẩu không chính xác", "ERROR",
+					javax.swing.JOptionPane.ERROR_MESSAGE);
+				return;
+				}
+				if(role.get(1) == 1){
+					frame = new main.java.com.library.GUI.role.admin.MainFrame();
+					frame.setVisible(true);
+					frame.setExtendedState(MAXIMIZED_BOTH);
+					this.dispose();
+				}
+				else {
+					frame1 = new main.java.com.library.GUI.role.librarian.MainFrame();
+					frame1.setVisible(true);
+					frame1.setExtendedState(MAXIMIZED_BOTH);
+					this.dispose();
+				}
+
+
 			}
 		});
 
@@ -163,5 +192,5 @@ public class Login extends javax.swing.JFrame {
 	
 	public static main.java.com.library.GUI.role.admin.MainFrame frame;
 	public static main.java.com.library.GUI.role.librarian.MainFrame frame1;
-	public static int role = 0;
+	public static Vector<Integer> role ;
 }

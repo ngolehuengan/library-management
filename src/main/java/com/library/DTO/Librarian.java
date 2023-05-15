@@ -1,23 +1,20 @@
 package main.java.com.library.DTO;
 
-import java.sql.Date;
 
 /**
  *
  * @author ant1006
  */
-public class Librarian extends PersonalInfo {
-    private String ID; // ma thu thu
-    private boolean exists = true; // đang hiện hữu
-
+public class Librarian {
+    private String ID;         //ma thu thu
+    private String userName;
     public Librarian() {
-        super();
+
     }
 
-    public Librarian(String ID, String citizenID, String fullName, Date birthday, boolean isMale, String phoneNumber,
-            String address) {
-        super(citizenID, fullName, birthday, isMale, phoneNumber, address);
-        this.ID = ID;
+    public Librarian(String iD, String userName) {
+        ID = iD;
+        this.userName = userName;
     }
 
     public String getID() {
@@ -26,5 +23,11 @@ public class Librarian extends PersonalInfo {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
