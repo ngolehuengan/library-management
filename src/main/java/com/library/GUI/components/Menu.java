@@ -26,7 +26,7 @@ public class Menu {
 		Slip.init(tabbedPane);
 		ManageReader.init(tabbedPane);
 
-		if (Login.role.get(1) == 1) { // check role
+		if (Login.role.get(1) == 1) {
 			ManageLibrarian.init(tabbedPane);
 		}
 
