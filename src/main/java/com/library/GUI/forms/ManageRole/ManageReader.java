@@ -14,7 +14,7 @@ import main.java.com.library.DTO.Reader;
 import main.java.com.library.DTO.Student;
 
 public class ManageReader {
-	@SuppressWarnings({ "serial", "rawtypes" })
+	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		ManageReaderTab = new javax.swing.JPanel();
 		ManageReaderTab.setLayout(new java.awt.BorderLayout(0, 0));
@@ -34,7 +34,6 @@ public class ManageReader {
 				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
-
 		// ----Details: Info
 		detailsInfo = new javax.swing.JPanel();
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
@@ -52,7 +51,6 @@ public class ManageReader {
 		btnGroup = new javax.swing.ButtonGroup();
 		btnGroup.add(roleSv);
 		btnGroup.add(roleCbgv);
-		
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
 		txtMs = new javax.swing.JTextField();
@@ -292,11 +290,12 @@ public class ManageReader {
 			boolean hasError = false;
 			ArrayList<Integer> errorInfo = new ArrayList<Integer>();
 			PersonalInfo info = new PersonalInfo();
-			errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address, email);
+			errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,
+					email);
 			Reader reader = new Reader();
-			reader.setReader(2,1); // mac dinh gia tri the la 1 nam
+			reader.setReader(2, 1); // mac dinh gia tri the la 1 nam
 			Student student = new Student();
-			Lecturer lecturer =  new Lecturer();
+			Lecturer lecturer = new Lecturer();
 			if (errorInfo.contains(1)) {
 				txtName.setBorder(redBorder);
 				hasError = true;
@@ -321,28 +320,27 @@ public class ManageReader {
 				txtPhone.setBorder(redBorder);
 				hasError = true;
 			}
-			if (studentLogic){
+			if (studentLogic) {
 				ArrayList<Integer> ErrorStudent = new ArrayList<Integer>();
 				ErrorStudent = student.setStudent(ID, className, departmentName);
-				if (ErrorStudent.size() == 0){
+				if (ErrorStudent.size() == 0) {
 					try {
-						ReaderBUS.insertReaderStudent(reader, info,student);
+						ReaderBUS.insertReaderStudent(reader, info, student);
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
-				}		
+				}
 				if (ErrorStudent.contains(1)) {
 					txtMs.setBorder(redBorder);
 					hasError = true;
 				}
-				if (ErrorStudent.contains( 2)){
+				if (ErrorStudent.contains(2)) {
 					txtClass.setBorder(redBorder);
 					hasError = true;
 				}
-			}
-			else {
+			} else {
 				ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
-				if(ErrorLecturer.size() == 0){
+				if (ErrorLecturer.size() == 0) {
 					try {
 						ReaderBUS.insertReaderLecturer(reader, info, lecturer);
 						StudentBUS.insertStudent(student, reader);
@@ -359,7 +357,6 @@ public class ManageReader {
 				return;
 			}
 
-			
 // Nếu không có lỗi, disable các JTextField
 			txtName.setEnabled(false);
 			roleSv.setEnabled(false);
@@ -374,7 +371,6 @@ public class ManageReader {
 			txtPhone.setEnabled(false);
 			male.setEnabled(false);
 			female.setEnabled(false);
-
 
 		});
 

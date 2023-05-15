@@ -78,7 +78,6 @@ public class ChangePwd extends javax.swing.JFrame {
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				// check role
 				new Login().setVisible(true);
 				Login.frame.dispose();
 				this.dispose();
