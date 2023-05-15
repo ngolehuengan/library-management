@@ -1,16 +1,12 @@
 package main.java.com.library.GUI;
 
-<<<<<<< HEAD
 import java.util.Vector;
-
+import main.java.com.library.GUI.forms.MainFrame;
 import main.java.com.library.BLL.AccountBUS;
 import main.java.com.library.DTO.Account;
 
-=======
-import main.java.com.library.GUI.forms.MainFrame;
->>>>>>> 0a0073d0a3e9f161a36061cdbc6e8398294ee472
-
 @SuppressWarnings("serial")
+
 public class Login extends javax.swing.JFrame {
 	/**
 	 * Create the frame.
@@ -19,6 +15,7 @@ public class Login extends javax.swing.JFrame {
 		init();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void init() {
 		// ----------Frame----------
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -143,41 +140,26 @@ public class Login extends javax.swing.JFrame {
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-<<<<<<< HEAD
 				// check role
 				Account account = new Account();
 				account.setUsername(txtUsername.getText());
 				account.setPassword(new String(txtPwd.getPassword()));
 				try {
 					role = AccountBUS.login(account);
-				} catch (Exception e1) {
-				}
+				} catch (Exception e1) {}
 
 				if (role.get(0) == 0){
 					javax.swing.JOptionPane.showMessageDialog(this, "Tên tài khoản hoặc mật khẩu không chính xác", "ERROR",
 					javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 				}
+				
 				if(role.get(1) == 1){
-					frame = new main.java.com.library.GUI.role.admin.MainFrame();
+					frame = new MainFrame();
 					frame.setVisible(true);
 					frame.setExtendedState(MAXIMIZED_BOTH);
 					this.dispose();
 				}
-				else {
-					frame1 = new main.java.com.library.GUI.role.librarian.MainFrame();
-					frame1.setVisible(true);
-					frame1.setExtendedState(MAXIMIZED_BOTH);
-					this.dispose();
-				}
-
-
-=======
-				frame = new MainFrame();
-				frame.setVisible(true);
-				frame.setExtendedState(MAXIMIZED_BOTH);
-				this.dispose();
->>>>>>> 0a0073d0a3e9f161a36061cdbc6e8398294ee472
 			}
 		});
 
@@ -200,14 +182,7 @@ public class Login extends javax.swing.JFrame {
 	private javax.swing.JPanel botPnl;
 	private javax.swing.JButton btnLogin;
 	private javax.swing.JButton btnReset;
-<<<<<<< HEAD
-	
-	public static main.java.com.library.GUI.role.admin.MainFrame frame;
-	public static main.java.com.library.GUI.role.librarian.MainFrame frame1;
-	public static Vector<Integer> role ;
-=======
 
 	public static MainFrame frame;
-	public static int role = 0;
->>>>>>> 0a0073d0a3e9f161a36061cdbc6e8398294ee472
+	public static Vector<Integer> role;
 }
