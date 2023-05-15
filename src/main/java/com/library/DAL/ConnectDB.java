@@ -8,6 +8,7 @@ import java.util.Vector;
  * @author ant1006
  */
 public class ConnectDB {
+
     private final String server = "localhost";
     private final String port = "3306";
     private final String database = "LIBRARY_MANAGEMENT";
@@ -16,59 +17,68 @@ public class ConnectDB {
     private final String password = "qltv@1234";
     protected Connection conn;
 
+// -----------------------------------------------------------------------------
+//  DriverManager  
     public boolean getConnection() {
         try {
             conn = DriverManager.getConnection(url, username, password);
             return true;
         } catch (Exception e) {
-            System.out.println("ERROR in class ConnectDB");
+            e.printStackTrace();
             return false;
         }
     }
 
+//  conn.close() if it open    
     public void closeConnection() {
         try {
-            if (conn != null)
+            if (conn != null) {
                 conn.close();
-        } catch (Exception ex) {
-            System.out.println("ERROR in class ConnectDB");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
+//  Statement stm = conn.createStatement();
+//  ResultSet rs = stm.executeQuery(sql); 
+//  ResultSetMetaData rsmd = rs.getMetaData();
+//  int size = rsmd.getColumnCount();
     public Vector<Vector<Object>> executeQuery(String sql) {
         Vector<Vector<Object>> table = new Vector<>();
         if (getConnection())
             try {
-                Statement stm = conn.createStatement();
-                ResultSet rs = stm.executeQuery(sql);
-                while (rs.next()) {
-                    Vector<Object> row = new Vector<>();
-                    ResultSetMetaData rsmd = rs.getMetaData();
-                    int size = rsmd.getColumnCount();
-                    for (int i = 1; i <= size; i++) {
-                        row.add(rs.getObject(i));
-                    }
-                    table.add(row);
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int size = rsmd.getColumnCount();
+            while (rs.next()) {
+                Vector<Object> row = new Vector<>();
+                for (int i = 1; i <= size; i++) {
+                    row.add(rs.getObject(i));
                 }
-            } catch (Exception ex) {
-                System.out.println("ERROR in class ConnectDB");
-            } finally {
-                closeConnection();
+                table.add(row);
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection();
+        }
         return table;
     }
 
+//  getConnection ? continute : rs = -1   
     public int executeUpdate(String sql) {
         int rs = -1;
         if (getConnection())
             try {
-                Statement stm = conn.createStatement();
-                rs = stm.executeUpdate(sql);
-            } catch (Exception ex) {
-                System.out.println("ERROR in class ConnectDB");
-            } finally {
-                closeConnection();
-            }
+            Statement stm = conn.createStatement();
+            rs = stm.executeUpdate(sql);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection();
+        }
         return rs;
     }
 }

@@ -26,9 +26,10 @@ public class Menu {
 		Slip.init(tabbedPane);
 		ManageReader.init(tabbedPane);
 
-		if (Login.role == 0) { // check role
+		if (Login.role.get(1) == 1) { // check role
 			ManageLibrarian.init(tabbedPane);
 		}
+
 
 		statisticalTab = new javax.swing.JPanel();
 		tabbedPane.addTab("Thống Kê", null, statisticalTab, null);

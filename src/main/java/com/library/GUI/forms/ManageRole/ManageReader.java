@@ -1,5 +1,17 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+
+import main.java.com.library.BLL.ReaderBUS;
+import main.java.com.library.DTO.Lecturer;
+import main.java.com.library.DTO.PersonalInfo;
+import main.java.com.library.DTO.Reader;
+import main.java.com.library.DTO.Student;
+
 public class ManageReader {
 	@SuppressWarnings({ "serial", "rawtypes" })
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
@@ -21,6 +33,7 @@ public class ManageReader {
 				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 
+
 		// ----Details: Info
 		detailsInfo = new javax.swing.JPanel();
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
@@ -38,6 +51,7 @@ public class ManageReader {
 		btnGroup = new javax.swing.ButtonGroup();
 		btnGroup.add(roleSv);
 		btnGroup.add(roleCbgv);
+		
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
 		txtMs = new javax.swing.JTextField();
@@ -45,7 +59,7 @@ public class ManageReader {
 		txtMs.setColumns(20);
 
 		lblDepart = new javax.swing.JLabel("Khoa");
-		txtDepart = new javax.swing.JComboBox();
+		txtDepart = new javax.swing.JComboBox(ReaderBUS.showDepartment());
 		txtDepart.setEnabled(false);
 
 		lblClass = new javax.swing.JLabel("Lớp");
@@ -258,6 +272,83 @@ public class ManageReader {
 		});
 
 		save.addActionListener(e -> {
+			String name = txtName.getText();
+			Boolean studentLogic = roleSv.isSelected(); // "Sinh viên" : "Cán bộ giảng viên";
+			String ID = txtMs.getText();
+			String departmentName = txtDepart.getSelectedItem().toString();
+			String className = txtClass.getText();
+			String citizenID = txtCmnd.getText();
+			String birthday = txtDate.getText();
+			String address = txtAddress.getText();
+			String email = txtEmail.getText();
+			String phone = txtPhone.getText();
+			boolean gender = male.isSelected();
+
+			// Tạo một Border màu đỏ
+			Border redBorder = BorderFactory.createLineBorder(Color.RED);
+
+// Biến boolean để lưu trạng thái của Border
+			boolean hasError = false;
+
+			ArrayList<Integer> errorInfo = new ArrayList<Integer>();
+			PersonalInfo info = new PersonalInfo();
+			errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address, email);
+			Reader reader = new Reader();
+			reader.setReader(2,1); // mac dinh gia tri the la 1 nam
+			if (studentLogic){
+				Student student = new Student();
+				ArrayList<Integer> ErrorStudent = new ArrayList<Integer>();
+				ErrorStudent = student.setStudent(ID, className, departmentName);
+				if (ErrorStudent.contains(1)) {
+					txtMs.setBorder(redBorder);
+					hasError = true;
+				}
+				if (ErrorStudent.contains( 2)){
+					txtClass.setBorder(redBorder);
+					hasError = true;
+				}
+			}
+			else {
+				Lecturer lecturer = new Lecturer();
+				ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
+				if (ErrorLecturer.contains(1)) {
+					txtMs.setBorder(redBorder);
+					hasError = true;
+				}
+			}
+			if (errorInfo.contains(1)) {
+				txtName.setBorder(redBorder);
+				hasError = true;
+			}
+			if (errorInfo.contains(2)) {
+				txtCmnd.setBorder(redBorder);
+				hasError = true;
+			}
+			if (errorInfo.contains(3)) {
+				txtDate.setBorder(redBorder);
+				hasError = true;
+			}
+			if (errorInfo.contains(4)) {
+				txtAddress.setBorder(redBorder);
+				hasError = true;
+			}
+			if (errorInfo.contains(5)) {
+				txtEmail.setBorder(redBorder);
+				hasError = true;
+			}
+			if (errorInfo.contains(6)) {
+				txtPhone.setBorder(redBorder);
+				hasError = true;
+			}
+
+			
+			
+			// Nếu có lỗi, không disable các JTextField
+			if (hasError) {
+				return;
+			}
+			
+// Nếu không có lỗi, disable các JTextField
 			txtName.setEnabled(false);
 			roleSv.setEnabled(false);
 			roleCbgv.setEnabled(false);
@@ -271,6 +362,8 @@ public class ManageReader {
 			txtPhone.setEnabled(false);
 			male.setEnabled(false);
 			female.setEnabled(false);
+
+
 		});
 
 		reset.addActionListener(e -> {
@@ -376,7 +469,7 @@ public class ManageReader {
 		filterDepart.setBackground(new java.awt.Color(204, 255, 204));
 		lblDepartHandle = new javax.swing.JLabel("Khoa:");
 		txtDepartHandle = new javax.swing.JComboBox();
-		txtDepartHandle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Công Nghệ Thông Tin" }));
+		txtDepartHandle.setModel(new javax.swing.DefaultComboBoxModel(ReaderBUS.showDepartment()));
 		filterDepart.add(lblDepartHandle);
 		filterDepart.add(txtDepartHandle);
 		handleFilter.add(filterDepart);

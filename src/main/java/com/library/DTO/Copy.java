@@ -23,11 +23,6 @@ public class Copy extends Document {
         this.publishingYear = publishingYear;
     }
 
-    @Override
-    public String getCode() {
-        return "CP_" + this.getID();
-    }
-
     public Vector<Category> getCategory() {
         return category;
     }
