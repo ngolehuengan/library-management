@@ -150,16 +150,21 @@ public class ManageInventoryImport {
 		// Action
 		ManageInventory.add.addActionListener(e -> {
 			txtDate.setEnabled(true);
+			txtDcmCode.setEnabled(true);
+			txtValue.setEnabled(true);
+			txtCount.setEnabled(true);
+
 			txtDate.setText("");
-			
+			txtDcmCode.setText("");
+			txtValue.setText("");
+			txtCount.setText("");
+
 			ManageInventory.addCthd.addActionListener(e1 -> {
-				txtDcmCode.setEnabled(true);
-				txtValue.setEnabled(true);
-				txtCount.setEnabled(true);
-				
-				txtDcmCode.setText("");
-				txtValue.setText("");
-				txtCount.setText("");
+
+			});
+
+			ManageInventory.deleteCthd.addActionListener(e1 -> {
+
 			});
 		});
 

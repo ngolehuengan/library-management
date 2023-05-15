@@ -8,6 +8,7 @@ import main.java.com.library.GUI.forms.ManageRole.ManageReader;
 import main.java.com.library.GUI.forms.ManageService.ManageService;
 import main.java.com.library.GUI.forms.ManageUser.UserInfo;
 import main.java.com.library.GUI.forms.Slip.Slip;
+import main.java.com.library.GUI.forms.Statistic.Statistic;
 
 public class Menu {
 	public static void init(javax.swing.JComponent contentPane) {
@@ -17,9 +18,6 @@ public class Menu {
 		contentPane.add(tabbedPane, java.awt.BorderLayout.CENTER);
 
 		// Tabs
-		// statisticalTab = new javax.swing.JPanel();
-		// tabbedPane.addTab("Quy Định", null, statisticalTab, null);
-
 		ManageInventory.init(tabbedPane);
 		ManageBook.init(tabbedPane);
 		ManageService.init(tabbedPane);
@@ -29,15 +27,10 @@ public class Menu {
 		if (Login.role.get(1) == 1) {
 			ManageLibrarian.init(tabbedPane);
 		}
-
-
-		statisticalTab = new javax.swing.JPanel();
-		tabbedPane.addTab("Thống Kê", null, statisticalTab, null);
-
+		Statistic.init(tabbedPane);
 		UserInfo.init(tabbedPane);
 	}
 
 	// Private
 	private static javax.swing.JTabbedPane tabbedPane;
-	private static javax.swing.JPanel statisticalTab;
 }

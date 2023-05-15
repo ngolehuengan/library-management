@@ -459,21 +459,6 @@ public class ManageReader {
 		filterRole.add(roleCbgvHandle);
 		handleFilter.add(filterRole);
 
-		filterDebt = new javax.swing.JPanel();
-		filterDebt.setBackground(new java.awt.Color(204, 255, 204));
-		lblDebtHandle = new javax.swing.JLabel("Nợ:");
-		txtDebtHandle = new javax.swing.JRadioButton("Có");
-		txtDebtHandle.setBackground(new java.awt.Color(204, 255, 204));
-		txtUndebtHandle = new javax.swing.JRadioButton("Không");
-		txtUndebtHandle.setBackground(new java.awt.Color(204, 255, 204));
-		btnGroup = new javax.swing.ButtonGroup();
-		btnGroup.add(txtDebtHandle);
-		btnGroup.add(txtUndebtHandle);
-		filterDebt.add(lblDebtHandle);
-		filterDebt.add(txtDebtHandle);
-		filterDebt.add(txtUndebtHandle);
-		handleFilter.add(filterDebt);
-
 		filterDepart = new javax.swing.JPanel();
 		filterDepart.setBackground(new java.awt.Color(204, 255, 204));
 		lblDepartHandle = new javax.swing.JLabel("Khoa:");
@@ -569,10 +554,6 @@ public class ManageReader {
 	private static javax.swing.JLabel lblRoleHandle;
 	private static javax.swing.JRadioButton roleSvHandle;
 	private static javax.swing.JRadioButton roleCbgvHandle;
-	private static javax.swing.JPanel filterDebt;
-	private static javax.swing.JLabel lblDebtHandle;
-	private static javax.swing.JRadioButton txtDebtHandle;
-	private static javax.swing.JRadioButton txtUndebtHandle;
 	private static javax.swing.JPanel filterDepart;
 	private static javax.swing.JLabel lblDepartHandle;
 	@SuppressWarnings("rawtypes")
