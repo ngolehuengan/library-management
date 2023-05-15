@@ -1,4 +1,4 @@
-package main.java.com.library.GUI.role.admin;
+package main.java.com.library.GUI.forms;
 
 import main.java.com.library.GUI.components.Header;
 import main.java.com.library.GUI.components.Menu;
@@ -17,7 +17,7 @@ public class MainFrame extends javax.swing.JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(0, 0, 1264, 810);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit()
-				.getImage(this.getClass().getResource("../../../../../resources/icons/sgu-logo.png")));
+				.getImage(this.getClass().getResource("../../../../resources/icons/sgu-logo.png")));
 		setTitle("THƯ VIỆN SGU");
 
 		contentPane = new javax.swing.JPanel();

@@ -12,7 +12,7 @@ public class UserInfo {
 		// --Reader Slip Tab = Details + Table
 		// ---Details
 		details = new javax.swing.JPanel();
-		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Cá Nhân",
+		details.setBorder(new javax.swing.border.TitledBorder(null, "Hồ Sơ Cá Nhân",
 				javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, null, null));
 		details.setLayout(new java.awt.BorderLayout(0, 0));
 		details.setBackground(new java.awt.Color(204, 255, 204));
