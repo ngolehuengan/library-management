@@ -130,36 +130,31 @@ public class Login extends javax.swing.JFrame {
 		});
 
 		btnLogin.addActionListener(e -> {
+			Account account = new Account();
+			account.setUsername(txtUsername.getText());
+			account.setPassword(new String(txtPwd.getPassword()));
+			try {
+				role = AccountBUS.login(account);
+			} catch (Exception e1) {
+				return;
+			}
 			StringBuilder sb = new StringBuilder();
 			if (txtUsername.getText().equals(""))
 				sb.append("Tên tài khoản không hợp lệ !\n");
 			if (new String(txtPwd.getPassword()).equals(""))
 				sb.append("Mật khẩu không hợp lệ !\n");
+			if (role.get(0) == 0) {
+				sb.append("Tên tài khoản hoặc mật khẩu không chính xác");
+			}
 			if (sb.length() > 0) {
 				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				// check role
-				Account account = new Account();
-				account.setUsername(txtUsername.getText());
-				account.setPassword(new String(txtPwd.getPassword()));
-				try {
-					role = AccountBUS.login(account);
-				} catch (Exception e1) {}
-
-				if (role.get(0) == 0){
-					javax.swing.JOptionPane.showMessageDialog(this, "Tên tài khoản hoặc mật khẩu không chính xác", "ERROR",
-					javax.swing.JOptionPane.ERROR_MESSAGE);
-				return;
-				}
-				
-				if(role.get(1) == 1){
-					frame = new MainFrame();
-					frame.setVisible(true);
-					frame.setExtendedState(MAXIMIZED_BOTH);
-					this.dispose();
-				}
+				frame = new MainFrame();
+				frame.setVisible(true);
+				frame.setExtendedState(MAXIMIZED_BOTH);
+				this.dispose();
 			}
 		});
 
