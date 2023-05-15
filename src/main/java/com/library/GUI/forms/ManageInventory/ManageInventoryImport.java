@@ -148,51 +148,52 @@ public class ManageInventoryImport {
 		subTablePnl.add(subTableHandle, java.awt.BorderLayout.SOUTH);
 
 		// Action
-		// ManageInventory.add.addActionListener(e -> {
-		// txtPerson.setEnabled(true);
-		// txtDate.setEnabled(true);
-		// txtId.setEnabled(true);
-		// cbbYearPhoto.setEnabled(true);
-		// txtAreaDescripPhoto.setEnabled(true);
-		//
-		// txtPerson.setText("");
-		// txtDate.setSelectedIndex(0);
-		// txtId.setText("");
-		// cbbYearPhoto.setSelectedIndex(0);
-		// txtAreaDescripPhoto.setText("");
-		// });
-		//
-		// ManageInventory.delete.addActionListener(e -> {
-		// txtPerson.setEnabled(false);
-		// txtDate.setEnabled(false);
-		// txtId.setEnabled(false);
-		// cbbYearPhoto.setEnabled(false);
-		// txtAreaDescripPhoto.setEnabled(false);
-		//
-		// txtPerson.setText("");
-		// txtDate.setSelectedIndex(0);
-		// txtId.setText("");
-		// cbbYearPhoto.setSelectedIndex(0);
-		// txtAreaDescripPhoto.setText("");
-		// });
-		//
-		// ManageInventory.save.addActionListener(e -> {
-		// txtPerson.setEnabled(false);
-		// txtDate.setEnabled(false);
-		// txtId.setEnabled(false);
-		// cbbYearPhoto.setEnabled(false);
-		// txtAreaDescripPhoto.setEnabled(false);
-		// });
-		//
-		// ManageInventory.reset.addActionListener(e -> {
-		// if (txtPerson.isEnabled()) {
-		// txtPerson.setText("");
-		// txtDate.setSelectedIndex(0);
-		// txtId.setText("");
-		// cbbYearPhoto.setSelectedIndex(0);
-		// txtAreaDescripPhoto.setText("");
-		// }
-		// });
+		ManageInventory.add.addActionListener(e -> {
+			txtDate.setEnabled(true);
+			txtDate.setText("");
+			
+			ManageInventory.addCthd.addActionListener(e1 -> {
+				txtDcmCode.setEnabled(true);
+				txtValue.setEnabled(true);
+				txtCount.setEnabled(true);
+				
+				txtDcmCode.setText("");
+				txtValue.setText("");
+				txtCount.setText("");
+			});
+		});
+
+//		ManageInventory.delete.addActionListener(e -> {
+//			txtPerson.setEnabled(false);
+//			txtDate.setEnabled(false);
+//			txtId.setEnabled(false);
+//			cbbYearPhoto.setEnabled(false);
+//			txtAreaDescripPhoto.setEnabled(false);
+//
+//			txtPerson.setText("");
+//			txtDate.setSelectedIndex(0);
+//			txtId.setText("");
+//			cbbYearPhoto.setSelectedIndex(0);
+//			txtAreaDescripPhoto.setText("");
+//		});
+
+//		ManageInventory.save.addActionListener(e -> {
+//			txtPerson.setEnabled(false);
+//			txtDate.setEnabled(false);
+//			txtId.setEnabled(false);
+//			cbbYearPhoto.setEnabled(false);
+//			txtAreaDescripPhoto.setEnabled(false);
+//		});
+//
+//		ManageInventory.reset.addActionListener(e -> {
+//			if (txtPerson.isEnabled()) {
+//				txtPerson.setText("");
+//				txtDate.setSelectedIndex(0);
+//				txtId.setText("");
+//				cbbYearPhoto.setSelectedIndex(0);
+//				txtAreaDescripPhoto.setText("");
+//			}
+//		});
 	}
 
 	// Private
