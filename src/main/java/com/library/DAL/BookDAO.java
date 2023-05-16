@@ -166,7 +166,7 @@ public class BookDAO extends ConnectDB {
         }
         return vt;
     }
-
+   
 // -----------------------------------------------------------------------------
     private Book getDTO(Vector<Object> row) {
         int id = (int) row.get(0);

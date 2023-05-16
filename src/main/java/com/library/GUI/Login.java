@@ -1,6 +1,10 @@
 package main.java.com.library.GUI;
 
-import main.java.com.library.GUI.librarian.MainFrame;
+import java.util.Vector;
+
+import main.java.com.library.BLL.AccountBUS;
+import main.java.com.library.DTO.Account;
+
 
 @SuppressWarnings("serial")
 public class Login extends javax.swing.JFrame {
@@ -14,9 +18,10 @@ public class Login extends javax.swing.JFrame {
 	private void init() {
 		// ----------Frame----------
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(550, 250, 439, 267);
-		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\icons\\sgu-logo.png"));
+		setBounds((java.awt.Toolkit.getDefaultToolkit().getScreenSize().width - 396) / 2,
+				(java.awt.Toolkit.getDefaultToolkit().getScreenSize().height - 256) / 2, 396, 256);
+		setIconImage(java.awt.Toolkit.getDefaultToolkit()
+				.getImage(this.getClass().getResource("../../../resources/icons/sgu-logo.png")));
 		setTitle("CHÀO MỪNG ĐẾN VỚI THƯ VIỆN SGU");
 
 		contentPane = new javax.swing.JPanel();
@@ -34,73 +39,69 @@ public class Login extends javax.swing.JFrame {
 		contentPane.add(lblLogin, java.awt.BorderLayout.NORTH);
 
 		// Main Panel
-		javax.swing.JSeparator separator = new javax.swing.JSeparator();
-
 		mainPnl = new javax.swing.JPanel();
+		mainPnl.setLayout(new java.awt.BorderLayout(0, 0));
 		mainPnl.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(mainPnl, java.awt.BorderLayout.CENTER);
 
+		javax.swing.JSeparator separator = new javax.swing.JSeparator();
+		mainPnl.add(separator, java.awt.BorderLayout.NORTH);
+
+		separator = new javax.swing.JSeparator();
+		mainPnl.add(separator, java.awt.BorderLayout.SOUTH);
+
+		// --Main Form Panel Center
+		mainFormPnl = new javax.swing.JPanel();
+		mainFormPnl.setBackground(new java.awt.Color(204, 255, 204));
+		mainPnl.add(mainFormPnl, java.awt.BorderLayout.CENTER);
+
+		java.awt.GridBagLayout gbl_mainFormPnl = new java.awt.GridBagLayout();
+		mainFormPnl.setLayout(gbl_mainFormPnl);
+
 		lblUsername = new javax.swing.JLabel("Tên tài khoản");
+		lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+		java.awt.GridBagConstraints gbc_lblUsername = new java.awt.GridBagConstraints();
+		gbc_lblUsername.fill = java.awt.GridBagConstraints.BOTH;
+		gbc_lblUsername.insets = new java.awt.Insets(0, 20, 20, 0);
+		gbc_lblUsername.gridx = 0;
+		gbc_lblUsername.gridy = 0;
+		mainFormPnl.add(lblUsername, gbc_lblUsername);
+
 		txtUsername = new javax.swing.JTextField();
-		txtUsername.setColumns(10);
+		java.awt.GridBagConstraints gbc_txtUsername = new java.awt.GridBagConstraints();
+		gbc_txtUsername.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gbc_txtUsername.insets = new java.awt.Insets(0, 20, 20, 20);
+		gbc_txtUsername.gridx = 1;
+		gbc_txtUsername.gridy = 0;
+		mainFormPnl.add(txtUsername, gbc_txtUsername);
+		txtUsername.setColumns(15);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
+		lblPwd.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+		java.awt.GridBagConstraints gbc_lblPwd = new java.awt.GridBagConstraints();
+		gbc_lblPwd.fill = java.awt.GridBagConstraints.BOTH;
+		gbc_lblPwd.insets = new java.awt.Insets(0, 20, 0, 0);
+		gbc_lblPwd.gridx = 0;
+		gbc_lblPwd.gridy = 1;
+		mainFormPnl.add(lblPwd, gbc_lblPwd);
+
 		txtPwd = new javax.swing.JPasswordField();
+		java.awt.GridBagConstraints gbc_txtPwd = new java.awt.GridBagConstraints();
+		gbc_txtPwd.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gbc_txtPwd.insets = new java.awt.Insets(0, 20, 0, 20);
+		gbc_txtPwd.gridx = 1;
+		gbc_txtPwd.gridy = 1;
+		mainFormPnl.add(txtPwd, gbc_txtPwd);
 
-		tglbtnShowHidePwd = new javax.swing.JToggleButton(new javax.swing.ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\icons\\eye.png"));
-		tglbtnShowHidePwd.setSelectedIcon(new javax.swing.ImageIcon(
-				"C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\library-management\\src\\main\\java\\resources\\icons\\hidden.png"));
+		tglbtnShowHidePwd = new javax.swing.JToggleButton(
+				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/eye.png")));
+		tglbtnShowHidePwd.setSelectedIcon(
+				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/hidden.png")));
 		tglbtnShowHidePwd.setBackground(new java.awt.Color(204, 255, 204));
-
-		javax.swing.JSeparator separator_1 = new javax.swing.JSeparator();
-
-		javax.swing.GroupLayout gl_mainPnl = new javax.swing.GroupLayout(mainPnl);
-		gl_mainPnl.setHorizontalGroup(
-				gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_mainPnl.createSequentialGroup()
-								.addGap(68)
-								.addGroup(gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-										.addComponent(lblPwd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-								.addGap(38)
-								.addGroup(gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121,
-												Short.MAX_VALUE)
-										.addComponent(txtPwd, javax.swing.GroupLayout.Alignment.TRAILING))
-								.addGap(18)
-								.addComponent(tglbtnShowHidePwd, javax.swing.GroupLayout.PREFERRED_SIZE, 27,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(73))
-						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_mainPnl.createSequentialGroup()
-								.addGap(25)
-								.addGroup(gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(separator_1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
-										.addComponent(separator, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE))
-								.addGap(27)));
-		gl_mainPnl.setVerticalGroup(
-				gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_mainPnl.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(24)
-								.addGroup(gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblUsername)
-										.addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(42)
-								.addGroup(gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(gl_mainPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(lblPwd)
-												.addComponent(txtPwd, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addComponent(tglbtnShowHidePwd))
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-								.addComponent(separator_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addContainerGap()));
-		mainPnl.setLayout(gl_mainPnl);
+		java.awt.GridBagConstraints gbc_tglbtnShowHidePwd = new java.awt.GridBagConstraints();
+		gbc_tglbtnShowHidePwd.gridx = 2;
+		gbc_tglbtnShowHidePwd.gridy = 1;
+		mainFormPnl.add(tglbtnShowHidePwd, gbc_tglbtnShowHidePwd);
 
 		// Bottom Panel
 		botPnl = new javax.swing.JPanel();
@@ -110,31 +111,16 @@ public class Login extends javax.swing.JFrame {
 		btnLogin = new javax.swing.JButton("Đăng nhập");
 		btnLogin.setForeground(new java.awt.Color(255, 255, 255));
 		btnLogin.setBackground(new java.awt.Color(0, 153, 51));
+		botPnl.add(btnLogin);
 
 		btnReset = new javax.swing.JButton("Reset");
 		btnReset.setBackground(new java.awt.Color(0, 153, 51));
 		btnReset.setForeground(new java.awt.Color(255, 255, 255));
-
-		javax.swing.GroupLayout gl_botPnl = new javax.swing.GroupLayout(botPnl);
-		gl_botPnl.setHorizontalGroup(
-				gl_botPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_botPnl.createSequentialGroup()
-								.addGap(128)
-								.addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addGap(18)
-								.addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-								.addGap(127)));
-		gl_botPnl.setVerticalGroup(
-				gl_botPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(gl_botPnl.createSequentialGroup()
-								.addGroup(gl_botPnl.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(btnLogin)
-										.addComponent(btnReset))
-								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		botPnl.setLayout(gl_botPnl);
+		botPnl.add(btnReset);
 
 		// Action
+		this.getRootPane().setDefaultButton(btnLogin);
+
 		tglbtnShowHidePwd.addActionListener(e -> {
 			if (tglbtnShowHidePwd.isSelected())
 				txtPwd.setEchoChar((char) 0);
@@ -143,10 +129,53 @@ public class Login extends javax.swing.JFrame {
 		});
 
 		btnLogin.addActionListener(e -> {
-			MainFrame frame = new MainFrame();
-			frame.setVisible(true);
-			frame.setExtendedState(MAXIMIZED_BOTH);
-			this.dispose();
+//			StringBuilder sb = new StringBuilder();
+//			if (txtUsername.getText().equals(""))
+//				sb.append("Tên tài khoản không hợp lệ !\n");
+//			if (new String(txtPwd.getPassword()).equals(""))
+//				sb.append("Mật khẩu không hợp lệ !\n");
+//			if (sb.length() > 0) {
+//				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
+//						javax.swing.JOptionPane.ERROR_MESSAGE);
+//				return;
+//			} 
+//                        else {
+//				// check role
+//				Account account = new Account();
+//				account.setUsername(txtUsername.getText());
+//				account.setPassword(new String(txtPwd.getPassword()));
+//                                
+//				
+//                                try{
+//                                    role = AccountBUS.login(account);
+//                                    
+//                                } 
+//                                catch(Exception exception){
+//                                    
+//                                }
+//
+//				
+//
+//				if (role.get(0) == 0){
+//					javax.swing.JOptionPane.showMessageDialog(this, "Tên tài khoản hoặc mật khẩu không chính xác", "ERROR",
+//					javax.swing.JOptionPane.ERROR_MESSAGE);
+//				return;
+//				}
+//				if(role.get(1) == 1){
+					frame = new main.java.com.library.GUI.role.admin.MainFrame();
+					frame.setVisible(true);
+					frame.setExtendedState(MAXIMIZED_BOTH);
+					this.dispose();
+//				}
+//				else {
+//					frame1 = new main.java.com.library.GUI.role.librarian.MainFrame();
+//					frame1.setVisible(true);
+//					frame1.setExtendedState(MAXIMIZED_BOTH);
+//					this.dispose();
+//				}
+//
+//
+//			}
 		});
 
 		btnReset.addActionListener(e -> {
@@ -158,6 +187,7 @@ public class Login extends javax.swing.JFrame {
 	// ----------private----------
 	private javax.swing.JPanel contentPane;
 	private javax.swing.JPanel mainPnl;
+	private javax.swing.JPanel mainFormPnl;
 	private javax.swing.JLabel lblUsername;
 	private javax.swing.JLabel lblPwd;
 	private javax.swing.JLabel lblLogin;
@@ -167,4 +197,8 @@ public class Login extends javax.swing.JFrame {
 	private javax.swing.JPanel botPnl;
 	private javax.swing.JButton btnLogin;
 	private javax.swing.JButton btnReset;
+	
+	public static main.java.com.library.GUI.role.admin.MainFrame frame;
+	public static main.java.com.library.GUI.role.librarian.MainFrame frame1;
+	public static Vector<Integer> role ;
 }

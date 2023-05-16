@@ -7,6 +7,7 @@ import main.java.com.library.Check;
 import main.java.com.library.DAL.LoanSlipDAO;
 import main.java.com.library.DAL.LibResourceDAO;
 import main.java.com.library.DAL.LoanDocumentDAO;
+import main.java.com.library.DAL.ReaderDAL;
 import main.java.com.library.DTO.LibResource;
 import main.java.com.library.DTO.LoanDetail;
 import main.java.com.library.DTO.LoanDocument;
@@ -93,7 +94,9 @@ public class LoanSlipBUS {
             dao.updateLibrarianID(loanDcmID, librarianID);
             
             new LibResourceDAO().addAvailableQuantity(dt.getDcmCode(), 1);
-            new ReaderDAO().
+            int readerID = e.getReaderID();
+            double fine = dt.getFine();
+            độc giả readerID cộng thêm nợ fine
         }
         return "Đã trả thành công!";
     }

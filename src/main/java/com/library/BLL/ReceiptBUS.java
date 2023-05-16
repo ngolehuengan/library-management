@@ -19,6 +19,8 @@ public class ReceiptBUS {
 //    xoá thành công ? cộng lại số nợ cho độc giả
     public String delete(Receipt e) {
         if (new ReceiptDAO().delete(e.getID())) {
+            e.getReaderID() 
+            e.getProceeds() tiền thu
             new ReaderDAO().
             return "Đã xoá!";
         }
@@ -29,7 +31,9 @@ public class ReceiptBUS {
 //    thu thành công ? cập nhật nợ tồn mới cho độc giả
     public String add(Receipt e) {
         if (new ReceiptDAO().insert(e)) {
-            new ReaderDAO().
+            e.getReaderID() 
+            e.getProceeds() tiền thu
+            new ReaderDAO()
             return "Lưu thành công!";
         }
         return "Thất bại!";

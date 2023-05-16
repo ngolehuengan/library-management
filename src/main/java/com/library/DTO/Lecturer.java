@@ -1,23 +1,40 @@
 package main.java.com.library.DTO;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Date;
 
-/**
- *
- * @author ant1006
- */
-public class Lecturer extends PersonalInfo {
+public class Lecturer {
     private String lecturerID; //ma giang vien
     private String departmentName; //khoa
 
-    public Lecturer() {
-        super();
+    public ArrayList setLecturer(String LecturerID, String departmentName) {
+        ArrayList<Integer> wrongList = new ArrayList<Integer>();
+        if(LecturerID.length() > 10) wrongList.add(1);
+        if(departmentName.length() > 50) wrongList.add(3);
+        if(wrongList.size() == 0){
+            this.lecturerID = LecturerID;
+            this.departmentName = departmentName;
+        }
+        return wrongList;
     }
-    public Lecturer(String lecturerID, String departmentName, String citizenID, String fullName, Date birthday, boolean isMale, String phoneNumber, String address) {
-        super(citizenID, fullName, birthday, isMale, phoneNumber, address);
+
+    public Lecturer(String lecturerID, String departmentName){
         this.lecturerID = lecturerID;
         this.departmentName = departmentName;
     }
-    
+    public Lecturer(){
+    }
+    public String getLecturerID() {
+        return lecturerID;
+    }
+    public void setLecturerID(String lecturerID) {
+        this.lecturerID = lecturerID;
+    }
+    public String getDepartmentName() {
+        return departmentName;
+    }
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
     
 }
