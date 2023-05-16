@@ -1,6 +1,7 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
 import java.awt.Color;
+import java.awt.SystemColor;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -239,7 +240,7 @@ public class ManageReader {
 		});
 
 		delete.addActionListener(e -> {
-			if (txtName.isEnabled()) {	
+			if (txtName.isEnabled()) {
 				txtName.setEnabled(false);
 				roleSv.setEnabled(false);
 				roleCbgv.setEnabled(false);
@@ -253,7 +254,7 @@ public class ManageReader {
 				txtPhone.setEnabled(false);
 				male.setEnabled(false);
 				female.setEnabled(false);
-				
+
 				txtName.setText("");
 				btnGroup.clearSelection();
 				btnGroupGd.clearSelection();
@@ -383,8 +384,17 @@ public class ManageReader {
 				txtPhone.setEnabled(false);
 				male.setEnabled(false);
 				female.setEnabled(false);
-			}
 
+				redBorder = BorderFactory.createLineBorder(SystemColor.inactiveCaption);
+				txtCmnd.setBorder(redBorder);
+				txtName.setBorder(redBorder);
+				txtDate.setBorder(redBorder);
+				txtPhone.setBorder(redBorder);
+				txtAddress.setBorder(redBorder);
+				txtEmail.setBorder(redBorder);
+				txtMs.setBorder(redBorder);
+				txtClass.setBorder(redBorder);
+			}
 		});
 
 		reset.addActionListener(e -> {
@@ -414,7 +424,7 @@ public class ManageReader {
 				txtPhone.setText("");
 			}
 		});
-		
+
 		view.addActionListener(e -> {
 			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(),
 					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
