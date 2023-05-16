@@ -19,7 +19,7 @@ public class ReceiptBUS {
 //    xoá thành công ? cộng lại số nợ cho độc giả
     public String delete(Receipt e) {
         if (new ReceiptDAO().delete(e.getID())) {
-            ReaderBUS.updateTotalDebt(e.getReaderID(),e.getProceeds());
+            ReaderBUS.updateTotalDebt(Integer.toString(e.getReaderID()),Double.toString(e.getProceeds()));
             return "Đã xoá!";
         }
         return "Xoá thất bại!";
@@ -29,7 +29,7 @@ public class ReceiptBUS {
 //    thu thành công ? cập nhật nợ tồn mới cho độc giả
     public String add(Receipt e) {
         if (new ReceiptDAO().insert(e)) {
-            ReaderBUS.updateTotalDebt(e.getReaderID(),0-e.getProceeds());
+            ReaderBUS.updateTotalDebt(Integer.toString(e.getReaderID()),Double.toString(0-e.getProceeds()));
             return "Lưu thành công!";
         }
         return "Thất bại!";
