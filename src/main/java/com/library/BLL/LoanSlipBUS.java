@@ -94,9 +94,7 @@ public class LoanSlipBUS {
             dao.updateLibrarianID(loanDcmID, librarianID);
             
             new LibResourceDAO().addAvailableQuantity(dt.getDcmCode(), 1);
-            int readerID = e.getReaderID();
-            double fine = dt.getFine();
-            độc giả readerID cộng thêm nợ fine
+            ReaderBUS.updateTotalDebt(e.getReaderID(),dt.getFine());
         }
         return "Đã trả thành công!";
     }

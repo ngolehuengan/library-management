@@ -15,18 +15,9 @@ import main.java.com.library.DTO.ImportRecord;
 public class ImportRecordBUS {
 
 // -----------------------------------------------------------------------------
-    public Vector getAll() {
+    public Vector<ImportRecord> getTable() {
         return new ImportRecordDAO().getAll();
     }
-
-    public Vector getDisplayTable() {
-        return new ImportRecordDAO().getTable();
-    }
-    
-    public Vector getDetailTable(int id) {
-        return new ImportRecordDAO().getDetailTable(id);
-    }
-    
 // -----------------------------------------------------------------------------
 //    xoá thành công ? giảm số lượng (tổng và hiện có)
     public String delete(ImportRecord e) {

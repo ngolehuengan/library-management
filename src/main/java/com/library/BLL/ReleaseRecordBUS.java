@@ -15,13 +15,10 @@ import main.java.com.library.DTO.ReleaseRecord;
 public class ReleaseRecordBUS {
 
 // -----------------------------------------------------------------------------
-    public Vector getAll() {
+    public Vector<ReleaseRecord> getTable() {
         return new ReleaseRecordDAO().getAll();
     }
     
-    public Vector getDisplayTable() {
-        return new Vector();
-    }
 // -----------------------------------------------------------------------------
 //    xoá thành công ? giảm số lượng (tổng và hiện có)
     public String delete(ReleaseRecord e) {
