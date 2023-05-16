@@ -43,6 +43,14 @@ public class ReaderBUS {
         return true;
     }
 
+    public static void updateTotalDebt(String reader_id,String fine){
+        try {
+            ReaderDAL.updateTotalDebt(reader_id, fine);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
     public boolean hideReader(Reader reader){
         ReaderDAL.storeReader(reader);
         return true;
@@ -58,20 +66,13 @@ public class ReaderBUS {
         for(int i = 0;i<department.size();i++){
             sb[i] = (String) department.get(i);
         }
-        return sb;
+        return sb; 
+    }  
+
+    public static String[][] showTableReader() {
+        return ReaderDAL.showTableReader();
     }
-    public static void main(String[] args) throws Exception {
-        Reader reader = new Reader(); 
-        PersonalInfo info = new PersonalInfo();
-        reader.setReader(2, 1);
-        ArrayList<Integer> wrong = info.setPersonalInfo("472683750", "Nguyễn Ngọc Bình Phương", "03/01/2004",false,"0122760402", "Bạc Liêu", "phattran@gmail.com");
-        Student std = new Student();
-        std.setStudent("3121410361","DCsj2","Bán trà tắc");
-        reader.setReader(2, 5);
-        ReaderBUS bus = new ReaderBUS();
-        // bus.insertReaderStudent(reader, info, std);
-        bus.updateReaderStudent(reader, info, std);
-  
-        
+    public static void main(String[] args) {
+        ReaderBUS.showTableReader();
     }
 }

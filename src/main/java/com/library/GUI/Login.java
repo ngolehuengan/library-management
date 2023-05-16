@@ -136,6 +136,7 @@ public class Login extends javax.swing.JFrame {
 			try {
 				role = AccountBUS.login(account);
 			} catch (Exception e1) {
+				System.out.println(e1.getMessage());
 				return;
 			}
 			StringBuilder sb = new StringBuilder();
@@ -143,11 +144,11 @@ public class Login extends javax.swing.JFrame {
 				sb.append("Tên tài khoản không hợp lệ !\n");
 			if (new String(txtPwd.getPassword()).equals(""))
 				sb.append("Mật khẩu không hợp lệ !\n");
-			if (role.get(0) == 0) {
+			if (role.get(0) == 0 && sb.length()== 0) {
 				sb.append("Tên tài khoản hoặc mật khẩu không chính xác");
 			}
 			if (sb.length() > 0) {
-				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
+				javax.swing.JOptionPane.showMessageDialog(this,sb.toString(), "ERROR",
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
@@ -157,13 +158,7 @@ public class Login extends javax.swing.JFrame {
 				this.dispose();
 			}
 		});
-
-		btnReset.addActionListener(e -> {
-			txtUsername.setText("");
-			txtPwd.setText("");
-		});
 	}
-
 	// ----------private----------
 	private javax.swing.JPanel contentPane;
 	private javax.swing.JPanel mainPnl;

@@ -17,7 +17,7 @@ public class MainFrame extends javax.swing.JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(0, 0, 1264, 810);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit()
-				.getImage(this.getClass().getResource("../../../../resources/icons/sgu-logo.png")));
+		.getImage(this.getClass().getResource("../../../../resources/icons/sgu-logo.png")));
 		setTitle("THƯ VIỆN SGU");
 
 		contentPane = new javax.swing.JPanel();

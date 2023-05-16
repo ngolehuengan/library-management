@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
+import main.java.com.library.BLL.LecturerBUS;
 import main.java.com.library.BLL.ReaderBUS;
 import main.java.com.library.BLL.StudentBUS;
 import main.java.com.library.DTO.Lecturer;
@@ -112,7 +113,7 @@ public class ManageReader {
 						.addComponent(lblDate).addComponent(lblAddress).addComponent(lblEmail).addComponent(lblMs)
 						.addComponent(lblDepart).addComponent(lblClass).addComponent(lblGender)
 						.addComponent(lblPenalty))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
 						.addComponent(txtAddress).addComponent(txtPenalty).addComponent(txtMs).addComponent(txtDepart)
@@ -130,42 +131,42 @@ public class ManageReader {
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(roleCbgv))))
 				.addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(25)
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
 						.addComponent(txtMs))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDepart).addComponent(txtDepart))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblClass).addComponent(txtClass))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(20)
+				.addGap(15)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(20).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+				.addGap(15).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
-				.addGap(20));
+				.addGap(15));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -184,13 +185,7 @@ public class ManageReader {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "MÃ ĐỘC GIẢ",
-				"HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ", "NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
-			@Override
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				return false;
-			}
-		});
+		
 		table.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(table);
 
@@ -290,18 +285,16 @@ public class ManageReader {
 			boolean hasError = false;
 			ArrayList<Integer> errorInfo = new ArrayList<Integer>();
 			PersonalInfo info = new PersonalInfo();
-			errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,
-					email);
 			Reader reader = new Reader();
-			reader.setReader(2, 1); // mac dinh gia tri the la 1 nam
 			Student student = new Student();
 			Lecturer lecturer = new Lecturer();
+			errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,email);
 			if (errorInfo.contains(1)) {
-				txtName.setBorder(redBorder);
+				txtCmnd.setBorder(redBorder);
 				hasError = true;
 			}
 			if (errorInfo.contains(2)) {
-				txtCmnd.setBorder(redBorder);
+				txtName.setBorder(redBorder);
 				hasError = true;
 			}
 			if (errorInfo.contains(3)) {
@@ -309,22 +302,24 @@ public class ManageReader {
 				hasError = true;
 			}
 			if (errorInfo.contains(4)) {
-				txtAddress.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(5)) {
-				txtEmail.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(6)) {
 				txtPhone.setBorder(redBorder);
 				hasError = true;
 			}
+			if (errorInfo.contains(5)) {
+				txtAddress.setBorder(redBorder);
+				hasError = true;
+			}
+			if (errorInfo.contains(6)) {
+				txtEmail.setBorder(redBorder);
+				hasError = true;
+			}
+
 			if (studentLogic) {
 				ArrayList<Integer> ErrorStudent = new ArrayList<Integer>();
 				ErrorStudent = student.setStudent(ID, className, departmentName);
-				if (ErrorStudent.size() == 0) {
+				if (ErrorStudent.size() == 0 && hasError == false) {
 					try {
+						reader.setReader(2, 1); // mac dinh gia tri the la 1 nam
 						ReaderBUS.insertReaderStudent(reader, info, student);
 					} catch (Exception e1) {
 						e1.printStackTrace();
@@ -338,12 +333,14 @@ public class ManageReader {
 					txtClass.setBorder(redBorder);
 					hasError = true;
 				}
-			} else {
+			}
+			if (studentLogic ==false) {
 				ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
-				if (ErrorLecturer.size() == 0) {
+				ErrorLecturer = lecturer.setLecturer(ID, departmentName);
+				if (ErrorLecturer.size() == 0 && hasError == false) {
 					try {
+						reader.setReader(1, 1); // mac dinh gia tri the la 1 nam
 						ReaderBUS.insertReaderLecturer(reader, info, lecturer);
-						StudentBUS.insertStudent(student, reader);
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -358,6 +355,17 @@ public class ManageReader {
 			}
 
 // Nếu không có lỗi, disable các JTextField
+			txtName.setText("");
+			btnGroup.clearSelection();
+			btnGroupGd.clearSelection();
+			txtMs.setText("");
+			txtCmnd.setText("");
+			txtDate.setText("");
+			txtAddress.setText("");
+			txtEmail.setText("");
+			txtPhone.setText("");
+			txtPenalty.setText("0");
+
 			txtName.setEnabled(false);
 			roleSv.setEnabled(false);
 			roleCbgv.setEnabled(false);
@@ -401,6 +409,16 @@ public class ManageReader {
 				txtPhone.setText("");
 			}
 		});
+		view.addActionListener(e ->{
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(), new String[] { "STT", "MÃ ĐỘC GIẢ",
+				"HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ", "NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+			@Override
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+			}
+		});
+		});
+
 
 	}
 
@@ -433,7 +451,7 @@ public class ManageReader {
 		search.setBackground(new java.awt.Color(0, 153, 51));
 		search.setForeground(new java.awt.Color(255, 255, 255));
 		searchField = new javax.swing.JTextField();
-		searchField.setColumns(20);
+		searchField.setColumns(10);
 
 		handleBase.add(add);
 		handleBase.add(edit);

@@ -42,6 +42,14 @@ public class ReaderDAL {
         }
         return true;
     }
+    public static void updateTotalDebt(String reader_id,String fine){
+        connect = new MyConnectUnit();
+        try {
+            ResultSet results = connect.excuteQuery("CALL SP_Reader_UpdateTotalDebt("+"\""+reader_id+"\""+","+"\""+fine+"\""+");");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public boolean reStoreReader(){
         return true;
@@ -64,4 +72,43 @@ public class ReaderDAL {
         }
         return department;
     }
+    public static String[][] showTableReader(){
+        connect = new MyConnectUnit();
+        String[][] show = new String[0][0];
+        try {
+            String query ="CALL SP_Reader_CountRow_Show()";
+            ResultSet results = connect.excuteQuery(query);
+            results.next();
+    
+            int totalRow = results.getInt(0);
+            query = "CALL SP_Reader_Show();";
+            results = connect.excuteQuery(query);
+    
+            show = new String[totalRow][9];
+            int row = 0;
+            while(results.next()){
+                show[row][0] = Integer.toString(row + 1);
+                if (results.getInt("classify") == 1){
+                    show[row][3] = "Giảng viên";
+                    show[row][1] = "GV" + Integer.toString(results.getInt("id"));
+                    show[row][4] = results.getString("student_id");
+                } 
+                else {
+                    show[row][3] = "Sinh Viên";
+                    show[row][1] = "SV" + Integer.toString(results.getInt("id"));
+                    show[row][4] = results.getString("lecturer_id");  
+                }
+                show[row][2] = results.getString("fullName");
+                show[row][5] = results.getString("departmentName");
+                show[row][6] = Double.toString(results.getDouble("total_debt"));
+                show[row][7] = results.getDate("registrationDate").toString();
+                show[row][8] = results.getDate("ExpirationDate").toString();
+                row++;
+            }
+        } catch (Exception e) {
+
+        }
+        return show;
+    }
+
 }

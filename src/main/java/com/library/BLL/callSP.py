@@ -1,4 +1,4 @@
-function_name = "updateReaderHide(SP_READER_UpdateHide,int readerID, boolean hideValue)"
+function_name = "updateTotalDebt(SP_Reader_UpdateTotalDebt,String reader_id,String fine)"
 params_str = function_name.split("(")[1].split(")")[0] # lấy các tham số từ chuỗi
 params_list = params_str.split(",")
 # chuyển các tham số thành một danh sách

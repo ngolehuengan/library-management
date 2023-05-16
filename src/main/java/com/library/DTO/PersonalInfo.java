@@ -25,7 +25,7 @@ public class PersonalInfo {
         }
         // check parse
         try {
-            Integer.parseInt(citizenID);
+            Long.parseLong(citizenID);
         } catch (Exception e) {
             return false;
         }
@@ -45,32 +45,28 @@ public class PersonalInfo {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    public ArrayList setPersonalInfo(String citizenID, String fullName, String birthday, String male, String phoneNumber, String address,String email){
+    public ArrayList setPersonalInfo(String citizenID, String fullName, String Birthday, String male, String phoneNumber, String Address,String email){
         ArrayList<Integer> wrongFormat = new ArrayList<Integer>();
-        if(checkCitizenID(citizenID) == false || citizenID == null){
-            wrongFormat.add(1);
-        }
-        if(fullName.length() > 50 || fullName == null){
-            wrongFormat.add(2);
-        }
+        if(citizenID.isEmpty() ||checkCitizenID(citizenID) == false) wrongFormat.add(1);
+        if(fullName.isEmpty()|| fullName.length() >50) wrongFormat.add(2);
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            this.birthday = LocalDate.parse(birthday, formatter);
+            this.birthday = LocalDate.parse(Birthday, formatter);
             LocalDate currentDate = LocalDate.now();
             if(this.birthday.isAfter(currentDate)) wrongFormat.add(3);
         } catch (Exception e) {
             wrongFormat.add(3);
         }
         // 
-        if(checkPhone(phoneNumber) == false) wrongFormat.add((4)) ;
-        if (address.length() > 50 || address == null) wrongFormat.add(5);
-        if (checkEmail(email) == false || email == null) wrongFormat.add(6);
+        if(phoneNumber.isEmpty() || checkPhone(phoneNumber) == false) wrongFormat.add((4)) ;
+        if (Address.isEmpty()||Address.length() > 50) wrongFormat.add(5);
+        if (email.isEmpty()||checkEmail(email) == false) wrongFormat.add(6);
         if(wrongFormat.size() == 0 ){
-            setPersonalInfo(citizenID,fullName,this.birthday,Boolean.getBoolean(male),phoneNumber,address,email);
+            setPersonalinfo(citizenID,fullName,this.birthday,Boolean.getBoolean(male),phoneNumber,address,email);
         }
         return wrongFormat;
     }
-    public void setPersonalInfo(String citizenID, String fullName, LocalDate birthday, boolean isMale, String phoneNumber, String address,String email) {
+    public void setPersonalinfo(String citizenID, String fullName, LocalDate birthday, boolean isMale, String phoneNumber, String address,String email) {
         this.citizenID = citizenID;
         this.fullName = fullName;
         this.birthday = birthday;
@@ -128,11 +124,8 @@ public class PersonalInfo {
         this.address = address;
     }
 
-    public String getisMale() {
-        if (isMale){
-            return "true";
-        }
-        return "false";
+    public boolean getisMale() {
+        return isMale;
     }
 
     public void setMale(boolean isMale) {
@@ -146,5 +139,4 @@ public class PersonalInfo {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }
