@@ -63,7 +63,7 @@ public class HistorySlip {
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details
-				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 								.addComponent(lblPerson).addComponent(lblDate).addComponent(lblId)
 								.addComponent(lblDcmCode).addComponent(lblLoanPerson).addComponent(lblLoanDate)
@@ -73,8 +73,8 @@ public class HistorySlip {
 								.addComponent(txtPerson).addComponent(txtDate).addComponent(txtId)
 								.addComponent(txtDcmCode).addComponent(txtLoanPerson).addComponent(txtLoanDate)
 								.addComponent(txtAppointDate).addComponent(txtPenalty).addComponent(txtTitle))
-						.addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+						.addGap(0, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
 						.addComponent(txtId))
 				.addGap(24)

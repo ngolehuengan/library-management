@@ -91,7 +91,7 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 		scrollPane_1.setViewportView(txtWayHandle);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblId).addComponent(lblReader).addComponent(lblName)
 						.addComponent(lblMs).addComponent(lblDate).addComponent(lblValue).addComponent(lblDebt)
@@ -107,7 +107,7 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 								.addGap(5)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(ManageService.find))))
-				.addGap(80));
+				.addGap(0, 80, 80));
 		gl_details
 				.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

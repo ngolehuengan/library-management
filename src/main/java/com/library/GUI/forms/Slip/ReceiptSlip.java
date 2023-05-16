@@ -47,7 +47,7 @@ public class ReceiptSlip {
 		txtPerson.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPerson)
 						.addComponent(lblId).addComponent(lblReader).addComponent(lblDate).addComponent(lblValue))
@@ -55,8 +55,8 @@ public class ReceiptSlip {
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtId).addComponent(txtReader).addComponent(txtDate)
 						.addComponent(txtValue))
-				.addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGap(0, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
 						.addComponent(txtId))
 				.addGap(24)

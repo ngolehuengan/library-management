@@ -62,7 +62,7 @@ public class ManageServiceBorrow {
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details
-				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addGroup(gl_details
 								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPerson)
 								.addComponent(lblName).addComponent(lblMs).addComponent(lblId).addComponent(lblDcmCode)
@@ -79,9 +79,9 @@ public class ManageServiceBorrow {
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 												.addComponent(ManageService.find))))
-						.addGap(80));
+						.addGap(0, 80, 80));
 		gl_details
-				.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblId).addComponent(txtId))
 						.addGap(24)

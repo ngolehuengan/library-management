@@ -13,7 +13,7 @@ public class MyConnectUnit  {
     private MySQLConnection connect;
     // hàm khởi tạo kết nối mặc định
     public MyConnectUnit() {
-        connect = new MySQLConnection("localhost", "root", "qltv@1234", "LIBRARY_MANAGEMENT");
+        connect = new MySQLConnection("localhost", "root", "", "LIBRARY_MANAGEMENT");
     }
     
     // hàm khởi tạo cơ bản

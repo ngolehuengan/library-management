@@ -2,8 +2,6 @@ package main.java.com.library.BLL;
 
 import java.sql.Date;
 import java.util.Vector;
-import main.java.com.library.CONST;
-import main.java.com.library.Check;
 import main.java.com.library.DAL.LoanSlipDAO;
 import main.java.com.library.DAL.LibResourceDAO;
 import main.java.com.library.DAL.LoanDocumentDAO;

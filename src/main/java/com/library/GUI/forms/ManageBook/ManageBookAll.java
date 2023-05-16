@@ -66,7 +66,7 @@ public class ManageBookAll {
 		chckbxInvalidAll.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80).addGroup(gl_details
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(gl_details.createSequentialGroup()
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
@@ -83,8 +83,8 @@ public class ManageBookAll {
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(txtValueAll).addComponent(txtCountAll).addComponent(txtNumberAll)))
-				.addComponent(chckbxInvalidAll)).addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addComponent(chckbxInvalidAll)).addGap(0, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
 								javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -107,13 +107,13 @@ public class ManageReader {
 		btnGroupGd.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 						.addComponent(lblPhone).addComponent(lblName).addComponent(lblRole).addComponent(lblCmnd)
 						.addComponent(lblDate).addComponent(lblAddress).addComponent(lblEmail).addComponent(lblMs)
 						.addComponent(lblDepart).addComponent(lblClass).addComponent(lblGender)
 						.addComponent(lblPenalty))
-				.addGap(15)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
 						.addComponent(txtAddress).addComponent(txtPenalty).addComponent(txtMs).addComponent(txtDepart)
@@ -130,43 +130,43 @@ public class ManageReader {
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(roleCbgv))))
-				.addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(15)
+				.addGap(0, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 50, 50)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
 						.addComponent(txtMs))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDepart).addComponent(txtDepart))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblClass).addComponent(txtClass))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(15)
+				.addGap(22)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(15).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+				.addGap(22).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
-				.addGap(15));
+				.addGap(22));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -185,7 +185,7 @@ public class ManageReader {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		
+
 		table.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(table);
 
@@ -239,146 +239,151 @@ public class ManageReader {
 		});
 
 		delete.addActionListener(e -> {
-			txtName.setEnabled(false);
-			roleSv.setEnabled(false);
-			roleCbgv.setEnabled(false);
-			txtMs.setEnabled(false);
-			txtDepart.setEnabled(false);
-			txtClass.setEnabled(false);
-			txtCmnd.setEnabled(false);
-			txtDate.setEnabled(false);
-			txtAddress.setEnabled(false);
-			txtEmail.setEnabled(false);
-			txtPhone.setEnabled(false);
-			male.setEnabled(false);
-			female.setEnabled(false);
-
-			txtName.setText("");
-			btnGroup.clearSelection();
-			btnGroupGd.clearSelection();
-			txtMs.setText("");
-			txtCmnd.setText("");
-			txtDate.setText("");
-			txtAddress.setText("");
-			txtEmail.setText("");
-			txtPhone.setText("");
-			txtPenalty.setText("0");
+			if (txtName.isEnabled()) {	
+				txtName.setEnabled(false);
+				roleSv.setEnabled(false);
+				roleCbgv.setEnabled(false);
+				txtMs.setEnabled(false);
+				txtDepart.setEnabled(false);
+				txtClass.setEnabled(false);
+				txtCmnd.setEnabled(false);
+				txtDate.setEnabled(false);
+				txtAddress.setEnabled(false);
+				txtEmail.setEnabled(false);
+				txtPhone.setEnabled(false);
+				male.setEnabled(false);
+				female.setEnabled(false);
+				
+				txtName.setText("");
+				btnGroup.clearSelection();
+				btnGroupGd.clearSelection();
+				txtMs.setText("");
+				txtCmnd.setText("");
+				txtDate.setText("");
+				txtAddress.setText("");
+				txtEmail.setText("");
+				txtPhone.setText("");
+				txtPenalty.setText("0");
+			}
 		});
 
 		save.addActionListener(e -> {
-			String name = txtName.getText();
-			Boolean studentLogic = roleSv.isSelected(); // "Sinh viên" : "Cán bộ giảng viên";
-			String ID = txtMs.getText();
-			String departmentName = txtDepart.getSelectedItem().toString();
-			String className = txtClass.getText();
-			String citizenID = txtCmnd.getText();
-			String birthday = txtDate.getText();
-			String address = txtAddress.getText();
-			String email = txtEmail.getText();
-			String phone = txtPhone.getText();
-			boolean gender = male.isSelected();
+			if (txtName.isEnabled()) {
+				String name = txtName.getText();
+				Boolean studentLogic = roleSv.isSelected(); // "Sinh viên" : "Cán bộ giảng viên";
+				String ID = txtMs.getText();
+				String departmentName = txtDepart.getSelectedItem().toString();
+				String className = txtClass.getText();
+				String citizenID = txtCmnd.getText();
+				String birthday = txtDate.getText();
+				String address = txtAddress.getText();
+				String email = txtEmail.getText();
+				String phone = txtPhone.getText();
+				boolean gender = male.isSelected();
 
-			// Tạo một Border màu đỏ
-			Border redBorder = BorderFactory.createLineBorder(Color.RED);
+				// Tạo một Border màu đỏ
+				Border redBorder = BorderFactory.createLineBorder(Color.RED);
 
-// Biến boolean để lưu trạng thái của Border
-			boolean hasError = false;
-			ArrayList<Integer> errorInfo = new ArrayList<Integer>();
-			PersonalInfo info = new PersonalInfo();
-			Reader reader = new Reader();
-			Student student = new Student();
-			Lecturer lecturer = new Lecturer();
-			errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,email);
-			if (errorInfo.contains(1)) {
-				txtCmnd.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(2)) {
-				txtName.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(3)) {
-				txtDate.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(4)) {
-				txtPhone.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(5)) {
-				txtAddress.setBorder(redBorder);
-				hasError = true;
-			}
-			if (errorInfo.contains(6)) {
-				txtEmail.setBorder(redBorder);
-				hasError = true;
-			}
+				// Biến boolean để lưu trạng thái của Border
+				boolean hasError = false;
+				ArrayList<Integer> errorInfo = new ArrayList<Integer>();
+				PersonalInfo info = new PersonalInfo();
+				Reader reader = new Reader();
+				Student student = new Student();
+				Lecturer lecturer = new Lecturer();
+				errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,
+						email);
+				if (errorInfo.contains(1)) {
+					txtCmnd.setBorder(redBorder);
+					hasError = true;
+				}
+				if (errorInfo.contains(2)) {
+					txtName.setBorder(redBorder);
+					hasError = true;
+				}
+				if (errorInfo.contains(3)) {
+					txtDate.setBorder(redBorder);
+					hasError = true;
+				}
+				if (errorInfo.contains(4)) {
+					txtPhone.setBorder(redBorder);
+					hasError = true;
+				}
+				if (errorInfo.contains(5)) {
+					txtAddress.setBorder(redBorder);
+					hasError = true;
+				}
+				if (errorInfo.contains(6)) {
+					txtEmail.setBorder(redBorder);
+					hasError = true;
+				}
 
-			if (studentLogic) {
-				ArrayList<Integer> ErrorStudent = new ArrayList<Integer>();
-				ErrorStudent = student.setStudent(ID, className, departmentName);
-				if (ErrorStudent.size() == 0 && hasError == false) {
-					try {
-						reader.setReader(2, 1); // mac dinh gia tri the la 1 nam
-						ReaderBUS.insertReaderStudent(reader, info, student);
-					} catch (Exception e1) {
-						e1.printStackTrace();
+				if (studentLogic) {
+					ArrayList<Integer> ErrorStudent = new ArrayList<Integer>();
+					ErrorStudent = student.setStudent(ID, className, departmentName);
+					if (ErrorStudent.size() == 0 && hasError == false) {
+						try {
+							reader.setReader(2, 1); // mac dinh gia tri the la 1 nam
+							ReaderBUS.insertReaderStudent(reader, info, student);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+					if (ErrorStudent.contains(1)) {
+						txtMs.setBorder(redBorder);
+						hasError = true;
+					}
+					if (ErrorStudent.contains(2)) {
+						txtClass.setBorder(redBorder);
+						hasError = true;
 					}
 				}
-				if (ErrorStudent.contains(1)) {
-					txtMs.setBorder(redBorder);
-					hasError = true;
-				}
-				if (ErrorStudent.contains(2)) {
-					txtClass.setBorder(redBorder);
-					hasError = true;
-				}
-			}
-			if (studentLogic ==false) {
-				ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
-				ErrorLecturer = lecturer.setLecturer(ID, departmentName);
-				if (ErrorLecturer.size() == 0 && hasError == false) {
-					try {
-						reader.setReader(1, 1); // mac dinh gia tri the la 1 nam
-						ReaderBUS.insertReaderLecturer(reader, info, lecturer);
-					} catch (Exception e1) {
-						e1.printStackTrace();
+				if (studentLogic == false) {
+					ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
+					ErrorLecturer = lecturer.setLecturer(ID, departmentName);
+					if (ErrorLecturer.size() == 0 && hasError == false) {
+						try {
+							reader.setReader(1, 1); // mac dinh gia tri the la 1 nam
+							ReaderBUS.insertReaderLecturer(reader, info, lecturer);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+					if (ErrorLecturer.contains(1)) {
+						txtMs.setBorder(redBorder);
+						hasError = true;
 					}
 				}
-				if (ErrorLecturer.contains(1)) {
-					txtMs.setBorder(redBorder);
-					hasError = true;
+				if (hasError) {
+					return;
 				}
-			}
-			if (hasError) {
-				return;
-			}
 
-// Nếu không có lỗi, disable các JTextField
-			txtName.setText("");
-			btnGroup.clearSelection();
-			btnGroupGd.clearSelection();
-			txtMs.setText("");
-			txtCmnd.setText("");
-			txtDate.setText("");
-			txtAddress.setText("");
-			txtEmail.setText("");
-			txtPhone.setText("");
-			txtPenalty.setText("0");
+				// Nếu không có lỗi, disable các JTextField
+				txtName.setText("");
+				btnGroup.clearSelection();
+				btnGroupGd.clearSelection();
+				txtMs.setText("");
+				txtCmnd.setText("");
+				txtDate.setText("");
+				txtAddress.setText("");
+				txtEmail.setText("");
+				txtPhone.setText("");
+				txtPenalty.setText("0");
 
-			txtName.setEnabled(false);
-			roleSv.setEnabled(false);
-			roleCbgv.setEnabled(false);
-			txtMs.setEnabled(false);
-			txtDepart.setEnabled(false);
-			txtClass.setEnabled(false);
-			txtCmnd.setEnabled(false);
-			txtDate.setEnabled(false);
-			txtAddress.setEnabled(false);
-			txtEmail.setEnabled(false);
-			txtPhone.setEnabled(false);
-			male.setEnabled(false);
-			female.setEnabled(false);
+				txtName.setEnabled(false);
+				roleSv.setEnabled(false);
+				roleCbgv.setEnabled(false);
+				txtMs.setEnabled(false);
+				txtDepart.setEnabled(false);
+				txtClass.setEnabled(false);
+				txtCmnd.setEnabled(false);
+				txtDate.setEnabled(false);
+				txtAddress.setEnabled(false);
+				txtEmail.setEnabled(false);
+				txtPhone.setEnabled(false);
+				male.setEnabled(false);
+				female.setEnabled(false);
+			}
 
 		});
 
@@ -409,16 +414,17 @@ public class ManageReader {
 				txtPhone.setText("");
 			}
 		});
-		view.addActionListener(e ->{
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(), new String[] { "STT", "MÃ ĐỘC GIẢ",
-				"HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ", "NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
-			@Override
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				return false;
-			}
+		
+		view.addActionListener(e -> {
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(),
+					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
+							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+				@Override
+				public boolean isCellEditable(int rowIndex, int columnIndex) {
+					return false;
+				}
+			});
 		});
-		});
-
 
 	}
 
@@ -451,7 +457,7 @@ public class ManageReader {
 		search.setBackground(new java.awt.Color(0, 153, 51));
 		search.setForeground(new java.awt.Color(255, 255, 255));
 		searchField = new javax.swing.JTextField();
-		searchField.setColumns(10);
+		searchField.setColumns(20);
 
 		handleBase.add(add);
 		handleBase.add(edit);

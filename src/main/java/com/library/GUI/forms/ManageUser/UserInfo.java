@@ -75,7 +75,7 @@ public class UserInfo {
 		btnGroup.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 0, 600)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 600)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lblPhone)
 						.addComponent(lblName).addComponent(lblCmnd).addComponent(lblDate).addComponent(lblAddress)
@@ -90,7 +90,7 @@ public class UserInfo {
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(female))))
-				.addGap(0, 0, 600));
+				.addGap(0, 80, 600));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
@@ -116,8 +116,7 @@ public class UserInfo {
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
 				.addGap(20).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(20));
+						.addComponent(lblPhone).addComponent(txtPhone)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

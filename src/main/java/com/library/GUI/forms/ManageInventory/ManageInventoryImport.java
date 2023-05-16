@@ -61,7 +61,7 @@ public class ManageInventoryImport {
         txtCount.setColumns(20);
 
         javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblPerson).addComponent(lblDate).addComponent(lblId).addComponent(lblSumValue)
                         .addComponent(lblDcmCode).addComponent(lblValue).addComponent(lblCount))
@@ -69,8 +69,8 @@ public class ManageInventoryImport {
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtPerson).addComponent(txtDate).addComponent(txtId).addComponent(txtSumValue)
                         .addComponent(txtDcmCode).addComponent(txtValue).addComponent(txtCount))
-                .addGap(80));
-        gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+                .addGap(0, 80, 80));
+        gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
                         .addComponent(txtId))
                 .addGap(24)

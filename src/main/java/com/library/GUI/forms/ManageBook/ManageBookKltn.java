@@ -60,7 +60,7 @@ public class ManageBookKltn {
 		scrollPane.setViewportView(txtAreaDescripKltn);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80).addGroup(gl_details
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(gl_details.createSequentialGroup()
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
@@ -76,8 +76,8 @@ public class ManageBookKltn {
 								.addComponent(lblYearKltn).addComponent(lblDescripKltn))
 						.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(scrollPane).addComponent(cbbYearKltn))))
-				.addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGap(0, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
