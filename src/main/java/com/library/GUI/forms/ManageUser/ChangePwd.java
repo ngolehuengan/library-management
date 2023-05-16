@@ -39,7 +39,7 @@ public class ChangePwd extends javax.swing.JFrame {
 		gl_details
 				.setHorizontalGroup(
 						gl_details.createSequentialGroup().addGap(50)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 										.addComponent(lblPwd).addComponent(lblNewPwd).addComponent(lblRepeatPwd))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,7 +78,6 @@ public class ChangePwd extends javax.swing.JFrame {
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				// check role
 				new Login().setVisible(true);
 				Login.frame.dispose();
 				this.dispose();

@@ -274,17 +274,9 @@ public class ManageLibrarian {
 		delete.setForeground(new java.awt.Color(255, 255, 255));
 		delete.setBackground(new java.awt.Color(0, 153, 51));
 
-		search = new javax.swing.JButton("Tìm kiếm");
-		search.setBackground(new java.awt.Color(0, 153, 51));
-		search.setForeground(new java.awt.Color(255, 255, 255));
-		searchField = new javax.swing.JTextField();
-		searchField.setColumns(20);
-
 		handleBase.add(add);
 		handleBase.add(edit);
 		handleBase.add(delete);
-		handleBase.add(searchField);
-		handleBase.add(search);
 
 		handleOpt = new javax.swing.JPanel();
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
@@ -355,8 +347,6 @@ public class ManageLibrarian {
 	private static javax.swing.JButton add;
 	private static javax.swing.JButton edit;
 	private static javax.swing.JButton delete;
-	private static javax.swing.JButton search;
-	private static javax.swing.JTextField searchField;
 	private static javax.swing.JButton download;
 	private static javax.swing.JButton print;
 	private static javax.swing.JButton save;

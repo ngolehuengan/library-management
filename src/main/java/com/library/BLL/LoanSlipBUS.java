@@ -7,7 +7,6 @@ import main.java.com.library.Check;
 import main.java.com.library.DAL.LoanSlipDAO;
 import main.java.com.library.DAL.LibResourceDAO;
 import main.java.com.library.DAL.LoanDocumentDAO;
-import main.java.com.library.DAL.ReaderDAL;
 import main.java.com.library.DTO.LibResource;
 import main.java.com.library.DTO.LoanDetail;
 import main.java.com.library.DTO.LoanDocument;

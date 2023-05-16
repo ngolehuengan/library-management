@@ -94,7 +94,7 @@ public class AccountDAL {
     // 
     public Vector login(Account account) throws Exception{
         connect = new MyConnectUnit();
-        Vector<Integer> login = new Vector<Integer>();
+        Vector<Integer> login = new Vector<>();
         try {
             ResultSet result = connect.excuteQuery("CALL SP_Account_Login("+"\""+account.getUsername()+"\","+"\""+account.getPassword()+"\");");
             result.next();

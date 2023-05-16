@@ -137,6 +137,13 @@ public class ManageService {
 		find = new javax.swing.JButton("Tìm");
 		find.setBackground(new java.awt.Color(0, 153, 51));
 		find.setForeground(new java.awt.Color(255, 255, 255));
+		find.addActionListener(e -> {
+			new FindReader().setVisible(true);
+		});
+		
+		choose = new javax.swing.JButton("Chọn");
+		choose.setBackground(new java.awt.Color(0, 153, 51));
+		choose.setForeground(new java.awt.Color(255, 255, 255));
 
 		handleOpt.add(print);
 	}
@@ -166,4 +173,5 @@ public class ManageService {
 	public static javax.swing.JButton penalty;
 	public static javax.swing.JButton adjourn;
 	public static javax.swing.JButton find;
+	public static javax.swing.JButton choose;
 }
