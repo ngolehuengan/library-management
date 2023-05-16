@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.ManageService;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class ManageServiceBorrow {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -124,8 +127,7 @@ public class ManageServiceBorrow {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "LOẠI TÀI LIỆU", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ", "SỐ LƯỢNG", "SỐ CÓ SẴN" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.borrow()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -147,8 +149,7 @@ public class ManageServiceBorrow {
 
 		subTable = new javax.swing.JTable();
 		subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		subTable.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ" }) {
+		subTable.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.borrowDetail()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -156,9 +157,6 @@ public class ManageServiceBorrow {
 		});
 		subTable.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(subTable);
-
-		// Action
-		
 	}
 
 	// Private

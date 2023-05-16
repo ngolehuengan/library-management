@@ -1,5 +1,9 @@
 package main.java.com.library.GUI.forms.ManageInventory;
 
+import java.util.Vector;
+import main.java.com.library.BLL.ReleaseRecordBUS;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class ManageInventoryLiquidate {
 	@SuppressWarnings({ "serial" })
 	static void init(javax.swing.JComponent pnlCards) {
@@ -98,8 +102,7 @@ public class ManageInventoryLiquidate {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "NGÀY NHẬP HÓA ĐƠN", "MÃ HÓA ĐƠN", "TỔNG SỐ LƯỢNG", "NGƯỜI TIẾP NHẬN" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(),TableHeader.releaseRecord()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -123,8 +126,7 @@ public class ManageInventoryLiquidate {
 
 		subTable = new javax.swing.JTable();
 		subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		subTable.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "SỐ LƯỢNG" }) {
+		subTable.setModel(new javax.swing.table.DefaultTableModel(new Vector(),TableHeader.releaseDetail()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -186,6 +188,8 @@ public class ManageInventoryLiquidate {
 		// }
 		// });
 	}
+
+        
 
 	// Private
 	private static javax.swing.JSplitPane splitPane;

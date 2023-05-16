@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.ManageService;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class ManageServiceReceipt {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -124,8 +127,7 @@ public class ManageServiceReceipt {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "ĐỘC GIẢ", "TIỀN NỢ" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.debtor()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

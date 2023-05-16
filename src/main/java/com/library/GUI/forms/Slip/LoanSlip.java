@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.Slip;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class LoanSlip {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -106,8 +109,7 @@ public class LoanSlip {
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(
-				new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "NGƯỜI TIẾP NHẬN",
-						"MÃ PHIẾU", "MÃ ĐỘC GIẢ", "NGÀY MƯỢN", "NGÀY HẸN TRẢ", "TỔNG SỐ LƯỢNG", "SỐ ĐÃ TRẢ" }) {
+				new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.loanSlip()) {
 					@Override
 					public boolean isCellEditable(int rowIndex, int columnIndex) {
 						return false;
@@ -127,8 +129,7 @@ public class LoanSlip {
 
 		subTable = new javax.swing.JTable();
 		subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		subTable.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "ĐÃ TRẢ CHƯA" }) {
+		subTable.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.loanDetail()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

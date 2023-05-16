@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.Slip;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class HistorySlip {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -109,9 +112,7 @@ public class HistorySlip {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "MÃ PHIẾU", "MÃ TÀI LIỆU", "NHAN ĐỀ", "GHI CHÚ", "NGƯỜI MƯỢN", "NGÀY MƯỢN",
-						"NGÀY HẸN TRẢ", "NGÀY TRẢ", "TIỀN PHẠT", "NGƯỜI TIẾP NHẬN" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.borrowHistory()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

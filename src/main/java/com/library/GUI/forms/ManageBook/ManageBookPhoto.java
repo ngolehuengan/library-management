@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageBook;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookPhoto {
@@ -111,8 +113,7 @@ public class ManageBookPhoto {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "NHAN ĐỀ", "THỂ LOẠI", "TÁC GIẢ", "NĂM XB", "MÔ TẢ" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.copy()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

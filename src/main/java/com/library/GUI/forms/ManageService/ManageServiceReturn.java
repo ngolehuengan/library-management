@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.ManageService;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class ManageServiceReturn {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -120,8 +123,7 @@ public class ManageServiceReturn {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "NGÀY MƯỢN",
-				"NGÀY HẸN TRẢ", "NGƯỜI MƯỢN", "MÃ TÀI LIỆU", "NHAN ĐỀ", "ĐÃ GIA HẠN" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.returnn()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -144,8 +146,7 @@ public class ManageServiceReturn {
 
 		subTable = new javax.swing.JTable();
 		subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		subTable.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "SỐ NGÀY QUÁ HẠN", "TIỀN PHẠT" }) {
+		subTable.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.returnDetail()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

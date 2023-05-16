@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.Slip;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class ReceiptSlip {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -84,8 +87,7 @@ public class ReceiptSlip {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "NGÀY", "MÃ BIÊN LAI", "ĐỘC GIẢ", "TIỀN THU", "NGƯỜI TIẾP NHẬN" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.receipt()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

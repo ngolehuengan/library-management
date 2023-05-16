@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageBook;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookKltn {
@@ -111,8 +113,7 @@ public class ManageBookKltn {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "MÃ TÀI LIỆU", "NHAN ĐỀ", "CHUYÊN NGÀNH", "NĂM BẢO VỆ", "MÔ TẢ" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.theses()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
