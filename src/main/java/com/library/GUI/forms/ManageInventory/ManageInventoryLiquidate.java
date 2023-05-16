@@ -102,7 +102,7 @@ public class ManageInventoryLiquidate {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new ReleaseRecordBUS().getDisplayTable(),TableHeader.releaseRecord()) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(),TableHeader.releaseRecord()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -188,7 +188,7 @@ public class ManageInventoryLiquidate {
 		// }
 		// });
 	}
-        
+
         
 
 	// Private
