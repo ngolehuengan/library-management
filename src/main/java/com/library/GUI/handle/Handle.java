@@ -13,8 +13,10 @@ public class Handle {
 				imgChooser.setMultiSelectionEnabled(false);
 
 				if (imgChooser.showDialog(imgChooser, "Choose Image") == javax.swing.JFileChooser.APPROVE_OPTION) {
-					java.io.File f = imgChooser.getSelectedFile();
-					img.setIcon(new javax.swing.ImageIcon(f.getAbsolutePath()));
+					// lấy file
+                                        java.io.File f = imgChooser.getSelectedFile();
+                                        // hiển thị hình lên frame
+                                        img.setIcon(new javax.swing.ImageIcon(f.getAbsolutePath()));
 				}
 			}
 		});

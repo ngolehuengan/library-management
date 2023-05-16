@@ -21,11 +21,11 @@ public class ManageInventory {
 
 		btnImport = new javax.swing.JButton("NHẬP");
 //		btnImport.setForeground(new java.awt.Color(255, 255, 255));
-		btnImport.setBackground(new java.awt.Color(0, 102, 0));
+//		btnImport.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnLiquidate = new javax.swing.JButton("THANH LÝ");
 //		btnLiquidate.setForeground(new java.awt.Color(255, 255, 255));
-		btnLiquidate.setBackground(new java.awt.Color(0, 153, 51));
+//		btnLiquidate.setBackground(new java.awt.Color(0, 153, 51));
 
 		menuSide.add(btnImport);
 		menuSide.add(btnLiquidate);

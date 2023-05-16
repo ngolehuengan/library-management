@@ -2,6 +2,7 @@ package main.java.com.library.GUI.forms.ManageInventory;
 
 import java.util.Vector;
 import main.java.com.library.BLL.ReleaseRecordBUS;
+import main.java.com.library.GUI.components.TableHeader;
 
 public class ManageInventoryLiquidate {
 	@SuppressWarnings({ "serial" })
@@ -101,7 +102,7 @@ public class ManageInventoryLiquidate {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), new ReleaseRecordBUS().getHeader()) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new ReleaseRecordBUS().getDisplayTable(),TableHeader.releaseRecord()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -125,8 +126,7 @@ public class ManageInventoryLiquidate {
 
 		subTable = new javax.swing.JTable();
 		subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		subTable.setModel(new javax.swing.table.DefaultTableModel(new Vector(),
-				new ReleaseRecordBUS().getDetailHeader()) {
+		subTable.setModel(new javax.swing.table.DefaultTableModel(new Vector(),TableHeader.releaseDetail()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -188,6 +188,8 @@ public class ManageInventoryLiquidate {
 		// }
 		// });
 	}
+        
+        
 
 	// Private
 	private static javax.swing.JSplitPane splitPane;

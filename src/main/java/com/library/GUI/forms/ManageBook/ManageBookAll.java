@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageBook;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookAll {
@@ -123,8 +125,7 @@ public class ManageBookAll {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "LOẠI TÀI LIỆU",
-				"MÃ TÀI LIỆU", "NHAN ĐỀ", "GIÁ TRỊ", "SỐ LƯỢNG", "SỐ CÓ SẴN", "MƯỢN ĐƯỢC" }) {
+		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.allDocument()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;

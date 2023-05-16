@@ -1,5 +1,8 @@
 package main.java.com.library.GUI.forms.Slip;
 
+import java.util.Vector;
+import main.java.com.library.GUI.components.TableHeader;
+
 public class PenaltyRecordSlip {
 	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
@@ -107,8 +110,7 @@ public class PenaltyRecordSlip {
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(
-				new javax.swing.table.DefaultTableModel(new Object[][] {}, new String[] { "STT", "NGÀY LẬP BIÊN BẢN",
-						"MÃ BIÊN LAI", "ĐỘC GIẢ", "NỘI DUNG", "HƯỚNG XỬ LÝ", "TIỀN PHẠT", "NGƯỜI XỬ LÝ" }) {
+				new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.penaltyRecord()) {
 					@Override
 					public boolean isCellEditable(int rowIndex, int columnIndex) {
 						return false;
