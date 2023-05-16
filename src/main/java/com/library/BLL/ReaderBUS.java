@@ -1,13 +1,8 @@
 package main.java.com.library.BLL;
 
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Savepoint;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-import main.java.com.library.DAL.MyConnectUnit;
 import main.java.com.library.DAL.PersonalInfoDAL;
 import main.java.com.library.DAL.ReaderDAL;
 import main.java.com.library.DTO.Lecturer;
@@ -43,6 +38,14 @@ public class ReaderBUS {
         return true;
     }
 
+    public static void updateTotalDebt(String reader_id,String fine){
+        try {
+            ReaderDAL.updateTotalDebt(reader_id, fine);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
     public boolean hideReader(Reader reader){
         ReaderDAL.storeReader(reader);
         return true;
@@ -58,6 +61,13 @@ public class ReaderBUS {
         for(int i = 0;i<department.size();i++){
             sb[i] = (String) department.get(i);
         }
-        return sb;
+        return sb; 
+    }  
+
+    public static String[][] showTableReader() {
+        return ReaderDAL.showTableReader();
+    }
+    public static void main(String[] args) {
+        ReaderBUS.showTableReader();
     }
 }

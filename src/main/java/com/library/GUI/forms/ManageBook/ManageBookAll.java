@@ -146,7 +146,7 @@ public class ManageBookAll {
 		});
 
 		ManageBook.edit.addActionListener(e -> {
-			Handle.addImageBook(imgPnl, img);
+			Handle.removeClickListener(imgPnl);
 			chckbxInvalidAll.setEnabled(true);
 		});
 
