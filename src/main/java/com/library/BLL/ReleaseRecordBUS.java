@@ -15,33 +15,13 @@ import main.java.com.library.DTO.ReleaseRecord;
 public class ReleaseRecordBUS {
 
 // -----------------------------------------------------------------------------
-        public Vector getTable() {
-        return new ReleaseRecordDAO().getTable();
-    }
-
-    public Vector getHeader() {
-        Vector header = new Vector();
-        header.add("STT");
-        header.add("NGÀY NHẬP HÓA ĐƠN");
-        header.add("MÃ HÓA ĐƠN");
-        header.add("TỔNG SỐ LƯỢNG");
-        header.add("THỦ THƯ");
-        return header;
-    }
-
-    public Vector getDetailTable(int id) {
-        return new ReleaseRecordDAO().getDetailTable(id);
+    public Vector getAll() {
+        return new ReleaseRecordDAO().getAll();
     }
     
-    public Vector getDetailHeader() {
-        Vector header = new Vector();
-        header.add("STT");
-        header.add("MÃ TÀI LIỆU");
-        header.add("NHAN ĐỀ");
-        header.add("SỐ LƯỢNG");
-        return header;
+    public Vector getDisplayTable() {
+        return new Vector();
     }
-
 // -----------------------------------------------------------------------------
 //    xoá thành công ? giảm số lượng (tổng và hiện có)
     public String delete(ReleaseRecord e) {
