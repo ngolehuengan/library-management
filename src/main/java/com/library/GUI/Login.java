@@ -55,54 +55,38 @@ public class Login extends javax.swing.JFrame {
 		mainFormPnl = new javax.swing.JPanel();
 		mainFormPnl.setBackground(new java.awt.Color(204, 255, 204));
 		mainPnl.add(mainFormPnl, java.awt.BorderLayout.CENTER);
-
-		java.awt.GridBagLayout gbl_mainFormPnl = new java.awt.GridBagLayout();
-		mainFormPnl.setLayout(gbl_mainFormPnl);
-
+		
 		lblUsername = new javax.swing.JLabel("Tên tài khoản");
-		lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-		java.awt.GridBagConstraints gbc_lblUsername = new java.awt.GridBagConstraints();
-		gbc_lblUsername.fill = java.awt.GridBagConstraints.BOTH;
-		gbc_lblUsername.insets = new java.awt.Insets(0, 20, 20, 0);
-		gbc_lblUsername.gridx = 0;
-		gbc_lblUsername.gridy = 0;
-		mainFormPnl.add(lblUsername, gbc_lblUsername);
-
-		txtUsername = new javax.swing.JTextField();
-		java.awt.GridBagConstraints gbc_txtUsername = new java.awt.GridBagConstraints();
-		gbc_txtUsername.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gbc_txtUsername.insets = new java.awt.Insets(0, 20, 20, 20);
-		gbc_txtUsername.gridx = 1;
-		gbc_txtUsername.gridy = 0;
-		mainFormPnl.add(txtUsername, gbc_txtUsername);
-		txtUsername.setColumns(15);
-
+		txtUsername = new javax.swing.JTextField(15);
+		
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
-		lblPwd.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-		java.awt.GridBagConstraints gbc_lblPwd = new java.awt.GridBagConstraints();
-		gbc_lblPwd.fill = java.awt.GridBagConstraints.BOTH;
-		gbc_lblPwd.insets = new java.awt.Insets(0, 20, 0, 0);
-		gbc_lblPwd.gridx = 0;
-		gbc_lblPwd.gridy = 1;
-		mainFormPnl.add(lblPwd, gbc_lblPwd);
-
-		txtPwd = new javax.swing.JPasswordField();
-		java.awt.GridBagConstraints gbc_txtPwd = new java.awt.GridBagConstraints();
-		gbc_txtPwd.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gbc_txtPwd.insets = new java.awt.Insets(0, 20, 0, 20);
-		gbc_txtPwd.gridx = 1;
-		gbc_txtPwd.gridy = 1;
-		mainFormPnl.add(txtPwd, gbc_txtPwd);
-
+		txtPwd = new javax.swing.JPasswordField(15);
+		
 		tglbtnShowHidePwd = new javax.swing.JToggleButton(
 				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/eye.png")));
 		tglbtnShowHidePwd.setSelectedIcon(
 				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/hidden.png")));
 		tglbtnShowHidePwd.setBackground(new java.awt.Color(204, 255, 204));
-		java.awt.GridBagConstraints gbc_tglbtnShowHidePwd = new java.awt.GridBagConstraints();
-		gbc_tglbtnShowHidePwd.gridx = 2;
-		gbc_tglbtnShowHidePwd.gridy = 1;
-		mainFormPnl.add(tglbtnShowHidePwd, gbc_tglbtnShowHidePwd);
+		
+		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(mainFormPnl);
+		gl_details
+				.setHorizontalGroup(
+						gl_details.createSequentialGroup().addGap(0, 50, 50)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+										.addComponent(lblUsername).addComponent(lblPwd))
+								.addGap(24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addComponent(txtPwd).addComponent(txtUsername))
+								.addGap(0, 50, 50));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 40, 40)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblUsername).addComponent(txtUsername))
+				.addGap(24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPwd).addComponent(txtPwd))
+				.addGap(0, 40, 40));
+		mainFormPnl.setLayout(gl_details);
+
 
 		// Bottom Panel
 		botPnl = new javax.swing.JPanel();

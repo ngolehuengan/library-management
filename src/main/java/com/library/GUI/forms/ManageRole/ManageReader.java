@@ -14,6 +14,7 @@ import main.java.com.library.DTO.Lecturer;
 import main.java.com.library.DTO.PersonalInfo;
 import main.java.com.library.DTO.Reader;
 import main.java.com.library.DTO.Student;
+import main.java.com.library.GUI.handle.Handle;
 
 public class ManageReader {
 	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
@@ -41,9 +42,8 @@ public class ManageReader {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField();
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
-		txtName.setColumns(20);
 
 		lblRole = new javax.swing.JLabel("Loại độc giả");
 		roleSv = new javax.swing.JRadioButton("Sinh viên");
@@ -55,48 +55,40 @@ public class ManageReader {
 		btnGroup.add(roleCbgv);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField();
+		txtMs = new javax.swing.JTextField(20);
 		txtMs.setEnabled(false);
-		txtMs.setColumns(20);
 
 		lblDepart = new javax.swing.JLabel("Khoa");
 		txtDepart = new javax.swing.JComboBox(ReaderBUS.showDepartment());
 		txtDepart.setEnabled(false);
 
 		lblClass = new javax.swing.JLabel("Lớp");
-		txtClass = new javax.swing.JTextField();
+		txtClass = new javax.swing.JTextField(20);
 		txtClass.setEnabled(false);
-		txtClass.setColumns(20);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
-		txtCmnd = new javax.swing.JTextField();
+		txtCmnd = new javax.swing.JTextField(20);
 		txtCmnd.setEnabled(false);
-		txtCmnd.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày sinh");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblAddress = new javax.swing.JLabel("Địa chỉ");
-		txtAddress = new javax.swing.JTextField();
+		txtAddress = new javax.swing.JTextField(20);
 		txtAddress.setEnabled(false);
-		txtAddress.setColumns(20);
 
 		lblEmail = new javax.swing.JLabel("Email");
-		txtEmail = new javax.swing.JTextField();
+		txtEmail = new javax.swing.JTextField(20);
 		txtEmail.setEnabled(false);
-		txtEmail.setColumns(20);
 
 		lblPhone = new javax.swing.JLabel("Số điện thoại");
-		txtPhone = new javax.swing.JTextField();
+		txtPhone = new javax.swing.JTextField(20);
 		txtPhone.setEnabled(false);
-		txtPhone.setColumns(20);
 
 		lblPenalty = new javax.swing.JLabel("Tổng nợ");
-		txtPenalty = new javax.swing.JTextField();
+		txtPenalty = new javax.swing.JTextField(20);
 		txtPenalty.setEnabled(false);
-		txtPenalty.setColumns(20);
 
 		lblGender = new javax.swing.JLabel("Giới tính");
 		male = new javax.swing.JRadioButton("Nam");
@@ -282,10 +274,6 @@ public class ManageReader {
 				String phone = txtPhone.getText();
 				boolean gender = male.isSelected();
 
-
-				// Tạo một Border màu đỏ
-				Border redBorder = BorderFactory.createLineBorder(Color.RED);
-
 				// Biến boolean để lưu trạng thái của Border
 				boolean hasError = false;
 				ArrayList<Integer> errorInfo = new ArrayList<Integer>();
@@ -296,27 +284,27 @@ public class ManageReader {
 				errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,
 						email);
 				if (errorInfo.contains(1)) {
-					txtCmnd.setBorder(redBorder);
+					txtCmnd.setBorder(Handle.colorError());
 					hasError = true;
 				}
 				if (errorInfo.contains(2)) {
-					txtName.setBorder(redBorder);
+					txtName.setBorder(Handle.colorError());
 					hasError = true;
 				}
 				if (errorInfo.contains(3)) {
-					txtDate.setBorder(redBorder);
+					txtDate.setBorder(Handle.colorError());
 					hasError = true;
 				}
 				if (errorInfo.contains(4)) {
-					txtPhone.setBorder(redBorder);
+					txtPhone.setBorder(Handle.colorError());
 					hasError = true;
 				}
 				if (errorInfo.contains(5)) {
-					txtAddress.setBorder(redBorder);
+					txtAddress.setBorder(Handle.colorError());
 					hasError = true;
 				}
 				if (errorInfo.contains(6)) {
-					txtEmail.setBorder(redBorder);
+					txtEmail.setBorder(Handle.colorError());
 					hasError = true;
 				}
 
@@ -333,11 +321,11 @@ public class ManageReader {
 						}
 					}
 					if (ErrorStudent.contains(1)) {
-						txtMs.setBorder(redBorder);
+						txtMs.setBorder(Handle.colorError());
 						hasError = true;
 					}
 					if (ErrorStudent.contains(2)) {
-						txtClass.setBorder(redBorder);
+						txtClass.setBorder(Handle.colorError());
 						hasError = true;
 					}
 				}
@@ -354,7 +342,7 @@ public class ManageReader {
 						}
 					}
 					if (ErrorLecturer.contains(1)) {
-						txtMs.setBorder(redBorder);
+						txtMs.setBorder(Handle.colorError());
 						hasError = true;
 					}
 				}
@@ -388,15 +376,14 @@ public class ManageReader {
 				male.setEnabled(false);
 				female.setEnabled(false);
 
-				redBorder = BorderFactory.createLineBorder(SystemColor.inactiveCaption);
-				txtCmnd.setBorder(redBorder);
-				txtName.setBorder(redBorder);
-				txtDate.setBorder(redBorder);
-				txtPhone.setBorder(redBorder);
-				txtAddress.setBorder(redBorder);
-				txtEmail.setBorder(redBorder);
-				txtMs.setBorder(redBorder);
-				txtClass.setBorder(redBorder);
+				txtCmnd.setBorder(Handle.colorDisabled());
+				txtName.setBorder(Handle.colorDisabled());
+				txtDate.setBorder(Handle.colorDisabled());
+				txtPhone.setBorder(Handle.colorDisabled());
+				txtAddress.setBorder(Handle.colorDisabled());
+				txtEmail.setBorder(Handle.colorDisabled());
+				txtMs.setBorder(Handle.colorDisabled());
+				txtClass.setBorder(Handle.colorDisabled());
 			}
 		});
 
@@ -465,23 +452,11 @@ public class ManageReader {
 		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
-		add = new javax.swing.JButton("Thêm");
-		add.setForeground(new java.awt.Color(255, 255, 255));
-		add.setBackground(new java.awt.Color(0, 153, 51));
-
-		edit = new javax.swing.JButton("Chỉnh sửa");
-		edit.setBackground(new java.awt.Color(0, 153, 51));
-		edit.setForeground(new java.awt.Color(255, 255, 255));
-
-		delete = new javax.swing.JButton("Xóa");
-		delete.setForeground(new java.awt.Color(255, 255, 255));
-		delete.setBackground(new java.awt.Color(0, 153, 51));
-
-		search = new javax.swing.JButton("Tìm kiếm");
-		search.setBackground(new java.awt.Color(0, 153, 51));
-		search.setForeground(new java.awt.Color(255, 255, 255));
-		searchField = new javax.swing.JTextField();
-		searchField.setColumns(15);
+		add = Handle.getAdd(add);
+		edit = Handle.getEdit(edit);
+		delete = Handle.getDelete(delete);
+		search = Handle.getSearch(search);
+		searchField = new javax.swing.JTextField(15);
 
 		handleBase.add(add);
 		handleBase.add(edit);
@@ -520,39 +495,17 @@ public class ManageReader {
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
-		print = new javax.swing.JButton("  In");
-		print.setIcon(new javax.swing.ImageIcon(
-				ManageReader.class.getResource("../../../../../resources/icons/printing.png")));
-		print.setBackground(new java.awt.Color(0, 153, 51));
-		print.setForeground(new java.awt.Color(255, 255, 255));
-
-		upload = new javax.swing.JButton("  Đăng tải");
-		upload.setBackground(new java.awt.Color(0, 153, 51));
-		upload.setForeground(new java.awt.Color(255, 255, 255));
-		upload.setIcon(
-				new javax.swing.ImageIcon(ManageReader.class.getResource("../../../../../resources/icons/upload.png")));
-
-		download = new javax.swing.JButton("  Tải xuống");
-		download.setIcon(new javax.swing.ImageIcon(
-				ManageReader.class.getResource("../../../../../resources/icons/downloads.png")));
-		download.setForeground(new java.awt.Color(255, 255, 255));
-		download.setBackground(new java.awt.Color(0, 153, 51));
+		print = Handle.getPrint(print);
+		upload = Handle.getUpload(upload);
+		download = Handle.getDownload(download);
 
 		handleOpt.add(upload);
 		handleOpt.add(download);
 		handleOpt.add(print);
 
-		save = new javax.swing.JButton("Lưu");
-		save.setBackground(new java.awt.Color(0, 153, 51));
-		save.setForeground(new java.awt.Color(255, 255, 255));
-
-		reset = new javax.swing.JButton("Reset");
-		reset.setBackground(new java.awt.Color(0, 153, 51));
-		reset.setForeground(new java.awt.Color(255, 255, 255));
-
-		view = new javax.swing.JButton("Xem");
-		view.setForeground(new java.awt.Color(255, 255, 255));
-		view.setBackground(new java.awt.Color(0, 153, 51));
+		save = Handle.getSave(save);
+		reset = Handle.getReset(reset);
+		view = Handle.getView(view);
 	}
 
 	// Private

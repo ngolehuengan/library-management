@@ -1,6 +1,7 @@
 package main.java.com.library.GUI.forms.ManageUser;
 
 import main.java.com.library.GUI.Login;
+import main.java.com.library.GUI.handle.Handle;
 
 public class UserInfo {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
@@ -26,42 +27,35 @@ public class UserInfo {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField();
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
-		txtName.setColumns(20);
 
 		lblUser = new javax.swing.JLabel("Tên tài khoản");
-		txtUser = new javax.swing.JTextField();
+		txtUser = new javax.swing.JTextField(20);
 		txtUser.setEnabled(false);
-		txtUser.setColumns(20);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
 		password.setEnabled(false);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
-		txtCmnd = new javax.swing.JTextField();
+		txtCmnd = new javax.swing.JTextField(20);
 		txtCmnd.setEnabled(false);
-		txtCmnd.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày sinh");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblAddress = new javax.swing.JLabel("Địa chỉ");
-		txtAddress = new javax.swing.JTextField();
+		txtAddress = new javax.swing.JTextField(20);
 		txtAddress.setEnabled(false);
-		txtAddress.setColumns(20);
 
 		lblEmail = new javax.swing.JLabel("Email");
-		txtEmail = new javax.swing.JTextField();
+		txtEmail = new javax.swing.JTextField(20);
 		txtEmail.setEnabled(false);
-		txtEmail.setColumns(20);
 
 		lblPhone = new javax.swing.JLabel("Số điện thoại");
-		txtPhone = new javax.swing.JTextField();
+		txtPhone = new javax.swing.JTextField(20);
 		txtPhone.setEnabled(false);
-		txtPhone.setColumns(20);
 
 		lblGender = new javax.swing.JLabel("Giới tính");
 		male = new javax.swing.JRadioButton("Nam");
@@ -80,7 +74,7 @@ public class UserInfo {
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lblPhone)
 						.addComponent(lblName).addComponent(lblCmnd).addComponent(lblDate).addComponent(lblAddress)
 						.addComponent(lblEmail).addComponent(lblGender).addComponent(lblUser).addComponent(lblPwd))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
 						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(password)
@@ -94,28 +88,28 @@ public class UserInfo {
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblUser).addComponent(txtUser))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPwd).addComponent(password))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(20)
+				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(20).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPhone).addComponent(txtPhone)));
 		detailsInfo.setLayout(gl_details);
 
@@ -201,8 +195,7 @@ public class UserInfo {
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
 		edit = new javax.swing.JButton("Chỉnh sửa thông tin cá nhân");
-		edit.setBackground(new java.awt.Color(0, 153, 51));
-		edit.setForeground(new java.awt.Color(255, 255, 255));
+		Handle.setColor(edit);
 
 		handleBase.add(edit);
 
@@ -213,26 +206,19 @@ public class UserInfo {
 		logout = new javax.swing.JButton(" Đăng xuất");
 		logout.setIcon(
 				new javax.swing.ImageIcon(UserInfo.class.getResource("../../../../../resources/icons/power.png")));
-		logout.setForeground(new java.awt.Color(255, 255, 255));
+		Handle.setColor(logout);
 		logout.setBackground(new java.awt.Color(248, 3, 10));
 
 		handleOpt.add(logout);
 
-		save = new javax.swing.JButton("Lưu");
-		save.setBackground(new java.awt.Color(0, 153, 51));
-		save.setForeground(new java.awt.Color(255, 255, 255));
+		save = Handle.getSave(save);
+		reset = Handle.getReset(reset);
 
 		change = new javax.swing.JButton("Thay đổi");
-		change.setBackground(new java.awt.Color(0, 153, 51));
-		change.setForeground(new java.awt.Color(255, 255, 255));
-
-		reset = new javax.swing.JButton("Reset");
-		reset.setBackground(new java.awt.Color(0, 153, 51));
-		reset.setForeground(new java.awt.Color(255, 255, 255));
+		Handle.setColor(change);
 
 		password = new javax.swing.JButton("Thay đổi mật khẩu");
-		password.setBackground(new java.awt.Color(0, 153, 51));
-		password.setForeground(new java.awt.Color(255, 255, 255));
+		Handle.setColor(password);
 	}
 
 	// Private

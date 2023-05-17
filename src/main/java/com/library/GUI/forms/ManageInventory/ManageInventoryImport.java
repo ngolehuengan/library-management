@@ -6,6 +6,7 @@ import main.java.com.library.DTO.IPDetail;
 import main.java.com.library.DTO.ImportRecord;
 import main.java.com.library.GUI.Login;
 import main.java.com.library.GUI.components.TableHeader;
+import main.java.com.library.GUI.handle.Handle;
 
 public class ManageInventoryImport {
 
@@ -27,39 +28,32 @@ public class ManageInventoryImport {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblId = new javax.swing.JLabel("Mã hóa đơn");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblSumValue = new javax.swing.JLabel("Tổng giá trị");
-		txtSumValue = new javax.swing.JTextField();
+		txtSumValue = new javax.swing.JTextField(20);
 		txtSumValue.setEnabled(false);
-		txtSumValue.setColumns(20);
 
 		lblDcmCode = new javax.swing.JLabel("Mã tài liệu");
-		txtDcmCode = new javax.swing.JTextField();
+		txtDcmCode = new javax.swing.JTextField(20);
 		txtDcmCode.setEnabled(false);
-		txtDcmCode.setColumns(20);
 
 		lblValue = new javax.swing.JLabel("Giá trị đơn");
-		txtValue = new javax.swing.JTextField();
+		txtValue = new javax.swing.JTextField(20);
 		txtValue.setEnabled(false);
-		txtValue.setColumns(20);
 
 		lblCount = new javax.swing.JLabel("Số lượng");
-		txtCount = new javax.swing.JTextField();
+		txtCount = new javax.swing.JTextField(20);
 		txtCount.setEnabled(false);
-		txtCount.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -224,7 +218,7 @@ public class ManageInventoryImport {
 			@Override
 			public void keyReleased(java.awt.event.KeyEvent e) {
 				if (main.java.com.library.BLL.Check.isDcmCode(txtDcmCode.getText())) {
-					txtDcmCode.setBorder(activeBorder);
+					txtDcmCode.setBorder(Handle.colorEnabled());
 				}
 			}
 		});
@@ -234,7 +228,7 @@ public class ManageInventoryImport {
 			@Override
 			public void keyReleased(java.awt.event.KeyEvent e) {
 				if (main.java.com.library.BLL.Check.isDouble(txtValue.getText())) {
-					txtValue.setBorder(activeBorder);
+					txtValue.setBorder(Handle.colorEnabled());
 				}
 			}
 		});
@@ -244,7 +238,7 @@ public class ManageInventoryImport {
 			@Override
 			public void keyReleased(java.awt.event.KeyEvent e) {
 				if (main.java.com.library.BLL.Check.isInteger(txtCount.getText())) {
-					txtCount.setBorder(activeBorder);
+					txtCount.setBorder(Handle.colorEnabled());
 				}
 			}
 		});
@@ -254,7 +248,7 @@ public class ManageInventoryImport {
 			@Override
 			public void keyReleased(java.awt.event.KeyEvent e) {
 				if (main.java.com.library.BLL.Check.isDate(txtDate.getText())) {
-					txtDate.setBorder(activeBorder);
+					txtDate.setBorder(Handle.colorEnabled());
 				}
 			}
 		});
@@ -288,11 +282,11 @@ public class ManageInventoryImport {
 		totalPrice = e.getTotalPrice();
 		txtSumValue.setText(Double.toString(totalPrice));
 		txtDcmCode.setText("");
-		txtDcmCode.setBorder(inactiveBorder);
+		txtDcmCode.setBorder(Handle.colorDisabled());
 		txtValue.setText("");
-		txtValue.setBorder(inactiveBorder);
+		txtValue.setBorder(Handle.colorDisabled());
 		txtCount.setText("");
-		txtCount.setBorder(inactiveBorder);
+		txtCount.setBorder(Handle.colorDisabled());
 		subTable.setModel(
 				new javax.swing.table.DefaultTableModel(getDetailDisplay(e.getDetails()), TableHeader.importDetail()) {
 					@Override
@@ -339,17 +333,6 @@ public class ManageInventoryImport {
 		return table;
 	}
 
-	private static boolean confirm() {
-		int result = javax.swing.JOptionPane.showConfirmDialog(Login.frame,
-				"Thao tác này không thể hoàn tác, chắc chắn chọn?", "XÁC NHẬN", javax.swing.JOptionPane.YES_NO_OPTION,
-				javax.swing.JOptionPane.QUESTION_MESSAGE);
-		if (result == javax.swing.JOptionPane.YES_OPTION) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	// nút Xem - view
 	@SuppressWarnings({ "serial", "unchecked" })
 	private static void refreshTable() {
@@ -372,17 +355,17 @@ public class ManageInventoryImport {
 		if (main.java.com.library.BLL.Check.isDcmCode(txtDcmCode.getText())) {
 			code = txtDcmCode.getText();
 		} else {
-			txtDcmCode.setBorder(redBorder);
+			txtDcmCode.setBorder(Handle.colorError());
 		}
 		if (main.java.com.library.BLL.Check.isDouble(txtValue.getText())) {
 			price = Double.parseDouble(txtValue.getText());
 		} else {
-			txtValue.setBorder(redBorder);
+			txtValue.setBorder(Handle.colorError());
 		}
 		if (main.java.com.library.BLL.Check.isInteger(txtCount.getText())) {
 			quantity = Integer.parseInt(txtCount.getText());
 		} else {
-			txtCount.setBorder(redBorder);
+			txtCount.setBorder(Handle.colorError());
 		}
 
 		if (code.isBlank() || price < 0 || quantity < 0) {
@@ -418,7 +401,7 @@ public class ManageInventoryImport {
 			txtCount.setText("");
 		} else {
 			javax.swing.JOptionPane.showMessageDialog(null, "Mã tài liệu mới!\nVui lòng thêm ở Quản lý tài liệu");
-			txtDcmCode.setBorder(redBorder);
+			txtDcmCode.setBorder(Handle.colorError());
 		}
 	}
 
@@ -436,18 +419,18 @@ public class ManageInventoryImport {
 
 	// nút Lưu
 	private static void addRecord() {
-		if (confirm()) {
+		if (Handle.confirm()) {
 			java.sql.Date date = null;
 
 			if (main.java.com.library.BLL.Check.isDate(txtDate.getText())) {
 				date = java.sql.Date.valueOf(txtDate.getText());
 			} else {
-				txtDate.setBorder(redBorder);
+				txtDate.setBorder(Handle.colorError());
 			}
 			if (vtDetail.isEmpty()) {
-				txtDcmCode.setBorder(redBorder);
-				txtValue.setBorder(redBorder);
-				txtCount.setBorder(redBorder);
+				txtDcmCode.setBorder(Handle.colorError());
+				txtValue.setBorder(Handle.colorError());
+				txtCount.setBorder(Handle.colorError());
 			}
 			if (date == null || vtDetail.isEmpty()) {
 				return;
@@ -463,7 +446,7 @@ public class ManageInventoryImport {
 
 	// nút Xoá
 	private static void removeRecord() {
-		if (confirm()) {
+		if (Handle.confirm()) {
 			new ImportRecordBUS().delete(vtDTO.get(table.getSelectedRow()));
 			resetPage();
 		}
@@ -481,11 +464,11 @@ public class ManageInventoryImport {
 			txtSumValue.setText(Double.toString(totalPrice));
 			txtDate.setText(new java.sql.Date(System.currentTimeMillis()).toString());
 			txtDcmCode.setText("");
-			txtDcmCode.setBorder(inactiveBorder);
+			txtDcmCode.setBorder(Handle.colorDisabled());
 			txtValue.setText("");
-			txtValue.setBorder(inactiveBorder);
+			txtValue.setBorder(Handle.colorDisabled());
 			txtCount.setText("");
-			txtCount.setBorder(inactiveBorder);
+			txtCount.setBorder(Handle.colorDisabled());
 		} else {
 			clearDetailTable();
 			refreshTable();
@@ -494,11 +477,11 @@ public class ManageInventoryImport {
 			txtId.setText("");
 			txtDate.setText("");
 			txtDcmCode.setText("");
-			txtDcmCode.setBorder(inactiveBorder);
+			txtDcmCode.setBorder(Handle.colorDisabled());
 			txtValue.setText("");
-			txtValue.setBorder(inactiveBorder);
+			txtValue.setBorder(Handle.colorDisabled());
 			txtCount.setText("");
-			txtCount.setBorder(inactiveBorder);
+			txtCount.setBorder(Handle.colorDisabled());
 
 			txtDate.setEnabled(false);
 			txtDcmCode.setEnabled(false);
@@ -542,10 +525,4 @@ public class ManageInventoryImport {
 	private static int rowIndex;
 	private static double totalPrice = 0;
 	private static final int librarianID = main.java.com.library.GUI.Login.role.get(0);
-	private static final javax.swing.border.Border redBorder = javax.swing.BorderFactory
-			.createLineBorder(java.awt.Color.RED);
-	private static final javax.swing.border.Border inactiveBorder = javax.swing.BorderFactory
-			.createLineBorder(java.awt.SystemColor.inactiveCaption);
-	private static final javax.swing.border.Border activeBorder = javax.swing.BorderFactory
-			.createLineBorder(java.awt.Color.GRAY);
 }

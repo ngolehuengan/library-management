@@ -24,28 +24,25 @@ public class ChangePwd extends javax.swing.JFrame {
 		contentPane.add(details, java.awt.BorderLayout.CENTER);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu cũ");
-		txtPwd = new javax.swing.JPasswordField();
-		txtPwd.setColumns(20);
+		txtPwd = new javax.swing.JPasswordField(15);
 
 		lblNewPwd = new javax.swing.JLabel("Mật khẩu mới");
-		txtNewPwd = new javax.swing.JPasswordField();
-		txtNewPwd.setColumns(20);
+		txtNewPwd = new javax.swing.JPasswordField(15);
 
 		lblRepeatPwd = new javax.swing.JLabel("Nhập lại mật khẩu");
-		txtRepeatPwd = new javax.swing.JPasswordField();
-		txtRepeatPwd.setColumns(20);
+		txtRepeatPwd = new javax.swing.JPasswordField(15);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details
 				.setHorizontalGroup(
-						gl_details.createSequentialGroup().addGap(50)
+						gl_details.createSequentialGroup().addGap(0, 50, 50)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 										.addComponent(lblPwd).addComponent(lblNewPwd).addComponent(lblRepeatPwd))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(txtPwd).addComponent(txtRepeatPwd).addComponent(txtNewPwd))
-								.addGap(50));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
+								.addGap(0, 50, 50));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 40, 40)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPwd).addComponent(txtPwd))
 				.addGap(24)
@@ -53,7 +50,7 @@ public class ChangePwd extends javax.swing.JFrame {
 						.addComponent(lblNewPwd).addComponent(txtNewPwd))
 				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRepeatPwd).addComponent(txtRepeatPwd))
-				.addGap(40));
+				.addGap(0, 40, 40));
 		details.setLayout(gl_details);
 
 		// -----Details: Handle

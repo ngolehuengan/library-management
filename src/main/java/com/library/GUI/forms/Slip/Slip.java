@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.Slip;
 
+import main.java.com.library.GUI.handle.Handle;
+
 public class Slip {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		slit = new javax.swing.JPanel();
@@ -17,20 +19,17 @@ public class Slip {
 		splitPane.setLeftComponent(menuSide);
 
 		btnHistory = new javax.swing.JButton("LỊCH SỬ MƯỢN TRẢ");
-		btnHistory.setForeground(new java.awt.Color(255, 255, 255));
+		Handle.setColor(btnHistory);
 		btnHistory.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnLoan = new javax.swing.JButton("PHIẾU MƯỢN");
-		btnLoan.setForeground(new java.awt.Color(255, 255, 255));
-		btnLoan.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(btnLoan);
 
 		btnPenalty = new javax.swing.JButton("PHIẾU PHẠT");
-		btnPenalty.setForeground(new java.awt.Color(255, 255, 255));
-		btnPenalty.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(btnPenalty);
 
 		btnReceipt = new javax.swing.JButton("PHIẾU THU TIỀN");
-		btnReceipt.setForeground(new java.awt.Color(255, 255, 255));
-		btnReceipt.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(btnReceipt);
 
 		menuSide.add(btnHistory);
 		menuSide.add(btnLoan);
@@ -85,13 +84,8 @@ public class Slip {
 
 	// Handle
 	private static void handle() {
-		delete = new javax.swing.JButton("Xóa");
-		delete.setForeground(new java.awt.Color(255, 255, 255));
-		delete.setBackground(new java.awt.Color(0, 153, 51));
-
-		view = new javax.swing.JButton("Xem");
-		view.setForeground(new java.awt.Color(255, 255, 255));
-		view.setBackground(new java.awt.Color(0, 153, 51));
+		delete = Handle.getDelete(delete);
+		view = Handle.getView(view);
 	}
 
 	// Private

@@ -22,29 +22,24 @@ public class ReceiptSlip {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên lai");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField();
+		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
-		txtReader.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblValue = new javax.swing.JLabel("Tiền thu");
-		txtValue = new javax.swing.JTextField();
+		txtValue = new javax.swing.JTextField(20);
 		txtValue.setEnabled(false);
-		txtValue.setColumns(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)

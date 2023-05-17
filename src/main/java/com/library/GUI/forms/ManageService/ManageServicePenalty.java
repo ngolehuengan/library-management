@@ -33,56 +33,45 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 		contentPane.add(details, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên bản");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField();
+		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
-		txtReader.setColumns(20);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField();
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
-		txtName.setColumns(20);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField();
+		txtMs = new javax.swing.JTextField(20);
 		txtMs.setEnabled(false);
-		txtMs.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblValue = new javax.swing.JLabel("Tiền phạt kỳ này");
-		txtValue = new javax.swing.JTextField();
-		txtValue.setColumns(20);
+		txtValue = new javax.swing.JTextField(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		lblContent = new javax.swing.JLabel("Nội dung phạt");
 		txtContent = new javax.swing.JTextArea(4, 1);
-		txtContent.setColumns(20);
 
 		lblWayHandle = new javax.swing.JLabel("Hướng xử lý");
 		txtWayHandle = new javax.swing.JTextArea(4, 1);
-		txtWayHandle.setColumns(20);
 
 		lblDebt = new javax.swing.JLabel("Nợ tồn");
-		txtDebt = new javax.swing.JTextField();
+		txtDebt = new javax.swing.JTextField(20);
 		txtDebt.setEnabled(false);
-		txtDebt.setColumns(20);
 
 		lblAll = new javax.swing.JLabel("Tổng nợ");
-		txtAll = new javax.swing.JTextField();
+		txtAll = new javax.swing.JTextField(20);
 		txtAll.setEnabled(false);
-		txtAll.setColumns(20);
 
 		scrollPane = new javax.swing.JScrollPane();
 		scrollPane.setViewportView(txtContent);

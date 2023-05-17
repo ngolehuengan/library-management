@@ -40,8 +40,6 @@ public class FindReader extends javax.swing.JFrame {
 		tableHandle.add(ManageService.choose);
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(tableHandle, java.awt.BorderLayout.SOUTH);
-		
-	
 	}
 
 	// Private

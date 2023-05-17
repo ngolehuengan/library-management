@@ -23,34 +23,28 @@ public class ManageInventoryLiquidate {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblId = new javax.swing.JLabel("Mã hóa đơn");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblSumCount = new javax.swing.JLabel("Tổng số lượng");
-		txtSumCount = new javax.swing.JTextField();
+		txtSumCount = new javax.swing.JTextField(20);
 		txtSumCount.setEnabled(false);
-		txtSumCount.setColumns(20);
 
 		lblDcmCode = new javax.swing.JLabel("Mã tài liệu");
-		txtDcmCode = new javax.swing.JTextField();
+		txtDcmCode = new javax.swing.JTextField(20);
 		txtDcmCode.setEnabled(false);
-		txtDcmCode.setColumns(20);
 
 		lblCount = new javax.swing.JLabel("Số lượng");
-		txtCount = new javax.swing.JTextField();
+		txtCount = new javax.swing.JTextField(20);
 		txtCount.setEnabled(false);
-		txtCount.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
