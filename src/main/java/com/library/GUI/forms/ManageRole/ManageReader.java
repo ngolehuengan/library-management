@@ -135,41 +135,6 @@ public class ManageReader {
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(25, 25, 50)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
-<<<<<<< Updated upstream
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
-						.addComponent(txtMs))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblDepart).addComponent(txtDepart))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblClass).addComponent(txtClass))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(23)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(23).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPenalty).addComponent(txtPenalty))
-				.addGap(23));
-=======
 				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
@@ -203,7 +168,6 @@ public class ManageReader {
 				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
 				.addGap(25, 25, 50));
->>>>>>> Stashed changes
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
