@@ -61,7 +61,7 @@ public class ManageInventoryImport {
         txtCount.setColumns(20);
 
         javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblPerson).addComponent(lblDate).addComponent(lblId).addComponent(lblSumValue)
                         .addComponent(lblDcmCode).addComponent(lblValue).addComponent(lblCount))
@@ -69,8 +69,8 @@ public class ManageInventoryImport {
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtPerson).addComponent(txtDate).addComponent(txtId).addComponent(txtSumValue)
                         .addComponent(txtDcmCode).addComponent(txtValue).addComponent(txtCount))
-                .addGap(0, 80, 80));
-        gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+                .addGap(80));
+        gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
                         .addComponent(txtId))
                 .addGap(24)
@@ -187,7 +187,9 @@ public class ManageInventoryImport {
 
         // Lưu hoá đơn
         ManageInventory.save.addActionListener(e -> {
-            addRecord();
+            if (txtDcmCode.isEnabled()) {
+                addRecord();
+            }
         });
 
         // Clear nội dung
@@ -197,7 +199,9 @@ public class ManageInventoryImport {
 
         // Xoá hoá đơn
         ManageInventory.delete.addActionListener(e -> {
-            removeRecord();
+            if (table.getSelectedRow() != -1) {
+                removeRecord();
+            }
         });
 
         // Chọn 1 dòng trong bảng hiển thị chi tiết
@@ -206,6 +210,46 @@ public class ManageInventoryImport {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 rowIndex = table.getSelectedRow();
                 displayDetail(vtDTO.get(rowIndex));
+            }
+        });
+
+        // Gõ mã tài liệu tới khi đúng
+        txtDcmCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent e) {
+                if (main.java.com.library.BLL.Check.isDcmCode(txtDcmCode.getText())) {
+                    txtDcmCode.setBorder(null);
+                }
+            }
+        });
+
+        // Gõ đơn giá tới khi đúng
+        txtValue.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent e) {
+                if (main.java.com.library.BLL.Check.isDouble(txtValue.getText())) {
+                    txtValue.setBorder(null);
+                }
+            }
+        });
+
+        // Gõ số lượng tới khi đúng
+        txtCount.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent e) {
+                if (main.java.com.library.BLL.Check.isInteger(txtCount.getText())) {
+                    txtCount.setBorder(null);
+                }
+            }
+        });
+
+        // Gõ ngày tới khi đúng
+        txtDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent e) {
+                if (main.java.com.library.BLL.Check.isDate(txtDate.getText())) {
+                    txtDate.setBorder(null);
+                }
             }
         });
 
@@ -234,8 +278,11 @@ public class ManageInventoryImport {
         totalPrice = e.getTotalPrice();
         txtSumValue.setText(Double.toString(totalPrice));
         txtDcmCode.setText("");
+        txtDcmCode.setBorder(null);
         txtValue.setText("");
+        txtValue.setBorder(null);
         txtCount.setText("");
+        txtCount.setBorder(null);
         subTable.setModel(new javax.swing.table.DefaultTableModel(getDetailDisplay(e.getDetails()), TableHeader.importDetail()) {
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -304,9 +351,30 @@ public class ManageInventoryImport {
 
     // nút Thêm CTHĐ
     private static void addDetail() {
-        String code = txtDcmCode.getText();
-        double price = Double.parseDouble(txtValue.getText());
-        int quantity = Integer.parseInt(txtCount.getText());
+        String code = "";
+        double price = 0;
+        int quantity = 0;
+
+        if (main.java.com.library.BLL.Check.isDcmCode(txtDcmCode.getText())) {
+            code = txtDcmCode.getText();
+        } else {
+            txtDcmCode.setBorder(redBorder);
+        }
+        if (main.java.com.library.BLL.Check.isDouble(txtValue.getText())) {
+            price = Double.parseDouble(txtValue.getText());
+        } else {
+            txtValue.setBorder(redBorder);
+        }
+        if (main.java.com.library.BLL.Check.isInteger(txtCount.getText())) {
+            quantity = Integer.parseInt(txtCount.getText());
+        } else {
+            txtCount.setBorder(redBorder);
+        }
+
+        if (code.isBlank() || price * quantity == 0) {
+            return;
+        }
+
         IPDetail dt = new IPDetail(code, price, quantity);
         dt = new ImportRecordBUS().handleDetail(dt);
         if (dt != null) {
@@ -314,10 +382,14 @@ public class ManageInventoryImport {
             refreshDetailTable();
             totalPrice += price * quantity;
             txtSumValue.setText(Double.toString(totalPrice));
+            txtDcmCode.setText("");
+            txtValue.setText("");
+            txtCount.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, "Mã tài liệu mới!\nVui lòng thêm ở Quản lý tài liệu");
+            txtDcmCode.setBorder(redBorder);
         }
-        txtDcmCode.setText("");
-        txtValue.setText("");
-        txtCount.setText("");
+
     }
 
     // nút Xoá CTHĐ
@@ -335,9 +407,22 @@ public class ManageInventoryImport {
     // nút Lưu
     private static void addRecord() {
         if (confirm()) {
-            java.sql.Date date = java.sql.Date.valueOf(txtDate.getText());
-//            int librarianID = main.java.com.library.GUI.Login.role.get(0);
-            int librarianID = 1;
+            java.sql.Date date = null;
+
+            if (main.java.com.library.BLL.Check.isDate(txtDate.getText())) {
+                date = java.sql.Date.valueOf(txtDate.getText());
+            } else {
+                txtDate.setBorder(redBorder);
+            }
+            if (vtDetail.isEmpty()) {
+                txtDcmCode.setBorder(redBorder);
+                txtValue.setBorder(redBorder);
+                txtCount.setBorder(redBorder);
+            }
+            if (date == null || vtDetail.isEmpty()) {
+                return;
+            }
+
             ImportRecord rc = new ImportRecord(date, librarianID);
             rc.setDetails(vtDetail);
             new ImportRecordBUS().add(rc);
@@ -378,8 +463,11 @@ public class ManageInventoryImport {
             txtSumValue.setText(Double.toString(totalPrice));
             txtDate.setText(new java.sql.Date(System.currentTimeMillis()).toString());
             txtDcmCode.setText("");
+            txtDcmCode.setBorder(null);
             txtValue.setText("");
+            txtValue.setBorder(null);
             txtCount.setText("");
+            txtCount.setBorder(null);
             clearDetailTable();
         } else {
             txtPerson.setText("");
@@ -387,8 +475,11 @@ public class ManageInventoryImport {
             txtId.setText("");
             txtDate.setText("");
             txtDcmCode.setText("");
+            txtDcmCode.setBorder(null);
             txtValue.setText("");
+            txtValue.setBorder(null);
             txtCount.setText("");
+            txtCount.setBorder(null);
             clearDetailTable();
             refreshTable();
 
@@ -425,9 +516,12 @@ public class ManageInventoryImport {
     private static javax.swing.JPanel tableHandle;
     private static javax.swing.JTable subTable;
     private static javax.swing.JPanel subTableHandle;
+    private static javax.swing.JLabel lblNotice;
 
     private static Vector<ImportRecord> vtDTO = new ImportRecordBUS().getTable();
     private static Vector<IPDetail> vtDetail = new Vector();
     private static int rowIndex;
     private static double totalPrice = 0;
+    private static final int librarianID = main.java.com.library.GUI.Login.role.get(0);
+    private static final javax.swing.border.Border redBorder = javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED);
 }
