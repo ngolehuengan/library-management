@@ -69,10 +69,8 @@ public class ReaderBUS {
         return sb; 
     }  
 
-    public static String[][] showTableReader() {
-        return ReaderDAL.showTableReader();
+    public static String[][] showTableReader(String condition) {
+        return ReaderDAL.showTableReader(condition);
     }
-    public static void main(String[] args) {
-        ReaderBUS.showTableReader();
-    }
+
 }
