@@ -132,9 +132,10 @@ public class ManageReader {
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(roleCbgv))))
 				.addGap(0, 80, 80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 50, 50)
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(25, 25, 50)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
+<<<<<<< Updated upstream
 				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
@@ -168,6 +169,41 @@ public class ManageReader {
 				.addGap(23).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
 				.addGap(23));
+=======
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
+						.addComponent(txtMs))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDepart).addComponent(txtDepart))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblClass).addComponent(txtClass))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblCmnd).addComponent(txtCmnd))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDate).addComponent(txtDate))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblGender).addComponent(male).addComponent(female))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblAddress).addComponent(txtAddress))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblEmail).addComponent(txtEmail))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPhone).addComponent(txtPhone))
+				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPenalty).addComponent(txtPenalty))
+				.addGap(25, 25, 50));
+>>>>>>> Stashed changes
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -481,7 +517,7 @@ public class ManageReader {
 		search.setBackground(new java.awt.Color(0, 153, 51));
 		search.setForeground(new java.awt.Color(255, 255, 255));
 		searchField = new javax.swing.JTextField();
-		searchField.setColumns(20);
+		searchField.setColumns(15);
 
 		handleBase.add(add);
 		handleBase.add(edit);
