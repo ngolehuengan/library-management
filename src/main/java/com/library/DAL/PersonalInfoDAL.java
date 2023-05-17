@@ -13,6 +13,7 @@ public class PersonalInfoDAL {
     public static boolean insertPersonalInfo(PersonalInfo info) throws Exception{
         connect = new MyConnectUnit();
         try {
+            System.out.println(info.getAddress());
             ResultSet result = connect.excuteQuery("CALL SP_UserInfo_Insert("+"\""+info.getCitizenID()+"\""+","+"\""+info.getFullName()+"\""+","+"\""+info.getBirthday().toString()+"\""+","+info.getisMale()+","+"\""+info.getPhoneNumber()+"\""+","+"\""+info.getAddress()+"\""+","+"\""+info.getEmail()+"\""+");");
         } catch (Exception e) {
             throw new Exception(e.getMessage());

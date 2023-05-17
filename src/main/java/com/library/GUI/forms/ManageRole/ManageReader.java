@@ -134,39 +134,39 @@ public class ManageReader {
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 50, 50)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRole).addComponent(roleSv).addComponent(roleCbgv))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
 						.addComponent(txtMs))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDepart).addComponent(txtDepart))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblClass).addComponent(txtClass))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(22)
+				.addGap(23)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(22).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+				.addGap(23).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
-				.addGap(22));
+				.addGap(23));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -281,6 +281,7 @@ public class ManageReader {
 				String phone = txtPhone.getText();
 				boolean gender = male.isSelected();
 
+
 				// Tạo một Border màu đỏ
 				Border redBorder = BorderFactory.createLineBorder(Color.RED);
 
@@ -289,8 +290,8 @@ public class ManageReader {
 				ArrayList<Integer> errorInfo = new ArrayList<Integer>();
 				PersonalInfo info = new PersonalInfo();
 				Reader reader = new Reader();
-				Student student = new Student();
-				Lecturer lecturer = new Lecturer();
+
+
 				errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,
 						email);
 				if (errorInfo.contains(1)) {
@@ -320,6 +321,7 @@ public class ManageReader {
 
 				if (studentLogic) {
 					ArrayList<Integer> ErrorStudent = new ArrayList<Integer>();
+					Student student = new Student();
 					ErrorStudent = student.setStudent(ID, className, departmentName);
 					if (ErrorStudent.size() == 0 && hasError == false) {
 						try {
@@ -340,9 +342,10 @@ public class ManageReader {
 				}
 				if (studentLogic == false) {
 					ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
+					Lecturer lecturer = new Lecturer();
 					ErrorLecturer = lecturer.setLecturer(ID, departmentName);
 					if (ErrorLecturer.size() == 0 && hasError == false) {
-						try {
+						try{
 							reader.setReader(1, 1); // mac dinh gia tri the la 1 nam
 							ReaderBUS.insertReaderLecturer(reader, info, lecturer);
 						} catch (Exception e1) {
@@ -416,7 +419,7 @@ public class ManageReader {
 		});
 		
 		view.addActionListener(e -> {
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(),
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(null),
 					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
 							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
 				@Override
@@ -424,6 +427,17 @@ public class ManageReader {
 					return false;
 				}
 			});
+		});
+		search.addActionListener(e->{
+			String condition = searchField.getText();
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\""+condition+"\""),
+			new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
+					"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+		@Override
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+		}
+	});
 		});
 
 	}

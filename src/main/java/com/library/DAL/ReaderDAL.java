@@ -3,6 +3,7 @@ package main.java.com.library.DAL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import main.java.com.library.BLL.ReaderBUS;
 import main.java.com.library.DTO.PersonalInfo;
 import main.java.com.library.DTO.Reader;
 
@@ -72,16 +73,16 @@ public class ReaderDAL {
         }
         return department;
     }
-    public static String[][] showTableReader(){
+    public static String[][] showTableReader(String condition){
         connect = new MyConnectUnit();
         String[][] show = new String[0][0];
         try {
-            String query ="CALL SP_Reader_CountRow_Show()";
+            String query ="CALL SP_CountRow_Reader("+condition+")"+";";
             ResultSet results = connect.excuteQuery(query);
             results.next();
     
-            int totalRow = results.getInt(0);
-            query = "CALL SP_Reader_Show();";
+            int totalRow = results.getInt(1);
+            query = "CALL SP_Find_Reader("+condition+")"+";";
             results = connect.excuteQuery(query);
     
             show = new String[totalRow][9];
@@ -90,13 +91,13 @@ public class ReaderDAL {
                 show[row][0] = Integer.toString(row + 1);
                 if (results.getInt("classify") == 1){
                     show[row][3] = "Giảng viên";
-                    show[row][1] = "GV" + Integer.toString(results.getInt("id"));
-                    show[row][4] = results.getString("student_id");
+                    show[row][1] = "GV" + Integer.toString(results.getInt("lecturer_id"));
+                    show[row][4] = results.getString("lecturer_id");
                 } 
                 else {
                     show[row][3] = "Sinh Viên";
-                    show[row][1] = "SV" + Integer.toString(results.getInt("id"));
-                    show[row][4] = results.getString("lecturer_id");  
+                    show[row][1] = "SV" + Integer.toString(results.getInt("reader_id"));
+                    show[row][4] = results.getString("student_id");  
                 }
                 show[row][2] = results.getString("fullName");
                 show[row][5] = results.getString("departmentName");
@@ -106,9 +107,8 @@ public class ReaderDAL {
                 row++;
             }
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
         return show;
     }
-
 }

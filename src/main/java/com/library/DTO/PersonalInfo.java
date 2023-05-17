@@ -59,14 +59,15 @@ public class PersonalInfo {
         }
         // 
         if(phoneNumber.isEmpty() || checkPhone(phoneNumber) == false) wrongFormat.add((4)) ;
-        if (Address.isEmpty()||Address.length() > 50) wrongFormat.add(5);
+        if (Address.isEmpty()||Address.length() > 100) wrongFormat.add(5);
         if (email.isEmpty()||checkEmail(email) == false) wrongFormat.add(6);
         if(wrongFormat.size() == 0 ){
-            setPersonalinfo(citizenID,fullName,this.birthday,Boolean.getBoolean(male),phoneNumber,address,email);
+
+            setPersonalinfo(citizenID,fullName,this.birthday,Boolean.getBoolean(male),phoneNumber,Address,email);
         }
         return wrongFormat;
     }
-    public void setPersonalinfo(String citizenID, String fullName, LocalDate birthday, boolean isMale, String phoneNumber, String address,String email) {
+    public void setPersonalinfo(String citizenID, String fullName, LocalDate birthday, boolean male, String phoneNumber, String address,String email) {
         this.citizenID = citizenID;
         this.fullName = fullName;
         this.birthday = birthday;
