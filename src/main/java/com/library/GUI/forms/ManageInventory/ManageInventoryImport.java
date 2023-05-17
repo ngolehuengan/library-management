@@ -1,6 +1,10 @@
 package main.java.com.library.GUI.forms.ManageInventory;
 
+import java.awt.SystemColor;
 import java.util.Vector;
+
+import javax.swing.BorderFactory;
+
 import main.java.com.library.BLL.ImportRecordBUS;
 import main.java.com.library.DTO.IPDetail;
 import main.java.com.library.DTO.ImportRecord;
@@ -8,7 +12,7 @@ import main.java.com.library.GUI.components.TableHeader;
 
 public class ManageInventoryImport {
 
-    @SuppressWarnings({"serial"})
+    @SuppressWarnings({"serial", "unchecked"})
     static void init(javax.swing.JComponent pnlCards) {
         // --Import Tab = Details + Table
         splitPane = new javax.swing.JSplitPane();
@@ -61,7 +65,7 @@ public class ManageInventoryImport {
         txtCount.setColumns(20);
 
         javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblPerson).addComponent(lblDate).addComponent(lblId).addComponent(lblSumValue)
                         .addComponent(lblDcmCode).addComponent(lblValue).addComponent(lblCount))
@@ -69,7 +73,7 @@ public class ManageInventoryImport {
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtPerson).addComponent(txtDate).addComponent(txtId).addComponent(txtSumValue)
                         .addComponent(txtDcmCode).addComponent(txtValue).addComponent(txtCount))
-                .addGap(80));
+                .addGap(0, 80, 80));
         gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
                         .addComponent(txtId))
@@ -218,7 +222,7 @@ public class ManageInventoryImport {
             @Override
             public void keyTyped(java.awt.event.KeyEvent e) {
                 if (main.java.com.library.BLL.Check.isDcmCode(txtDcmCode.getText())) {
-                    txtDcmCode.setBorder(null);
+                    txtDcmCode.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
                 }
             }
         });
@@ -228,7 +232,7 @@ public class ManageInventoryImport {
             @Override
             public void keyTyped(java.awt.event.KeyEvent e) {
                 if (main.java.com.library.BLL.Check.isDouble(txtValue.getText())) {
-                    txtValue.setBorder(null);
+                    txtValue.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
                 }
             }
         });
@@ -238,7 +242,7 @@ public class ManageInventoryImport {
             @Override
             public void keyTyped(java.awt.event.KeyEvent e) {
                 if (main.java.com.library.BLL.Check.isInteger(txtCount.getText())) {
-                    txtCount.setBorder(null);
+                    txtCount.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
                 }
             }
         });
@@ -248,7 +252,7 @@ public class ManageInventoryImport {
             @Override
             public void keyTyped(java.awt.event.KeyEvent e) {
                 if (main.java.com.library.BLL.Check.isDate(txtDate.getText())) {
-                    txtDate.setBorder(null);
+                    txtDate.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
                 }
             }
         });
@@ -256,13 +260,15 @@ public class ManageInventoryImport {
     }
 
     // Private
-    private static void clearDetailTable() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private static void clearDetailTable() {
         vtDetail = new Vector();
         totalPrice = 0;
         refreshDetailTable();
     }
 
-    private static void refreshDetailTable() {
+    @SuppressWarnings({ "serial", "unchecked" })
+	private static void refreshDetailTable() {
         subTable.setModel(new javax.swing.table.DefaultTableModel(getDetailDisplay(vtDetail), TableHeader.importDetail()) {
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -271,18 +277,19 @@ public class ManageInventoryImport {
         });
     }
 
-    private static void displayDetail(ImportRecord e) {
+    @SuppressWarnings({ "unchecked", "serial" })
+	private static void displayDetail(ImportRecord e) {
         txtPerson.setText(Integer.toString(e.getLibrarianID()));
         txtDate.setText(e.getDate().toString());
         txtId.setText(e.getCode());
         totalPrice = e.getTotalPrice();
         txtSumValue.setText(Double.toString(totalPrice));
         txtDcmCode.setText("");
-        txtDcmCode.setBorder(null);
+        txtDcmCode.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
         txtValue.setText("");
-        txtValue.setBorder(null);
+        txtValue.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
         txtCount.setText("");
-        txtCount.setBorder(null);
+        txtCount.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
         subTable.setModel(new javax.swing.table.DefaultTableModel(getDetailDisplay(e.getDetails()), TableHeader.importDetail()) {
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -295,7 +302,8 @@ public class ManageInventoryImport {
         txtCount.setEnabled(false);
     }
 
-    private static Vector getDisplay(Vector<ImportRecord> list) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private static Vector getDisplay(Vector<ImportRecord> list) {
         Vector table = new Vector();
         for (int i = 0; i < list.size(); i++) {
             ImportRecord e = list.get(i);
@@ -311,7 +319,8 @@ public class ManageInventoryImport {
         return table;
     }
 
-    private static Vector getDetailDisplay(Vector<IPDetail> list) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private static Vector getDetailDisplay(Vector<IPDetail> list) {
         Vector table = new Vector();
         for (int i = 0; i < list.size(); i++) {
             IPDetail e = list.get(i);
@@ -338,7 +347,8 @@ public class ManageInventoryImport {
     }
 
     // nút Xem - view
-    private static void refreshTable() {
+    @SuppressWarnings({ "serial", "unchecked" })
+	private static void refreshTable() {
         vtDTO = new ImportRecordBUS().getTable();
         table.setModel(new javax.swing.table.DefaultTableModel(getDisplay(vtDTO), TableHeader.importRecord()) {
             @Override
@@ -463,11 +473,11 @@ public class ManageInventoryImport {
             txtSumValue.setText(Double.toString(totalPrice));
             txtDate.setText(new java.sql.Date(System.currentTimeMillis()).toString());
             txtDcmCode.setText("");
-            txtDcmCode.setBorder(null);
+            txtDcmCode.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
             txtValue.setText("");
-            txtValue.setBorder(null);
+            txtValue.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
             txtCount.setText("");
-            txtCount.setBorder(null);
+            txtCount.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
             clearDetailTable();
         } else {
             txtPerson.setText("");
@@ -475,11 +485,11 @@ public class ManageInventoryImport {
             txtId.setText("");
             txtDate.setText("");
             txtDcmCode.setText("");
-            txtDcmCode.setBorder(null);
+            txtDcmCode.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
             txtValue.setText("");
-            txtValue.setBorder(null);
+            txtValue.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
             txtCount.setText("");
-            txtCount.setBorder(null);
+            txtCount.setBorder(BorderFactory.createLineBorder(SystemColor.inactiveCaption));
             clearDetailTable();
             refreshTable();
 
@@ -516,10 +526,12 @@ public class ManageInventoryImport {
     private static javax.swing.JPanel tableHandle;
     private static javax.swing.JTable subTable;
     private static javax.swing.JPanel subTableHandle;
-    private static javax.swing.JLabel lblNotice;
+    @SuppressWarnings("unused")
+	private static javax.swing.JLabel lblNotice;
 
     private static Vector<ImportRecord> vtDTO = new ImportRecordBUS().getTable();
-    private static Vector<IPDetail> vtDetail = new Vector();
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private static Vector<IPDetail> vtDetail = new Vector();
     private static int rowIndex;
     private static double totalPrice = 0;
     private static final int librarianID = main.java.com.library.GUI.Login.role.get(0);
