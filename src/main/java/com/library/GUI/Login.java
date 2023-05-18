@@ -102,7 +102,6 @@ public class Login extends javax.swing.JFrame {
 
 		// Action
 		this.getRootPane().setDefaultButton(btnLogin);
-		this.getRootPane().setExitButton();
 
 		tglbtnShowHidePwd.addActionListener(e -> {
 			if (tglbtnShowHidePwd.isSelected())
