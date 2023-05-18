@@ -2,6 +2,7 @@ package main.java.com.library.GUI;
 
 import java.util.Vector;
 import main.java.com.library.GUI.forms.MainFrame;
+import main.java.com.library.GUI.handle.Handle;
 import main.java.com.library.BLL.AccountBUS;
 import main.java.com.library.DTO.Account;
 
@@ -93,17 +94,15 @@ public class Login extends javax.swing.JFrame {
 		contentPane.add(botPnl, java.awt.BorderLayout.SOUTH);
 
 		btnLogin = new javax.swing.JButton("Đăng nhập");
-		btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-		btnLogin.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(btnLogin);
 		botPnl.add(btnLogin);
 
-		btnReset = new javax.swing.JButton("Reset");
-		btnReset.setBackground(new java.awt.Color(0, 153, 51));
-		btnReset.setForeground(new java.awt.Color(255, 255, 255));
+		btnReset = Handle.getReset(btnReset);
 		botPnl.add(btnReset);
 
 		// Action
 		this.getRootPane().setDefaultButton(btnLogin);
+		this.getRootPane().setExitButton();
 
 		tglbtnShowHidePwd.addActionListener(e -> {
 			if (tglbtnShowHidePwd.isSelected())
@@ -139,6 +138,11 @@ public class Login extends javax.swing.JFrame {
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				this.dispose();
 			}
+		});
+		
+		btnReset.addActionListener(e -> {
+			txtUsername.setText("");
+			txtPwd.setText("");
 		});
 	}
 

@@ -123,7 +123,7 @@ public class Handle {
 	}
 
 	public static javax.swing.JButton getReset(javax.swing.JButton btn) {
-		btn = new javax.swing.JButton("Reset");
+		btn = new javax.swing.JButton("Làm lại");
 		setColor(btn);
 		return btn;
 	}
