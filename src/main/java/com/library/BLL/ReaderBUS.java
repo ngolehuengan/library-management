@@ -72,5 +72,8 @@ public class ReaderBUS {
     public static String[][] showTableReader(String condition) {
         return ReaderDAL.showTableReader(condition);
     }
+    public static String[][] filterTable(String[][] results,String classify,String departmentName){
+        return ReaderDAL.filterResult(results, classify, departmentName);
+    }
 
 }
