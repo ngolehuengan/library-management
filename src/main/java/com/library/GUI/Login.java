@@ -55,19 +55,19 @@ public class Login extends javax.swing.JFrame {
 		mainFormPnl = new javax.swing.JPanel();
 		mainFormPnl.setBackground(new java.awt.Color(204, 255, 204));
 		mainPnl.add(mainFormPnl, java.awt.BorderLayout.CENTER);
-		
+
 		lblUsername = new javax.swing.JLabel("Tên tài khoản");
 		txtUsername = new javax.swing.JTextField(15);
-		
+
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
 		txtPwd = new javax.swing.JPasswordField(15);
-		
+
 		tglbtnShowHidePwd = new javax.swing.JToggleButton(
 				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/eye.png")));
 		tglbtnShowHidePwd.setSelectedIcon(
 				new javax.swing.ImageIcon(this.getClass().getResource("../../../resources/icons/hidden.png")));
 		tglbtnShowHidePwd.setBackground(new java.awt.Color(204, 255, 204));
-		
+
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(mainFormPnl);
 		gl_details
 				.setHorizontalGroup(
@@ -86,7 +86,6 @@ public class Login extends javax.swing.JFrame {
 						.addComponent(lblPwd).addComponent(txtPwd))
 				.addGap(0, 40, 40));
 		mainFormPnl.setLayout(gl_details);
-
 
 		// Bottom Panel
 		botPnl = new javax.swing.JPanel();
@@ -114,7 +113,6 @@ public class Login extends javax.swing.JFrame {
 		});
 
 		btnLogin.addActionListener(e -> {
-			Account account = new Account();
 			account.setUsername(txtUsername.getText());
 			account.setPassword(new String(txtPwd.getPassword()));
 			try {
@@ -160,4 +158,5 @@ public class Login extends javax.swing.JFrame {
 
 	public static MainFrame frame;
 	public static Vector<Integer> role;
+	public static Account account = new Account();
 }

@@ -249,6 +249,7 @@ public class ManageBookBook {
 	private static javax.swing.JLabel lblAuthor;
 	private static javax.swing.JTextField txtAuthor;
 	private static javax.swing.JLabel lblNxb;
+	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox cbbNxb;
 	private static javax.swing.JLabel lblYear;
 	@SuppressWarnings("rawtypes")

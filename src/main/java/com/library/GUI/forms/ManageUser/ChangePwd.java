@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageUser;
 
+import java.awt.event.KeyEvent;
+
 import main.java.com.library.GUI.Login;
 
 @SuppressWarnings("serial")
@@ -61,12 +63,13 @@ public class ChangePwd extends javax.swing.JFrame {
 		contentPane.add(detailsHandle, java.awt.BorderLayout.SOUTH);
 
 		// Action
+		this.getRootPane().setDefaultButton(UserInfo.change);
 		UserInfo.change.addActionListener(e -> {
 			StringBuilder sb = new StringBuilder();
-			if (new String(txtPwd.getPassword()).equals(""))
-				sb.append("Mật khẩu không hợp lệ !\n");
+			if (!new String(txtPwd.getPassword()).equals(Login.account.getPassword()))
+				sb.append("Mật khẩu hiện tại không đúng !\n");
 			if (new String(txtNewPwd.getPassword()).equals(""))
-				sb.append("Mật khẩu không hợp lệ !\n");
+				sb.append("Mật khẩu mới không hợp lệ !\n");
 			if (!new String(txtNewPwd.getPassword()).equalsIgnoreCase(new String(txtRepeatPwd.getPassword()))) {
 				sb.append("Mật khẩu không trùng khớp !\n");
 			}
@@ -79,6 +82,7 @@ public class ChangePwd extends javax.swing.JFrame {
 				Login.frame.dispose();
 				this.dispose();
 			}
+			UserInfo.change.setMnemonic(KeyEvent.VK_ENTER);
 		});
 
 		UserInfo.reset.addActionListener(e -> {

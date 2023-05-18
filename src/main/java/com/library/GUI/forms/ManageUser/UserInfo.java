@@ -162,7 +162,6 @@ public class UserInfo {
 
 				txtName.setText("");
 				txtUser.setText("");
-				password.setText("");
 				btnGroup.clearSelection();
 				txtCmnd.setText("");
 				txtDate.setText("");
