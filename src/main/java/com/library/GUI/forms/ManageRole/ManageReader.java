@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import main.java.com.library.BLL.LecturerBUS;
@@ -275,7 +277,6 @@ public class ManageReader {
 				PersonalInfo info = new PersonalInfo();
 				Reader reader = new Reader();
 
-
 				errorInfo = info.setPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,
 						email);
 				if (errorInfo.contains(1)) {
@@ -329,7 +330,7 @@ public class ManageReader {
 					Lecturer lecturer = new Lecturer();
 					ErrorLecturer = lecturer.setLecturer(ID, departmentName);
 					if (ErrorLecturer.size() == 0 && hasError == false) {
-						try{
+						try {
 							reader.setReader(1, 1); // mac dinh gia tri the la 1 nam
 							ReaderBUS.insertReaderLecturer(reader, info, lecturer);
 						} catch (Exception e1) {
@@ -420,16 +421,55 @@ public class ManageReader {
 				}
 			});
 		});
-		search.addActionListener(e->{
+		search.addActionListener(e -> {
 			String condition = searchField.getText();
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\""+condition+"\""),
-			new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
-					"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
-		@Override
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				return false;
-		}
-	});
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
+							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+				@Override
+				public boolean isCellEditable(int rowIndex, int columnIndex) {
+					return false;
+				}
+			});
+		});
+		txtDepartHandle.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String condition = txtDepartHandle.getSelectedItem().toString();
+				table.setModel(
+						new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+								new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA",
+										"TỔNG NỢ",
+										"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+							@Override
+							public boolean isCellEditable(int rowIndex, int columnIndex) {
+								return false;
+							}
+						});
+			}
+		});
+		roleSvHandle.addActionListener(e -> {
+			String condition = "Sinh Viên";
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
+							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+				@Override
+				public boolean isCellEditable(int rowIndex, int columnIndex) {
+					return false;
+				}
+			});
+		});
+
+		roleCbgvHandle.addActionListener(e -> {
+			String condition = "Giảng Viên";
+			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
+							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+				@Override
+				public boolean isCellEditable(int rowIndex, int columnIndex) {
+					return false;
+				}
+			});
 		});
 
 	}
