@@ -5,7 +5,7 @@ import main.java.com.library.BLL.ReleaseRecordBUS;
 import main.java.com.library.GUI.components.TableHeader;
 
 public class ManageInventoryLiquidate {
-	@SuppressWarnings({ "serial" })
+	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
 	static void init(javax.swing.JComponent pnlCards) {
 		// --Liquidity Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
@@ -34,40 +34,40 @@ public class ManageInventoryLiquidate {
 		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
 
-		lblSumCount = new javax.swing.JLabel("Tổng số lượng");
-		txtSumCount = new javax.swing.JTextField(20);
-		txtSumCount.setEnabled(false);
+		lblTotal = new javax.swing.JLabel("Tổng số lượng");
+		txtTotal = new javax.swing.JTextField(20);
+		txtTotal.setEnabled(false);
 
 		lblDcmCode = new javax.swing.JLabel("Mã tài liệu");
 		txtDcmCode = new javax.swing.JTextField(20);
 		txtDcmCode.setEnabled(false);
 
-		lblCount = new javax.swing.JLabel("Số lượng");
-		txtCount = new javax.swing.JTextField(20);
-		txtCount.setEnabled(false);
+		lblNumber = new javax.swing.JLabel("Số lượng");
+		txtNumber = new javax.swing.JTextField(20);
+		txtNumber.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-						.addComponent(lblPerson).addComponent(lblDate).addComponent(lblId).addComponent(lblSumCount)
-						.addComponent(lblDcmCode).addComponent(lblCount))
+						.addComponent(lblPerson).addComponent(lblDate).addComponent(lblId).addComponent(lblTotal)
+						.addComponent(lblDcmCode).addComponent(lblNumber))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(txtPerson).addComponent(txtDate).addComponent(txtId).addComponent(txtSumCount)
-						.addComponent(txtDcmCode).addComponent(txtCount))
+						.addComponent(txtPerson).addComponent(txtDate).addComponent(txtId).addComponent(txtTotal)
+						.addComponent(txtDcmCode).addComponent(txtNumber))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
 						.addComponent(txtId))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblSumCount).addComponent(txtSumCount))
+						.addComponent(lblTotal).addComponent(txtTotal))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDcmCode).addComponent(txtDcmCode))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblCount).addComponent(txtCount))
+						.addComponent(lblNumber).addComponent(txtNumber))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
@@ -195,12 +195,12 @@ public class ManageInventoryLiquidate {
 	private static javax.swing.JTextField txtDate;
 	private static javax.swing.JLabel lblId;
 	private static javax.swing.JTextField txtId;
-	private static javax.swing.JLabel lblSumCount;
-	private static javax.swing.JTextField txtSumCount;
+	private static javax.swing.JLabel lblTotal;
+	private static javax.swing.JTextField txtTotal;
 	private static javax.swing.JLabel lblDcmCode;
 	private static javax.swing.JTextField txtDcmCode;
-	private static javax.swing.JLabel lblCount;
-	private static javax.swing.JTextField txtCount;
+	private static javax.swing.JLabel lblNumber;
+	private static javax.swing.JTextField txtNumber;
 	private static javax.swing.JPanel detailsHandle;
 	private static javax.swing.JPanel gridTablePnl;
 	private static javax.swing.JScrollPane scrollPane;
