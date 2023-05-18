@@ -4,7 +4,6 @@ import java.util.Vector;
 import main.java.com.library.BLL.ImportRecordBUS;
 import main.java.com.library.DTO.IPDetail;
 import main.java.com.library.DTO.ImportRecord;
-import main.java.com.library.GUI.Login;
 import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 

@@ -1,11 +1,6 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
-import java.awt.Color;
-import java.awt.SystemColor;
 import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 
 import main.java.com.library.BLL.LecturerBUS;
 import main.java.com.library.BLL.ReaderBUS;

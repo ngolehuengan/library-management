@@ -49,8 +49,9 @@ public class ManageBookBook {
 		txtAuthor.setEnabled(false);
 
 		lblNxb = new javax.swing.JLabel("Nhà xuất bản");
-		txtNxb = new javax.swing.JTextField(15);
-		txtNxb.setEnabled(false);
+		cbbNxb = new javax.swing.JComboBox();
+		cbbNxb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbNxb.setEnabled(false);
 
 		lblYear = new javax.swing.JLabel("Năm xuất bản");
 		cbbYear = new javax.swing.JComboBox();
@@ -83,7 +84,7 @@ public class ManageBookBook {
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(scrollPane).addComponent(cbbYear).addComponent(txtAuthor)
-								.addComponent(txtNxb))))
+								.addComponent(cbbNxb))))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -103,7 +104,7 @@ public class ManageBookBook {
 						.addComponent(lblAuthor).addComponent(txtAuthor))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblNxb).addComponent(txtNxb))
+						.addComponent(lblNxb).addComponent(cbbNxb))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblYear).addComponent(cbbYear))
@@ -150,7 +151,7 @@ public class ManageBookBook {
 			txtTitle.setEnabled(true);
 			cbbCate.setEnabled(true);
 			txtAuthor.setEnabled(true);
-			txtNxb.setEnabled(true);
+			cbbNxb.setEnabled(true);
 			cbbYear.setEnabled(true);
 			txtDescript.setEnabled(true);
 
@@ -158,7 +159,7 @@ public class ManageBookBook {
 			txtTitle.setText("");
 			cbbCate.setSelectedIndex(0);
 			txtAuthor.setText("");
-			txtNxb.setText("");
+			cbbNxb.setSelectedIndex(0);
 			cbbYear.setSelectedIndex(0);
 			txtDescript.setText("");
 		});
@@ -170,7 +171,7 @@ public class ManageBookBook {
 			txtTitle.setEnabled(true);
 			cbbCate.setEnabled(true);
 			txtAuthor.setEnabled(true);
-			txtNxb.setEnabled(true);
+			cbbNxb.setEnabled(true);
 			cbbYear.setEnabled(true);
 			txtDescript.setEnabled(true);
 		});
@@ -183,7 +184,7 @@ public class ManageBookBook {
 			txtTitle.setEnabled(false);
 			cbbCate.setEnabled(false);
 			txtAuthor.setEnabled(false);
-			txtNxb.setEnabled(false);
+			cbbNxb.setEnabled(false);
 			cbbYear.setEnabled(false);
 			txtDescript.setEnabled(false);
 
@@ -191,7 +192,7 @@ public class ManageBookBook {
 			txtTitle.setText("");
 			cbbCate.setSelectedIndex(0);
 			txtAuthor.setText("");
-			txtNxb.setText("");
+			cbbNxb.setSelectedIndex(0);
 			cbbYear.setSelectedIndex(0);
 			txtDescript.setText("");
 		});
@@ -203,7 +204,7 @@ public class ManageBookBook {
 			txtTitle.setEnabled(false);
 			cbbCate.setEnabled(false);
 			txtAuthor.setEnabled(false);
-			txtNxb.setEnabled(false);
+			cbbNxb.setEnabled(false);
 			cbbYear.setEnabled(false);
 			txtDescript.setEnabled(false);
 		});
@@ -216,7 +217,7 @@ public class ManageBookBook {
 				txtTitle.setText("");
 				cbbCate.setSelectedIndex(0);
 				txtAuthor.setText("");
-				txtNxb.setText("");
+				cbbNxb.setSelectedIndex(0);
 				cbbYear.setSelectedIndex(0);
 				txtDescript.setText("");
 			} else if (!txtIsbn.isEnabled() && txtTitle.isEnabled()) {
@@ -225,7 +226,7 @@ public class ManageBookBook {
 				txtTitle.setText("");
 				cbbCate.setSelectedIndex(0);
 				txtAuthor.setText("");
-				txtNxb.setText("");
+				cbbNxb.setSelectedIndex(0);
 				cbbYear.setSelectedIndex(0);
 				txtDescript.setText("");
 			}
@@ -248,7 +249,7 @@ public class ManageBookBook {
 	private static javax.swing.JLabel lblAuthor;
 	private static javax.swing.JTextField txtAuthor;
 	private static javax.swing.JLabel lblNxb;
-	private static javax.swing.JTextField txtNxb;
+	private static javax.swing.JComboBox cbbNxb;
 	private static javax.swing.JLabel lblYear;
 	@SuppressWarnings("rawtypes")
 	private static javax.swing.JComboBox cbbYear;
