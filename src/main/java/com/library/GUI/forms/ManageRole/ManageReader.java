@@ -328,6 +328,7 @@ public class ManageReader {
 				if (studentLogic == false) {
 					ArrayList<Integer> ErrorLecturer = new ArrayList<Integer>();
 					Lecturer lecturer = new Lecturer();
+					System.out.println(ID);
 					ErrorLecturer = lecturer.setLecturer(ID, departmentName);
 					if (ErrorLecturer.size() == 0 && hasError == false) {
 						try {
@@ -412,7 +413,9 @@ public class ManageReader {
 		});
 
 		view.addActionListener(e -> {
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader(null),
+			results = ReaderBUS.showTableReader(null);
+			filterresults = results;
+			table.setModel(new javax.swing.table.DefaultTableModel(results,
 					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
 							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
 				@Override
@@ -420,10 +423,15 @@ public class ManageReader {
 					return false;
 				}
 			});
+			btnGroup.clearSelection();
+			txtDepartHandle.setModel(new javax.swing.DefaultComboBoxModel(ReaderBUS.showDepartment()));
 		});
+
 		search.addActionListener(e -> {
 			String condition = searchField.getText();
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+			results = ReaderBUS.showTableReader("\"" + condition + "\"");
+			filterresults = results;
+			table.setModel(new javax.swing.table.DefaultTableModel(results,
 					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
 							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
 				@Override
@@ -431,26 +439,41 @@ public class ManageReader {
 					return false;
 				}
 			});
+			btnGroup.clearSelection();
+			txtDepartHandle.setModel(new javax.swing.DefaultComboBoxModel(ReaderBUS.showDepartment()));
 		});
+
 		txtDepartHandle.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String condition = txtDepartHandle.getSelectedItem().toString();
-				table.setModel(
-						new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
-								new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA",
-										"TỔNG NỢ",
-										"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
-							@Override
-							public boolean isCellEditable(int rowIndex, int columnIndex) {
-								return false;
-							}
-						});
+				String deparmentName = txtDepartHandle.getSelectedItem().toString();
+				String classify;
+				if (roleSvHandle.isSelected()) {
+					classify = "Sinh Viên";
+				}
+				if (roleCbgvHandle.isSelected()) {
+					classify = "Giảng Viên";
+				} else {
+					classify = "";
+				}
+				filterresults = ReaderBUS.filterTable(filterresults, classify, deparmentName);
+
+				table.setModel(new javax.swing.table.DefaultTableModel(filterresults,
+						new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
+								"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
+					@Override
+					public boolean isCellEditable(int rowIndex, int columnIndex) {
+						return false;
+					}
+				});
+				filterresults = results;
 			}
 		});
 		roleSvHandle.addActionListener(e -> {
-			String condition = "Sinh Viên";
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+			String classify = "Sinh Viên";
+			String departmentName = txtDepartHandle.getSelectedItem().toString();
+			filterresults = ReaderBUS.filterTable(filterresults, classify, departmentName);
+			table.setModel(new javax.swing.table.DefaultTableModel(filterresults,
 					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
 							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
 				@Override
@@ -458,11 +481,14 @@ public class ManageReader {
 					return false;
 				}
 			});
+			filterresults = results;
 		});
 
 		roleCbgvHandle.addActionListener(e -> {
-			String condition = "Giảng Viên";
-			table.setModel(new javax.swing.table.DefaultTableModel(ReaderBUS.showTableReader("\"" + condition + "\""),
+			String classify = "Giảng Viên";
+			String departmentName = txtDepartHandle.getSelectedItem().toString();
+			filterresults = ReaderBUS.filterTable(filterresults, classify, departmentName);
+			table.setModel(new javax.swing.table.DefaultTableModel(filterresults,
 					new String[] { "STT", "MÃ ĐỘC GIẢ", "HỌ TÊN", "LOẠI ĐỘC GIẢ", "MSSV/CBGV", "KHOA", "TỔNG NỢ",
 							"NGÀY LẬP THẺ", "NGÀY HẾT HẠN" }) {
 				@Override
@@ -470,6 +496,7 @@ public class ManageReader {
 					return false;
 				}
 			});
+			filterresults = results;
 		});
 
 	}
@@ -606,4 +633,8 @@ public class ManageReader {
 	private static javax.swing.JButton save;
 	private static javax.swing.JButton reset;
 	private static javax.swing.JButton view;
+
+	private static String[][] results = new String[0][0];
+	private static String[][] filterresults = new String[0][0];
+
 }
