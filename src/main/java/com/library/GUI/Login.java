@@ -111,6 +111,7 @@ public class Login extends javax.swing.JFrame {
 		});
 
 		btnLogin.addActionListener(e -> {
+			Account account = new Account();
 			account.setUsername(txtUsername.getText());
 			account.setPassword(new String(txtPwd.getPassword()));
 			try {
@@ -130,6 +131,7 @@ public class Login extends javax.swing.JFrame {
 			if (sb.length() > 0) {
 				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
 						javax.swing.JOptionPane.ERROR_MESSAGE);
+				txtPwd.setText("");
 				return;
 			} else {
 				frame = new MainFrame();
@@ -138,7 +140,7 @@ public class Login extends javax.swing.JFrame {
 				this.dispose();
 			}
 		});
-		
+
 		btnReset.addActionListener(e -> {
 			txtUsername.setText("");
 			txtPwd.setText("");
@@ -152,7 +154,7 @@ public class Login extends javax.swing.JFrame {
 	private javax.swing.JLabel lblUsername;
 	private javax.swing.JLabel lblPwd;
 	private javax.swing.JLabel lblLogin;
-	private javax.swing.JTextField txtUsername;
+	public static javax.swing.JTextField txtUsername;
 	private javax.swing.JPasswordField txtPwd;
 	private javax.swing.JToggleButton tglbtnShowHidePwd;
 	private javax.swing.JPanel botPnl;
@@ -161,5 +163,4 @@ public class Login extends javax.swing.JFrame {
 
 	public static MainFrame frame;
 	public static Vector<Integer> role;
-	public static Account account = new Account();
 }

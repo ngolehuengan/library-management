@@ -1,8 +1,9 @@
 package main.java.com.library.GUI.forms.ManageUser;
 
-import java.awt.event.KeyEvent;
+import java.util.Vector;
 
-import main.java.com.library.GUI.Login;
+import main.java.com.library.BLL.AccountBUS;
+import main.java.com.library.DTO.Account;
 
 @SuppressWarnings("serial")
 public class ChangePwd extends javax.swing.JFrame {
@@ -10,6 +11,7 @@ public class ChangePwd extends javax.swing.JFrame {
 		init();
 	}
 
+	@SuppressWarnings({ "unchecked" })
 	private void init() {
 		setBounds((java.awt.Toolkit.getDefaultToolkit().getScreenSize().width - 400) / 2,
 				(java.awt.Toolkit.getDefaultToolkit().getScreenSize().height - 250) / 2, 400, 250);
@@ -65,24 +67,33 @@ public class ChangePwd extends javax.swing.JFrame {
 		// Action
 		this.getRootPane().setDefaultButton(UserInfo.change);
 		UserInfo.change.addActionListener(e -> {
+			Account account = new Account();
+			account.setUsername(main.java.com.library.GUI.Login.txtUsername.getText());
+			account.setPassword(new String(txtPwd.getPassword()));
+			Vector<Integer> role;
+			try {
+				role = AccountBUS.login(account);
+			} catch (Exception e1) {
+				System.out.println(e1.getMessage());
+				return;
+			}
 			StringBuilder sb = new StringBuilder();
-			if (!new String(txtPwd.getPassword()).equals(Login.account.getPassword()))
+			if (main.java.com.library.GUI.Login.role.get(0) != role.get(0))
 				sb.append("Mật khẩu hiện tại không đúng !\n");
 			if (new String(txtNewPwd.getPassword()).equals(""))
 				sb.append("Mật khẩu mới không hợp lệ !\n");
 			if (!new String(txtNewPwd.getPassword()).equalsIgnoreCase(new String(txtRepeatPwd.getPassword()))) {
-				sb.append("Mật khẩu không trùng khớp !\n");
+				sb.append("Mật khẩu nhập lại không trùng khớp !\n");
 			}
 			if (sb.length() > 0) {
 				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				new Login().setVisible(true);
-				Login.frame.dispose();
+				new main.java.com.library.GUI.Login().setVisible(true);
+				main.java.com.library.GUI.Login.frame.dispose();
 				this.dispose();
 			}
-			UserInfo.change.setMnemonic(KeyEvent.VK_ENTER);
 		});
 
 		UserInfo.reset.addActionListener(e -> {
