@@ -69,7 +69,7 @@ public class UserInfo {
 		btnGroup.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 600)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 550, 550)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lblPhone)
 						.addComponent(lblName).addComponent(lblCmnd).addComponent(lblDate).addComponent(lblAddress)
@@ -84,8 +84,8 @@ public class UserInfo {
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(female))))
-				.addGap(0, 80, 600));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.addGap(0, 550, 550));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
 				.addGap(24)
