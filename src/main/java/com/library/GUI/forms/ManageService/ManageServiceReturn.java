@@ -48,19 +48,19 @@ public class ManageServiceReturn {
 		txtDebt = new javax.swing.JTextField(20);
 		txtDebt.setEnabled(false);
 
-		lblAll = new javax.swing.JLabel("Tổng nợ");
-		txtAll = new javax.swing.JTextField(20);
-		txtAll.setEnabled(false);
+		lblTotal = new javax.swing.JLabel("Tổng nợ");
+		txtTotal = new javax.swing.JTextField(20);
+		txtTotal.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblName).addComponent(lblMs).addComponent(lblReader)
-						.addComponent(lblDebt).addComponent(lblDate).addComponent(lblValue).addComponent(lblAll))
+						.addComponent(lblDebt).addComponent(lblDate).addComponent(lblValue).addComponent(lblTotal))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtName).addComponent(txtMs).addComponent(txtDebt)
-						.addComponent(txtDate).addComponent(txtValue).addComponent(txtAll)
+						.addComponent(txtDate).addComponent(txtValue).addComponent(txtTotal)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(txtReader))
@@ -86,7 +86,7 @@ public class ManageServiceReturn {
 								.addComponent(lblDebt).addComponent(txtDebt))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblAll).addComponent(txtAll))
+								.addComponent(lblTotal).addComponent(txtTotal))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDate).addComponent(txtDate))
@@ -164,8 +164,8 @@ public class ManageServiceReturn {
 	private static javax.swing.JTextField txtDate;
 	private static javax.swing.JLabel lblValue;
 	private static javax.swing.JTextField txtValue;
-	private static javax.swing.JLabel lblAll;
-	private static javax.swing.JTextField txtAll;
+	private static javax.swing.JLabel lblTotal;
+	private static javax.swing.JTextField txtTotal;
 	private static javax.swing.JLabel lblPerson;
 	private static javax.swing.JTextField txtPerson;
 	private static javax.swing.JPanel detailsHandle;
