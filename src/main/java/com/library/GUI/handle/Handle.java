@@ -1,7 +1,5 @@
 package main.java.com.library.GUI.handle;
 
-import main.java.com.library.GUI.Login;
-
 public class Handle {
 	
 	// -----------------------------------Dialog set get image----------------------------------------
@@ -40,12 +38,12 @@ public class Handle {
 
 	public static javax.swing.ImageIcon setDefaultImg() {
 		return new javax.swing.ImageIcon(
-				Login.class.getResource("../../../resources/images/image-gallery.png"));
+				Handle.class.getResource("../../../resources/images/image-gallery.png"));
 	}
 	
 	// -----------------------------------Dialog confirm----------------------------------------
 	public static boolean confirm() {
-		int result = javax.swing.JOptionPane.showConfirmDialog(Login.frame,
+		int result = javax.swing.JOptionPane.showConfirmDialog(null,
 				"Thao tác này không thể hoàn tác, chắc chắn chọn?", "XÁC NHẬN", javax.swing.JOptionPane.YES_NO_OPTION,
 				javax.swing.JOptionPane.QUESTION_MESSAGE);
 		if (result == javax.swing.JOptionPane.YES_OPTION) {
@@ -88,7 +86,7 @@ public class Handle {
 	public static javax.swing.JButton getUpload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Đăng tải");
 		btn.setIcon(
-				new javax.swing.ImageIcon(Login.class.getResource("../../../resources/icons/upload.png")));
+				new javax.swing.ImageIcon(Handle.class.getResource("../../../resources/icons/upload.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -96,7 +94,7 @@ public class Handle {
 	public static javax.swing.JButton getDownload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Tải xuống");
 		btn.setIcon(new javax.swing.ImageIcon(
-				Login.class.getResource("../../../resources/icons/downloads.png")));
+				Handle.class.getResource("../../../resources/icons/downloads.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -104,7 +102,7 @@ public class Handle {
 	public static javax.swing.JButton getPrint(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  In");
 		btn.setIcon(
-				new javax.swing.ImageIcon(Login.class.getResource("../../../resources/icons/printing.png")));
+				new javax.swing.ImageIcon(Handle.class.getResource("../../../resources/icons/printing.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -128,7 +126,7 @@ public class Handle {
 	}
 	
 	public static javax.swing.JButton getFind(javax.swing.JButton btn) {
-		btn = new javax.swing.JButton(new javax.swing.ImageIcon(Login.class.getResource("../../../resources/icons/find.png")));
+		btn = new javax.swing.JButton(new javax.swing.ImageIcon(Handle.class.getResource("../../../resources/icons/find.png")));
 		setColor(btn);
 		return btn;
 	}
