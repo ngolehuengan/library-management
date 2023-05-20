@@ -88,9 +88,6 @@ public class ManageService {
 		reset = Handle.getReset(reset);
 		view = Handle.getView(view);
 
-		collect = new javax.swing.JButton("Thu tiền");
-		Handle.setColor(collect);
-
 		penalty = new javax.swing.JButton("Tạo Biên Bản Phạt");
 		Handle.setColor(penalty);
 		penalty.addActionListener(e -> {
@@ -110,8 +107,7 @@ public class ManageService {
 		adjourn = new javax.swing.JButton("Gia Hạn");
 		Handle.setColor(adjourn);
 
-		find = new javax.swing.JButton("Tìm");
-		Handle.setColor(find);
+		find = Handle.getFind(find);
 		find.addActionListener(e -> {
 			new FindReader().setVisible(true);
 		});
@@ -143,7 +139,6 @@ public class ManageService {
 	public static javax.swing.JButton save;
 	public static javax.swing.JButton reset;
 	public static javax.swing.JButton view;
-	public static javax.swing.JButton collect;
 	public static javax.swing.JButton penalty;
 	public static javax.swing.JButton adjourn;
 	public static javax.swing.JButton find;

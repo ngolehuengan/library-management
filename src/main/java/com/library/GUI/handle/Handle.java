@@ -1,7 +1,6 @@
 package main.java.com.library.GUI.handle;
 
 import main.java.com.library.GUI.Login;
-import main.java.com.library.GUI.forms.ManageBook.ManageBook;
 
 public class Handle {
 	
@@ -41,7 +40,7 @@ public class Handle {
 
 	public static javax.swing.ImageIcon setDefaultImg() {
 		return new javax.swing.ImageIcon(
-				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png"));
+				Login.class.getResource("../../../resources/images/image-gallery.png"));
 	}
 	
 	// -----------------------------------Dialog confirm----------------------------------------
@@ -89,7 +88,7 @@ public class Handle {
 	public static javax.swing.JButton getUpload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Đăng tải");
 		btn.setIcon(
-				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/upload.png")));
+				new javax.swing.ImageIcon(Login.class.getResource("../../../resources/icons/upload.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -97,7 +96,7 @@ public class Handle {
 	public static javax.swing.JButton getDownload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Tải xuống");
 		btn.setIcon(new javax.swing.ImageIcon(
-				ManageBook.class.getResource("../../../../../resources/icons/downloads.png")));
+				Login.class.getResource("../../../resources/icons/downloads.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -105,7 +104,7 @@ public class Handle {
 	public static javax.swing.JButton getPrint(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  In");
 		btn.setIcon(
-				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/printing.png")));
+				new javax.swing.ImageIcon(Login.class.getResource("../../../resources/icons/printing.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -124,6 +123,12 @@ public class Handle {
 
 	public static javax.swing.JButton getReset(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("Làm lại");
+		setColor(btn);
+		return btn;
+	}
+	
+	public static javax.swing.JButton getFind(javax.swing.JButton btn) {
+		btn = new javax.swing.JButton(new javax.swing.ImageIcon(Login.class.getResource("../../../resources/icons/find.png")));
 		setColor(btn);
 		return btn;
 	}

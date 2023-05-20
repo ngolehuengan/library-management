@@ -22,38 +22,38 @@ public class ManageServiceReceipt {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên lai");
-		txtId = new javax.swing.JTextField(15);
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField(15);
+		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField(15);
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField(15);
+		txtMs = new javax.swing.JTextField(20);
 		txtMs.setEnabled(false);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField(15);
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
 
 		lblValue = new javax.swing.JLabel("Tiền thu");
-		txtValue = new javax.swing.JTextField(15);
+		txtValue = new javax.swing.JTextField(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField(15);
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
 
 		lblDebt = new javax.swing.JLabel("Tiền nợ");
-		txtDebt = new javax.swing.JTextField(15);
+		txtDebt = new javax.swing.JTextField(20);
 		txtDebt.setEnabled(false);
 
 		lblRest = new javax.swing.JLabel("Còn lại");
-		txtRest = new javax.swing.JTextField(15);
+		txtRest = new javax.swing.JTextField(20);
 		txtRest.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
@@ -66,12 +66,7 @@ public class ManageServiceReceipt {
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtName).addComponent(txtMs).addComponent(txtId)
 						.addComponent(txtDate).addComponent(txtValue).addComponent(txtDebt).addComponent(txtRest)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(txtReader))
-								.addGap(5)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(ManageService.find))))
+						.addComponent(txtReader))
 				.addGap(0, 80, 80));
 		gl_details
 				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -79,7 +74,7 @@ public class ManageServiceReceipt {
 								.addComponent(lblId).addComponent(txtId))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblReader).addComponent(txtReader).addComponent(ManageService.find))
+								.addComponent(lblReader).addComponent(txtReader))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblName).addComponent(txtName))
@@ -104,7 +99,7 @@ public class ManageServiceReceipt {
 
 		// -----Details: Handle
 		detailsHandle = new javax.swing.JPanel();
-		detailsHandle.add(ManageService.collect);
+		detailsHandle.add(ManageService.save);
 		detailsHandle.add(ManageService.reset);
 		details.add(detailsHandle, java.awt.BorderLayout.SOUTH);
 
