@@ -22,38 +22,38 @@ public class ManageServiceReceipt {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên lai");
-		txtId = new javax.swing.JTextField(20);
+		txtId = new javax.swing.JTextField(15);
 		txtId.setEnabled(false);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField(20);
+		txtReader = new javax.swing.JTextField(15);
 		txtReader.setEnabled(false);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField(20);
+		txtName = new javax.swing.JTextField(15);
 		txtName.setEnabled(false);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField(20);
+		txtMs = new javax.swing.JTextField(15);
 		txtMs.setEnabled(false);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField(20);
+		txtDate = new javax.swing.JTextField(15);
 		txtDate.setEnabled(false);
 
 		lblValue = new javax.swing.JLabel("Tiền thu");
-		txtValue = new javax.swing.JTextField(20);
+		txtValue = new javax.swing.JTextField(15);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField(20);
+		txtPerson = new javax.swing.JTextField(15);
 		txtPerson.setEnabled(false);
 
 		lblDebt = new javax.swing.JLabel("Tiền nợ");
-		txtDebt = new javax.swing.JTextField(20);
+		txtDebt = new javax.swing.JTextField(15);
 		txtDebt.setEnabled(false);
 
 		lblRest = new javax.swing.JLabel("Còn lại");
-		txtRest = new javax.swing.JTextField(20);
+		txtRest = new javax.swing.JTextField(15);
 		txtRest.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);

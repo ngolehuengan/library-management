@@ -22,34 +22,34 @@ public class ManageServiceBorrow {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã phiếu");
-		txtId = new javax.swing.JTextField(20);
+		txtId = new javax.swing.JTextField(15);
 		txtId.setEnabled(false);
 
 		lblDcmCode = new javax.swing.JLabel("Mã độc giả");
-		txtDcmCode = new javax.swing.JTextField(20);
+		txtDcmCode = new javax.swing.JTextField(15);
 		txtDcmCode.setEnabled(false);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField(20);
+		txtName = new javax.swing.JTextField(15);
 		txtName.setEnabled(false);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField(20);
+		txtMs = new javax.swing.JTextField(15);
 		txtMs.setEnabled(false);
 
 		lblLoanDate = new javax.swing.JLabel("Ngày mượn");
-		txtLoanDate = new javax.swing.JTextField(20);
+		txtLoanDate = new javax.swing.JTextField(15);
 		txtLoanDate.setEnabled(false);
 
 		lblReturnDate = new javax.swing.JLabel("Ngày hẹn trả");
-		txtReturnDate = new javax.swing.JTextField(20);
+		txtReturnDate = new javax.swing.JTextField(15);
 
 		lblQuantity = new javax.swing.JLabel("Tổng số lượng");
-		txtQuantity = new javax.swing.JTextField(20);
+		txtQuantity = new javax.swing.JTextField(15);
 		txtQuantity.setEnabled(false);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField(20);
+		txtPerson = new javax.swing.JTextField(15);
 		txtPerson.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
