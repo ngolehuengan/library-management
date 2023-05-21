@@ -34,7 +34,6 @@ public class ReceiptSlip {
 		txtDate.setEnabled(false);
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 		lblPenalty = new javax.swing.JLabel("Tiền thu");
 		txtPenalty = new javax.swing.JTextField(20);
 		txtPenalty.setEnabled(false);
@@ -43,11 +42,6 @@ public class ReceiptSlip {
 		txtValue = new javax.swing.JTextField(20);
 		txtValue.setEnabled(false);
 >>>>>>> parent of 83dfa60 (dcm)
-=======
-		lblValue = new javax.swing.JLabel("Tiền thu");
-		txtValue = new javax.swing.JTextField(20);
-		txtValue.setEnabled(false);
->>>>>>> parent of b735660 (.)
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
 		txtPerson = new javax.swing.JTextField(20);
@@ -57,11 +51,11 @@ public class ReceiptSlip {
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPerson)
-						.addComponent(lblId).addComponent(lblReader).addComponent(lblDate).addComponent(lblValue))
+						.addComponent(lblId).addComponent(lblReader).addComponent(lblDate).addComponent(lblPenalty))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtId).addComponent(txtReader).addComponent(txtDate)
-						.addComponent(txtValue))
+						.addComponent(txtPenalty))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
@@ -74,7 +68,7 @@ public class ReceiptSlip {
 						.addComponent(lblDate).addComponent(txtDate))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblValue).addComponent(txtValue))
+						.addComponent(lblPenalty).addComponent(txtPenalty))
 				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPerson).addComponent(txtPerson)));
 		detailsInfo.setLayout(gl_details);
@@ -119,8 +113,8 @@ public class ReceiptSlip {
 	private static javax.swing.JTextField txtReader;
 	private static javax.swing.JLabel lblDate;
 	private static javax.swing.JTextField txtDate;
-	private static javax.swing.JLabel lblValue;
-	private static javax.swing.JTextField txtValue;
+	private static javax.swing.JLabel lblPenalty;
+	private static javax.swing.JTextField txtPenalty;
 	private static javax.swing.JLabel lblPerson;
 	private static javax.swing.JTextField txtPerson;
 	private static javax.swing.JPanel detailsHandle;

@@ -20,7 +20,6 @@ public class ManageService {
 		splitPane.setLeftComponent(menuSide);
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 		btnBorrow = new javax.swing.JButton("MƯỢN");
 		Handle.setColor(btnBorrow);
 		btnBorrow.setBackground(new java.awt.Color(0, 102, 0));
@@ -33,13 +32,6 @@ public class ManageService {
 
 		btnReturn = new javax.swing.JButton("TRẢ SÁCH");
 >>>>>>> parent of 83dfa60 (dcm)
-=======
-		btnBorrow = new javax.swing.JButton("MƯỢN SÁCH");
-		Handle.setColor(btnBorrow);
-		btnBorrow.setBackground(new java.awt.Color(0, 102, 0));
-
-		btnReturn = new javax.swing.JButton("TRẢ SÁCH");
->>>>>>> parent of b735660 (.)
 		Handle.setColor(btnReturn);
 
 		btnReceipt = new javax.swing.JButton("THU TIỀN");

@@ -23,17 +23,12 @@ public class Slip {
 		btnHistory.setBackground(new java.awt.Color(0, 102, 0));
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 		btnLoan = new javax.swing.JButton("MƯỢN");
-=======
-		btnLoan = new javax.swing.JButton("PHIẾU MƯỢN");
->>>>>>> parent of b735660 (.)
 		Handle.setColor(btnLoan);
 
-		btnPenalty = new javax.swing.JButton("PHIẾU PHẠT");
+		btnPenalty = new javax.swing.JButton("PHẠT");
 		Handle.setColor(btnPenalty);
 
-<<<<<<< HEAD
 		btnReceipt = new javax.swing.JButton("THU TIỀN");
 =======
 		btnLoan = new javax.swing.JButton("PHIẾU MƯỢN");
@@ -44,9 +39,6 @@ public class Slip {
 
 		btnReceipt = new javax.swing.JButton("PHIẾU THU TIỀN");
 >>>>>>> parent of 83dfa60 (dcm)
-=======
-		btnReceipt = new javax.swing.JButton("PHIẾU THU TIỀN");
->>>>>>> parent of b735660 (.)
 		Handle.setColor(btnReceipt);
 
 		menuSide.add(btnHistory);
