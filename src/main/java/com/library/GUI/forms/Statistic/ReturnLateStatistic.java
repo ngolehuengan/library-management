@@ -14,7 +14,7 @@ public class ReturnLateStatistic {
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
-				new String[] { "STT", "TÊN SÁCH", "SỐ NGÀY TRẢ TRỄ" }) {
+				new String[] { "STT", "TÊN TÀI LIỆU", "SỐ NGÀY TRẢ TRỄ" }) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
