@@ -1,0 +1,114 @@
+-- SET FOREIGN_KEY_CHECKS = ON;
+USE LIBRARY_MANAGEMENT;
+
+call SP_Account_Insert('admin', 'admin', 1);
+call SP_Account_Insert('nlhn', 'nlhn', 2);
+call SP_Account_Insert('ant', 'ant', 2);
+call SP_Account_Insert('tinhbaby', 'tinhbaby', 2);
+call SP_Account_Insert('thuy', 'thuy', 2);
+
+call SP_Department_Insert('');
+call SP_Department_Insert('Giáo dục Chính trị');
+call SP_Department_Insert('Giáo dục Mầm non');
+call SP_Department_Insert('Giáo dục Tiểu học');
+call SP_Department_Insert('Giáo dục Âm nhạc');
+call SP_Department_Insert('Giáo dục Địa lý');
+call SP_Department_Insert('Giáo dục Hóa học');
+call SP_Department_Insert('Giáo dục Khoa học tự nhiên');
+call SP_Department_Insert('Giáo dục Lịch sử');
+call SP_Department_Insert('Giáo dục Lịch sử - Địa lý');
+call SP_Department_Insert('Giáo dục Mỹ thuật');
+call SP_Department_Insert('Giáo dục Ngữ Văn');
+call SP_Department_Insert('Giáo dục Sinh học');
+call SP_Department_Insert('Giáo dục Tiếng Anh');
+call SP_Department_Insert('Giáo dục Toán học');
+call SP_Department_Insert('Giáo dục Vật lý');
+call SP_Department_Insert('CNKT Điện tử - Viễn thông');
+call SP_Department_Insert('CNKT Điện, Điện tử');
+call SP_Department_Insert('Công nghệ Kỹ thuật Môi trường');
+call SP_Department_Insert('Công nghệ Thông tin');
+call SP_Department_Insert('Du lịch');
+call SP_Department_Insert('Kế toán');
+call SP_Department_Insert('Khoa học Môi trường');
+call SP_Department_Insert('Kinh doanh Quốc tế');
+call SP_Department_Insert('Kỹ thuật Điện');
+call SP_Department_Insert('Kỹ thuật Điện tử - Viễn thông');
+call SP_Department_Insert('Kỹ thuật Phần mềm');
+call SP_Department_Insert('Luật');
+call SP_Department_Insert('Ngôn ngữ Anh');
+call SP_Department_Insert('Quản lý Giáo dục');
+call SP_Department_Insert('Quản trị Kinh doanh');
+call SP_Department_Insert('Quản trị Văn phòng');
+call SP_Department_Insert('Quốc tế học');
+call SP_Department_Insert('Tài chính - Ngân hàng');
+call SP_Department_Insert('Tâm lý học');
+call SP_Department_Insert('Thanh nhạc');
+call SP_Department_Insert('Thông tin - Thư viện');
+call SP_Department_Insert('Toán Ứng dụng');
+call SP_Department_Insert('Việt Nam học');
+
+INSERT INTO AUTHOR VALUES
+	(1,'Không rõ'),
+	(2,'Nguyễn Du'),
+	(3,'Tô Hoài'),
+	(4,'Ngô Tất Tố'),
+	(5,'Nguyễn Nhật Ánh')
+;
+
+INSERT INTO CATEGORY VALUES
+	(1,'Không rõ'),
+	(2,'Tiểu thuyết'),
+	(3,'Thơ'),
+	(4,'Truyện tranh')
+;
+
+INSERT INTO PUBLISHER VALUES
+	(1,'Không rõ'),
+	(2,'NXB Giáo dục Việt Nam'),
+	(3,'NXB Kim Đồng'),
+	(4,'NXB Hội nhà văn'),
+	(5,'NXB Trẻ'),
+	(6,'NXB Văn học'),
+	(7,'NXB Lao động'),
+	(8,'Nhã Nam'),
+	(9,'NXB Tổng hợp thành phố Hồ Chí Minh'),
+	(10,'NXB Chính trị quốc gia sự thật'),
+	(11,'NXB Thế giới')
+;
+
+INSERT INTO BOOK(isbn,title,publisher_id,publishing_year,description,image) 
+VALUES	(9786047796887,'Truyện Kiều',4,2021,	'Một trong những tác phẩm văn học lớn nhất của Việt Nam, kể về câu chuyện tình cảm của Kiều với Thúy Vân	.','');	
+INSERT INTO BOOK_AUTHOR VALUES (1,2);
+INSERT INTO BOOK_CATEGORY VALUES (1,3);
+
+
+INSERT INTO LIBRARIAN_INFO(librarian_id) VALUES (1);
+INSERT INTO READER_INFO(reader_id) VALUES (1);
+
+-- ----------------------------------------------------------------------------------------------------------------
+INSERT INTO IMPORT_RECORD(irc_date,total_price,total_quantity,librarian_id) 
+VALUES 	('2023-05-15',350,5,1),
+	   	('2023-05-16',800,10,1),
+	   	('2023-05-16',500,8,1)	
+;	
+
+INSERT INTO RELEASE_RECORD(rrc_date,total_quantity,librarian_id) 
+VALUES 	('2023-05-15',5,1),
+		('2023-05-16',10,1),
+		('2023-05-16',8,1)	
+;	
+
+INSERT INTO PENALTY_RECORD(prc_date,reader_id,content,solution,fine,librarian_id) 
+VALUES	('2023-05-15',1,'Làm hỏng ghế thư viện','Phạt tiền',100,1),
+		('2023-05-16',2,'Làm hỏng sách mượn tại chỗ','Mua đền',0,1),
+		('2023-05-17',3,'Cố ý phá hoại tài sản thư viện', 'Báo cáo lên trường xử phạt kỷ luật',0,1)
+;	
+
+INSERT INTO RECEIPT(receipt_date,reader_id,proceeds,librarian_id) 
+VALUES	('2023-05-15',1,100,1)
+;	
+
+INSERT INTO LOAN_SLIP(reader_id,borrow_date,appointment_date,borrow_quantity,librarian_id) 
+VALUES	(1,'2023-05-15','2023-05-22',3,1),
+		(2,'2023-05-16','2023-05-23',2,1)
+;	

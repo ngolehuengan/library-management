@@ -1,0 +1,867 @@
+-- DROP DATABASE LIBRARY_MANAGEMENT;
+CREATE DATABASE LIBRARY_MANAGEMENT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE LIBRARY_MANAGEMENT;
+-- hash password befor store
+
+CREATE TABLE ACCOUNT (
+    account_id INT AUTO_INCREMENT,
+    user_name VARCHAR(20) NOT NULL UNIQUE,
+    password_hash CHAR(64) NOT NULL,
+    role INT NOT NULL,
+    hide BOOLEAN,
+    PRIMARY KEY (account_id)
+);
+--  -- username là độc nhất
+--  -- account id được tạo tự động khi thêm một bản ghi thông qua identity(1,1) cho account id
+--  -- Xử lý tiền dữ liệu trước khi truyền dữ liệu vào
+--  -- Store produce SP_Account_Insert sẽ kiểm tra xem tên tài khoản đã tồn tại hay chưa 
+--  -- nếu tên tài khoản đã tồn tại sẽ trả về giá trị tên tài khoản
+--  -- nếu tên tài chưa tồn tại sẽ tiến hành thêm dữ liệu vào cơ sở dữ liệu
+--  -- cách dùng như một dòng insert thông thường id sẽ được đánh số tự động
+--  -- ví dụ exec insert_account @user_name = "account",@password = "111",@role ="1"
+
+DELIMITER $$
+CREATE procedure SP_Account_Insert (user_name varchar(20),password_hash char(64),role int)
+begin
+	INSERT INTO ACCOUNT(user_name,password_hash,role,hide) VALUES(user_name,password_hash,role,false);
+    SELECT LAST_INSERT_ID();
+END $$
+DELIMITER ;
+-- 
+
+-- 
+
+DELIMITER $$
+CREATE PROCEDURE SP_Account_UpdateAccount(user_name varchar(20),new_password_hash char(64),role int)
+begin 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM ACCOUNT WHERE ACCOUNT.account_id = account_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+	UPDATE ACCOUNT
+	SET 
+		ACCOUNT.password_hash = new_password_hash,
+		ACCOUNT.role = role
+	WHERE 
+		ACCOUNT.user_name = user_name;
+	SELECT RETURN_VALUE;
+end $$
+DELIMITER ;
+-- 
+
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Account_UpdateHide(user_name varchar(20),hide_value boolean)
+begin 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM ACCOUNT WHERE ACCOUNT.account_id = account_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+	UPDATE ACCOUNT
+	SET 
+		ACCOUNT.hide = hide_value
+	WHERE 
+		ACCOUNT.user_name = user_name ;
+	SELECT RETURN_VALUE;
+end $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Account_Delete(user_name varchar(20))
+begin 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM ACCOUNT WHERE ACCOUNT.account_id = account_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+	DELETE FROM ACCOUNT
+	WHERE ACCOUNT.user_name = user_name;
+	SELECT RETURN_VALUE;
+end $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Account_Select(role int)
+BEGIN
+	SELECT user_name,pass_word_hash FROM  ACCOUNT
+	WHERE ACCOUNT.role = role;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Account_Login(userName_input varchar(50),password_hash_input char(64))
+BEGIN 
+	DECLARE RETURN_VALUE INT;
+	SET RETURN_VALUE = 0;
+	IF NOT EXISTS (SELECT * FROM ACCOUNT WHERE ACCOUNT.user_name = userName_input AND password_hash = password_hash_input AND ACCOUNT.hide = 0)
+	THEN
+        SELECT RETURN_VALUE;
+	END IF;
+	SELECT account_id,role FROM ACCOUNT WHERE user_name = userName_input;
+END $$	
+DELIMITER ;
+
+-- THONG TIN CAN BAN-- 
+CREATE TABLE USER_INFO(
+	citizenID varchar(12), 
+    fullName varchar(50) not null,
+    birthday Date not null,
+    isMale boolean not null,
+    phoneNumber varchar(10),
+    address varchar(100),
+	email varchar(50),
+    PRIMARY KEY(citizenID)
+);
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_UserINFO_Insert(citizen_id varchar(12), 
+                                    full_name varchar(50), 
+                                    birthday date, 
+                                    is_male boolean, 
+                                    phone_number varchar(10), 
+                                    address varchar(100),
+                                    email varchar(50))
+BEGIN 
+	INSERT INTO USER_INFO(citizenID, fullName, birthday, isMale, phoneNumber, address, email) 
+	VALUES (citizen_id, full_name, birthday, is_male, phone_number, address, email);
+    SELECT citizen_ID;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_UserINFO_Update(citizen_id varchar(12), 
+                                    full_name varchar(50), 
+                                    birthday date,
+                                    is_male boolean,
+                                    phone_number varchar(10),
+                                    address varchar(100), 
+                                    email varchar(50))
+BEGIN 	
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM USER_INFO WHERE citizenID = citizen_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+	UPDATE USER_INFO
+		SET fullName = full_name, birthday = birthday, isMale = is_male, phoneNumber = phone_number, address = address, email = email
+    	WHERE citizenID = citizen_id; 
+    SELECT RETURN_VALUE;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_UserINFO_Delete(citizen_id varchar(12)) 
+BEGIN 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM USER_INFO WHERE citizenID = citizen_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+	DELETE FROM USER_INFO WHERE citizenID = citizen_id;
+    SELECT RETURN_VALUE;
+
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+
+DELIMITER ;
+-- 
+DELIMITER $$
+
+DELIMITER ;
+-- 
+-- KHOA-- 
+CREATE TABLE DEPARTMENT_INFO (
+	department_id int AUTO_INCREMENT,
+	departmentName varchar(50),
+    PRIMARY KEY(department_id)
+);
+
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Department_Insert(department_name varchar(50)) 
+BEGIN
+	INSERT INTO DEPARTMENT_INFO (departmentName) VALUES (department_name);
+
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Department_Update(department_id int, department_name varchar(50))
+BEGIN 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM USER_INFO WHERE citizenID = citizen_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+    UPDATE DEPARTMENT_INFO 
+	SET departmentName = department_name WHERE department_id = department_id; 
+    SELECT RETURN_VALUE;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Department_Delete(department_id int) 
+BEGIN 
+	DELETE FROM DEPARTMENT_INFO WHERE department_id = department_id; 
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+
+DELIMITER ;
+-- 
+CREATE TABLE CLASS_INFO(
+    class_id int AUTO_INCREMENT,
+    className varchar(10) ,
+    PRIMARY KEY(class_id)
+);
+
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Class_Insert(class_Name varchar(10)) 
+BEGIN
+	INSERT INTO CLASS_INFO (className) VALUES (class_name);
+END $$
+DELIMITER ;
+-- THU THU-- 
+CREATE TABLE LIBRARIAN_INFO(
+	librarian_id int AUTO_INCREMENT,
+	citizenID varchar(12),
+	account_id int,
+	CONSTRAINT FK_LIB_CITIZEN_ID FOREIGN KEY (citizenID) REFERENCES USER_INFO(citizenID) ON UPDATE CASCADE,
+	CONSTRAINT FK_LIB_ACCOUNT_ID FOREIGN KEY (account_id) REFERENCES ACCOUNT(account_id) ON UPDATE CASCADE,
+    PRIMARY KEY(librarian_id)
+);
+DELIMITER $$
+CREATE PROCEDURE SP_Librarian_Insert(citizen_id varchar(12), account_id int)
+BEGIN 
+	INSERT INTO LIBRARIAN_INFO (citizenID, account_id) VALUES (citizen_id, account_id);
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Librarian_Update(librarian_id INT, citizen_id varchar(12), account_id int)
+BEGIN 
+    DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM USER_INFO WHERE citizenID = citizen_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+    UPDATE LIBRARIAN_INFO 
+	SET citizenID = citizen_id, account_id = account_id WHERE librarian_id = librarian_id; 
+    SELECT RETURN_VALUE;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Librarian_Delete(librarian_id int) 
+BEGIN
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM USER_INFO WHERE citizenID = citizen_id)
+	THEN
+		SET RETURN_VALUE = FALSE;
+	END IF;
+	DELETE FROM LIBRARIAN_INFO WHERE librarian_id = librarian_id;
+    SELECT RETURN_VALUE;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+
+DELIMITER ;
+-- 
+DELIMITER $$
+
+DELIMITER ;
+
+
+CREATE TABLE READER_INFO(
+	reader_id int AUTO_INCREMENT,
+	classify int,
+	registrationDate Date,
+	duration  int,
+	ExpirationDate Date,
+    citizenID varchar(12),
+    total_debt double,
+	hide boolean,
+    CONSTRAINT FK_READER_CITIZEN_ID FOREIGN KEY (citizenID) REFERENCES USER_INFO(citizenID) ON UPDATE CASCADE,
+    PRIMARY KEY(reader_id)
+);
+
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Reader_Insert(classify int,citizenID varchar(12),duration int)
+BEGIN 
+	DECLARE today  date ;
+	DECLARE ExpirationDate date; 
+    SET today = CURDATE();
+    SET ExpirationDate = DATE_ADD(today, INTERVAL duration YEAR);
+	INSERT INTO READER_INFO(classify, registrationDate, duration, ExpirationDate, citizenID,total_debt, hide)
+    VALUES (classify, today, duration, ExpirationDate, citizenID,0,false);
+	SELECT LAST_INSERT_ID();
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_Reader_Update(readerID int,citizen_ID varchar(12),Duration int,totalDebt double)
+BEGIN 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = -1;
+	IF NOT EXISTS (SELECT * FROM READER_INFO WHERE READER_INFO.reader_id = readerID) THEN
+		SET RETURN_VALUE = -1;
+	ELSE
+	    UPDATE READER_INFO
+	    SET 
+        ExpirationDate = DATE_ADD(registrationDate, INTERVAL Duration YEAR),
+        duration = Duration,
+        total_debt = totalDebt
+	    WHERE reader_id = readerID;
+        
+        UPDATE USER_INFO
+        SET 
+        citizenID = citizen_ID
+        WHERE EXISTS (SELECT citizenID FROM READER_INFO WHERE READER_INFO.reader_id = readerID);
+	END IF;
+	SELECT readerID;
+END $$
+DELIMITER ;
+-- 
+DELIMITER $$
+CREATE PROCEDURE SP_READER_UpdateHide(readerID int, hide_value boolean)
+BEGIN 
+	DECLARE RETURN_VALUE BOOLEAN;
+	SET RETURN_VALUE = TRUE;
+	IF NOT EXISTS (SELECT * FROM READER_INFO WHERE READER_INFO.reader_id = readerID) THEN
+		SET RETURN_VALUE = FALSE;
+	ELSE
+	    UPDATE READER_INFO
+	    SET hide = hide_value
+	    WHERE reader_id = readerID;
+	END IF;
+	SELECT RETURN_VALUE;
+END $$
+DELIMITER ;
+-- 
+
+DELIMITER $$
+
+DELIMITER ;
+-- 
+DELIMITER $$
+
+DELIMITER ;
+
+CREATE TABLE LECTURER_INFO(
+    reader_id int,
+	lecturer_id varchar(10),
+    PRIMARY KEY(lecturer_id),
+	department_id int,
+	CONSTRAINT FK_READER_ID FOREIGN KEY (reader_id) REFERENCES READER_INFO(reader_id) ON UPDATE CASCADE,
+	CONSTRAINT FK_LEC_DEPARTMENT_ID FOREIGN KEY (department_id) REFERENCES DEPARTMENT_INFO(department_id) ON UPDATE CASCADE
+ );
+ 
+DELIMITER $$
+CREATE PROCEDURE SP_Lecturer_Insert(p_reader_id int,
+                                   p_lecturer_id VARCHAR(10),
+                                   p_department_name varchar(50))
+BEGIN 
+	DECLARE departmentID int;
+	IF NOT EXISTS(SELECT * FROM DEPARTMENT_INFO WHERE departmentName = p_department_name) THEN 
+    	CALL SP_Department_Insert(p_department_name);
+    END IF;
+    SELECT department_id INTO departmentID FROM DEPARTMENT_INFO WHERE departmentName = p_department_name;
+    INSERT INTO LECTURER_INFO (reader_id, lecturer_id, department_id) VALUES (p_reader_id, p_lecturer_id, departmentID);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE SP_Lecturer_Update(p_reader_id int,
+                                   p_lecturer_id VARCHAR(10),
+                                   department_name varchar(50))
+BEGIN 
+	DECLARE departmentID int;
+    IF NOT EXISTS(SELECT * FROM DEPARTMENT_INFO WHERE departmentName = department_Name) THEN
+        CALL SP_Department_Insert(department_Name);
+   	END IF;
+    SELECT department_id INTO departmentID FROM DEPARTMENT_INFO WHERE departmentName = department_Name; 
+	UPDATE LECTURER_INFO
+    SET 
+    	lecturer_id = p_lecturer_id,
+        department_id = departmentID
+    WHERE reader_id = p_reader_id;
+END $$
+DELIMITER ;
+
+CREATE TABLE STUDENT_INFO(
+	student_id varchar(10) PRIMARY KEY,
+	class_id int,
+	department_id int,
+	reader_id int,
+    CONSTRAINT FK_STD_CLASS_ID FOREIGN KEY (class_id) REFERENCES CLASS_INFO (class_id) ON UPDATE CASCADE,
+	CONSTRAINT FK_STD_READER_ID FOREIGN KEY (reader_id) REFERENCES READER_INFO(reader_id) ON UPDATE CASCADE,
+	CONSTRAINT FK_STD_DEPARTMENT_ID FOREIGN KEY (department_id) REFERENCES DEPARTMENT_INFO(department_id) ON UPDATE CASCADE
+);
+
+DELIMITER $$
+CREATE PROCEDURE SP_Student_Insert(
+    IN reader_id INT,
+    IN studentID VARCHAR(10),
+    IN department_Name VARCHAR(50),
+    IN class_Name VARCHAR(10)
+)
+BEGIN
+    DECLARE departmentID INT;
+    DECLARE classID INT;
+    IF NOT EXISTS(SELECT * FROM DEPARTMENT_INFO WHERE departmentName = department_Name) THEN
+        CALL SP_Department_Insert(department_Name);
+    END IF;
+    IF NOT EXISTS(SELECT * FROM CLASS_INFO WHERE className = class_Name) THEN
+        CALL SP_Class_Insert(class_Name);
+    END IF;
+    SELECT department_id INTO departmentID FROM DEPARTMENT_INFO WHERE departmentName = department_Name;
+    SELECT class_id INTO classID FROM CLASS_INFO WHERE className = class_Name;
+    INSERT INTO STUDENT_INFO(student_id, class_id, department_id, reader_id)
+    VALUES (studentID, classID, departmentID, reader_id);
+END $$
+DELIMITER ;
+DELIMITER $$
+CREATE PROCEDURE SP_Student_Update(p_reader_id int,
+                                   studentID VARCHAR(10),
+						class_Name varchar(10),
+                                   department_name varchar(50))
+BEGIN 
+	DECLARE departmentID int;
+	DECLARE classID int;
+    IF NOT EXISTS(SELECT * FROM DEPARTMENT_INFO WHERE departmentName = department_Name) THEN
+        CALL SP_Department_Insert(department_Name);
+   	END IF;
+    IF NOT EXISTS(SELECT * FROM CLASS_INFO WHERE className = class_Name) THEN
+        CALL SP_Class_Insert(class_Name);
+   	END IF;
+	SELECT class_id INTO classID FROM CLASS_INFO WHERE className = class_Name;
+    SELECT department_id INTO departmentID FROM DEPARTMENT_INFO WHERE departmentName = department_Name; 
+	UPDATE STUDENT_INFO
+    SET 
+	student_id = studentID,
+	class_id = classID,
+	department_id = departmentID
+    WHERE reader_id = p_reader_id;
+END $$
+DELIMITER ;
+
+
+
+-- 1 --
+CREATE TABLE AUTHOR(
+	author_id int not null AUTO_INCREMENT,
+	author_name varchar(50) DEFAULT '',
+	PRIMARY KEY(author_id)
+);
+
+-- 2 --
+CREATE TABLE CATEGORY(
+	category_id int not null AUTO_INCREMENT,
+	category_name varchar(50) DEFAULT '',
+	PRIMARY KEY(category_id)
+);
+
+-- 3 --
+CREATE TABLE PUBLISHER(
+	publisher_id int not null AUTO_INCREMENT,
+	publisher_name varchar(50) DEFAULT '',
+	PRIMARY KEY(publisher_id)
+);
+
+-- 4 --
+CREATE TABLE SPECIALIZED(
+	spcl_id int not null AUTO_INCREMENT,
+	spcl_code varchar(13),
+	spcl_name varchar(50) DEFAULT '',
+	PRIMARY KEY(spcl_id)
+);
+
+CREATE TABLE DOCUMENT (
+    dcm_code VARCHAR(10) PRIMARY KEY,
+    type VARCHAR(50)
+);
+
+
+CREATE TABLE BOOK (
+    book_id INT AUTO_INCREMENT,
+    dcm_code VARCHAR(10),
+    isbn VARCHAR(13) UNIQUE NOT NULL,
+    title VARCHAR(100) DEFAULT '',
+    publisher_id INT DEFAULT 1,
+    publishing_year INT DEFAULT 2021,
+    description TEXT,
+    image VARCHAR(255) DEFAULT '',
+    existing_logic BOOLEAN DEFAULT TRUE,
+    primary key (book_id),
+    CONSTRAINT FK_BK_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE,
+    CONSTRAINT FK_BK_PUBLISHER_ID FOREIGN KEY (publisher_id) REFERENCES PUBLISHER(publisher_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE BOOK_CATEGORY (
+    book_id INT,
+    category_id INT,
+    PRIMARY KEY (book_id, category_id),
+    CONSTRAINT FK_BC_BOOK_ID FOREIGN KEY (book_id) REFERENCES BOOK(book_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_BC_CATEGORY_ID FOREIGN KEY (category_id) REFERENCES CATEGORY(category_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE BOOK_AUTHOR (
+    book_id INT,
+    author_id INT,
+    PRIMARY KEY (book_id, author_id),
+    CONSTRAINT FK_BA_BOOK_ID FOREIGN KEY (book_id) REFERENCES BOOK(book_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_BA_AUTHOR_ID FOREIGN KEY (author_id) REFERENCES AUTHOR(author_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE COPY (
+    copy_id INT PRIMARY KEY AUTO_INCREMENT,
+    dcm_code VARCHAR(10),
+    title VARCHAR(100) DEFAULT '',
+    publishing_year INT DEFAULT 2021,
+    description TEXT,
+    image VARCHAR(255) DEFAULT '',
+    CONSTRAINT FK_CP_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE,
+    existing_logic BOOLEAN
+);
+
+CREATE TABLE COPY_CATEGORY (
+    copy_id INT,
+    category_id INT,
+    PRIMARY KEY (copy_id, category_id),
+    CONSTRAINT FK_CC_COPY_ID FOREIGN KEY (copy_id) REFERENCES COPY(copy_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_CC_CATEGORY_ID FOREIGN KEY (category_id) REFERENCES CATEGORY(category_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE COPY_AUTHOR (
+    copy_id INT,
+    author_id INT,
+    PRIMARY KEY (copy_id, author_id),
+    CONSTRAINT FK_CA_COPY_ID FOREIGN KEY (copy_id) REFERENCES COPY(copy_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_CA_AUTHOR_ID FOREIGN KEY (author_id) REFERENCES AUTHOR(author_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE THESES (
+    theses_id INT PRIMARY KEY AUTO_INCREMENT,
+    dcm_code VARCHAR(10),
+    title VARCHAR(100) DEFAULT '',
+    spcl_id INT DEFAULT 1,
+    defense_year INT DEFAULT 2023,
+    description TEXT,
+    image VARCHAR(255) DEFAULT '',
+    existing_logic BOOLEAN DEFAULT TRUE,
+    CONSTRAINT FK_TH_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE,
+    CONSTRAINT FK_TH_SPCL_ID FOREIGN KEY (spcl_id) REFERENCES SPECIALIZED(spcl_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE THESES_AUTHOR (
+    theses_id INT,
+    author_id INT,
+    PRIMARY KEY (theses_id, author_id),
+    CONSTRAINT FK_TA_THESES_ID FOREIGN KEY (theses_id) REFERENCES THESES(theses_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_TA_AUTHOR_ID FOREIGN KEY (author_id) REFERENCES AUTHOR(author_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE OTHER (
+    other_id INT PRIMARY KEY AUTO_INCREMENT,
+    dcm_code VARCHAR(10),
+    title VARCHAR(100) DEFAULT '',
+    description TEXT,
+    image VARCHAR(255) DEFAULT '',
+    existing_logic BOOLEAN DEFAULT TRUE,
+    CONSTRAINT FK_OT_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE
+);
+
+
+CREATE TABLE LIBRARY_RESOURCE (
+    rs_id INT PRIMARY KEY AUTO_INCREMENT,
+    dcm_code VARCHAR(10),
+    price DOUBLE DEFAULT 0,
+    total_quantity INT DEFAULT 0,
+    available_quantity INT,
+    borrowable_logic BOOLEAN DEFAULT TRUE,
+    existing_logic BOOLEAN DEFAULT TRUE,
+    CONSTRAINT FK_LR_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE
+);
+
+CREATE TABLE IMPORT_RECORD (
+    irc_id INT PRIMARY KEY AUTO_INCREMENT,
+    irc_date DATE DEFAULT (CURRENT_DATE),
+    irc_code VARCHAR(20),
+    total_price DOUBLE,
+    total_quantity INT,
+    librarian_id INT NOT NULL,
+    CONSTRAINT FK_IR_LBRN_ID FOREIGN KEY (librarian_id) REFERENCES LIBRARIAN_INFO(librarian_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE IMPORT_DETAIL (
+    irc_id INT,
+    dcm_code VARCHAR(10),
+    price DOUBLE DEFAULT 0,
+    quantity INT DEFAULT 0,
+    PRIMARY KEY (irc_id, dcm_code),
+    CONSTRAINT FK_ID_IRC_ID FOREIGN KEY (irc_id) REFERENCES IMPORT_RECORD(irc_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_ID_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE
+);
+
+CREATE TABLE RELEASE_RECORD (
+    rrc_id INT PRIMARY KEY AUTO_INCREMENT,
+    rrc_date DATE  DEFAULT (CURRENT_DATE),
+    rrc_code VARCHAR(20),
+    total_quantity INT DEFAULT 0,
+    librarian_id INT NOT NULL,
+    CONSTRAINT FK_RR_LBRN_ID FOREIGN KEY (librarian_id) REFERENCES LIBRARIAN_INFO(librarian_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE RELEASE_DETAIL (
+    rrc_id INT,
+    dcm_code VARCHAR(10),
+    quantity INT DEFAULT 0,
+    PRIMARY KEY (rrc_id, dcm_code),
+    CONSTRAINT FK_RD_RRC_ID FOREIGN KEY (rrc_id) REFERENCES RELEASE_RECORD(rrc_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_RD_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE
+);
+
+CREATE TABLE LOAN_SLIP (
+    ls_id INT,
+    ls_code VARCHAR(20),
+    reader_id INT NOT NULL,
+    borrow_date DATE DEFAULT (CURRENT_DATE),
+    appointment_date DATE DEFAULT (CURRENT_DATE()+7),
+    borrow_quantity INT DEFAULT 0,
+    return_quantity INT DEFAULT 0,
+    librarian_id INT NOT NULL,
+    PRIMARY KEY (ls_id),
+    CONSTRAINT FK_LS_READER_ID FOREIGN KEY (reader_id) REFERENCES READER_INFO(reader_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_LS_LBRN_ID FOREIGN KEY (librarian_id) REFERENCES LIBRARIAN_INFO(librarian_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE LOAN_DOCUMENT (
+    ld_id INT PRIMARY KEY AUTO_INCREMENT,
+    ls_id int NOT NULL,
+    dcm_code VARCHAR(10) NOT NULL,
+    appointment_date DATE,
+    return_date DATE,
+    fine DOUBLE DEFAULT 0,
+    adjourned_logic BOOLEAN DEFAULT FALSE,
+    librarian_id INT NOT NULL,
+    CONSTRAINT FK_LOAN_SLIP_CODE FOREIGN KEY(ls_id) REFERENCES LOAN_SLIP(ls_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_LD_DCM_CODE FOREIGN KEY (dcm_code) REFERENCES DOCUMENT(dcm_code) ON UPDATE CASCADE,
+    CONSTRAINT FK_LD_LBRN_ID FOREIGN KEY (librarian_id) REFERENCES LIBRARIAN_INFO(librarian_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE PENALTY_RECORD (
+    prc_id INT PRIMARY KEY AUTO_INCREMENT,
+    prc_date DATE DEFAULT (CURRENT_DATE),
+    prc_code VARCHAR(20),
+    reader_id INT NOT NULL,
+    content TEXT,
+    solution TEXT,
+    fine DOUBLE DEFAULT 0,
+    librarian_id INT NOT NULL,
+    CONSTRAINT FK_PR_READER_ID FOREIGN KEY (reader_id) REFERENCES READER_INFO(reader_id) ON UPDATE CASCADE,
+    CONSTRAINT FK_PR_LBRN_ID FOREIGN KEY (librarian_id) REFERENCES LIBRARIAN_INFO(librarian_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE RECEIPT (
+    receipt_id INT PRIMARY KEY AUTO_INCREMENT,
+    receipt_date DATE DEFAULT (CURRENT_DATE),
+    receipt_code VARCHAR(20),
+    reader_id INT NOT NULL,
+    proceeds DOUBLE DEFAULT 0,
+    librarian_id INT NOT NULL,
+    CONSTRAINT FK_RPT_READER_ID FOREIGN KEY (reader_id)
+        REFERENCES READER_INFO (reader_id)
+        ON UPDATE CASCADE,
+    CONSTRAINT FK_RPT_LBRN_ID FOREIGN KEY (librarian_id)
+        REFERENCES LIBRARIAN_INFO (librarian_id)
+        ON UPDATE CASCADE
+);
+
+
+DELIMITER $$
+CREATE PROCEDURE SP_Find_Reader(conditon VARCHAR(255))
+BEGIN
+SELECT r.reader_id ,r.classify ,r.registrationDate ,r.ExpirationDate ,r.total_debt,
+u.fullName,u.Address,u.Birthday,u.citizenID,u.isMale,u.phoneNumber,u.email,
+l.lecturer_id,d.departmentName,s.student_id,c.className
+FROM READER_INFO  r
+	INNER JOIN USER_INFO u
+    ON u.citizenID = r.citizenID
+    LEFT JOIN STUDENT_INFO s
+    ON s.reader_id = r.reader_id
+    LEFT JOIN LECTURER_INFO l 
+    ON l.reader_id = r.reader_id
+    LEFT JOIN DEPARTMENT_INFO d
+    ON d.department_id = s.department_id or d.department_id = l.department_id
+    LEFT JOIN CLASS_INFO c
+    ON c.class_id = s.class_id
+    WHERE r.hide = 0 AND  IF(conditon IS NOT NULL, (r.reader_id LIKE CONCAT('%', conditon, '%')
+						OR u.fullName LIKE CONCAT('%', conditon, '%')
+						OR s.student_id LIKE CONCAT('%', conditon, '%')
+						OR l.lecturer_id LIKE CONCAT('%',conditon, '%')
+						OR r.registrationDate LIKE CONCAT('%',conditon, '%')
+						OR r.ExpirationDate LIKE CONCAT('%',conditon, '%')
+						OR d.departmentName LIKE CONCAT('%', conditon, '%')), 1)
+			 OR
+        			(conditon LIKE '%Giảng Viên%' AND r.classify = 1)
+       		 OR
+     				(conditon LIKE '%Sinh Viên%' AND r.classify = 2);
+						
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE SP_Reader_UpdateTotalDebt(reader_id int,fine double)
+BEGIN
+	UPDATE READER_INFO 
+    SET total_debt = total_debt + fine
+    WHERE READER_INFO.reaer_id = reader_id;
+END $$
+DELIMITER ; 
+
+DELIMITER $$
+CREATE PROCEDURE SP_Reader_Delete(readerID int)
+BEGIN 
+	DECLARE citizen_ID varchar(12);
+	DELETE FROM STUDENT_INFO
+    WHERE EXIsTS(SELECT reader_id FROM STUDENT_INFO WHERE reader_id = readerID);
+    DELETE FROM LECTURER_INFO
+    WHERE EXISTS(SELECT reader_id FROM LECTURER_INFO WHERE reader_id = readerID);
+    SET citizen_ID = (SELECT citizenID FROM USER_INFO WHERE reader_id = readerID);
+    DELETE FROM READER
+    WHERE reader_id = readerID;
+    DELETE FROM USER_INFO
+    WHERE citizenID = citizen_ID;
+END $$
+DELIMITER ; 
+
+DELIMITER $$
+CREATE TRIGGER BOOK_CODE
+	BEFORE INSERT ON BOOK
+	FOR EACH ROW
+BEGIN
+    DECLARE ID INT;
+    DECLARE code varchar(10);
+    SET ID = LAST_INSERT_ID() + 1;
+    SET code = CONCAT("BK",LPAD(ID, 5, '0'));
+    INSERT INTO DOCUMENT(dcm_code,type) VALUES (code,"Book");
+    SET NEW.dcm_code = code;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER COPY_CODE 
+	BEFORE INSERT ON COPY 
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET code = CONCAT("CP",LPAD(ID, 5, '0'));
+    	INSERT INTO DOCUMENT(dcm_code,type) VALUES (code,"Copy");
+    	SET NEW.dcm_code = code;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER THESES_CODE
+	BEFORE INSERT ON THESES
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET code = CONCAT("TH",LPAD(ID, 5, '0'));
+    	INSERT INTO DOCUMENT(dcm_code,type) VALUES (code,"Theses");
+    	SET NEW.dcm_code = code;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER OTHER_CODE
+	BEFORE INSERT ON OTHER
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET code = CONCAT("OT",LPAD(ID, 5, '0'));
+    	INSERT INTO DOCUMENT(dcm_code,type) VALUES (code,"Other");
+    	SET NEW.dcm_code = code;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER IMPORT_RECORD_CODE 
+	BEFORE INSERT ON IMPORT_RECORD
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET NEW.irc_code = CONCAT("IP",LPAD(ID, 5, '0'));
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER RELEASE_RECORD_CODE 
+	BEFORE INSERT ON RELEASE_RECORD
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET NEW.rrc_code = CONCAT("RL",LPAD(ID, 5, '0'));
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER LOAN_SHIP_CODE
+	BEFORE INSERT ON LOAN_SLIP
+	FOR EACH ROW 
+BEGIN DECLARE ID INT;
+	SET ID = LAST_INSERT_ID();
+	SET NEW.ls_code = CONCAT("BR",LPAD(ID, 5, '0'));
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER RECEIPT_CODE
+	BEFORE INSERT ON RECEIPT
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET NEW.receipt_code = CONCAT("RC",LPAD(ID, 5, '0'));
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER PENALTY_CODE
+	BEFORE INSERT ON PENALTY_RECORD
+	FOR EACH ROW 
+BEGIN 
+	DECLARE ID INT;
+    	DECLARE code varchar(10);
+    	SET ID = LAST_INSERT_ID() + 1;
+    	SET NEW.prc_code = CONCAT("PT",LPAD(ID, 5, '0'));
+END $$
+DELIMITER ;
+

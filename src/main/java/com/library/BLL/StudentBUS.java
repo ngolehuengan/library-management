@@ -1,7 +1,5 @@
 package main.java.com.library.BLL;
 
-import java.util.ArrayList;
-
 import main.java.com.library.DAL.MyConnectUnit;
 import main.java.com.library.DAL.StudentDAL;
 import main.java.com.library.DTO.Reader;
@@ -22,13 +20,4 @@ public class StudentBUS {
         StudentDAL.updateStudent(reader,student);
         return 0;
     }
-    public static ArrayList checkStudent(String studentID, String className, String departmentName) {
-        ArrayList<Integer> wrongList = new ArrayList<Integer>();
-        if(studentID.length() != 10 || studentID.isEmpty()) wrongList.add(1);
-        if(className.length() >10 || className.isEmpty()) wrongList.add(2);
-        if(departmentName.length() > 50 ) wrongList.add(3);
-
-        return wrongList;
-    }
-    
 }

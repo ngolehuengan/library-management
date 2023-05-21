@@ -14,7 +14,7 @@ public class ConnectDB {
     private final String database = "LIBRARY_MANAGEMENT";
     private final String url = "jdbc:mysql://" + server + ":" + port + "/" + database;
     private final String username = "root";
-    private final String password = "";
+    private final String password = "qltv@1234";
     protected Connection conn;
 
 // -----------------------------------------------------------------------------
