@@ -75,22 +75,11 @@ public class Statistic {
 		handle.setBackground(new java.awt.Color(204, 255, 204));
 		handle.setLayout(new java.awt.BorderLayout(0, 0));
 
-		handleBase = new javax.swing.JPanel();
-		handleBase.setBackground(new java.awt.Color(204, 255, 204));
-		handle.add(handleBase, java.awt.BorderLayout.WEST);
-
-		search = Handle.getSearch(search);
-		searchField = new javax.swing.JTextField(15);
-
-		handleBase.add(searchField);
-		handleBase.add(search);
-
 		handleOpt = new javax.swing.JPanel();
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
 		print = Handle.getPrint(print);
-
 		handleOpt.add(print);
 		
 		view = Handle.getView(view);
@@ -107,10 +96,7 @@ public class Statistic {
 	private static javax.swing.JPanel pnlCards;
 
 	private static javax.swing.JPanel handle;
-	private static javax.swing.JPanel handleBase;
 	private static javax.swing.JPanel handleOpt;
-	public static javax.swing.JButton search;
-	public static javax.swing.JTextField searchField;
 	public static javax.swing.JButton print;
 	public static javax.swing.JButton view;
 	public static javax.swing.JButton find;

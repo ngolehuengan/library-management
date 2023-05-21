@@ -27,26 +27,30 @@ public class FavorStatistic {
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
 
-		tableDate = new javax.swing.JPanel();
-		tableDate.setBackground(new java.awt.Color(204, 255, 204));
-		tableHandle.add(tableDate, java.awt.BorderLayout.WEST);
-		lblDate = new javax.swing.JLabel("Tháng: ");
-		txtDate = new javax.swing.JTextField(10);
-		tableDate.add(lblDate);
-		tableDate.add(txtDate);
+		tableMonth = new javax.swing.JPanel();
+		tableMonth.setBackground(new java.awt.Color(204, 255, 204));
+		tableHandle.add(tableMonth, java.awt.BorderLayout.WEST);
+		lblMonth = new javax.swing.JLabel("Tháng: ");
+		txtMonth = new javax.swing.JTextField(2);
+		lblYear = new javax.swing.JLabel("/");
+		txtYear = new javax.swing.JTextField(4);
+		tableMonth.add(lblMonth);
+		tableMonth.add(txtMonth);
+		tableMonth.add(lblYear);
+		tableMonth.add(txtYear);
 		
 		tableBtn = new javax.swing.JPanel();
 		tableBtn.setBackground(new java.awt.Color(204, 255, 204));
 		tableHandle.add(tableBtn, java.awt.BorderLayout.CENTER);
 		tableBtn.add(Statistic.view);
 		
-		tableSum = new javax.swing.JPanel();
-		tableSum.setBackground(new java.awt.Color(204, 255, 204));
-		tableHandle.add(tableSum, java.awt.BorderLayout.EAST);
-		lblSum = new javax.swing.JLabel("Tổng số lượt mượn: ");
-		txtSum = new javax.swing.JTextField(10);
-		tableSum.add(lblSum);
-		tableSum.add(txtSum);
+		tableTotal = new javax.swing.JPanel();
+		tableTotal.setBackground(new java.awt.Color(204, 255, 204));
+		tableHandle.add(tableTotal, java.awt.BorderLayout.EAST);
+		lblTotal = new javax.swing.JLabel("Tổng số lượt mượn: ");
+		txtTotal = new javax.swing.JTextField(10);
+		tableTotal.add(lblTotal);
+		tableTotal.add(txtTotal);
 	}
 
 	// Private
@@ -54,11 +58,13 @@ public class FavorStatistic {
 	private static javax.swing.JScrollPane scrollPane;
 	private static javax.swing.JTable table;
 	private static javax.swing.JPanel tableHandle;
-	private static javax.swing.JPanel tableDate;
-	private static javax.swing.JLabel lblDate;
-	private static javax.swing.JTextField txtDate;
+	private static javax.swing.JPanel tableMonth;
+	private static javax.swing.JLabel lblMonth;
+	private static javax.swing.JTextField txtMonth;
+	private static javax.swing.JLabel lblYear;
+	private static javax.swing.JTextField txtYear;
 	private static javax.swing.JPanel tableBtn;
-	private static javax.swing.JPanel tableSum;
-	private static javax.swing.JLabel lblSum;
-	private static javax.swing.JTextField txtSum;
+	private static javax.swing.JPanel tableTotal;
+	private static javax.swing.JLabel lblTotal;
+	private static javax.swing.JTextField txtTotal;
 }

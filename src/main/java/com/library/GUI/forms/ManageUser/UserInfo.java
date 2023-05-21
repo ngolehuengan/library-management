@@ -35,7 +35,7 @@ public class UserInfo {
 		txtUser.setEnabled(false);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
-		password.setEnabled(false);
+		change.setEnabled(false);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
 		txtCmnd = new javax.swing.JTextField(20);
@@ -77,7 +77,7 @@ public class UserInfo {
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
-						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(password)
+						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(change)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(male))
@@ -93,7 +93,7 @@ public class UserInfo {
 						.addComponent(lblUser).addComponent(txtUser))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPwd).addComponent(password))
+						.addComponent(lblPwd).addComponent(change))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
@@ -124,7 +124,7 @@ public class UserInfo {
 		edit.addActionListener(e -> {
 			txtName.setEnabled(true);
 			txtUser.setEnabled(true);
-			password.setEnabled(true);
+			change.setEnabled(true);
 			txtCmnd.setEnabled(true);
 			txtDate.setEnabled(true);
 			txtAddress.setEnabled(true);
@@ -137,7 +137,7 @@ public class UserInfo {
 		save.addActionListener(e -> {
 			txtName.setEnabled(false);
 			txtUser.setEnabled(false);
-			password.setEnabled(false);
+			change.setEnabled(false);
 			txtCmnd.setEnabled(false);
 			txtDate.setEnabled(false);
 			txtAddress.setEnabled(false);
@@ -151,7 +151,7 @@ public class UserInfo {
 			if (txtName.isEnabled()) {
 				txtName.setEnabled(true);
 				txtUser.setEnabled(true);
-				password.setEnabled(true);
+				change.setEnabled(true);
 				txtCmnd.setEnabled(true);
 				txtDate.setEnabled(true);
 				txtAddress.setEnabled(true);
@@ -171,7 +171,7 @@ public class UserInfo {
 			}
 		});
 
-		password.addActionListener(e -> {
+		change.addActionListener(e -> {
 			new ChangePwd().setVisible(true);
 		});
 
@@ -213,11 +213,8 @@ public class UserInfo {
 		save = Handle.getSave(save);
 		reset = Handle.getReset(reset);
 
-		change = new javax.swing.JButton("Thay đổi");
+		change = new javax.swing.JButton("Thay đổi mật khẩu");
 		Handle.setColor(change);
-
-		password = new javax.swing.JButton("Thay đổi mật khẩu");
-		Handle.setColor(password);
 	}
 
 	// Private
@@ -250,8 +247,7 @@ public class UserInfo {
 	private static javax.swing.JPanel handleOpt;
 	private static javax.swing.JButton edit;
 	private static javax.swing.JButton logout;
-	private static javax.swing.JButton save;
+	public static javax.swing.JButton save;
 	public static javax.swing.JButton reset;
-	public static javax.swing.JButton change;
-	private static javax.swing.JButton password;
+	private static javax.swing.JButton change;
 }

@@ -25,7 +25,7 @@ public class ReceiptSlip {
 		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
 
-		lblReader = new javax.swing.JLabel("Mã độc giả");
+		lblReader = new javax.swing.JLabel("Độc giả");
 		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
 

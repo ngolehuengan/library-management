@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import main.java.com.library.BLL.AccountBUS;
 import main.java.com.library.DTO.Account;
+import main.java.com.library.GUI.handle.Handle;
 
 @SuppressWarnings("serial")
 public class ChangePwd extends javax.swing.JFrame {
@@ -59,14 +60,17 @@ public class ChangePwd extends javax.swing.JFrame {
 
 		// -----Details: Handle
 		detailsHandle = new javax.swing.JPanel();
-		detailsHandle.add(UserInfo.change);
+		UserInfo.save = Handle.getSave(UserInfo.save);
+		UserInfo.save.setText("Thay đổi");
+		UserInfo.reset = Handle.getReset(UserInfo.reset);
+		detailsHandle.add(UserInfo.save);
 		detailsHandle.add(UserInfo.reset);
 		detailsHandle.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(detailsHandle, java.awt.BorderLayout.SOUTH);
 
 		// Action
-		this.getRootPane().setDefaultButton(UserInfo.change);
-		UserInfo.change.addActionListener(e -> {
+		this.getRootPane().setDefaultButton(UserInfo.save);
+		UserInfo.save.addActionListener(e -> {
 			Account account = new Account();
 			account.setUsername(main.java.com.library.GUI.Login.txtUsername.getText());
 			account.setPassword(new String(txtPwd.getPassword()));

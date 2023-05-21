@@ -25,9 +25,9 @@ public class LoanSlip {
 		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
 
-		lblDcmCode = new javax.swing.JLabel("Mã độc giả");
-		txtDcmCode = new javax.swing.JTextField(20);
-		txtDcmCode.setEnabled(false);
+		lblReader = new javax.swing.JLabel("Độc giả");
+		txtReader = new javax.swing.JTextField(20);
+		txtReader.setEnabled(false);
 
 		lblLoanDate = new javax.swing.JLabel("Ngày mượn");
 		txtLoanDate = new javax.swing.JTextField(20);
@@ -52,11 +52,11 @@ public class LoanSlip {
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(lblPerson).addComponent(lblId).addComponent(lblDcmCode).addComponent(lblLoanDate)
+						.addComponent(lblPerson).addComponent(lblId).addComponent(lblReader).addComponent(lblLoanDate)
 						.addComponent(lblAppointDate).addComponent(lblQuantity).addComponent(lblReturned))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(txtPerson).addComponent(txtId).addComponent(txtDcmCode).addComponent(txtLoanDate)
+						.addComponent(txtPerson).addComponent(txtId).addComponent(txtReader).addComponent(txtLoanDate)
 						.addComponent(txtAppointDate).addComponent(txtQuantity).addComponent(txtReturned))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -64,7 +64,7 @@ public class LoanSlip {
 						.addComponent(txtId))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblDcmCode).addComponent(txtDcmCode))
+						.addComponent(lblReader).addComponent(txtReader))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblLoanDate).addComponent(txtLoanDate))
@@ -138,8 +138,8 @@ public class LoanSlip {
 	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JLabel lblId;
 	private static javax.swing.JTextField txtId;
-	private static javax.swing.JLabel lblDcmCode;
-	private static javax.swing.JTextField txtDcmCode;
+	private static javax.swing.JLabel lblReader;
+	private static javax.swing.JTextField txtReader;
 	private static javax.swing.JLabel lblLoanDate;
 	private static javax.swing.JTextField txtLoanDate;
 	private static javax.swing.JLabel lblAppointDate;
