@@ -9,7 +9,7 @@ public class Lecturer {
 
     public ArrayList setLecturer(String LecturerID, String departmentName) {
         ArrayList<Integer> wrongList = new ArrayList<Integer>();
-        if(LecturerID.length() > 10) wrongList.add(1);
+        if(LecturerID.length() > 10 || LecturerID.isEmpty()) wrongList.add(1);
         if(departmentName.length() > 50) wrongList.add(3);
         if(wrongList.size() == 0){
             this.lecturerID = LecturerID;

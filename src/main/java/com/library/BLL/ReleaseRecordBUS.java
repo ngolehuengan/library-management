@@ -4,7 +4,6 @@ import java.util.Vector;
 import main.java.com.library.DAL.DocumentDAO;
 import main.java.com.library.DAL.ReleaseRecordDAO;
 import main.java.com.library.DAL.LibResourceDAO;
-import main.java.com.library.DTO.Document;
 import main.java.com.library.DTO.LibResource;
 import main.java.com.library.DTO.RLDetail;
 import main.java.com.library.DTO.ReleaseRecord;

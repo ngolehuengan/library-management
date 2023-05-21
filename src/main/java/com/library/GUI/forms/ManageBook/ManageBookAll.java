@@ -27,86 +27,80 @@ public class ManageBookAll {
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
-				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+		img = new javax.swing.JLabel(Handle.setDefaultImg());
 		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
 		// -----Details: InfoForm
-		lblIdAll = new javax.swing.JLabel("Mã tài liệu");
-		txtIdAll = new javax.swing.JTextField();
-		txtIdAll.setEnabled(false);
-		txtIdAll.setColumns(15);
+		lblId = new javax.swing.JLabel("Mã tài liệu");
+		txtId = new javax.swing.JTextField(15);
+		txtId.setEnabled(false);
 
-		lblCateAll = new javax.swing.JLabel("Loại tài liệu");
-		cbbCateAll = new javax.swing.JComboBox();
-		cbbCateAll.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
-		cbbCateAll.setEnabled(false);
+		lblCate = new javax.swing.JLabel("Loại tài liệu");
+		cbbCate = new javax.swing.JComboBox();
+		cbbCate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
+		cbbCate.setEnabled(false);
 
-		lblTitleAll = new javax.swing.JLabel("Nhan đề");
-		txtTitleAll = new javax.swing.JTextField();
-		txtTitleAll.setEnabled(false);
-		txtTitleAll.setColumns(15);
+		lblTitle = new javax.swing.JLabel("Nhan đề");
+		txtTitle = new javax.swing.JTextField(15);
+		txtTitle.setEnabled(false);
 
-		lblValueAll = new javax.swing.JLabel("Giá trị");
-		txtValueAll = new javax.swing.JTextField();
-		txtValueAll.setEnabled(false);
-		txtValueAll.setColumns(15);
+		lblValue = new javax.swing.JLabel("Giá trị");
+		txtValue = new javax.swing.JTextField(15);
+		txtValue.setEnabled(false);
 
-		lblCountAll = new javax.swing.JLabel("Số lượng");
-		txtCountAll = new javax.swing.JTextField();
-		txtCountAll.setEnabled(false);
-		txtCountAll.setColumns(15);
+		lblNumber = new javax.swing.JLabel("Số lượng");
+		txtNumber = new javax.swing.JTextField(15);
+		txtNumber.setEnabled(false);
 
-		lblNumberAll = new javax.swing.JLabel("Số có sẵn");
-		txtNumberAll = new javax.swing.JTextField();
-		txtNumberAll.setEnabled(false);
-		txtNumberAll.setColumns(15);
+		lblExist = new javax.swing.JLabel("Số có sẵn");
+		txtExist = new javax.swing.JTextField(15);
+		txtExist.setEnabled(false);
 
-		chckbxInvalidAll = new javax.swing.JCheckBox("Cho phép mượn");
-		chckbxInvalidAll.setEnabled(false);
+		chckbxInvalid = new javax.swing.JCheckBox("Cho phép mượn");
+		chckbxInvalid.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80).addGroup(gl_details
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(gl_details.createSequentialGroup()
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblIdAll).addComponent(lblTitleAll).addComponent(lblCateAll))
+								.addComponent(lblId).addComponent(lblTitle).addComponent(lblCate))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(cbbCateAll).addComponent(txtTitleAll).addComponent(txtIdAll)))
+								.addComponent(cbbCate).addComponent(txtTitle).addComponent(txtId)))
 				.addGroup(gl_details.createSequentialGroup()
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblValueAll).addComponent(lblCountAll).addComponent(lblNumberAll))
+								.addComponent(lblValue).addComponent(lblNumber).addComponent(lblExist))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(txtValueAll).addComponent(txtCountAll).addComponent(txtNumberAll)))
-				.addComponent(chckbxInvalidAll)).addGap(80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+								.addComponent(txtValue).addComponent(txtNumber).addComponent(txtExist)))
+				.addComponent(chckbxInvalid)).addGap(0, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblIdAll).addComponent(txtIdAll))
+										.addComponent(lblId).addComponent(txtId))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblCateAll).addComponent(cbbCateAll))
+										.addComponent(lblCate).addComponent(cbbCate))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblTitleAll).addComponent(txtTitleAll))))
+										.addComponent(lblTitle).addComponent(txtTitle))))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblValueAll).addComponent(txtValueAll))
+						.addComponent(lblValue).addComponent(txtValue))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblCountAll).addComponent(txtCountAll))
+						.addComponent(lblNumber).addComponent(txtNumber))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblNumberAll).addComponent(txtNumberAll))
-				.addGap(24).addComponent(chckbxInvalidAll));
+						.addComponent(lblExist).addComponent(txtExist))
+				.addGap(24).addComponent(chckbxInvalid));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -142,40 +136,38 @@ public class ManageBookAll {
 		// Action
 		ManageBook.add.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			chckbxInvalidAll.setEnabled(false);
+			chckbxInvalid.setEnabled(false);
 		});
 
 		ManageBook.edit.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			chckbxInvalidAll.setEnabled(true);
+			chckbxInvalid.setEnabled(true);
 		});
 
 		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			chckbxInvalidAll.setEnabled(false);
-			if (txtCountAll.getText().equals("0")) {
-				img.setIcon(new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
-				txtIdAll.setText("");
-				cbbCateAll.setSelectedIndex(0);
-				txtTitleAll.setText("");
-				txtValueAll.setText("");
-				txtCountAll.setText("");
-				txtNumberAll.setText("");
-				chckbxInvalidAll.setSelected(false);
+			chckbxInvalid.setEnabled(false);
+			if (txtNumber.getText().equals("0")) {
+				img.setIcon(Handle.setDefaultImg());
+				txtId.setText("");
+				cbbCate.setSelectedIndex(0);
+				txtTitle.setText("");
+				txtValue.setText("");
+				txtNumber.setText("");
+				txtExist.setText("");
+				chckbxInvalid.setSelected(false);
 			}
 		});
 
 		ManageBook.save.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			chckbxInvalidAll.setEnabled(false);
+			chckbxInvalid.setEnabled(false);
 		});
 
 		ManageBook.reset.addActionListener(e -> {
-			if (chckbxInvalidAll.isEnabled()) {
-				img.setIcon(new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
-				chckbxInvalidAll.setSelected(false);
+			if (chckbxInvalid.isEnabled()) {
+				img.setIcon(Handle.setDefaultImg());
+				chckbxInvalid.setSelected(false);
 			}
 		});
 	}
@@ -186,20 +178,20 @@ public class ManageBookAll {
 	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JPanel imgPnl;
 	private static javax.swing.JLabel img;
-	private static javax.swing.JLabel lblIdAll;
-	private static javax.swing.JTextField txtIdAll;
-	private static javax.swing.JLabel lblCateAll;
+	private static javax.swing.JLabel lblId;
+	private static javax.swing.JTextField txtId;
+	private static javax.swing.JLabel lblCate;
 	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox cbbCateAll;
-	private static javax.swing.JLabel lblTitleAll;
-	private static javax.swing.JTextField txtTitleAll;
-	private static javax.swing.JLabel lblValueAll;
-	private static javax.swing.JTextField txtValueAll;
-	private static javax.swing.JLabel lblCountAll;
-	private static javax.swing.JTextField txtCountAll;
-	private static javax.swing.JLabel lblNumberAll;
-	private static javax.swing.JTextField txtNumberAll;
-	private static javax.swing.JCheckBox chckbxInvalidAll;
+	private static javax.swing.JComboBox cbbCate;
+	private static javax.swing.JLabel lblTitle;
+	private static javax.swing.JTextField txtTitle;
+	private static javax.swing.JLabel lblValue;
+	private static javax.swing.JTextField txtValue;
+	private static javax.swing.JLabel lblNumber;
+	private static javax.swing.JTextField txtNumber;
+	private static javax.swing.JLabel lblExist;
+	private static javax.swing.JTextField txtExist;
+	private static javax.swing.JCheckBox chckbxInvalid;
 	private static javax.swing.JPanel detailsHandle;
 	private static javax.swing.JScrollPane scrollPane;
 	private static javax.swing.JPanel tablePnl;

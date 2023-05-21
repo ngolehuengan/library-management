@@ -4,7 +4,7 @@ import java.util.Vector;
 import main.java.com.library.GUI.components.TableHeader;
 
 public class ManageServiceReceipt {
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
 	static void init(javax.swing.JComponent pnlCards) {
 		// --Receipt ManageService Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
@@ -22,73 +22,59 @@ public class ManageServiceReceipt {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên lai");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField();
+		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
-		txtReader.setColumns(20);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField();
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
-		txtName.setColumns(20);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField();
+		txtMs = new javax.swing.JTextField(20);
 		txtMs.setEnabled(false);
-		txtMs.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
-		lblValue = new javax.swing.JLabel("Tiền thu");
-		txtValue = new javax.swing.JTextField();
-		txtValue.setColumns(20);
+		lblPenalty = new javax.swing.JLabel("Tiền thu");
+		txtPenalty = new javax.swing.JTextField(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		lblDebt = new javax.swing.JLabel("Tiền nợ");
-		txtDebt = new javax.swing.JTextField();
+		txtDebt = new javax.swing.JTextField(20);
 		txtDebt.setEnabled(false);
-		txtDebt.setColumns(20);
 
 		lblRest = new javax.swing.JLabel("Còn lại");
-		txtRest = new javax.swing.JTextField();
+		txtRest = new javax.swing.JTextField(20);
 		txtRest.setEnabled(false);
-		txtRest.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPerson)
 						.addComponent(lblName).addComponent(lblMs).addComponent(lblId).addComponent(lblReader)
-						.addComponent(lblDate).addComponent(lblValue).addComponent(lblDebt).addComponent(lblRest))
+						.addComponent(lblDate).addComponent(lblPenalty).addComponent(lblDebt).addComponent(lblRest))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtName).addComponent(txtMs).addComponent(txtId)
-						.addComponent(txtDate).addComponent(txtValue).addComponent(txtDebt).addComponent(txtRest)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(txtReader))
-								.addGap(5)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(ManageService.find))))
-				.addGap(80));
+						.addComponent(txtDate).addComponent(txtPenalty).addComponent(txtDebt).addComponent(txtRest)
+						.addComponent(txtReader))
+				.addGap(0, 80, 80));
 		gl_details
-				.setVerticalGroup(gl_details.createSequentialGroup().addGap(80)
+				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblId).addComponent(txtId))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblReader).addComponent(txtReader).addComponent(ManageService.find))
+								.addComponent(lblReader).addComponent(txtReader))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblName).addComponent(txtName))
@@ -97,7 +83,7 @@ public class ManageServiceReceipt {
 								.addComponent(lblMs).addComponent(txtMs))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblValue).addComponent(txtValue))
+								.addComponent(lblPenalty).addComponent(txtPenalty))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDebt).addComponent(txtDebt))
@@ -113,7 +99,7 @@ public class ManageServiceReceipt {
 
 		// -----Details: Handle
 		detailsHandle = new javax.swing.JPanel();
-		detailsHandle.add(ManageService.collect);
+		detailsHandle.add(ManageService.save);
 		detailsHandle.add(ManageService.reset);
 		details.add(detailsHandle, java.awt.BorderLayout.SOUTH);
 
@@ -156,8 +142,8 @@ public class ManageServiceReceipt {
 	private static javax.swing.JTextField txtMs;
 	private static javax.swing.JLabel lblDate;
 	private static javax.swing.JTextField txtDate;
-	private static javax.swing.JLabel lblValue;
-	private static javax.swing.JTextField txtValue;
+	private static javax.swing.JLabel lblPenalty;
+	private static javax.swing.JTextField txtPenalty;
 	private static javax.swing.JLabel lblPerson;
 	private static javax.swing.JTextField txtPerson;
 	private static javax.swing.JLabel lblDebt;

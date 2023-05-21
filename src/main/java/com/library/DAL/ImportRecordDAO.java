@@ -90,15 +90,6 @@ public class ImportRecordDAO extends ConnectDB {
         return vt;
     }
 
-    //    get many    
-    public Vector getTable() {
-        return executeQuery("SELECT * FROM IMPORT_RECORD");
-    }
-    
-    public Vector getDetailTable(int ircID) {
-        return executeQuery("SELECT * FROM IMPORT_DETAIL WHERE irc_id=" + ircID);
-    }
-    
 // -----------------------------------------------------------------------------
 //    private method function    
     private ImportRecord getDTO(Vector<Object> row) {

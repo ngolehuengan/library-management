@@ -1,8 +1,13 @@
 package main.java.com.library.BLL;
 
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Savepoint;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
+import main.java.com.library.DAL.MyConnectUnit;
 import main.java.com.library.DAL.PersonalInfoDAL;
 import main.java.com.library.DAL.ReaderDAL;
 import main.java.com.library.DTO.Lecturer;
@@ -64,10 +69,11 @@ public class ReaderBUS {
         return sb; 
     }  
 
-    public static String[][] showTableReader() {
-        return ReaderDAL.showTableReader();
+    public static String[][] showTableReader(String condition) {
+        return ReaderDAL.showTableReader(condition);
     }
-    public static void main(String[] args) {
-        ReaderBUS.showTableReader();
+    public static String[][] filterTable(String[][] results,String classify,String departmentName){
+        return ReaderDAL.filterResult(results, classify, departmentName);
     }
+
 }

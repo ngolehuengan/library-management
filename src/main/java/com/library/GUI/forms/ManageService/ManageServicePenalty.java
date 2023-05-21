@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageService;
 
+import main.java.com.library.GUI.handle.Handle;
+
 @SuppressWarnings({ "serial" })
 public class ManageServicePenalty extends javax.swing.JFrame {
 	public ManageServicePenalty() {
@@ -24,6 +26,7 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 		title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		title.setForeground(new java.awt.Color(0, 102, 0));
 		title.setFont(new java.awt.Font("Tahoma", java.awt.Font.BOLD, 20));
+		ManageService.print = Handle.getPrint(ManageService.print);
 		titlePnl.add(ManageService.print, java.awt.BorderLayout.EAST);
 		titlePnl.add(title, java.awt.BorderLayout.SOUTH);
 
@@ -33,73 +36,64 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 		contentPane.add(details, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên bản");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField();
+		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
-		txtReader.setColumns(20);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField();
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
-		txtName.setColumns(20);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField();
+		txtMs = new javax.swing.JTextField(20);
 		txtMs.setEnabled(false);
-		txtMs.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblValue = new javax.swing.JLabel("Tiền phạt kỳ này");
-		txtValue = new javax.swing.JTextField();
-		txtValue.setColumns(20);
+		txtValue = new javax.swing.JTextField(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		lblContent = new javax.swing.JLabel("Nội dung phạt");
 		txtContent = new javax.swing.JTextArea(4, 1);
-		txtContent.setColumns(20);
 
 		lblWayHandle = new javax.swing.JLabel("Hướng xử lý");
 		txtWayHandle = new javax.swing.JTextArea(4, 1);
-		txtWayHandle.setColumns(20);
 
 		lblDebt = new javax.swing.JLabel("Nợ tồn");
-		txtDebt = new javax.swing.JTextField();
+		txtDebt = new javax.swing.JTextField(20);
 		txtDebt.setEnabled(false);
-		txtDebt.setColumns(20);
 
-		lblAll = new javax.swing.JLabel("Tổng nợ");
-		txtAll = new javax.swing.JTextField();
-		txtAll.setEnabled(false);
-		txtAll.setColumns(20);
+		lblTotal = new javax.swing.JLabel("Tổng nợ");
+		txtTotal = new javax.swing.JTextField(20);
+		txtTotal.setEnabled(false);
 
 		scrollPane = new javax.swing.JScrollPane();
 		scrollPane.setViewportView(txtContent);
+		
+		ManageService.find = Handle.getFind(ManageService.find);
 
 		javax.swing.JScrollPane scrollPane_1 = new javax.swing.JScrollPane();
 		scrollPane_1.setViewportView(txtWayHandle);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblId).addComponent(lblReader).addComponent(lblName)
 						.addComponent(lblMs).addComponent(lblDate).addComponent(lblValue).addComponent(lblDebt)
-						.addComponent(lblAll).addComponent(lblContent).addComponent(lblWayHandle))
+						.addComponent(lblTotal).addComponent(lblContent).addComponent(lblWayHandle))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtId).addComponent(txtName).addComponent(txtMs)
-						.addComponent(txtDate).addComponent(txtValue).addComponent(txtDebt).addComponent(txtAll)
+						.addComponent(txtDate).addComponent(txtValue).addComponent(txtDebt).addComponent(txtTotal)
 						.addComponent(scrollPane_1).addComponent(scrollPane)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +101,7 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 								.addGap(5)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(ManageService.find))))
-				.addGap(80));
+				.addGap(0, 80, 80));
 		gl_details
 				.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -135,7 +129,7 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 								.addComponent(lblDebt).addComponent(txtDebt))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblAll).addComponent(txtAll))
+								.addComponent(lblTotal).addComponent(txtTotal))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDate).addComponent(txtDate))
@@ -146,6 +140,8 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 
 		// -----Details: Handle
 		detailsHandle = new javax.swing.JPanel();
+		ManageService.save = Handle.getSave(ManageService.save);
+		ManageService.reset = Handle.getReset(ManageService.reset);
 		detailsHandle.add(ManageService.save);
 		detailsHandle.add(ManageService.reset);
 		detailsHandle.setBackground(new java.awt.Color(204, 255, 204));
@@ -173,8 +169,8 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 	private javax.swing.JTextField txtPerson;
 	private javax.swing.JLabel lblDebt;
 	private javax.swing.JTextField txtDebt;
-	private javax.swing.JLabel lblAll;
-	private javax.swing.JTextField txtAll;
+	private javax.swing.JLabel lblTotal;
+	private javax.swing.JTextField txtTotal;
 	private javax.swing.JLabel lblContent;
 	private javax.swing.JTextArea txtContent;
 	private javax.swing.JLabel lblWayHandle;
