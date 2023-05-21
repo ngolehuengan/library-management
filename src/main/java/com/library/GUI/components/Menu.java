@@ -9,12 +9,12 @@ import main.java.com.library.GUI.forms.ManageService.ManageService;
 import main.java.com.library.GUI.forms.ManageUser.UserInfo;
 import main.java.com.library.GUI.forms.Slip.Slip;
 import main.java.com.library.GUI.forms.Statistic.Statistic;
+import main.java.com.library.GUI.handle.Handle;
 
 public class Menu {
 	public static void init(javax.swing.JComponent contentPane) {
 		tabbedPane = new javax.swing.JTabbedPane(javax.swing.SwingConstants.TOP);
-		tabbedPane.setForeground(new java.awt.Color(255, 255, 255));
-		tabbedPane.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(tabbedPane);
 		contentPane.add(tabbedPane, java.awt.BorderLayout.CENTER);
 
 		// Tabs

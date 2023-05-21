@@ -4,7 +4,7 @@ import java.util.Vector;
 import main.java.com.library.GUI.components.TableHeader;
 
 public class ManageServiceReturn {
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "unchecked", "rawtypes" })
 	static void init(javax.swing.JComponent pnlCards) {
 		// --Return ManageService Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
@@ -22,42 +22,35 @@ public class ManageServiceReturn {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblReader = new javax.swing.JLabel("Mã độc giả");
-		txtReader = new javax.swing.JTextField();
+		txtReader = new javax.swing.JTextField(20);
 		txtReader.setEnabled(false);
-		txtReader.setColumns(20);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField();
+		txtName = new javax.swing.JTextField(20);
 		txtName.setEnabled(false);
-		txtName.setColumns(20);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField();
+		txtMs = new javax.swing.JTextField(20);
 		txtMs.setEnabled(false);
-		txtMs.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblPenalty = new javax.swing.JLabel("Tiền phạt kỳ này");
 		txtPenalty = new javax.swing.JTextField(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		lblDebt = new javax.swing.JLabel("Nợ tồn");
-		txtDebt = new javax.swing.JTextField();
+		txtDebt = new javax.swing.JTextField(20);
 		txtDebt.setEnabled(false);
-		txtDebt.setColumns(20);
 
 		lblTotal = new javax.swing.JLabel("Tổng nợ");
-		txtTotal = new javax.swing.JTextField();
+		txtTotal = new javax.swing.JTextField(20);
 		txtTotal.setEnabled(false);
-		txtTotal.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -72,7 +65,7 @@ public class ManageServiceReturn {
 		gl_details
 				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblReader).addComponent(txtReader).addComponent(ManageService.find))
+								.addComponent(lblReader).addComponent(txtReader))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblName).addComponent(txtName))

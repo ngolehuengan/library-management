@@ -27,47 +27,43 @@ public class ManageBookBook {
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
-				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+		img = new javax.swing.JLabel(Handle.setDefaultImg());
 		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
 		// -----Details: InfoForm
-		lblIsbnBook = new javax.swing.JLabel("ISBN");
-		txtIsbnBook = new javax.swing.JTextField();
-		txtIsbnBook.setEnabled(false);
-		txtIsbnBook.setColumns(15);
+		lblIsbn = new javax.swing.JLabel("ISBN");
+		txtIsbn = new javax.swing.JTextField(15);
+		txtIsbn.setEnabled(false);
 
-		lblTitleBook = new javax.swing.JLabel("Nhan đề");
-		txtTitleBook = new javax.swing.JTextField();
-		txtTitleBook.setEnabled(false);
-		txtTitleBook.setColumns(15);
+		lblTitle = new javax.swing.JLabel("Nhan đề");
+		txtTitle = new javax.swing.JTextField(15);
+		txtTitle.setEnabled(false);
 
-		lblCateBook = new javax.swing.JLabel("Thể loại");
-		cbbCateBook = new javax.swing.JComboBox();
-		cbbCateBook.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbCateBook.setEnabled(false);
+		lblCate = new javax.swing.JLabel("Thể loại");
+		cbbCate = new javax.swing.JComboBox();
+		cbbCate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbCate.setEnabled(false);
 
-		lblAuthorBook = new javax.swing.JLabel("Tác giả");
-		txtAuthorBook = new javax.swing.JTextField();
-		txtAuthorBook.setEnabled(false);
-		txtAuthorBook.setColumns(15);
+		lblAuthor = new javax.swing.JLabel("Tác giả");
+		txtAuthor = new javax.swing.JTextField(15);
+		txtAuthor.setEnabled(false);
 
-		lblNxbBook = new javax.swing.JLabel("Nhà xuất bản");
-		txtNxbBook = new javax.swing.JTextField();
-		txtNxbBook.setEnabled(false);
-		txtNxbBook.setColumns(15);
+		lblNxb = new javax.swing.JLabel("Nhà xuất bản");
+		cbbNxb = new javax.swing.JComboBox();
+		cbbNxb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbNxb.setEnabled(false);
 
-		lblYearBook = new javax.swing.JLabel("Năm xuất bản");
-		cbbYearBook = new javax.swing.JComboBox();
-		cbbYearBook.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbYearBook.setEnabled(false);
+		lblYear = new javax.swing.JLabel("Năm xuất bản");
+		cbbYear = new javax.swing.JComboBox();
+		cbbYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbYear.setEnabled(false);
 
-		lblDescripBook = new javax.swing.JLabel("Mô tả");
-		txtAreaDescripBook = new javax.swing.JTextArea(7, 1);
-		txtAreaDescripBook.setLineWrap(true);
-		txtAreaDescripBook.setEnabled(false);
+		lblDescript = new javax.swing.JLabel("Mô tả");
+		txtDescript = new javax.swing.JTextArea(7, 1);
+		txtDescript.setLineWrap(true);
+		txtDescript.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
-		scrollPane.setViewportView(txtAreaDescripBook);
+		scrollPane.setViewportView(txtDescript);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
@@ -77,18 +73,18 @@ public class ManageBookBook {
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblIsbnBook).addComponent(lblCateBook).addComponent(lblTitleBook))
+								.addComponent(lblIsbn).addComponent(lblCate).addComponent(lblTitle))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(cbbCateBook).addComponent(txtTitleBook).addComponent(txtIsbnBook)))
+								.addComponent(cbbCate).addComponent(txtTitle).addComponent(txtIsbn)))
 				.addGroup(gl_details.createSequentialGroup()
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblAuthorBook).addComponent(lblNxbBook).addComponent(lblYearBook)
-								.addComponent(lblDescripBook))
+								.addComponent(lblAuthor).addComponent(lblNxb).addComponent(lblYear)
+								.addComponent(lblDescript))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(scrollPane).addComponent(cbbYearBook).addComponent(txtAuthorBook)
-								.addComponent(txtNxbBook))))
+								.addComponent(scrollPane).addComponent(cbbYear).addComponent(txtAuthor)
+								.addComponent(cbbNxb))))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -96,24 +92,24 @@ public class ManageBookBook {
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblIsbnBook).addComponent(txtIsbnBook))
+										.addComponent(lblIsbn).addComponent(txtIsbn))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblTitleBook).addComponent(txtTitleBook))
+										.addComponent(lblTitle).addComponent(txtTitle))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblCateBook).addComponent(cbbCateBook))))
+										.addComponent(lblCate).addComponent(cbbCate))))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblAuthorBook).addComponent(txtAuthorBook))
+						.addComponent(lblAuthor).addComponent(txtAuthor))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblNxbBook).addComponent(txtNxbBook))
+						.addComponent(lblNxb).addComponent(cbbNxb))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblYearBook).addComponent(cbbYearBook))
+						.addComponent(lblYear).addComponent(cbbYear))
 				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-						.addComponent(lblDescripBook).addComponent(scrollPane)));
+						.addComponent(lblDescript).addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -149,94 +145,90 @@ public class ManageBookBook {
 		// Action
 		ManageBook.add.addActionListener(e -> {
 			Handle.addImage(imgPnl, img);
-			img.setIcon(new javax.swing.ImageIcon(
-					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+			img.setIcon(Handle.setDefaultImg());
 
-			txtIsbnBook.setEnabled(true);
-			txtTitleBook.setEnabled(true);
-			cbbCateBook.setEnabled(true);
-			txtAuthorBook.setEnabled(true);
-			txtNxbBook.setEnabled(true);
-			cbbYearBook.setEnabled(true);
-			txtAreaDescripBook.setEnabled(true);
+			txtIsbn.setEnabled(true);
+			txtTitle.setEnabled(true);
+			cbbCate.setEnabled(true);
+			txtAuthor.setEnabled(true);
+			cbbNxb.setEnabled(true);
+			cbbYear.setEnabled(true);
+			txtDescript.setEnabled(true);
 
-			txtIsbnBook.setText("");
-			txtTitleBook.setText("");
-			cbbCateBook.setSelectedIndex(0);
-			txtAuthorBook.setText("");
-			txtNxbBook.setText("");
-			cbbYearBook.setSelectedIndex(0);
-			txtAreaDescripBook.setText("");
+			txtIsbn.setText("");
+			txtTitle.setText("");
+			cbbCate.setSelectedIndex(0);
+			txtAuthor.setText("");
+			cbbNxb.setSelectedIndex(0);
+			cbbYear.setSelectedIndex(0);
+			txtDescript.setText("");
 		});
 
 		ManageBook.edit.addActionListener(e -> {
 			Handle.addImage(imgPnl, img);
 
-			txtIsbnBook.setEnabled(false);
-			txtTitleBook.setEnabled(true);
-			cbbCateBook.setEnabled(true);
-			txtAuthorBook.setEnabled(true);
-			txtNxbBook.setEnabled(true);
-			cbbYearBook.setEnabled(true);
-			txtAreaDescripBook.setEnabled(true);
+			txtIsbn.setEnabled(false);
+			txtTitle.setEnabled(true);
+			cbbCate.setEnabled(true);
+			txtAuthor.setEnabled(true);
+			cbbNxb.setEnabled(true);
+			cbbYear.setEnabled(true);
+			txtDescript.setEnabled(true);
 		});
 
 		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			img.setIcon(new javax.swing.ImageIcon(
-					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+			img.setIcon(Handle.setDefaultImg());
 
-			txtIsbnBook.setEnabled(false);
-			txtTitleBook.setEnabled(false);
-			cbbCateBook.setEnabled(false);
-			txtAuthorBook.setEnabled(false);
-			txtNxbBook.setEnabled(false);
-			cbbYearBook.setEnabled(false);
-			txtAreaDescripBook.setEnabled(false);
+			txtIsbn.setEnabled(false);
+			txtTitle.setEnabled(false);
+			cbbCate.setEnabled(false);
+			txtAuthor.setEnabled(false);
+			cbbNxb.setEnabled(false);
+			cbbYear.setEnabled(false);
+			txtDescript.setEnabled(false);
 
-			txtIsbnBook.setText("");
-			txtTitleBook.setText("");
-			cbbCateBook.setSelectedIndex(0);
-			txtAuthorBook.setText("");
-			txtNxbBook.setText("");
-			cbbYearBook.setSelectedIndex(0);
-			txtAreaDescripBook.setText("");
+			txtIsbn.setText("");
+			txtTitle.setText("");
+			cbbCate.setSelectedIndex(0);
+			txtAuthor.setText("");
+			cbbNxb.setSelectedIndex(0);
+			cbbYear.setSelectedIndex(0);
+			txtDescript.setText("");
 		});
 
 		ManageBook.save.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
 
-			txtIsbnBook.setEnabled(false);
-			txtTitleBook.setEnabled(false);
-			cbbCateBook.setEnabled(false);
-			txtAuthorBook.setEnabled(false);
-			txtNxbBook.setEnabled(false);
-			cbbYearBook.setEnabled(false);
-			txtAreaDescripBook.setEnabled(false);
+			txtIsbn.setEnabled(false);
+			txtTitle.setEnabled(false);
+			cbbCate.setEnabled(false);
+			txtAuthor.setEnabled(false);
+			cbbNxb.setEnabled(false);
+			cbbYear.setEnabled(false);
+			txtDescript.setEnabled(false);
 		});
 
 		ManageBook.reset.addActionListener(e -> {
-			if (txtIsbnBook.isEnabled()) {
-				img.setIcon(new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+			if (txtIsbn.isEnabled()) {
+				img.setIcon(Handle.setDefaultImg());
 
-				txtIsbnBook.setText("");
-				txtTitleBook.setText("");
-				cbbCateBook.setSelectedIndex(0);
-				txtAuthorBook.setText("");
-				txtNxbBook.setText("");
-				cbbYearBook.setSelectedIndex(0);
-				txtAreaDescripBook.setText("");
-			} else if (!txtIsbnBook.isEnabled() && txtTitleBook.isEnabled()) {
-				img.setIcon(new javax.swing.ImageIcon(
-						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
+				txtIsbn.setText("");
+				txtTitle.setText("");
+				cbbCate.setSelectedIndex(0);
+				txtAuthor.setText("");
+				cbbNxb.setSelectedIndex(0);
+				cbbYear.setSelectedIndex(0);
+				txtDescript.setText("");
+			} else if (!txtIsbn.isEnabled() && txtTitle.isEnabled()) {
+				img.setIcon(Handle.setDefaultImg());
 
-				txtTitleBook.setText("");
-				cbbCateBook.setSelectedIndex(0);
-				txtAuthorBook.setText("");
-				txtNxbBook.setText("");
-				cbbYearBook.setSelectedIndex(0);
-				txtAreaDescripBook.setText("");
+				txtTitle.setText("");
+				cbbCate.setSelectedIndex(0);
+				txtAuthor.setText("");
+				cbbNxb.setSelectedIndex(0);
+				cbbYear.setSelectedIndex(0);
+				txtDescript.setText("");
 			}
 		});
 	}
@@ -247,22 +239,23 @@ public class ManageBookBook {
 	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JPanel imgPnl;
 	private static javax.swing.JLabel img;
-	private static javax.swing.JLabel lblIsbnBook;
-	private static javax.swing.JTextField txtIsbnBook;
-	private static javax.swing.JLabel lblTitleBook;
-	private static javax.swing.JTextField txtTitleBook;
-	private static javax.swing.JLabel lblCateBook;
+	private static javax.swing.JLabel lblIsbn;
+	private static javax.swing.JTextField txtIsbn;
+	private static javax.swing.JLabel lblTitle;
+	private static javax.swing.JTextField txtTitle;
+	private static javax.swing.JLabel lblCate;
 	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox cbbCateBook;
-	private static javax.swing.JLabel lblAuthorBook;
-	private static javax.swing.JTextField txtAuthorBook;
-	private static javax.swing.JLabel lblNxbBook;
-	private static javax.swing.JTextField txtNxbBook;
-	private static javax.swing.JLabel lblYearBook;
+	private static javax.swing.JComboBox cbbCate;
+	private static javax.swing.JLabel lblAuthor;
+	private static javax.swing.JTextField txtAuthor;
+	private static javax.swing.JLabel lblNxb;
 	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox cbbYearBook;
-	private static javax.swing.JLabel lblDescripBook;
-	private static javax.swing.JTextArea txtAreaDescripBook;
+	private static javax.swing.JComboBox cbbNxb;
+	private static javax.swing.JLabel lblYear;
+	@SuppressWarnings("rawtypes")
+	private static javax.swing.JComboBox cbbYear;
+	private static javax.swing.JLabel lblDescript;
+	private static javax.swing.JTextArea txtDescript;
 	private static javax.swing.JPanel detailsHandle;
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JScrollPane scrollPane;

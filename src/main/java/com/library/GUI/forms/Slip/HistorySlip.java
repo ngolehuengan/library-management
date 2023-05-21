@@ -4,7 +4,7 @@ import java.util.Vector;
 import main.java.com.library.GUI.components.TableHeader;
 
 public class HistorySlip {
-	@SuppressWarnings("serial")
+	@SuppressWarnings({ "serial", "unchecked", "rawtypes" })
 	static void init(javax.swing.JComponent pnlCards) {
 		// --History Slip Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
@@ -17,49 +17,40 @@ public class HistorySlip {
 				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
 
 		lblId = new javax.swing.JLabel("Mã phiếu");
-		txtId = new javax.swing.JTextField();
+		txtId = new javax.swing.JTextField(20);
 		txtId.setEnabled(false);
-		txtId.setColumns(20);
 
 		lblDcmCode = new javax.swing.JLabel("Mã tài liệu");
-		txtDcmCode = new javax.swing.JTextField();
+		txtDcmCode = new javax.swing.JTextField(20);
 		txtDcmCode.setEnabled(false);
-		txtDcmCode.setColumns(20);
 
 		lblTitle = new javax.swing.JLabel("Nhan đề");
-		txtTitle = new javax.swing.JTextField();
+		txtTitle = new javax.swing.JTextField(20);
 		txtTitle.setEnabled(false);
-		txtTitle.setColumns(20);
 
 		lblLoanPerson = new javax.swing.JLabel("Người mượn");
-		txtLoanPerson = new javax.swing.JTextField();
+		txtLoanPerson = new javax.swing.JTextField(20);
 		txtLoanPerson.setEnabled(false);
-		txtLoanPerson.setColumns(20);
 
 		lblLoanDate = new javax.swing.JLabel("Ngày mượn");
-		txtLoanDate = new javax.swing.JTextField();
+		txtLoanDate = new javax.swing.JTextField(20);
 		txtLoanDate.setEnabled(false);
-		txtLoanDate.setColumns(20);
 
 		lblAppointDate = new javax.swing.JLabel("Ngày hẹn trả");
-		txtAppointDate = new javax.swing.JTextField();
+		txtAppointDate = new javax.swing.JTextField(20);
 		txtAppointDate.setEnabled(false);
-		txtAppointDate.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày trả");
-		txtDate = new javax.swing.JTextField();
+		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
-		txtDate.setColumns(20);
 
 		lblPenalty = new javax.swing.JLabel("Tiền phạt");
-		txtPenalty = new javax.swing.JTextField();
+		txtPenalty = new javax.swing.JTextField(20);
 		txtPenalty.setEnabled(false);
-		txtPenalty.setColumns(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField();
+		txtPerson = new javax.swing.JTextField(20);
 		txtPerson.setEnabled(false);
-		txtPerson.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details
