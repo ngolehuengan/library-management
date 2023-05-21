@@ -9,7 +9,7 @@ import main.java.com.library.GUI.handle.Handle;
 
 public class ManageInventoryLiquidate {
 
-	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
+	@SuppressWarnings({ "serial", "unchecked" })
 	static void init(javax.swing.JComponent pnlCards) {
 		// --Liquidity Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
@@ -199,8 +199,7 @@ public class ManageInventoryLiquidate {
 		table.addMouseListener(new java.awt.event.MouseAdapter() {
 			@Override
 			public void mouseClicked(java.awt.event.MouseEvent e) {
-				rowIndex = table.getSelectedRow();
-				displayDetail(vtDTO.get(rowIndex));
+				displayDetail(vtDTO.get(table.getSelectedRow()));
 			}
 		});
 
@@ -481,7 +480,6 @@ public class ManageInventoryLiquidate {
 	private static Vector<ReleaseRecord> vtDTO = new ReleaseRecordBUS().getTable();
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static Vector<RLDetail> vtDetail = new Vector();
-	private static int rowIndex;
 	private static int totalNumber = 0;
 	private static final int librarianID = main.java.com.library.GUI.Login.role.get(0);
 }

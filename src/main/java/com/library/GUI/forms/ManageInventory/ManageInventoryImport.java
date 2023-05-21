@@ -208,8 +208,7 @@ public class ManageInventoryImport {
 		table.addMouseListener(new java.awt.event.MouseAdapter() {
 			@Override
 			public void mouseClicked(java.awt.event.MouseEvent e) {
-				rowIndex = table.getSelectedRow();
-				displayDetail(vtDTO.get(rowIndex));
+				displayDetail(vtDTO.get(table.getSelectedRow()));
 			}
 		});
 
@@ -399,9 +398,9 @@ public class ManageInventoryImport {
 			txtDcmCode.setText("");
 			txtValue.setText("");
 			txtNumber.setText("");
-			// txtDcmCode.setBorder(Handle.colorEnabled());
-			// txtValue.setBorder(Handle.colorEnabled());
-			// txtNumber.setBorder(Handle.colorEnabled());
+//            txtDcmCode.setBorder(Handle.colorEnabled());
+//            txtValue.setBorder(Handle.colorEnabled());
+//            txtNumber.setBorder(Handle.colorEnabled());
 		} else {
 			javax.swing.JOptionPane.showMessageDialog(null, "Mã tài liệu mới!\nVui lòng thêm ở Quản lý tài liệu");
 			txtDcmCode.setBorder(Handle.colorError());
@@ -424,7 +423,6 @@ public class ManageInventoryImport {
 	private static void addRecord() {
 		if (Handle.confirm()) {
 			java.sql.Date date = null;
-
 			if (main.java.com.library.BLL.Check.isDate(txtDate.getText())) {
 				date = java.sql.Date.valueOf(txtDate.getText());
 			} else {
@@ -472,11 +470,11 @@ public class ManageInventoryImport {
 			txtTotal.setText(Double.toString(totalPrice));
 			txtDate.setText(new java.sql.Date(System.currentTimeMillis()).toString());
 			txtDcmCode.setText("");
-			txtDcmCode.setBorder(Handle.colorDisabled());
+			txtDcmCode.setBorder(Handle.colorEnabled());
 			txtValue.setText("");
-			txtValue.setBorder(Handle.colorDisabled());
+			txtValue.setBorder(Handle.colorEnabled());
 			txtNumber.setText("");
-			txtNumber.setBorder(Handle.colorDisabled());
+			txtNumber.setBorder(Handle.colorEnabled());
 		} else {
 			clearDetailTable();
 			refreshTable();
