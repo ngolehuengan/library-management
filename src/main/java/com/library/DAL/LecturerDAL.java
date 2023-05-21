@@ -18,7 +18,7 @@ public class LecturerDAL {
         return true;
     }
 
-    public static boolean updateLecturer(Reader reader,Lecturer lecturer) throws Exception{
+    public static boolean updateLecture(Reader reader,Lecturer lecturer) throws Exception{
         connect = new MyConnectUnit();
         try {
             ResultSet result = connect.excuteQuery("CALL SP_Lecturer_Update("+Integer.toString(reader.getID())+","+"\""+ lecturer.getLecturerID()+"\""+","+"\""+lecturer.getDepartmentName()+"\""+");");

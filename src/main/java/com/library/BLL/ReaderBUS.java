@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Savepoint;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Map;
 
 import main.java.com.library.DAL.MyConnectUnit;
 import main.java.com.library.DAL.PersonalInfoDAL;
@@ -38,14 +37,9 @@ public class ReaderBUS {
 
     public static boolean updateReaderStudent(Reader reader,PersonalInfo info,Student student) throws Exception{
         PersonalInfoDAL.updatePersonal(info);
+        reader.setID(1);
         ReaderDAL.updateReader(reader,info);
         StudentBUS.updateStudent(student, reader);
-        return true;
-    }
-    public static boolean updateReaderLecturer(Reader reader,PersonalInfo info,Lecturer lecturer) throws Exception{
-        PersonalInfoDAL.updatePersonal(info);
-        ReaderDAL.updateReader(reader,info);
-        LecturerBUS.updateLecturer(lecturer, reader);
         return true;
     }
 
@@ -75,8 +69,11 @@ public class ReaderBUS {
         return sb; 
     }  
 
-    public static Map showTableReader(String condition) {
+    public static String[][] showTableReader(String condition) {
         return ReaderDAL.showTableReader(condition);
+    }
+    public static String[][] filterTable(String[][] results,String classify,String departmentName){
+        return ReaderDAL.filterResult(results, classify, departmentName);
     }
 
 }

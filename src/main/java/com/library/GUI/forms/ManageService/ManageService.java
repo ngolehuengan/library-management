@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageService;
 
+import main.java.com.library.GUI.handle.Handle;
+
 public class ManageService {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		service = new javax.swing.JPanel();
@@ -34,13 +36,15 @@ public class ManageService {
 		btnBorrow.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnReturn = new javax.swing.JButton("TRẢ SÁCH");
+<<<<<<< HEAD
 >>>>>>> parent of 83dfa60 (dcm)
 >>>>>>> parent of e06cbe3 (.)
+=======
+>>>>>>> parent of 83dfa60 (dcm)
 		Handle.setColor(btnReturn);
 
 		btnReceipt = new javax.swing.JButton("THU TIỀN");
-		btnReceipt.setForeground(new java.awt.Color(255, 255, 255));
-		btnReceipt.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(btnReceipt);
 
 		menuSide.add(btnBorrow);
 		menuSide.add(btnReturn);
@@ -92,39 +96,17 @@ public class ManageService {
 		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
-		add = new javax.swing.JButton("Thêm");
-		add.setForeground(new java.awt.Color(255, 255, 255));
-		add.setBackground(new java.awt.Color(0, 153, 51));
+		add = Handle.getAdd(add);
+		delete = Handle.getDelete(delete);
+		search = Handle.getSearch(search);
+		searchField = new javax.swing.JTextField(15);
 
-		delete = new javax.swing.JButton("Xóa");
-		delete.setForeground(new java.awt.Color(255, 255, 255));
-		delete.setBackground(new java.awt.Color(0, 153, 51));
-
-		search = new javax.swing.JButton("Tìm kiếm");
-		search.setBackground(new java.awt.Color(0, 153, 51));
-		search.setForeground(new java.awt.Color(255, 255, 255));
-		searchField = new javax.swing.JTextField();
-		searchField.setColumns(20);
-
-		save = new javax.swing.JButton("Lưu");
-		save.setBackground(new java.awt.Color(0, 153, 51));
-		save.setForeground(new java.awt.Color(255, 255, 255));
-
-		reset = new javax.swing.JButton("Reset");
-		reset.setBackground(new java.awt.Color(0, 153, 51));
-		reset.setForeground(new java.awt.Color(255, 255, 255));
-
-		view = new javax.swing.JButton("Xem");
-		view.setForeground(new java.awt.Color(255, 255, 255));
-		view.setBackground(new java.awt.Color(0, 153, 51));
-
-		collect = new javax.swing.JButton("Thu tiền");
-		collect.setForeground(new java.awt.Color(255, 255, 255));
-		collect.setBackground(new java.awt.Color(0, 153, 51));
+		save = Handle.getSave(save);
+		reset = Handle.getReset(reset);
+		view = Handle.getView(view);
 
 		penalty = new javax.swing.JButton("Tạo Biên Bản Phạt");
-		penalty.setForeground(new java.awt.Color(255, 255, 255));
-		penalty.setBackground(new java.awt.Color(0, 153, 51));
+		Handle.setColor(penalty);
 		penalty.addActionListener(e -> {
 			new ManageServicePenalty().setVisible(true);
 		});
@@ -137,26 +119,12 @@ public class ManageService {
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
-		print = new javax.swing.JButton("  In");
-		print.setIcon(new javax.swing.ImageIcon(
-				ManageService.class.getResource("../../../../../resources/icons/printing.png")));
-		print.setBackground(new java.awt.Color(0, 153, 51));
-		print.setForeground(new java.awt.Color(255, 255, 255));
+		print = Handle.getPrint(print);
 
 		adjourn = new javax.swing.JButton("Gia Hạn");
-		adjourn.setBackground(new java.awt.Color(0, 153, 51));
-		adjourn.setForeground(new java.awt.Color(255, 255, 255));
+		Handle.setColor(adjourn);
 
-		find = new javax.swing.JButton("Tìm");
-		find.setBackground(new java.awt.Color(0, 153, 51));
-		find.setForeground(new java.awt.Color(255, 255, 255));
-		find.addActionListener(e -> {
-			new FindReader().setVisible(true);
-		});
-		
-		choose = new javax.swing.JButton("Chọn");
-		choose.setBackground(new java.awt.Color(0, 153, 51));
-		choose.setForeground(new java.awt.Color(255, 255, 255));
+		find = Handle.getFind(find);
 
 		handleOpt.add(print);
 	}
@@ -182,9 +150,7 @@ public class ManageService {
 	public static javax.swing.JButton save;
 	public static javax.swing.JButton reset;
 	public static javax.swing.JButton view;
-	public static javax.swing.JButton collect;
 	public static javax.swing.JButton penalty;
 	public static javax.swing.JButton adjourn;
 	public static javax.swing.JButton find;
-	public static javax.swing.JButton choose;
 }
