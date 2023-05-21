@@ -277,6 +277,9 @@ public class ManageLibrarian {
 		save = Handle.getSave(save);
 		reset = Handle.getReset(reset);
 		view = Handle.getView(view);
+		
+		restore = new javax.swing.JButton("Khôi phục mật khẩu mặc định");
+		restore.Handle.setColor(restore);
 	}
 
 	// Private
@@ -321,4 +324,5 @@ public class ManageLibrarian {
 	private static javax.swing.JButton save;
 	private static javax.swing.JButton reset;
 	private static javax.swing.JButton view;
+	private static javax.swing.JButton restore;
 }
