@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.Slip;
 
+import main.java.com.library.GUI.handle.Handle;
+
 public class Slip {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		slit = new javax.swing.JPanel();
@@ -20,17 +22,14 @@ public class Slip {
 		btnHistory.setForeground(new java.awt.Color(255, 255, 255));
 		btnHistory.setBackground(new java.awt.Color(0, 102, 0));
 
-		btnLoan = new javax.swing.JButton("PHIẾU MƯỢN");
-		btnLoan.setForeground(new java.awt.Color(255, 255, 255));
-		btnLoan.setBackground(new java.awt.Color(0, 153, 51));
+		btnLoan = new javax.swing.JButton("MƯỢN");
+		Handle.setColor(btnLoan);
 
-		btnPenalty = new javax.swing.JButton("PHIẾU PHẠT");
-		btnPenalty.setForeground(new java.awt.Color(255, 255, 255));
-		btnPenalty.setBackground(new java.awt.Color(0, 153, 51));
+		btnPenalty = new javax.swing.JButton("PHẠT");
+		Handle.setColor(btnPenalty);
 
-		btnReceipt = new javax.swing.JButton("PHIẾU THU TIỀN");
-		btnReceipt.setForeground(new java.awt.Color(255, 255, 255));
-		btnReceipt.setBackground(new java.awt.Color(0, 153, 51));
+		btnReceipt = new javax.swing.JButton("THU TIỀN");
+		Handle.setColor(btnReceipt);
 
 		menuSide.add(btnHistory);
 		menuSide.add(btnLoan);

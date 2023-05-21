@@ -41,9 +41,8 @@ public class ManageServiceReturn {
 		txtDate.setEnabled(false);
 		txtDate.setColumns(20);
 
-		lblValue = new javax.swing.JLabel("Tiền phạt kỳ này");
-		txtValue = new javax.swing.JTextField();
-		txtValue.setColumns(20);
+		lblPenalty = new javax.swing.JLabel("Tiền phạt kỳ này");
+		txtPenalty = new javax.swing.JTextField(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
 		txtPerson = new javax.swing.JTextField();
@@ -64,17 +63,11 @@ public class ManageServiceReturn {
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblName).addComponent(lblMs).addComponent(lblReader)
-						.addComponent(lblDebt).addComponent(lblDate).addComponent(lblValue).addComponent(lblAll))
+						.addComponent(lblDebt).addComponent(lblDate).addComponent(lblPenalty).addComponent(lblTotal))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtName).addComponent(txtMs).addComponent(txtDebt)
-						.addComponent(txtDate).addComponent(txtValue).addComponent(txtAll)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(txtReader))
-								.addGap(5)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(ManageService.find))))
+						.addComponent(txtDate).addComponent(txtPenalty).addComponent(txtTotal).addComponent(txtReader))
 				.addGap(0, 80, 80));
 		gl_details
 				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -88,7 +81,7 @@ public class ManageServiceReturn {
 								.addComponent(lblMs).addComponent(txtMs))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblValue).addComponent(txtValue))
+								.addComponent(lblPenalty).addComponent(txtPenalty))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDebt).addComponent(txtDebt))
@@ -170,10 +163,10 @@ public class ManageServiceReturn {
 	private static javax.swing.JTextField txtDebt;
 	private static javax.swing.JLabel lblDate;
 	private static javax.swing.JTextField txtDate;
-	private static javax.swing.JLabel lblValue;
-	private static javax.swing.JTextField txtValue;
-	private static javax.swing.JLabel lblAll;
-	private static javax.swing.JTextField txtAll;
+	private static javax.swing.JLabel lblPenalty;
+	private static javax.swing.JTextField txtPenalty;
+	private static javax.swing.JLabel lblTotal;
+	private static javax.swing.JTextField txtTotal;
 	private static javax.swing.JLabel lblPerson;
 	private static javax.swing.JTextField txtPerson;
 	private static javax.swing.JPanel detailsHandle;

@@ -17,13 +17,12 @@ public class ManageService {
 		menuSide.setLayout(new java.awt.GridLayout(3, 1));
 		splitPane.setLeftComponent(menuSide);
 
-		btnBorrow = new javax.swing.JButton("MƯỢN SÁCH");
-		btnBorrow.setForeground(new java.awt.Color(255, 255, 255));
+		btnBorrow = new javax.swing.JButton("MƯỢN");
+		Handle.setColor(btnBorrow);
 		btnBorrow.setBackground(new java.awt.Color(0, 102, 0));
 
-		btnReturn = new javax.swing.JButton("TRẢ SÁCH");
-		btnReturn.setForeground(new java.awt.Color(255, 255, 255));
-		btnReturn.setBackground(new java.awt.Color(0, 153, 51));
+		btnReturn = new javax.swing.JButton("TRẢ");
+		Handle.setColor(btnReturn);
 
 		btnReceipt = new javax.swing.JButton("THU TIỀN");
 		btnReceipt.setForeground(new java.awt.Color(255, 255, 255));
