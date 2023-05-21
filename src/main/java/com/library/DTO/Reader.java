@@ -9,7 +9,7 @@ import java.util.Date;
 public class Reader {
     private int ID;             //ma doc gia
     private int classify;       //giang vien/sinh vien
-    private String egistrationDate;
+    private String registrationDate;
     private int duration ;
 	private String ExpirationDate;
     private double total_debt;
@@ -29,11 +29,11 @@ public class Reader {
     public void setClassify(int classify) {
         this.classify = classify;
     }
-    public String getEgistrationDate() {
-        return egistrationDate;
+    public String getRegistrationDate() {
+        return registrationDate;
     }
-    public void setEgistrationDate(String egistrationDate) {
-        this.egistrationDate = egistrationDate;
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
     }
     public int getDuration() {
         return duration;
@@ -57,7 +57,7 @@ public class Reader {
     public void setReader(int iD, int classify, String egistrationDate, int duration, String expirationDate,double total_debt) {
         ID = iD;
         this.classify = classify;
-        this.egistrationDate = egistrationDate;
+        this.registrationDate = egistrationDate;
         this.duration = duration;
         ExpirationDate = expirationDate;
         this.total_debt = total_debt;

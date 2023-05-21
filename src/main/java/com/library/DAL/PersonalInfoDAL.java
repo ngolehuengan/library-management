@@ -14,7 +14,7 @@ public class PersonalInfoDAL {
         connect = new MyConnectUnit();
         try {
             System.out.println(info.getAddress());
-            ResultSet result = connect.excuteQuery("CALL SP_UserInfo_Insert("+"\""+info.getCitizenID()+"\""+","+"\""+info.getFullName()+"\""+","+"\""+info.getBirthday().toString()+"\""+","+info.getisMale()+","+"\""+info.getPhoneNumber()+"\""+","+"\""+info.getAddress()+"\""+","+"\""+info.getEmail()+"\""+");");
+            ResultSet result = connect.excuteQuery("CALL SP_UserInfo_Insert("+"\""+info.getCitizenID()+"\""+","+"\""+info.getFullName()+"\""+","+"\""+info.getDate().toString()+"\""+","+info.getisMale()+","+"\""+info.getPhoneNumber()+"\""+","+"\""+info.getAddress()+"\""+","+"\""+info.getEmail()+"\""+");");
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -24,7 +24,7 @@ public class PersonalInfoDAL {
     public static boolean updatePersonal(PersonalInfo info) throws Exception{
         connect = new MyConnectUnit();
         try {
-            ResultSet result = connect.excuteQuery("CALL SP_UserINFO_Update("+"\""+info.getCitizenID()+"\""+","+"\""+info.getFullName()+"\""+","+"\""+info.getBirthday().toString()+"\""+","+info.getisMale()+","+"\""+info.getPhoneNumber()+"\""+","+"\""+info.getAddress()+"\""+","+"\""+info.getEmail()+"\""+");");
+            ResultSet result = connect.excuteQuery("CALL SP_UserINFO_Update("+"\""+info.getCitizenID()+"\""+","+"\""+info.getFullName()+"\""+","+"\""+info.getDate().toString()+"\""+","+info.getisMale()+","+"\""+info.getPhoneNumber()+"\""+","+"\""+info.getAddress()+"\""+","+"\""+info.getEmail()+"\""+");");
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
