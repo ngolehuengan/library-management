@@ -12,7 +12,7 @@ public class TableHeader {
     public static Vector importRecord() {
         Vector header = new Vector();
         header.add("STT");
-        header.add("NGÀY NHẬP HÓA ĐƠN");
+        header.add("NGÀY LẬP BIÊN BẢN");
         header.add("MÃ HÓA ĐƠN");
         header.add("TỔNG GIÁ TRỊ");
         header.add("TỔNG SỐ LƯỢNG");
@@ -33,7 +33,7 @@ public class TableHeader {
     public static Vector releaseRecord() {
         Vector header = new Vector();
         header.add("STT");
-        header.add("NGÀY NHẬP HÓA ĐƠN");
+        header.add("NGÀY LẬP BIÊN BẢN");
         header.add("MÃ HÓA ĐƠN");
         header.add("TỔNG SỐ LƯỢNG");
         header.add("THỦ THƯ");

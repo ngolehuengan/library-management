@@ -7,6 +7,7 @@ import main.java.com.library.DAL.LibResourceDAO;
 import main.java.com.library.DTO.Document;
 import main.java.com.library.DTO.IPDetail;
 import main.java.com.library.DTO.ImportRecord;
+import main.java.com.library.DTO.LibResource;
 
 /**
  *
@@ -21,16 +22,22 @@ public class ImportRecordBUS {
 
 // -----------------------------------------------------------------------------
 //    xoá thành công ? giảm số lượng (tổng và hiện có)
-    public String delete(ImportRecord e) {
+    public boolean delete(ImportRecord e) {
+        LibResourceDAO dao = new LibResourceDAO();
+        for (IPDetail dt : e.getDetails()) {
+            if (dt.getQuantity() > dao.getByCode(dt.getDcmCode()).getAvailableQuantity()) {
+                return false;
+            }
+        }
+        
         if (new ImportRecordDAO().delete(e.getID())) {
             for (IPDetail dt : e.getDetails()) {
-                LibResourceDAO dao = new LibResourceDAO();
                 dao.subtractTotalQuantity(dt.getDcmCode(), dt.getQuantity());
                 dao.subtractAvailableQuantity(dt.getDcmCode(), dt.getQuantity());
             }
-            return "Đã xoá!";
+            return true;
         }
-        return "Xoá thất bại!";
+        return false;
     }
 
 // -----------------------------------------------------------------------------
@@ -44,14 +51,20 @@ public class ImportRecordBUS {
         return raw;
     }
 
-//    nhập thành công ? cập nhật giá mới và tăng số lượng (tổng và hiện có)
+//    nhập thành công ? Tài liệu cũ: cập nhật giá mới và tăng số lượng (tổng và hiện có). Tài liệu mới: Thêm hồ sơ
     public String add(ImportRecord e) {
         if (new ImportRecordDAO().insert(e)) {
             for (IPDetail dt : e.getDetails()) {
                 LibResourceDAO dao = new LibResourceDAO();
-                dao.updatePrice(dt.getDcmCode(), dt.getPrice());
-                dao.addTotalQuantity(dt.getDcmCode(), dt.getQuantity());
-                dao.addAvailableQuantity(dt.getDcmCode(), dt.getQuantity());
+                LibResource rs = new LibResourceDAO().getByCode(dt.getDcmCode());
+                if (rs != null) {
+                    dao.updatePrice(dt.getDcmCode(), dt.getPrice());
+                    dao.addTotalQuantity(dt.getDcmCode(), dt.getQuantity());
+                    dao.addAvailableQuantity(dt.getDcmCode(), dt.getQuantity());
+                } else {
+                    rs = new LibResource(new DocumentDAO().getByCode(dt.getDcmCode()),dt.getPrice(),dt.getQuantity());
+                    dao.insert(rs);
+                }
             }
             return "Nhập thành công!";
         }
