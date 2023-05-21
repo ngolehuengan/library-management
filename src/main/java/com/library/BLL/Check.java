@@ -19,7 +19,12 @@ public class Check {
     }
 
     public static boolean isISBN(String text) {
-        return true;
+        if (text.length() == 13) {
+            if (isLong(text)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 //    yyyy-MM-dd
@@ -34,9 +39,19 @@ public class Check {
 
     public static boolean isInteger(String text) {
         try {
-            if (Integer.parseInt(text) >= 0)
+            if (Integer.parseInt(text) >= 0) {
                 return true;
+            }
             return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isLong(String text) {
+        try {
+            Long.parseLong(text);
+            return true;
         } catch (Exception e) {
             return false;
         }

@@ -27,18 +27,7 @@ public class LibResourceBUS {
     }
 
 // -----------------------------------------------------------------------------
-    public String edit(int id, LibResource e) {
-        LibResourceDAO dao = new LibResourceDAO();
-        LibResource pre = dao.getByID(id);
-        
-        if (pre.getPrice()!= e.getPrice()) {
-            if (!dao.updatePrice(id, e.getPrice())) 
-                return "Thất bại!";
-        }
-        if (pre.isBorrowable() != e.isBorrowable()) {
-            if (!dao.updateBorrowable(id, e.isBorrowable())) 
-                return "Thất bại!";
-        }
-        return "Lưu thành công";
+    public boolean edit(int id, boolean newData) {
+        return new LibResourceDAO().updateBorrowable(id, newData);
     }
 }
