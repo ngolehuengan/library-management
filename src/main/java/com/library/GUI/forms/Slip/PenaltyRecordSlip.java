@@ -22,32 +22,39 @@ public class PenaltyRecordSlip {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã biên bản");
-		txtId = new javax.swing.JTextField(20);
+		txtId = new javax.swing.JTextField();
 		txtId.setEnabled(false);
+		txtId.setColumns(20);
 
 		lblReader = new javax.swing.JLabel("Độc giả");
-		txtReader = new javax.swing.JTextField(20);
+		txtReader = new javax.swing.JTextField();
 		txtReader.setEnabled(false);
+		txtReader.setColumns(20);
 
 		lblContent = new javax.swing.JLabel("Nội dung");
 		txtContent = new javax.swing.JTextArea(6, 1);
 		txtContent.setEnabled(false);
+		txtContent.setColumns(20);
 
 		lblWayHandle = new javax.swing.JLabel("Hướng xử lý");
 		txtWayHandle = new javax.swing.JTextArea(6, 1);
 		txtWayHandle.setEnabled(false);
+		txtWayHandle.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày lập biên bản");
-		txtDate = new javax.swing.JTextField(20);
+		txtDate = new javax.swing.JTextField();
 		txtDate.setEnabled(false);
+		txtDate.setColumns(20);
 
 		lblValue = new javax.swing.JLabel("Tiền phạt");
-		txtValue = new javax.swing.JTextField(20);
+		txtValue = new javax.swing.JTextField();
 		txtValue.setEnabled(false);
+		txtValue.setColumns(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField(20);
+		txtPerson = new javax.swing.JTextField();
 		txtPerson.setEnabled(false);
+		txtPerson.setColumns(20);
 
 		scrollPane = new javax.swing.JScrollPane();
 		scrollPane.setViewportView(txtContent);

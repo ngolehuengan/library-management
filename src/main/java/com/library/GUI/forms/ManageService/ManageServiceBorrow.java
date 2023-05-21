@@ -4,7 +4,7 @@ import java.util.Vector;
 import main.java.com.library.GUI.components.TableHeader;
 
 public class ManageServiceBorrow {
-	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
+	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
 		// --Borrow ManageService Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
@@ -22,35 +22,43 @@ public class ManageServiceBorrow {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblId = new javax.swing.JLabel("Mã phiếu");
-		txtId = new javax.swing.JTextField(15);
+		txtId = new javax.swing.JTextField();
 		txtId.setEnabled(false);
+		txtId.setColumns(20);
 
 		lblDcmCode = new javax.swing.JLabel("Mã độc giả");
-		txtDcmCode = new javax.swing.JTextField(15);
+		txtDcmCode = new javax.swing.JTextField();
 		txtDcmCode.setEnabled(false);
+		txtDcmCode.setColumns(20);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField(15);
+		txtName = new javax.swing.JTextField();
 		txtName.setEnabled(false);
+		txtName.setColumns(20);
 
 		lblMs = new javax.swing.JLabel("MSSV/CBGV");
-		txtMs = new javax.swing.JTextField(15);
+		txtMs = new javax.swing.JTextField();
 		txtMs.setEnabled(false);
+		txtMs.setColumns(20);
 
 		lblLoanDate = new javax.swing.JLabel("Ngày mượn");
-		txtLoanDate = new javax.swing.JTextField(15);
+		txtLoanDate = new javax.swing.JTextField();
 		txtLoanDate.setEnabled(false);
+		txtLoanDate.setColumns(20);
 
 		lblReturnDate = new javax.swing.JLabel("Ngày hẹn trả");
-		txtReturnDate = new javax.swing.JTextField(15);
+		txtReturnDate = new javax.swing.JTextField();
+		txtReturnDate.setColumns(20);
 
 		lblQuantity = new javax.swing.JLabel("Tổng số lượng");
-		txtQuantity = new javax.swing.JTextField(15);
+		txtQuantity = new javax.swing.JTextField();
 		txtQuantity.setEnabled(false);
+		txtQuantity.setColumns(20);
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
-		txtPerson = new javax.swing.JTextField(15);
+		txtPerson = new javax.swing.JTextField();
 		txtPerson.setEnabled(false);
+		txtPerson.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details

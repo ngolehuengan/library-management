@@ -1,9 +1,6 @@
 package main.java.com.library.GUI.forms.ManageUser;
 
-import java.util.Vector;
-
-import main.java.com.library.BLL.AccountBUS;
-import main.java.com.library.DTO.Account;
+import main.java.com.library.GUI.Login;
 
 @SuppressWarnings("serial")
 public class ChangePwd extends javax.swing.JFrame {
@@ -11,7 +8,6 @@ public class ChangePwd extends javax.swing.JFrame {
 		init();
 	}
 
-	@SuppressWarnings({ "unchecked" })
 	private void init() {
 		setBounds((java.awt.Toolkit.getDefaultToolkit().getScreenSize().width - 400) / 2,
 				(java.awt.Toolkit.getDefaultToolkit().getScreenSize().height - 250) / 2, 400, 250);
@@ -28,25 +24,28 @@ public class ChangePwd extends javax.swing.JFrame {
 		contentPane.add(details, java.awt.BorderLayout.CENTER);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu cũ");
-		txtPwd = new javax.swing.JPasswordField(15);
+		txtPwd = new javax.swing.JPasswordField();
+		txtPwd.setColumns(20);
 
 		lblNewPwd = new javax.swing.JLabel("Mật khẩu mới");
-		txtNewPwd = new javax.swing.JPasswordField(15);
+		txtNewPwd = new javax.swing.JPasswordField();
+		txtNewPwd.setColumns(20);
 
 		lblRepeatPwd = new javax.swing.JLabel("Nhập lại mật khẩu");
-		txtRepeatPwd = new javax.swing.JPasswordField(15);
+		txtRepeatPwd = new javax.swing.JPasswordField();
+		txtRepeatPwd.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details
 				.setHorizontalGroup(
-						gl_details.createSequentialGroup().addGap(0, 50, 50)
+						gl_details.createSequentialGroup().addGap(50)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 										.addComponent(lblPwd).addComponent(lblNewPwd).addComponent(lblRepeatPwd))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(txtPwd).addComponent(txtRepeatPwd).addComponent(txtNewPwd))
-								.addGap(0, 50, 50));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 40, 40)
+								.addGap(50));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPwd).addComponent(txtPwd))
 				.addGap(24)
@@ -54,7 +53,7 @@ public class ChangePwd extends javax.swing.JFrame {
 						.addComponent(lblNewPwd).addComponent(txtNewPwd))
 				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRepeatPwd).addComponent(txtRepeatPwd))
-				.addGap(0, 40, 40));
+				.addGap(40));
 		details.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -65,33 +64,22 @@ public class ChangePwd extends javax.swing.JFrame {
 		contentPane.add(detailsHandle, java.awt.BorderLayout.SOUTH);
 
 		// Action
-		this.getRootPane().setDefaultButton(UserInfo.change);
 		UserInfo.change.addActionListener(e -> {
-			Account account = new Account();
-			account.setUsername(main.java.com.library.GUI.Login.txtUsername.getText());
-			account.setPassword(new String(txtPwd.getPassword()));
-			Vector<Integer> role;
-			try {
-				role = AccountBUS.login(account);
-			} catch (Exception e1) {
-				System.out.println(e1.getMessage());
-				return;
-			}
 			StringBuilder sb = new StringBuilder();
-			if (main.java.com.library.GUI.Login.role.get(0) != role.get(0))
-				sb.append("Mật khẩu hiện tại không đúng !\n");
+			if (new String(txtPwd.getPassword()).equals(""))
+				sb.append("Mật khẩu không hợp lệ !\n");
 			if (new String(txtNewPwd.getPassword()).equals(""))
-				sb.append("Mật khẩu mới không hợp lệ !\n");
+				sb.append("Mật khẩu không hợp lệ !\n");
 			if (!new String(txtNewPwd.getPassword()).equalsIgnoreCase(new String(txtRepeatPwd.getPassword()))) {
-				sb.append("Mật khẩu nhập lại không trùng khớp !\n");
+				sb.append("Mật khẩu không trùng khớp !\n");
 			}
 			if (sb.length() > 0) {
 				javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "ERROR",
 						javax.swing.JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
-				new main.java.com.library.GUI.Login().setVisible(true);
-				main.java.com.library.GUI.Login.frame.dispose();
+				new Login().setVisible(true);
+				Login.frame.dispose();
 				this.dispose();
 			}
 		});

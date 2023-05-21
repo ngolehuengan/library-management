@@ -7,7 +7,7 @@ import main.java.com.library.GUI.handle.Handle;
 public class ManageBookPhoto {
 	@SuppressWarnings({ "serial", "unchecked", "rawtypes" })
 	static void init(javax.swing.JComponent pnlCards) {
-		// -- Documents Tab = Details + Table
+		// --Photo Documents Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
 		pnlCards.add(splitPane, "pnlPhoto");
 
@@ -27,34 +27,37 @@ public class ManageBookPhoto {
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(Handle.setDefaultImg());
+		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
 		// -----Details: InfoForm
-		lblTitle = new javax.swing.JLabel("Nhan đề");
-		txtTitle = new javax.swing.JTextField(15);
-		txtTitle.setEnabled(false);
+		lblTitlePhoto = new javax.swing.JLabel("Nhan đề");
+		txtTitlePhoto = new javax.swing.JTextField();
+		txtTitlePhoto.setEnabled(false);
+		txtTitlePhoto.setColumns(15);
 
-		lblCate = new javax.swing.JLabel("Thể loại");
-		cbbCate = new javax.swing.JComboBox();
-		cbbCate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbCate.setEnabled(false);
+		lblCatePhoto = new javax.swing.JLabel("Thể loại");
+		cbbCatePhoto = new javax.swing.JComboBox();
+		cbbCatePhoto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbCatePhoto.setEnabled(false);
 
-		lblAuthor = new javax.swing.JLabel("Tác giả");
-		txtAuthor = new javax.swing.JTextField(15);
-		txtAuthor.setEnabled(false);
+		lblAuthorPhoto = new javax.swing.JLabel("Tác giả");
+		txtAuthorPhoto = new javax.swing.JTextField();
+		txtAuthorPhoto.setEnabled(false);
+		txtAuthorPhoto.setColumns(15);
 
-		lblYear = new javax.swing.JLabel("Năm xuất bản");
-		cbbYear = new javax.swing.JComboBox();
-		cbbYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbYear.setEnabled(false);
+		lblYearPhoto = new javax.swing.JLabel("Năm xuất bản");
+		cbbYearPhoto = new javax.swing.JComboBox();
+		cbbYearPhoto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
+		cbbYearPhoto.setEnabled(false);
 
-		lblDescript = new javax.swing.JLabel("Mô tả");
-		txtDescript = new javax.swing.JTextArea(7, 1);
-		txtDescript.setLineWrap(true);
-		txtDescript.setEnabled(false);
+		lblDescripPhoto = new javax.swing.JLabel("Mô tả");
+		txtAreaDescripPhoto = new javax.swing.JTextArea(7, 1);
+		txtAreaDescripPhoto.setLineWrap(true);
+		txtAreaDescripPhoto.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
-		scrollPane.setViewportView(txtDescript);
+		scrollPane.setViewportView(txtAreaDescripPhoto);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
@@ -64,15 +67,15 @@ public class ManageBookPhoto {
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblTitle).addComponent(lblAuthor).addComponent(lblCate))
+								.addComponent(lblTitlePhoto).addComponent(lblAuthorPhoto).addComponent(lblCatePhoto))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(cbbCate).addComponent(txtTitle).addComponent(txtAuthor)))
+								.addComponent(cbbCatePhoto).addComponent(txtTitlePhoto).addComponent(txtAuthorPhoto)))
 				.addGroup(gl_details.createSequentialGroup()
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblYear).addComponent(lblDescript))
+								.addComponent(lblYearPhoto).addComponent(lblDescripPhoto))
 						.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(scrollPane).addComponent(cbbYear))))
+								.addComponent(scrollPane).addComponent(cbbYearPhoto))))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -80,18 +83,18 @@ public class ManageBookPhoto {
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblTitle).addComponent(txtTitle))
+										.addComponent(lblTitlePhoto).addComponent(txtTitlePhoto))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblCate).addComponent(cbbCate))
+										.addComponent(lblCatePhoto).addComponent(cbbCatePhoto))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblAuthor).addComponent(txtAuthor))))
+										.addComponent(lblAuthorPhoto).addComponent(txtAuthorPhoto))))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblYear).addComponent(cbbYear))
+						.addComponent(lblYearPhoto).addComponent(cbbYearPhoto))
 				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-						.addComponent(lblDescript).addComponent(scrollPane)));
+						.addComponent(lblDescripPhoto).addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -126,68 +129,71 @@ public class ManageBookPhoto {
 
 		// Action
 		ManageBook.add.addActionListener(e -> {
-			Handle.addImage(imgPnl, img);
-			img.setIcon(Handle.setDefaultImg());
+			Handle.addImageBook(imgPnl, img);
+			img.setIcon(new javax.swing.ImageIcon(
+					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
-			txtTitle.setEnabled(true);
-			cbbCate.setEnabled(true);
-			txtAuthor.setEnabled(true);
-			cbbYear.setEnabled(true);
-			txtDescript.setEnabled(true);
+			txtTitlePhoto.setEnabled(true);
+			cbbCatePhoto.setEnabled(true);
+			txtAuthorPhoto.setEnabled(true);
+			cbbYearPhoto.setEnabled(true);
+			txtAreaDescripPhoto.setEnabled(true);
 
-			txtTitle.setText("");
-			cbbCate.setSelectedIndex(0);
-			txtAuthor.setText("");
-			cbbYear.setSelectedIndex(0);
-			txtDescript.setText("");
+			txtTitlePhoto.setText("");
+			cbbCatePhoto.setSelectedIndex(0);
+			txtAuthorPhoto.setText("");
+			cbbYearPhoto.setSelectedIndex(0);
+			txtAreaDescripPhoto.setText("");
 		});
 
 		ManageBook.edit.addActionListener(e -> {
-			Handle.addImage(imgPnl, img);
+			Handle.addImageBook(imgPnl, img);
 
-			txtTitle.setEnabled(true);
-			cbbCate.setEnabled(true);
-			txtAuthor.setEnabled(true);
-			cbbYear.setEnabled(true);
-			txtDescript.setEnabled(true);
+			txtTitlePhoto.setEnabled(true);
+			cbbCatePhoto.setEnabled(true);
+			txtAuthorPhoto.setEnabled(true);
+			cbbYearPhoto.setEnabled(true);
+			txtAreaDescripPhoto.setEnabled(true);
 		});
 
 		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			img.setIcon(Handle.setDefaultImg());
+			img.setIcon(new javax.swing.ImageIcon(
+					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
-			txtTitle.setEnabled(false);
-			cbbCate.setEnabled(false);
-			txtAuthor.setEnabled(false);
-			cbbYear.setEnabled(false);
-			txtDescript.setEnabled(false);
+			txtTitlePhoto.setEnabled(false);
+			cbbCatePhoto.setEnabled(false);
+			txtAuthorPhoto.setEnabled(false);
+			cbbYearPhoto.setEnabled(false);
+			txtAreaDescripPhoto.setEnabled(false);
 
-			txtTitle.setText("");
-			cbbCate.setSelectedIndex(0);
-			txtAuthor.setText("");
-			cbbYear.setSelectedIndex(0);
-			txtDescript.setText("");
+			txtTitlePhoto.setText("");
+			cbbCatePhoto.setSelectedIndex(0);
+			txtAuthorPhoto.setText("");
+			cbbYearPhoto.setSelectedIndex(0);
+			txtAreaDescripPhoto.setText("");
 		});
 
 		ManageBook.save.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
 
-			txtTitle.setEnabled(false);
-			cbbCate.setEnabled(false);
-			txtAuthor.setEnabled(false);
-			cbbYear.setEnabled(false);
-			txtDescript.setEnabled(false);
+			txtTitlePhoto.setEnabled(false);
+			cbbCatePhoto.setEnabled(false);
+			txtAuthorPhoto.setEnabled(false);
+			cbbYearPhoto.setEnabled(false);
+			txtAreaDescripPhoto.setEnabled(false);
 		});
 
 		ManageBook.reset.addActionListener(e -> {
-			if (txtTitle.isEnabled()) {
-				img.setIcon(Handle.setDefaultImg());
+			if (txtTitlePhoto.isEnabled()) {
+				img.setIcon(new javax.swing.ImageIcon(
+						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
-				txtTitle.setText("");
-				cbbCate.setSelectedIndex(0);
-				txtAuthor.setText("");
-				cbbYear.setSelectedIndex(0);
-				txtDescript.setText("");
+				txtTitlePhoto.setText("");
+				cbbCatePhoto.setSelectedIndex(0);
+				txtAuthorPhoto.setText("");
+				cbbYearPhoto.setSelectedIndex(0);
+				txtAreaDescripPhoto.setText("");
 			}
 		});
 	}
@@ -198,18 +204,18 @@ public class ManageBookPhoto {
 	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JPanel imgPnl;
 	private static javax.swing.JLabel img;
-	private static javax.swing.JLabel lblTitle;
-	private static javax.swing.JTextField txtTitle;
-	private static javax.swing.JLabel lblCate;
+	private static javax.swing.JLabel lblTitlePhoto;
+	private static javax.swing.JTextField txtTitlePhoto;
+	private static javax.swing.JLabel lblCatePhoto;
 	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox cbbCate;
-	private static javax.swing.JLabel lblAuthor;
-	private static javax.swing.JTextField txtAuthor;
-	private static javax.swing.JLabel lblYear;
+	private static javax.swing.JComboBox cbbCatePhoto;
+	private static javax.swing.JLabel lblAuthorPhoto;
+	private static javax.swing.JTextField txtAuthorPhoto;
+	private static javax.swing.JLabel lblYearPhoto;
 	@SuppressWarnings("rawtypes")
-	private static javax.swing.JComboBox cbbYear;
-	private static javax.swing.JLabel lblDescript;
-	private static javax.swing.JTextArea txtDescript;
+	private static javax.swing.JComboBox cbbYearPhoto;
+	private static javax.swing.JLabel lblDescripPhoto;
+	private static javax.swing.JTextArea txtAreaDescripPhoto;
 	private static javax.swing.JPanel detailsHandle;
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JScrollPane scrollPane;

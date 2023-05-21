@@ -13,7 +13,7 @@ public class LecturerBUS {
     }
     public static int updateLecturer(Lecturer lecturer,Reader reader) throws Exception{
         MyConnectUnit connect = new MyConnectUnit(); 
-        LecturerDAL.updateLecture(reader, lecturer);
+        LecturerDAL.updateLecturer(reader, lecturer);
         return 0;
     }
 }

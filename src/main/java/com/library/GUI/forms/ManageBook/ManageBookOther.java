@@ -5,9 +5,9 @@ import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookOther {
-	@SuppressWarnings({ "serial", "rawtypes", "unchecked" })
+	@SuppressWarnings("serial")
 	static void init(javax.swing.JComponent pnlCards) {
-		// -- Documents Tab = Details + Table
+		// --Other Documents Tab = Details + Table
 		splitPane = new javax.swing.JSplitPane();
 		pnlCards.add(splitPane, "pnlOther");
 
@@ -27,38 +27,40 @@ public class ManageBookOther {
 		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
 		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
 		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(Handle.setDefaultImg());
+		img = new javax.swing.JLabel(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 		imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
 		// -----Details: InfoForm
-		lblTitle = new javax.swing.JLabel("Nhan đề");
-		txtTitle = new javax.swing.JTextField(30);
-		txtTitle.setEnabled(false);
+		lblTitleOther = new javax.swing.JLabel("Nhan đề");
+		txtTitleOther = new javax.swing.JTextField();
+		txtTitleOther.setEnabled(false);
+		txtTitleOther.setColumns(30);
 
-		lblDescript = new javax.swing.JLabel("Mô tả");
-		txtDescript = new javax.swing.JTextArea(7, 1);
-		txtDescript.setLineWrap(true);
-		txtDescript.setEnabled(false);
+		lblDescripOther = new javax.swing.JLabel("Mô tả");
+		txtAreaDescripOther = new javax.swing.JTextArea(7, 1);
+		txtAreaDescripOther.setLineWrap(true);
+		txtAreaDescripOther.setEnabled(false);
 		scrollPane = new javax.swing.JScrollPane();
-		scrollPane.setViewportView(txtDescript);
+		scrollPane.setViewportView(txtAreaDescripOther);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblTitle, javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(lblDescript, javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(lblTitleOther, javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(lblDescripOther, javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(txtTitle, javax.swing.GroupLayout.Alignment.LEADING))
+						.addComponent(txtTitleOther, javax.swing.GroupLayout.Alignment.LEADING))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 				.addGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(24).addComponent(lblTitle)
+						.addGap(24).addComponent(lblTitleOther)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(txtTitle).addGap(24).addComponent(lblDescript)
+						.addComponent(txtTitleOther).addGap(24).addComponent(lblDescripOther)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 						.addComponent(scrollPane)));
 		detailsInfo.setLayout(gl_details);
@@ -95,47 +97,50 @@ public class ManageBookOther {
 
 		// Action
 		ManageBook.add.addActionListener(e -> {
-			Handle.addImage(imgPnl, img);
-			img.setIcon(Handle.setDefaultImg());
+			Handle.addImageBook(imgPnl, img);
+			img.setIcon(new javax.swing.ImageIcon(
+					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
-			txtTitle.setEnabled(true);
-			txtDescript.setEnabled(true);
+			txtTitleOther.setEnabled(true);
+			txtAreaDescripOther.setEnabled(true);
 
-			txtTitle.setText("");
-			txtDescript.setText("");
+			txtTitleOther.setText("");
+			txtAreaDescripOther.setText("");
 		});
 
 		ManageBook.edit.addActionListener(e -> {
-			Handle.addImage(imgPnl, img);
+			Handle.addImageBook(imgPnl, img);
 
-			txtTitle.setEnabled(true);
-			txtDescript.setEnabled(true);
+			txtTitleOther.setEnabled(true);
+			txtAreaDescripOther.setEnabled(true);
 		});
 
 		ManageBook.delete.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
-			img.setIcon(Handle.setDefaultImg());
+			img.setIcon(new javax.swing.ImageIcon(
+					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
-			txtTitle.setEnabled(false);
-			txtDescript.setEnabled(false);
+			txtTitleOther.setEnabled(false);
+			txtAreaDescripOther.setEnabled(false);
 
-			txtTitle.setText("");
-			txtDescript.setText("");
+			txtTitleOther.setText("");
+			txtAreaDescripOther.setText("");
 		});
 
 		ManageBook.save.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
 
-			txtTitle.setEnabled(false);
-			txtDescript.setEnabled(false);
+			txtTitleOther.setEnabled(false);
+			txtAreaDescripOther.setEnabled(false);
 		});
 
 		ManageBook.reset.addActionListener(e -> {
-			if (txtTitle.isEnabled()) {
-				img.setIcon(Handle.setDefaultImg());
+			if (txtTitleOther.isEnabled()) {
+				img.setIcon(new javax.swing.ImageIcon(
+						ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
-				txtTitle.setText("");
-				txtDescript.setText("");
+				txtTitleOther.setText("");
+				txtAreaDescripOther.setText("");
 			}
 		});
 	}
@@ -146,10 +151,10 @@ public class ManageBookOther {
 	private static javax.swing.JPanel detailsInfo;
 	private static javax.swing.JPanel imgPnl;
 	private static javax.swing.JLabel img;
-	private static javax.swing.JLabel lblTitle;
-	private static javax.swing.JTextField txtTitle;
-	private static javax.swing.JLabel lblDescript;
-	private static javax.swing.JTextArea txtDescript;
+	private static javax.swing.JLabel lblTitleOther;
+	private static javax.swing.JTextField txtTitleOther;
+	private static javax.swing.JLabel lblDescripOther;
+	private static javax.swing.JTextArea txtAreaDescripOther;
 	private static javax.swing.JPanel detailsHandle;
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JTable table;

@@ -1,7 +1,5 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
-import main.java.com.library.GUI.handle.Handle;
-
 public class ManageLibrarian {
 	@SuppressWarnings({ "serial" })
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
@@ -28,36 +26,44 @@ public class ManageLibrarian {
 		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
 		lblName = new javax.swing.JLabel("Họ và tên");
-		txtName = new javax.swing.JTextField(20);
+		txtName = new javax.swing.JTextField();
 		txtName.setEnabled(false);
+		txtName.setColumns(20);
 
 		lblUser = new javax.swing.JLabel("Tên tài khoản");
-		txtUser = new javax.swing.JTextField(20);
+		txtUser = new javax.swing.JTextField();
 		txtUser.setEnabled(false);
+		txtUser.setColumns(20);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
-		txtPwd = new javax.swing.JTextField(20);
+		txtPwd = new javax.swing.JTextField();
 		txtPwd.setEnabled(false);
+		txtPwd.setColumns(20);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
-		txtCmnd = new javax.swing.JTextField(20);
+		txtCmnd = new javax.swing.JTextField();
 		txtCmnd.setEnabled(false);
+		txtCmnd.setColumns(20);
 
 		lblDate = new javax.swing.JLabel("Ngày sinh");
-		txtDate = new javax.swing.JTextField(20);
+		txtDate = new javax.swing.JTextField();
 		txtDate.setEnabled(false);
+		txtDate.setColumns(20);
 
 		lblAddress = new javax.swing.JLabel("Địa chỉ");
-		txtAddress = new javax.swing.JTextField(20);
+		txtAddress = new javax.swing.JTextField();
 		txtAddress.setEnabled(false);
+		txtAddress.setColumns(20);
 
 		lblEmail = new javax.swing.JLabel("Email");
-		txtEmail = new javax.swing.JTextField(20);
+		txtEmail = new javax.swing.JTextField();
 		txtEmail.setEnabled(false);
-		
+		txtEmail.setColumns(20);
+
 		lblPhone = new javax.swing.JLabel("Số điện thoại");
-		txtPhone = new javax.swing.JTextField(20);
+		txtPhone = new javax.swing.JTextField();
 		txtPhone.setEnabled(false);
+		txtPhone.setColumns(20);
 
 		lblGender = new javax.swing.JLabel("Giới tính");
 		male = new javax.swing.JRadioButton("Nam");
@@ -74,7 +80,7 @@ public class ManageLibrarian {
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lblPhone)
 						.addComponent(lblName).addComponent(lblCmnd).addComponent(lblDate).addComponent(lblAddress)
 						.addComponent(lblEmail).addComponent(lblGender).addComponent(lblUser).addComponent(lblPwd))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
 						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(txtPwd)
@@ -88,30 +94,30 @@ public class ManageLibrarian {
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblUser).addComponent(txtUser))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPwd).addComponent(txtPwd))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(24)
+				.addGap(20)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+				.addGap(20).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(24));
+				.addGap(20));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -256,9 +262,17 @@ public class ManageLibrarian {
 		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
-		add = Handle.getAdd(add);
-		edit = Handle.getEdit(edit);
-		delete = Handle.getDelete(delete);
+		add = new javax.swing.JButton("Thêm");
+		add.setForeground(new java.awt.Color(255, 255, 255));
+		add.setBackground(new java.awt.Color(0, 153, 51));
+
+		edit = new javax.swing.JButton("Chỉnh sửa");
+		edit.setBackground(new java.awt.Color(0, 153, 51));
+		edit.setForeground(new java.awt.Color(255, 255, 255));
+
+		delete = new javax.swing.JButton("Xóa");
+		delete.setForeground(new java.awt.Color(255, 255, 255));
+		delete.setBackground(new java.awt.Color(0, 153, 51));
 
 		handleBase.add(add);
 		handleBase.add(edit);
@@ -268,15 +282,32 @@ public class ManageLibrarian {
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
-		print = Handle.getPrint(print);
-		download = Handle.getDownload(download);
+		print = new javax.swing.JButton("  In");
+		print.setIcon(new javax.swing.ImageIcon(
+				ManageReader.class.getResource("../../../../../resources/icons/printing.png")));
+		print.setForeground(new java.awt.Color(255, 255, 255));
+		print.setBackground(new java.awt.Color(0, 153, 51));
+
+		download = new javax.swing.JButton("  Tải xuống");
+		download.setIcon(new javax.swing.ImageIcon(
+				ManageReader.class.getResource("../../../../../resources/icons/downloads.png")));
+		download.setForeground(new java.awt.Color(255, 255, 255));
+		download.setBackground(new java.awt.Color(0, 153, 51));
 
 		handleOpt.add(download);
 		handleOpt.add(print);
 
-		save = Handle.getSave(save);
-		reset = Handle.getReset(reset);
-		view = Handle.getView(view);
+		save = new javax.swing.JButton("Lưu");
+		save.setBackground(new java.awt.Color(0, 153, 51));
+		save.setForeground(new java.awt.Color(255, 255, 255));
+
+		reset = new javax.swing.JButton("Reset");
+		reset.setBackground(new java.awt.Color(0, 153, 51));
+		reset.setForeground(new java.awt.Color(255, 255, 255));
+
+		view = new javax.swing.JButton("Xem");
+		view.setForeground(new java.awt.Color(255, 255, 255));
+		view.setBackground(new java.awt.Color(0, 153, 51));
 	}
 
 	// Private

@@ -1,7 +1,5 @@
 package main.java.com.library.GUI.forms.ManageService;
 
-import main.java.com.library.GUI.handle.Handle;
-
 @SuppressWarnings("serial")
 public class FindReader extends javax.swing.JFrame {
 	public FindReader() {
@@ -18,8 +16,6 @@ public class FindReader extends javax.swing.JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new java.awt.BorderLayout(0, 0));
 
-		ManageService.search = Handle.getSearch(ManageService.search);
-		ManageService.searchField = new javax.swing.JTextField(15);
 		tableSearch = new javax.swing.JPanel();
 		tableSearch.add(ManageService.searchField);
 		tableSearch.add(ManageService.search);
@@ -41,11 +37,11 @@ public class FindReader extends javax.swing.JFrame {
 		scrollPane.setViewportView(table);
 		
 		tableHandle = new javax.swing.JPanel();
-		ManageService.save = Handle.getSave(ManageService.save);
-		ManageService.save.setText("Chọn");
-		tableHandle.add(ManageService.save);
+		tableHandle.add(ManageService.choose);
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		contentPane.add(tableHandle, java.awt.BorderLayout.SOUTH);
+		
+	
 	}
 
 	// Private
