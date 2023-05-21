@@ -41,24 +41,9 @@ public class PenaltyRecordSlip {
 		txtDate = new javax.swing.JTextField(20);
 		txtDate.setEnabled(false);
 
-<<<<<<< HEAD
-		lblPenalty = new javax.swing.JLabel("Tiền phạt");
-		txtPenalty = new javax.swing.JTextField(20);
-		txtPenalty.setEnabled(false);
-=======
-<<<<<<< HEAD
-		lblPenalty = new javax.swing.JLabel("Tiền phạt");
-		txtPenalty = new javax.swing.JTextField(20);
-		txtPenalty.setEnabled(false);
-=======
 		lblValue = new javax.swing.JLabel("Tiền phạt");
 		txtValue = new javax.swing.JTextField(20);
 		txtValue.setEnabled(false);
-<<<<<<< HEAD
->>>>>>> parent of 83dfa60 (dcm)
->>>>>>> parent of e06cbe3 (.)
-=======
->>>>>>> parent of 83dfa60 (dcm)
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
 		txtPerson = new javax.swing.JTextField(20);
@@ -74,11 +59,11 @@ public class PenaltyRecordSlip {
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblId).addComponent(lblReader).addComponent(lblContent)
-						.addComponent(lblWayHandle).addComponent(lblDate).addComponent(lblPenalty))
+						.addComponent(lblWayHandle).addComponent(lblDate).addComponent(lblValue))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtId).addComponent(txtReader).addComponent(scrollPane)
-						.addComponent(scrollPane_1).addComponent(txtDate).addComponent(txtPenalty))
+						.addComponent(scrollPane_1).addComponent(txtDate).addComponent(txtValue))
 				.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
@@ -97,7 +82,7 @@ public class PenaltyRecordSlip {
 						.addComponent(lblDate).addComponent(txtDate))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPenalty).addComponent(txtPenalty))
+						.addComponent(lblValue).addComponent(txtValue))
 				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPerson).addComponent(txtPerson)));
 		detailsInfo.setLayout(gl_details);
@@ -147,8 +132,8 @@ public class PenaltyRecordSlip {
 	private static javax.swing.JTextArea txtWayHandle;
 	private static javax.swing.JLabel lblDate;
 	private static javax.swing.JTextField txtDate;
-	private static javax.swing.JLabel lblPenalty;
-	private static javax.swing.JTextField txtPenalty;
+	private static javax.swing.JLabel lblValue;
+	private static javax.swing.JTextField txtValue;
 	private static javax.swing.JLabel lblPerson;
 	private static javax.swing.JTextField txtPerson;
 	private static javax.swing.JPanel detailsHandle;
