@@ -1,10 +1,13 @@
 package main.java.com.library.GUI.handle;
 
+import javax.swing.Icon;
+
 import main.java.com.library.GUI.forms.ManageService.FindReader;
 
 public class Handle {
-	
-	// -----------------------------------Dialog set get image----------------------------------------
+
+	// -----------------------------------Dialog set get
+	// image----------------------------------------
 	public static void addImage(javax.swing.JPanel imgPnl, javax.swing.JLabel img) {
 		removeClickListener(imgPnl);
 		imgPnl.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -20,7 +23,13 @@ public class Handle {
 					// lấy file
 					java.io.File f = imgChooser.getSelectedFile();
 					// hiển thị hình lên frame
-					img.setIcon(new javax.swing.ImageIcon(f.getAbsolutePath()));
+
+					// ImageIcon imageIcon = new ImageIcon(new
+					// ImageIcon("icon.png").getImage().getScaledInstance(20, 20,
+					// Image.SCALE_DEFAULT));
+					// label.setIcon(imageIcon);
+					img.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(f.getAbsolutePath()).getImage()
+							.getScaledInstance(125, 100, java.awt.Image.SCALE_DEFAULT)));
 				}
 			}
 		});
@@ -39,15 +48,14 @@ public class Handle {
 	}
 
 	public static javax.swing.ImageIcon setDefaultImg() {
-		return new javax.swing.ImageIcon(
-				Handle.class.getResource("../../../../resources/images/image-gallery.png"));
+		return new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/images/image-gallery.png"));
 	}
-	
-	// -----------------------------------Dialog confirm----------------------------------------
+
+	// -----------------------------------Dialog
+	// confirm----------------------------------------
 	public static boolean confirm() {
-		int result = javax.swing.JOptionPane.showConfirmDialog(null,
-				"Thao tác này không thể hoàn tác, chắc chắn chọn?", "XÁC NHẬN", javax.swing.JOptionPane.YES_NO_OPTION,
-				javax.swing.JOptionPane.QUESTION_MESSAGE);
+		int result = javax.swing.JOptionPane.showConfirmDialog(null, "Thao tác này không thể hoàn tác, chắc chắn chọn?",
+				"XÁC NHẬN", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
 		if (result == javax.swing.JOptionPane.YES_OPTION) {
 			return true;
 		} else {
@@ -55,7 +63,8 @@ public class Handle {
 		}
 	}
 
-	// -----------------------------------Set Button----------------------------------------
+	// -----------------------------------Set
+	// Button----------------------------------------
 	public static void setColor(javax.swing.JComponent btn) {
 		btn.setForeground(new java.awt.Color(255, 255, 255));
 		btn.setBackground(new java.awt.Color(0, 153, 51));
@@ -87,24 +96,21 @@ public class Handle {
 
 	public static javax.swing.JButton getUpload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Đăng tải");
-		btn.setIcon(
-				new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/upload.png")));
+		btn.setIcon(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/upload.png")));
 		setColor(btn);
 		return btn;
 	}
 
 	public static javax.swing.JButton getDownload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Tải xuống");
-		btn.setIcon(new javax.swing.ImageIcon(
-				Handle.class.getResource("../../../../resources/icons/downloads.png")));
+		btn.setIcon(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/downloads.png")));
 		setColor(btn);
 		return btn;
 	}
 
 	public static javax.swing.JButton getPrint(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  In");
-		btn.setIcon(
-				new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/printing.png")));
+		btn.setIcon(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/printing.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -126,9 +132,10 @@ public class Handle {
 		setColor(btn);
 		return btn;
 	}
-	
+
 	public static javax.swing.JButton getFind(javax.swing.JButton btn) {
-		btn = new javax.swing.JButton(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/find.png")));
+		btn = new javax.swing.JButton(
+				new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/find.png")));
 		setColor(btn);
 		btn.addActionListener(e -> {
 			new FindReader().setVisible(true);
@@ -136,7 +143,8 @@ public class Handle {
 		return btn;
 	}
 
-	// -----------------------------------Set Color----------------------------------------
+	// -----------------------------------Set
+	// Color----------------------------------------
 	public static javax.swing.border.Border colorError() {
 		return javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED);
 	}

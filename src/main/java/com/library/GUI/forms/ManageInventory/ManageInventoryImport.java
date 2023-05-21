@@ -9,7 +9,7 @@ import main.java.com.library.GUI.handle.Handle;
 
 public class ManageInventoryImport {
 
-    @SuppressWarnings({"serial", "unchecked"})
+    @SuppressWarnings({ "serial", "unchecked" })
     static void init(javax.swing.JComponent pnlCards) {
         // --Import Tab = Details + Table
         splitPane = new javax.swing.JSplitPane();
@@ -83,7 +83,7 @@ public class ManageInventoryImport {
                 .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDate).addComponent(txtDate))
                 .addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblPerson).addComponent(txtPerson)));
+                        .addComponent(lblPerson).addComponent(txtPerson)));
         detailsInfo.setLayout(gl_details);
 
         // -----Details: Handle
@@ -133,11 +133,11 @@ public class ManageInventoryImport {
         subTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         subTable.setModel(
                 new javax.swing.table.DefaultTableModel(getDetailDisplay(vtDetail), TableHeader.importDetail()) {
-            @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return false;
-            }
-        });
+                    @Override
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return false;
+                    }
+                });
         subTable.setAutoCreateRowSorter(true);
         scrollPane.setViewportView(subTable);
 
@@ -255,25 +255,25 @@ public class ManageInventoryImport {
     }
 
     // Private
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private static void clearDetailTable() {
         vtDetail = new Vector();
         totalPrice = 0;
         refreshDetailTable();
     }
 
-    @SuppressWarnings({"serial", "unchecked"})
+    @SuppressWarnings({ "serial", "unchecked" })
     private static void refreshDetailTable() {
         subTable.setModel(
                 new javax.swing.table.DefaultTableModel(getDetailDisplay(vtDetail), TableHeader.importDetail()) {
-            @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return false;
-            }
-        });
+                    @Override
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return false;
+                    }
+                });
     }
 
-    @SuppressWarnings({"unchecked", "serial"})
+    @SuppressWarnings({ "unchecked", "serial" })
     private static void displayDetail(ImportRecord e) {
         txtPerson.setText(Integer.toString(e.getLibrarianID()));
         txtDate.setText(e.getDate().toString());
@@ -288,18 +288,18 @@ public class ManageInventoryImport {
         txtNumber.setBorder(Handle.colorDisabled());
         subTable.setModel(
                 new javax.swing.table.DefaultTableModel(getDetailDisplay(e.getDetails()), TableHeader.importDetail()) {
-            @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return false;
-            }
-        });
+                    @Override
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return false;
+                    }
+                });
         txtDate.setEnabled(false);
         txtDcmCode.setEnabled(false);
         txtValue.setEnabled(false);
         txtNumber.setEnabled(false);
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private static Vector getDisplay(Vector<ImportRecord> list) {
         Vector table = new Vector();
         for (int i = 0; i < list.size(); i++) {
@@ -316,7 +316,7 @@ public class ManageInventoryImport {
         return table;
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private static Vector getDetailDisplay(Vector<IPDetail> list) {
         Vector table = new Vector();
         for (int i = 0; i < list.size(); i++) {
@@ -333,7 +333,7 @@ public class ManageInventoryImport {
     }
 
     // nút Xem - view
-    @SuppressWarnings({"serial", "unchecked"})
+    @SuppressWarnings({ "serial", "unchecked" })
     private static void refreshTable() {
         vtDTO = new ImportRecordBUS().getTable();
         table.setModel(new javax.swing.table.DefaultTableModel(getDisplay(vtDTO), TableHeader.importRecord()) {
@@ -398,9 +398,9 @@ public class ManageInventoryImport {
             txtDcmCode.setText("");
             txtValue.setText("");
             txtNumber.setText("");
-//            txtDcmCode.setBorder(Handle.colorEnabled());
-//            txtValue.setBorder(Handle.colorEnabled());
-//            txtNumber.setBorder(Handle.colorEnabled());
+            txtDcmCode.setBorder(Handle.colorEnabled());
+            txtValue.setBorder(Handle.colorEnabled());
+            txtNumber.setBorder(Handle.colorEnabled());
         } else {
             javax.swing.JOptionPane.showMessageDialog(null, "Mã tài liệu mới!\nVui lòng thêm ở Quản lý tài liệu");
             txtDcmCode.setBorder(Handle.colorError());
@@ -471,11 +471,11 @@ public class ManageInventoryImport {
             txtTotal.setText(Double.toString(totalPrice));
             txtDate.setText(new java.sql.Date(System.currentTimeMillis()).toString());
             txtDcmCode.setText("");
-            txtDcmCode.setBorder(Handle.colorDisabled());
+            txtDcmCode.setBorder(Handle.colorEnabled());
             txtValue.setText("");
-            txtValue.setBorder(Handle.colorDisabled());
+            txtValue.setBorder(Handle.colorEnabled());
             txtNumber.setText("");
-            txtNumber.setBorder(Handle.colorDisabled());
+            txtNumber.setBorder(Handle.colorEnabled());
         } else {
             clearDetailTable();
             refreshTable();
@@ -525,7 +525,7 @@ public class ManageInventoryImport {
     private static javax.swing.JPanel subTableHandle;
 
     private static Vector<ImportRecord> vtDTO = new ImportRecordBUS().getTable();
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private static Vector<IPDetail> vtDetail = new Vector();
     private static int rowIndex;
     private static double totalPrice = 0;
