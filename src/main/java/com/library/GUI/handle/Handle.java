@@ -23,11 +23,6 @@ public class Handle {
 					// lấy file
 					java.io.File f = imgChooser.getSelectedFile();
 					// hiển thị hình lên frame
-
-					// ImageIcon imageIcon = new ImageIcon(new
-					// ImageIcon("icon.png").getImage().getScaledInstance(20, 20,
-					// Image.SCALE_DEFAULT));
-					// label.setIcon(imageIcon);
 					img.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(f.getAbsolutePath()).getImage()
 							.getScaledInstance(125, 100, java.awt.Image.SCALE_DEFAULT)));
 				}
