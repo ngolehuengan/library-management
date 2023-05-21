@@ -5,6 +5,7 @@ import main.java.com.library.DAL.DocumentDAO;
 import main.java.com.library.DAL.ReleaseRecordDAO;
 import main.java.com.library.DAL.LibResourceDAO;
 import main.java.com.library.DTO.Document;
+import main.java.com.library.DTO.LibResource;
 import main.java.com.library.DTO.RLDetail;
 import main.java.com.library.DTO.ReleaseRecord;
 
@@ -18,7 +19,7 @@ public class ReleaseRecordBUS {
     public Vector<ReleaseRecord> getTable() {
         return new ReleaseRecordDAO().getAll();
     }
-    
+
 // -----------------------------------------------------------------------------
 //    xoá thành công ? giảm số lượng (tổng và hiện có)
     public String delete(ReleaseRecord e) {
@@ -34,13 +35,16 @@ public class ReleaseRecordBUS {
     }
 
 // -----------------------------------------------------------------------------
-//    input: mã tài liệu (hàm tự check), số lượng (số nguyên không âm)    
+//    input: mã tài liệu (hàm tự check), số lượng không quá số hiện có (số nguyên không âm)    
     public RLDetail handleDetail(RLDetail raw) {
-        Document dcm = new DocumentDAO().getByCode(raw.getDcmCode());
-        if (dcm == null) {
+        LibResource lrs = new LibResourceDAO().getByCode(raw.getDcmCode());
+        if (lrs == null || !(lrs.getAvailableQuantity() > 0)) {
             return null;
         }
-        raw.setTitle(dcm.getTitle());
+        
+        if (raw.getQuantity() > lrs.getAvailableQuantity()) 
+            raw.setQuantity(lrs.getAvailableQuantity());
+        raw.setTitle(new DocumentDAO().getByCode(raw.getDcmCode()).getTitle());
         return raw;
     }
 
