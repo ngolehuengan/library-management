@@ -197,8 +197,7 @@ public class ManageInventoryLiquidate {
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                rowIndex = table.getSelectedRow();
-                displayDetail(vtDTO.get(rowIndex));
+                displayDetail(vtDTO.get(table.getSelectedRow()));
             }
         });
 
@@ -478,7 +477,6 @@ public class ManageInventoryLiquidate {
     private static Vector<ReleaseRecord> vtDTO = new ReleaseRecordBUS().getTable();
     @SuppressWarnings({"rawtypes", "unchecked"})
     private static Vector<RLDetail> vtDetail = new Vector();
-    private static int rowIndex;
     private static int totalNumber = 0;
     private static final int librarianID = main.java.com.library.GUI.Login.role.get(0);
 }
