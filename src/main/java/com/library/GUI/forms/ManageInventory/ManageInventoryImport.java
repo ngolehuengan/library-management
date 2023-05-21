@@ -398,9 +398,9 @@ public class ManageInventoryImport {
             txtDcmCode.setText("");
             txtValue.setText("");
             txtNumber.setText("");
-            txtDcmCode.setBorder(Handle.colorEnabled());
-            txtValue.setBorder(Handle.colorEnabled());
-            txtNumber.setBorder(Handle.colorEnabled());
+            // txtDcmCode.setBorder(Handle.colorEnabled());
+            // txtValue.setBorder(Handle.colorEnabled());
+            // txtNumber.setBorder(Handle.colorEnabled());
         } else {
             javax.swing.JOptionPane.showMessageDialog(null, "Mã tài liệu mới!\nVui lòng thêm ở Quản lý tài liệu");
             txtDcmCode.setBorder(Handle.colorError());
@@ -471,11 +471,11 @@ public class ManageInventoryImport {
             txtTotal.setText(Double.toString(totalPrice));
             txtDate.setText(new java.sql.Date(System.currentTimeMillis()).toString());
             txtDcmCode.setText("");
-            txtDcmCode.setBorder(Handle.colorEnabled());
+            txtDcmCode.setBorder(Handle.colorDisabled());
             txtValue.setText("");
-            txtValue.setBorder(Handle.colorEnabled());
+            txtValue.setBorder(Handle.colorDisabled());
             txtNumber.setText("");
-            txtNumber.setBorder(Handle.colorEnabled());
+            txtNumber.setBorder(Handle.colorDisabled());
         } else {
             clearDetailTable();
             refreshTable();
