@@ -1,19 +1,11 @@
 package main.java.com.library.DAL;
 
 import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
-
-import javax.management.remote.TargetedNotification;
 
 import main.java.com.library.BLL.ReaderBUS;
-import main.java.com.library.DTO.Lecturer;
 import main.java.com.library.DTO.PersonalInfo;
 import main.java.com.library.DTO.Reader;
-import main.java.com.library.DTO.Student;
 
 public class ReaderDAL {
     static MyConnectUnit connect;
@@ -81,55 +73,75 @@ public class ReaderDAL {
         }
         return department;
     }
-    public static Map showTableReader(String condition){
+    public static String[][] showTableReader(String condition){
         connect = new MyConnectUnit();
-        Map Table = new HashMap();
+        String[][] show = new String[0][0];
         try {
-            ArrayList<Object> obj = new ArrayList<Object>();
             int totalRow ;
+
             String query = "CALL SP_Find_Reader("+condition+")"+";";
             ResultSet results = connect.excuteQuery(query);
+            results.last();
+            totalRow = results.getRow();
+            show = new String[totalRow][9];
             int row = 0;
-            while(results.next()){
-                Reader reader = new Reader();
-                reader.setID(results.getInt("reader_id"));
-                reader.setClassify(results.getInt("classify"));
-                reader.setRegistrationDate(results.getDate("registrationDate").toString());
-                reader.setExpirationDate(results.getDate("ExpirationDate").toString());
-                reader.setTotal_debt(results.getDouble("total_debt"));
-                obj.add(reader);
-                PersonalInfo info = new PersonalInfo();
-                info.setFullName(results.getString("fullName"));
-                info.setAddress(results.getString("Address"));
-                info.setBirthday(results.getDate("Birthday").toLocalDate());
-                info.setCitizenID(results.getString("citizenID"));
-                info.setIsMale(results.getBoolean("isMale"));
-                info.setPhoneNumber(results.getString("phoneNumber"));
-                info.setEmail(results.getString("email"));
-                obj.add(info);
-                if(results.getInt("classify") == 1) {
-                    Lecturer lecturer = new Lecturer();
-                    lecturer.setLecturerID(results.getString("lecturer_id"));
-                    lecturer.setDepartmentName(results.getString("departmentName"));
-                    obj.add(lecturer);
+            while(results.next() || row == 0){
+                if(row == 0) results.first();
+                show[row][0] = Integer.toString(row + 1);
+                if (results.getInt("classify") == 1){
+                    show[row][3] = "Giảng Viên";
+                    show[row][1] = "GV" + Integer.toString(results.getInt("lecturer_id"));
+                    show[row][4] = results.getString("lecturer_id");
+                } 
+                else {
+                    show[row][3] = "Sinh Viên";
+                    show[row][1] = "SV" + Integer.toString(results.getInt("reader_id"));
+                    show[row][4] = results.getString("student_id");  
                 }
-                if (results.getInt("classify") == 2){
-                    Student student = new Student();
-                    student.setStudentID(results.getString("student_id"));
-                    student.setDepartmentName(results.getString("departmentName"));
-                    student.setClassName(results.getString("className"));
-                    obj.add(student);
-                }
-                Table.put(row,obj);
+                show[row][2] = results.getString("fullName");
+                show[row][5] = results.getString("departmentName");
+                show[row][6] = Double.toString(results.getDouble("total_debt"));
+                show[row][7] = results.getDate("registrationDate").toString();
+                show[row][8] = results.getDate("ExpirationDate").toString();
                 row++;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        return Table;
+        return show;
     }
-       public static void main(String[] args) {
+    public static String[][] filterResult(String[][] result,String classify, String departmentName) {
+        ArrayList<String[]> listItem = new ArrayList<String[]>();
+        if(result.length == 0) return result;
+        if (departmentName.isEmpty()){
+            for(int i = 0;i<result.length;i++){
+                if(result[i][3].equals(classify)){
+                    listItem.add(result[i]);
+                }
+            }
+        }
+        else if (classify.isEmpty()){
+            for(int i = 0;i<result.length;i++){
+                if(result[i][5].equals(departmentName)){
+                    listItem.add(result[i]);
+                }
+            }
+        }
+        else {
+            for(int i = 0;i<result.length;i++){
+                if(result[i][5].equals(departmentName) && result[i][3].equals(classify)){
+                    listItem.add(result[i]);
+                }
+            }
+        }
+        result = new String [listItem.size()][9];
+        for (int i =0;i<listItem.size();i++){
+            result[i] = listItem.get(i);
+
+        }
+        return result;
+    }
+    public static void main(String[] args) {
 
 
     }
