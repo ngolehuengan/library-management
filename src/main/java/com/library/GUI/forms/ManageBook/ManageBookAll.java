@@ -60,7 +60,7 @@ public class ManageBookAll {
 		chckbxInvalid.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80).addGroup(gl_details
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(gl_details.createSequentialGroup()
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
@@ -77,30 +77,30 @@ public class ManageBookAll {
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(txtValue).addComponent(txtNumber).addComponent(txtExist)))
-				.addComponent(chckbxInvalid)).addGap(0, 80, 80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+				.addComponent(chckbxInvalid)).addGap(10, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(lblId).addComponent(txtId))
-								.addGap(24)
+								.addGap(5, 15, 24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(lblCate).addComponent(cbbCate))
-								.addGap(24)
+								.addGap(5, 15, 24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(lblTitle).addComponent(txtTitle))))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblValue).addComponent(txtValue))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblNumber).addComponent(txtNumber))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblExist).addComponent(txtExist))
-				.addGap(24).addComponent(chckbxInvalid));
+				.addGap(5, 15, 24).addComponent(chckbxInvalid).addGap(10, 80, 80));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

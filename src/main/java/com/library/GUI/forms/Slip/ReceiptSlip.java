@@ -42,7 +42,7 @@ public class ReceiptSlip {
 		txtPerson.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPerson)
 						.addComponent(lblId).addComponent(lblReader).addComponent(lblDate).addComponent(lblPenalty))
@@ -50,21 +50,21 @@ public class ReceiptSlip {
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtId).addComponent(txtReader).addComponent(txtDate)
 						.addComponent(txtPenalty))
-				.addGap(0, 80, 80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+				.addGap(10, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
 						.addComponent(txtId))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblReader).addComponent(txtReader))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
-				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPerson).addComponent(txtPerson)));
+				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPerson).addComponent(txtPerson)).addGap(10, 80, 80));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

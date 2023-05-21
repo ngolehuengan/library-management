@@ -1,7 +1,5 @@
 package main.java.com.library.GUI.handle;
 
-import javax.swing.Icon;
-
 import main.java.com.library.GUI.forms.ManageService.FindReader;
 
 public class Handle {

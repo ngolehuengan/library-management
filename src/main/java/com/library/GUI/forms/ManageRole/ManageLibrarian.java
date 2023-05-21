@@ -53,7 +53,7 @@ public class ManageLibrarian {
 		lblEmail = new javax.swing.JLabel("Email");
 		txtEmail = new javax.swing.JTextField(20);
 		txtEmail.setEnabled(false);
-		
+
 		lblPhone = new javax.swing.JLabel("Số điện thoại");
 		txtPhone = new javax.swing.JTextField(20);
 		txtPhone.setEnabled(false);
@@ -68,7 +68,7 @@ public class ManageLibrarian {
 		btnGroup.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lblPhone)
 						.addComponent(lblName).addComponent(lblCmnd).addComponent(lblDate).addComponent(lblAddress)
@@ -83,34 +83,37 @@ public class ManageLibrarian {
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(female))))
-				.addGap(0, 80, 80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblName).addComponent(txtName))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblUser).addComponent(txtUser))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPwd).addComponent(restore))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblCmnd).addComponent(txtCmnd))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblDate).addComponent(txtDate))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblGender).addComponent(male).addComponent(female))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblAddress).addComponent(txtAddress))
-				.addGap(24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblEmail).addComponent(txtEmail))
-				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPhone).addComponent(txtPhone))
-				.addGap(24));
+				.addGap(10, 80, 80));
+		gl_details
+				.setVerticalGroup(
+						gl_details.createSequentialGroup().addGap(10, 80, 80)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblName).addComponent(txtName))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblUser).addComponent(txtUser))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblPwd).addComponent(restore))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblCmnd).addComponent(txtCmnd))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblDate).addComponent(txtDate))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblGender).addComponent(male).addComponent(female))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblAddress).addComponent(txtAddress))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblEmail).addComponent(txtEmail))
+								.addGap(5, 15, 24)
+								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(lblPhone).addComponent(txtPhone))
+								.addGap(10, 80, 80));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -272,7 +275,7 @@ public class ManageLibrarian {
 		save = Handle.getSave(save);
 		reset = Handle.getReset(reset);
 		view = Handle.getView(view);
-		
+
 		restore = new javax.swing.JButton("Khôi phục mặc định");
 		Handle.setColor(restore);
 	}

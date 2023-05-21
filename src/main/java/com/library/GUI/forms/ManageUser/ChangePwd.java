@@ -40,22 +40,22 @@ public class ChangePwd extends javax.swing.JFrame {
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
 		gl_details
 				.setHorizontalGroup(
-						gl_details.createSequentialGroup().addGap(0, 50, 50)
+						gl_details.createSequentialGroup().addGap(10, 50, 50)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 										.addComponent(lblPwd).addComponent(lblNewPwd).addComponent(lblRepeatPwd))
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(txtPwd).addComponent(txtRepeatPwd).addComponent(txtNewPwd))
-								.addGap(0, 50, 50));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 40, 40)
+								.addGap(10, 50, 50));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 40, 40)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPwd).addComponent(txtPwd))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblNewPwd).addComponent(txtNewPwd))
-				.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblRepeatPwd).addComponent(txtRepeatPwd))
-				.addGap(0, 40, 40));
+				.addGap(10, 40, 40));
 		details.setLayout(gl_details);
 
 		// -----Details: Handle

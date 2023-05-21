@@ -17,5 +17,8 @@
 	<classpathentry kind="lib" path="jar/mysql-connector-java-8.0.18.jar"/>
 	<classpathentry kind="lib" path="jar/miglayout15-swing.jar"/>
 	<classpathentry kind="lib" path="jar/poi-5.2.3.jar"/>
+	<classpathentry kind="lib" path="jar/poi-ooxml-5.2.3.jar"/>
+	<classpathentry kind="lib" path="jar/poi-ooxml-full-5.2.3.jar"/>
+	<classpathentry kind="lib" path="jar/xmlbeans-5.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

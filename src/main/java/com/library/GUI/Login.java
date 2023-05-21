@@ -72,7 +72,7 @@ public class Login extends javax.swing.JFrame {
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(mainFormPnl);
 		gl_details
 				.setHorizontalGroup(
-						gl_details.createSequentialGroup().addGap(0, 50, 50)
+						gl_details.createSequentialGroup().addGap(10, 50, 50)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
 										.addComponent(lblUsername).addComponent(lblPwd))
 								.addGap(24)
@@ -80,14 +80,14 @@ public class Login extends javax.swing.JFrame {
 										.addComponent(txtPwd).addComponent(txtUsername))
 								.addGap(5)
 								.addComponent(tglbtnShowHidePwd)
-								.addGap(0, 50, 50));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 40, 40)
+								.addGap(10, 50, 50));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 40, 40)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblUsername).addComponent(txtUsername))
-				.addGap(24)
+				.addGap(5, 15, 24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPwd).addComponent(txtPwd).addComponent(tglbtnShowHidePwd))
-				.addGap(0, 40, 40));
+				.addGap(10, 40, 40));
 		mainFormPnl.setLayout(gl_details);
 
 		// Bottom Panel

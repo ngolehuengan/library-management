@@ -13,7 +13,7 @@ public class Application {
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		
+
 		java.awt.EventQueue.invokeLater(() -> {
 			try {
 				new Login().setVisible(true);

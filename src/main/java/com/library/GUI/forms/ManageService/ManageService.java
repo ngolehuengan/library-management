@@ -77,7 +77,7 @@ public class ManageService {
 
 		handleBase = new javax.swing.JPanel();
 		handleBase.setBackground(new java.awt.Color(204, 255, 204));
-		handle.add(handleBase, java.awt.BorderLayout.WEST);
+		handle.add(handleBase, java.awt.BorderLayout.CENTER);
 
 		add = Handle.getAdd(add);
 		delete = Handle.getDelete(delete);

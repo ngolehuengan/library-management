@@ -54,7 +54,7 @@ public class ManageServiceBorrow {
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details
-				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 						.addGroup(gl_details
 								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lblPerson)
 								.addComponent(lblName).addComponent(lblMs).addComponent(lblId).addComponent(lblDcmCode)
@@ -71,31 +71,31 @@ public class ManageServiceBorrow {
 										.addGroup(gl_details
 												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 												.addComponent(ManageService.find))))
-						.addGap(0, 80, 80));
-		gl_details
-				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblId).addComponent(txtId))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblDcmCode).addComponent(txtDcmCode).addComponent(ManageService.find))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblName).addComponent(txtName))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblMs).addComponent(txtMs))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblLoanDate).addComponent(txtLoanDate))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblReturnDate).addComponent(txtReturnDate))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblQuantity).addComponent(txtQuantity))
-						.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblPerson).addComponent(txtPerson)));
+						.addGap(10, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblId)
+						.addComponent(txtId))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDcmCode).addComponent(txtDcmCode).addComponent(ManageService.find))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblName).addComponent(txtName))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
+						.addComponent(txtMs))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblLoanDate).addComponent(txtLoanDate))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblReturnDate).addComponent(txtReturnDate))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblQuantity).addComponent(txtQuantity))
+				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPerson).addComponent(txtPerson))
+				.addGap(10, 80, 80));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

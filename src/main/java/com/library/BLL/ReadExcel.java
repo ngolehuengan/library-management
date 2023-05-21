@@ -23,8 +23,10 @@ import main.java.com.library.DTO.PersonalInfo;
 import main.java.com.library.DTO.Reader;
 import main.java.com.library.DTO.Student;
 
+@SuppressWarnings("unused")
 public class ReadExcel {
-    public static void importReader(String path) throws IOException {
+    @SuppressWarnings({ "rawtypes", "unchecked", "resource" })
+	public static void importReader(String path) throws IOException {
         FileInputStream file = new FileInputStream(path);
         ArrayList errorRow = new ArrayList<>();
         try {

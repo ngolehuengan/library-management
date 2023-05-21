@@ -85,7 +85,7 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 		scrollPane_1.setViewportView(txtWayHandle);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(details);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblId).addComponent(lblReader).addComponent(lblName)
 						.addComponent(lblMs).addComponent(lblDate).addComponent(lblValue).addComponent(lblDebt)
@@ -101,41 +101,41 @@ public class ManageServicePenalty extends javax.swing.JFrame {
 								.addGap(5)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(ManageService.find))))
-				.addGap(0, 80, 80));
+				.addGap(10, 80, 80));
 		gl_details
-				.setVerticalGroup(gl_details.createSequentialGroup().addGap(40)
+				.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblId).addComponent(txtId))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblReader).addComponent(txtReader).addComponent(ManageService.find))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblName).addComponent(txtName))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblMs).addComponent(txtMs))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
 								.addComponent(lblContent).addComponent(scrollPane))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
 								.addComponent(lblWayHandle).addComponent(scrollPane_1))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblValue).addComponent(txtValue))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDebt).addComponent(txtDebt))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblTotal).addComponent(txtTotal))
-						.addGap(24)
+						.addGap(5, 15, 24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDate).addComponent(txtDate))
-						.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblPerson).addComponent(txtPerson))
-						.addGap(40));
+						.addGap(10, 80, 80));
 		details.setLayout(gl_details);
 
 		// -----Details: Handle

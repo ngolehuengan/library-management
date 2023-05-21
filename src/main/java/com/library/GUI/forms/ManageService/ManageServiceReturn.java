@@ -53,7 +53,7 @@ public class ManageServiceReturn {
 		txtTotal.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(lblPerson).addComponent(lblName).addComponent(lblMs).addComponent(lblReader)
 						.addComponent(lblDebt).addComponent(lblDate).addComponent(lblPenalty).addComponent(lblTotal))
@@ -61,31 +61,31 @@ public class ManageServiceReturn {
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtName).addComponent(txtMs).addComponent(txtDebt)
 						.addComponent(txtDate).addComponent(txtPenalty).addComponent(txtTotal).addComponent(txtReader))
-				.addGap(0, 80, 80));
-		gl_details
-				.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblReader).addComponent(txtReader))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblName).addComponent(txtName))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblMs).addComponent(txtMs))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblPenalty).addComponent(txtPenalty))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblDebt).addComponent(txtDebt))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblTotal).addComponent(txtTotal))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblDate).addComponent(txtDate))
-						.addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblPerson).addComponent(txtPerson)));
+				.addGap(10, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblReader).addComponent(txtReader))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblName).addComponent(txtName))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(lblMs)
+						.addComponent(txtMs))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPenalty).addComponent(txtPenalty))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDebt).addComponent(txtDebt))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblTotal).addComponent(txtTotal))
+				.addGap(5, 15, 24)
+				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblDate).addComponent(txtDate))
+				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(lblPerson).addComponent(txtPerson))
+				.addGap(10, 80, 80));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle

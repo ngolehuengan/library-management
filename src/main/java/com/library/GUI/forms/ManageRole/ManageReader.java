@@ -4,16 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
-
 import main.java.com.library.BLL.LecturerBUS;
 import main.java.com.library.BLL.PersonalInfoBUS;
 import main.java.com.library.BLL.ReaderBUS;
@@ -108,7 +101,7 @@ public class ManageReader {
 		btnGroupGd.add(female);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 						.addComponent(lblPhone).addComponent(lblName).addComponent(lblRole).addComponent(lblCmnd)
 						.addComponent(lblDate).addComponent(lblAddress).addComponent(lblEmail).addComponent(lblMs)
@@ -131,8 +124,8 @@ public class ManageReader {
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(roleCbgv))))
-				.addGap(0, 80, 80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(25, 25, 50)
+				.addGap(10, 80, 80));
+		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblName).addComponent(txtName))
 				.addGap(5, 15, 24)
@@ -167,7 +160,7 @@ public class ManageReader {
 						.addComponent(lblPhone).addComponent(txtPhone))
 				.addGap(5, 15, 24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPenalty).addComponent(txtPenalty))
-				.addGap(25, 25, 50));
+				.addGap(10, 80, 80));
 		detailsInfo.setLayout(gl_details);
 
 		// -----Details: Handle
@@ -583,7 +576,7 @@ public class ManageReader {
 		handleBase.add(searchField);
 		handleBase.add(search);
 
-		handleFilter = new javax.swing.JPanel(new java.awt.GridLayout(1, 3));
+		handleFilter = new javax.swing.JPanel(new java.awt.GridLayout(1, 2));
 		handle.add(handleFilter, java.awt.BorderLayout.CENTER);
 
 		filterRole = new javax.swing.JPanel();
@@ -822,6 +815,7 @@ public class ManageReader {
 	private static String[][] results = new String[0][0];
 	private static String[][] filterresults = new String[0][0];
 	private static String[][] storeFilter = new String[0][0];
+	@SuppressWarnings("rawtypes")
 	private static Map tableMap = new HashMap();
 	private static int selectRow = -1;
 
