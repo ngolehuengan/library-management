@@ -78,13 +78,15 @@ public class Login extends javax.swing.JFrame {
 								.addGap(24)
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(txtPwd).addComponent(txtUsername))
+								.addGap(5)
+								.addComponent(tglbtnShowHidePwd)
 								.addGap(0, 50, 50));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 40, 40)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblUsername).addComponent(txtUsername))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPwd).addComponent(txtPwd))
+						.addComponent(lblPwd).addComponent(txtPwd).addComponent(tglbtnShowHidePwd))
 				.addGap(0, 40, 40));
 		mainFormPnl.setLayout(gl_details);
 
