@@ -22,13 +22,13 @@ public class Slip {
 		Handle.setColor(btnHistory);
 		btnHistory.setBackground(new java.awt.Color(0, 102, 0));
 
-		btnLoan = new javax.swing.JButton("PHIẾU MƯỢN");
+		btnLoan = new javax.swing.JButton("MƯỢN");
 		Handle.setColor(btnLoan);
 
-		btnPenalty = new javax.swing.JButton("PHIẾU PHẠT");
+		btnPenalty = new javax.swing.JButton("PHẠT");
 		Handle.setColor(btnPenalty);
 
-		btnReceipt = new javax.swing.JButton("PHIẾU THU TIỀN");
+		btnReceipt = new javax.swing.JButton("THU TIỀN");
 		Handle.setColor(btnReceipt);
 
 		menuSide.add(btnHistory);
