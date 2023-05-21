@@ -129,7 +129,7 @@ public class ManageBookKltn {
 
 		// Action
 		ManageBook.add.addActionListener(e -> {
-			Handle.addImageBook(imgPnl, img);
+			Handle.addImage(imgPnl, img);
 			img.setIcon(new javax.swing.ImageIcon(
 					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
@@ -147,7 +147,7 @@ public class ManageBookKltn {
 		});
 
 		ManageBook.edit.addActionListener(e -> {
-			Handle.addImageBook(imgPnl, img);
+			Handle.addImage(imgPnl, img);
 
 			txtTitleKltn.setEnabled(true);
 			txtAuthorKltn.setEnabled(true);

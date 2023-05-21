@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.forms.ManageService;
 
+import main.java.com.library.GUI.handle.Handle;
+
 public class ManageService {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		service = new javax.swing.JPanel();

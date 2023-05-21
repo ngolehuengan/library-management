@@ -97,7 +97,7 @@ public class ManageBookOther {
 
 		// Action
 		ManageBook.add.addActionListener(e -> {
-			Handle.addImageBook(imgPnl, img);
+			Handle.addImage(imgPnl, img);
 			img.setIcon(new javax.swing.ImageIcon(
 					ManageBook.class.getResource("../../../../../resources/images/image-gallery.png")));
 
@@ -109,7 +109,7 @@ public class ManageBookOther {
 		});
 
 		ManageBook.edit.addActionListener(e -> {
-			Handle.addImageBook(imgPnl, img);
+			Handle.addImage(imgPnl, img);
 
 			txtTitleOther.setEnabled(true);
 			txtAreaDescripOther.setEnabled(true);

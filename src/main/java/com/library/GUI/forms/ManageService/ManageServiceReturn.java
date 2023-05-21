@@ -54,10 +54,10 @@ public class ManageServiceReturn {
 		txtDebt.setEnabled(false);
 		txtDebt.setColumns(20);
 
-		lblAll = new javax.swing.JLabel("Tổng nợ");
-		txtAll = new javax.swing.JTextField();
-		txtAll.setEnabled(false);
-		txtAll.setColumns(20);
+		lblTotal = new javax.swing.JLabel("Tổng nợ");
+		txtTotal = new javax.swing.JTextField();
+		txtTotal.setEnabled(false);
+		txtTotal.setColumns(20);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -87,7 +87,7 @@ public class ManageServiceReturn {
 								.addComponent(lblDebt).addComponent(txtDebt))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(lblAll).addComponent(txtAll))
+								.addComponent(lblTotal).addComponent(txtTotal))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(lblDate).addComponent(txtDate))
