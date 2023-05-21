@@ -36,8 +36,7 @@ public class ManageLibrarian {
 		txtUser.setEnabled(false);
 
 		lblPwd = new javax.swing.JLabel("Mật khẩu");
-		txtPwd = new javax.swing.JTextField(20);
-		txtPwd.setEnabled(false);
+		restore.setEnabled(false);
 
 		lblCmnd = new javax.swing.JLabel("CMND/CCCD");
 		txtCmnd = new javax.swing.JTextField(20);
@@ -77,7 +76,7 @@ public class ManageLibrarian {
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPhone).addComponent(txtName).addComponent(txtCmnd).addComponent(txtDate)
-						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(txtPwd)
+						.addComponent(txtAddress).addComponent(txtEmail).addComponent(txtUser).addComponent(restore)
 						.addGroup(gl_details.createSequentialGroup()
 								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(male))
@@ -93,7 +92,7 @@ public class ManageLibrarian {
 						.addComponent(lblUser).addComponent(txtUser))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblPwd).addComponent(txtPwd))
+						.addComponent(lblPwd).addComponent(restore))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblCmnd).addComponent(txtCmnd))
@@ -149,7 +148,7 @@ public class ManageLibrarian {
 		add.addActionListener(e -> {
 			txtName.setEnabled(true);
 			txtUser.setEnabled(true);
-			txtPwd.setEnabled(true);
+			restore.setEnabled(false);
 			txtCmnd.setEnabled(true);
 			txtDate.setEnabled(true);
 			txtAddress.setEnabled(true);
@@ -160,7 +159,6 @@ public class ManageLibrarian {
 
 			txtName.setText("");
 			txtUser.setText("");
-			txtPwd.setText("");
 			btnGroup.clearSelection();
 			txtCmnd.setText("");
 			txtDate.setText("");
@@ -172,7 +170,7 @@ public class ManageLibrarian {
 		edit.addActionListener(e -> {
 			txtName.setEnabled(true);
 			txtUser.setEnabled(true);
-			txtPwd.setEnabled(true);
+			restore.setEnabled(true);
 			txtCmnd.setEnabled(true);
 			txtDate.setEnabled(true);
 			txtAddress.setEnabled(true);
@@ -185,7 +183,7 @@ public class ManageLibrarian {
 		delete.addActionListener(e -> {
 			txtName.setEnabled(false);
 			txtUser.setEnabled(false);
-			txtPwd.setEnabled(false);
+			restore.setEnabled(false);
 			txtCmnd.setEnabled(false);
 			txtDate.setEnabled(false);
 			txtAddress.setEnabled(false);
@@ -196,7 +194,6 @@ public class ManageLibrarian {
 
 			txtName.setText("");
 			txtUser.setText("");
-			txtPwd.setText("");
 			btnGroup.clearSelection();
 			txtCmnd.setText("");
 			txtDate.setText("");
@@ -208,7 +205,7 @@ public class ManageLibrarian {
 		save.addActionListener(e -> {
 			txtName.setEnabled(false);
 			txtUser.setEnabled(false);
-			txtPwd.setEnabled(false);
+			restore.setEnabled(false);
 			txtCmnd.setEnabled(false);
 			txtDate.setEnabled(false);
 			txtAddress.setEnabled(false);
@@ -222,7 +219,6 @@ public class ManageLibrarian {
 			if (txtName.isEnabled()) {
 				txtName.setEnabled(true);
 				txtUser.setEnabled(true);
-				txtPwd.setEnabled(true);
 				txtCmnd.setEnabled(true);
 				txtDate.setEnabled(true);
 				txtAddress.setEnabled(true);
@@ -233,7 +229,6 @@ public class ManageLibrarian {
 
 				txtName.setText("");
 				txtUser.setText("");
-				txtPwd.setText("");
 				btnGroup.clearSelection();
 				txtCmnd.setText("");
 				txtDate.setText("");
@@ -278,8 +273,8 @@ public class ManageLibrarian {
 		reset = Handle.getReset(reset);
 		view = Handle.getView(view);
 		
-		restore = new javax.swing.JButton("Khôi phục mật khẩu mặc định");
-		restore.Handle.setColor(restore);
+		restore = new javax.swing.JButton("Khôi phục mặc định");
+		Handle.setColor(restore);
 	}
 
 	// Private
@@ -292,7 +287,6 @@ public class ManageLibrarian {
 	private static javax.swing.JLabel lblUser;
 	private static javax.swing.JTextField txtUser;
 	private static javax.swing.JLabel lblPwd;
-	private static javax.swing.JTextField txtPwd;
 	private static javax.swing.JLabel lblEmail;
 	private static javax.swing.JTextField txtEmail;
 	private static javax.swing.JLabel lblCmnd;
