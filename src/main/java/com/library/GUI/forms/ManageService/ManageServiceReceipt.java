@@ -46,8 +46,18 @@ public class ManageServiceReceipt {
 		txtDate.setEnabled(false);
 		txtDate.setColumns(20);
 
+<<<<<<< HEAD
 		lblPenalty = new javax.swing.JLabel("Tiền thu");
 		txtPenalty = new javax.swing.JTextField(20);
+=======
+<<<<<<< HEAD
+		lblPenalty = new javax.swing.JLabel("Tiền thu");
+		txtPenalty = new javax.swing.JTextField(20);
+=======
+		lblValue = new javax.swing.JLabel("Tiền thu");
+		txtValue = new javax.swing.JTextField(20);
+>>>>>>> parent of 83dfa60 (dcm)
+>>>>>>> parent of e06cbe3 (.)
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
 		txtPerson = new javax.swing.JTextField();
@@ -73,7 +83,15 @@ public class ManageServiceReceipt {
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addComponent(txtPerson).addComponent(txtName).addComponent(txtMs).addComponent(txtId)
+<<<<<<< HEAD
 						.addComponent(txtDate).addComponent(txtPenalty).addComponent(txtDebt).addComponent(txtRest)
+=======
+<<<<<<< HEAD
+						.addComponent(txtDate).addComponent(txtPenalty).addComponent(txtDebt).addComponent(txtRest)
+=======
+						.addComponent(txtDate).addComponent(txtValue).addComponent(txtDebt).addComponent(txtRest)
+>>>>>>> parent of 83dfa60 (dcm)
+>>>>>>> parent of e06cbe3 (.)
 						.addComponent(txtReader))
 				.addGap(0, 80, 80));
 		gl_details

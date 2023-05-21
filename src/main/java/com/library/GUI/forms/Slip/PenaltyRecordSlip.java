@@ -46,9 +46,21 @@ public class PenaltyRecordSlip {
 		txtDate.setEnabled(false);
 		txtDate.setColumns(20);
 
+<<<<<<< HEAD
 		lblPenalty = new javax.swing.JLabel("Tiền phạt");
 		txtPenalty = new javax.swing.JTextField(20);
 		txtPenalty.setEnabled(false);
+=======
+<<<<<<< HEAD
+		lblPenalty = new javax.swing.JLabel("Tiền phạt");
+		txtPenalty = new javax.swing.JTextField(20);
+		txtPenalty.setEnabled(false);
+=======
+		lblValue = new javax.swing.JLabel("Tiền phạt");
+		txtValue = new javax.swing.JTextField(20);
+		txtValue.setEnabled(false);
+>>>>>>> parent of 83dfa60 (dcm)
+>>>>>>> parent of e06cbe3 (.)
 
 		lblPerson = new javax.swing.JLabel("Người tiếp nhận");
 		txtPerson = new javax.swing.JTextField();
