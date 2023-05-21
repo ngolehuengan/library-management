@@ -28,9 +28,9 @@ public class HistorySlip {
 		txtTitle = new javax.swing.JTextField(20);
 		txtTitle.setEnabled(false);
 
-		lblLoanPerson = new javax.swing.JLabel("Người mượn");
-		txtLoanPerson = new javax.swing.JTextField(20);
-		txtLoanPerson.setEnabled(false);
+		lblReader = new javax.swing.JLabel("Độc giả");
+		txtReader = new javax.swing.JTextField(20);
+		txtReader.setEnabled(false);
 
 		lblLoanDate = new javax.swing.JLabel("Ngày mượn");
 		txtLoanDate = new javax.swing.JTextField(20);
@@ -57,12 +57,12 @@ public class HistorySlip {
 				.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 								.addComponent(lblPerson).addComponent(lblDate).addComponent(lblId)
-								.addComponent(lblDcmCode).addComponent(lblLoanPerson).addComponent(lblLoanDate)
+								.addComponent(lblDcmCode).addComponent(lblReader).addComponent(lblLoanDate)
 								.addComponent(lblAppointDate).addComponent(lblTitle).addComponent(lblPenalty))
 						.addGap(24)
 						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(txtPerson).addComponent(txtDate).addComponent(txtId)
-								.addComponent(txtDcmCode).addComponent(txtLoanPerson).addComponent(txtLoanDate)
+								.addComponent(txtDcmCode).addComponent(txtReader).addComponent(txtLoanDate)
 								.addComponent(txtAppointDate).addComponent(txtPenalty).addComponent(txtTitle))
 						.addGap(0, 80, 80));
 		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
@@ -76,7 +76,7 @@ public class HistorySlip {
 						.addComponent(lblTitle).addComponent(txtTitle))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblLoanPerson).addComponent(txtLoanPerson))
+						.addComponent(lblReader).addComponent(txtReader))
 				.addGap(24)
 				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(lblLoanDate).addComponent(txtLoanDate))
@@ -127,8 +127,8 @@ public class HistorySlip {
 	private static javax.swing.JTextField txtDcmCode;
 	private static javax.swing.JLabel lblTitle;
 	private static javax.swing.JTextField txtTitle;
-	private static javax.swing.JLabel lblLoanPerson;
-	private static javax.swing.JTextField txtLoanPerson;
+	private static javax.swing.JLabel lblReader;
+	private static javax.swing.JTextField txtReader;
 	private static javax.swing.JLabel lblLoanDate;
 	private static javax.swing.JTextField txtLoanDate;
 	private static javax.swing.JLabel lblAppointDate;

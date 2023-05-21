@@ -8,7 +8,7 @@ import java.util.Vector;
  */
 public class TableHeader {
 
-    /*---- QUẢN LÝ KHO - MANAGE INVENTORY --*/    
+    /*---- QUẢN LÝ KHO - MANAGE INVENTORY --*/
     public static Vector importRecord() {
         Vector header = new Vector();
         header.add("STT");
@@ -19,7 +19,7 @@ public class TableHeader {
         header.add("THỦ THƯ");
         return header;
     }
-    
+
     public static Vector importDetail() {
         Vector header = new Vector();
         header.add("STT");
@@ -29,7 +29,7 @@ public class TableHeader {
         header.add("SỐ LƯỢNG");
         return header;
     }
-    
+
     public static Vector releaseRecord() {
         Vector header = new Vector();
         header.add("STT");
@@ -39,7 +39,7 @@ public class TableHeader {
         header.add("THỦ THƯ");
         return header;
     }
-    
+
     public static Vector releaseDetail() {
         Vector header = new Vector();
         header.add("STT");
@@ -48,8 +48,8 @@ public class TableHeader {
         header.add("SỐ LƯỢNG");
         return header;
     }
-    
-    /*---- QUẢN LÝ TÀI LIỆU - MANAGE BOOK --*/    
+
+    /*---- QUẢN LÝ TÀI LIỆU - MANAGE BOOK --*/
     public static Vector allDocument() {
         Vector header = new Vector();
         header.add("STT");
@@ -62,7 +62,7 @@ public class TableHeader {
         header.add("MƯỢN ĐƯỢC");
         return header;
     }
-    
+
     public static Vector book() {
         Vector header = new Vector();
         header.add("STT");
@@ -77,7 +77,7 @@ public class TableHeader {
         return header;
     }
 
-    public static Vector copy () {
+    public static Vector copy() {
         Vector header = new Vector();
         header.add("STT");
         header.add("MÃ TÀI LIỆU");
@@ -88,7 +88,7 @@ public class TableHeader {
         header.add("MÔ TẢ");
         return header;
     }
-    
+
     public static Vector theses() {
         Vector header = new Vector();
         header.add("STT");
@@ -100,7 +100,7 @@ public class TableHeader {
         header.add("MÔ TẢ");
         return header;
     }
-    
+
     public static Vector other() {
         Vector header = new Vector();
         header.add("STT");
@@ -110,7 +110,7 @@ public class TableHeader {
         return header;
     }
 
-    /*---- QUẢN LÝ DỊCH VỤ - MANAGE SERVICE --*/    
+    /*---- QUẢN LÝ DỊCH VỤ - MANAGE SERVICE --*/
     public static Vector borrow() {
         Vector header = new Vector();
         header.add("STT");
@@ -121,7 +121,7 @@ public class TableHeader {
         header.add("SỐ CÓ SẴN");
         return header;
     }
-    
+
     public static Vector borrowDetail() {
         Vector header = new Vector();
         header.add("STT");
@@ -129,7 +129,7 @@ public class TableHeader {
         header.add("NHAN ĐỀ");
         return header;
     }
-    
+
     public static Vector returnn() {
         Vector header = new Vector();
         header.add("STT");
@@ -141,7 +141,7 @@ public class TableHeader {
         header.add("GIA HẠN");
         return header;
     }
-    
+
     public static Vector returnDetail() {
         Vector header = new Vector();
         header.add("STT");
@@ -151,7 +151,7 @@ public class TableHeader {
         header.add("TIỀN PHẠT");
         return header;
     }
-    
+
     public static Vector debtor() {
         Vector header = new Vector();
         header.add("STT");
@@ -159,15 +159,15 @@ public class TableHeader {
         header.add("TIỀN NỢ");
         return header;
     }
-    
-    /*---- HOẠT ĐỘNG - SLIP --*/    
+
+    /*---- HOẠT ĐỘNG - SLIP --*/
     public static Vector borrowHistory() {
         Vector header = new Vector();
         header.add("STT");
         header.add("MÃ PHIẾU");
         header.add("MÃ TÀI LIỆU");
         header.add("NHAN ĐỀ");
-        header.add("NGƯỜI MƯỢN");
+        header.add("ĐỘC GIẢ");
         header.add("NGÀY MƯỢN");
         header.add("NGÀY HẸN TRẢ");
         header.add("NGÀY TRẢ");
@@ -175,7 +175,7 @@ public class TableHeader {
         header.add("NGƯỜI TIẾP NHẬN");
         return header;
     }
-    
+
     public static Vector loanSlip() {
         Vector header = new Vector();
         header.add("STT");
@@ -188,7 +188,7 @@ public class TableHeader {
         header.add("SỐ ĐÃ TRẢ");
         return header;
     }
-    
+
     public static Vector loanDetail() {
         Vector header = new Vector();
         header.add("STT");
@@ -197,7 +197,7 @@ public class TableHeader {
         header.add("ĐÃ TRẢ");
         return header;
     }
-    
+
     public static Vector penaltyRecord() {
         Vector header = new Vector();
         header.add("STT");
@@ -210,7 +210,7 @@ public class TableHeader {
         header.add("NGƯỜI XỬ LÝ");
         return header;
     }
-    
+
     public static Vector receipt() {
         Vector header = new Vector();
         header.add("STT");
@@ -221,5 +221,5 @@ public class TableHeader {
         header.add("NGƯỜI XỬ LÝ");
         return header;
     }
-    
+
 }
