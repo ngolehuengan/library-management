@@ -1,5 +1,7 @@
 package main.java.com.library.GUI.handle;
 
+import main.java.com.library.GUI.forms.ManageService.FindReader;
+
 public class Handle {
 	
 	// -----------------------------------Dialog set get image----------------------------------------
@@ -38,7 +40,7 @@ public class Handle {
 
 	public static javax.swing.ImageIcon setDefaultImg() {
 		return new javax.swing.ImageIcon(
-				Handle.class.getResource("../../../resources/images/image-gallery.png"));
+				Handle.class.getResource("../../../../resources/images/image-gallery.png"));
 	}
 	
 	// -----------------------------------Dialog confirm----------------------------------------
@@ -86,7 +88,7 @@ public class Handle {
 	public static javax.swing.JButton getUpload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Đăng tải");
 		btn.setIcon(
-				new javax.swing.ImageIcon(Handle.class.getResource("../../../resources/icons/upload.png")));
+				new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/upload.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -94,7 +96,7 @@ public class Handle {
 	public static javax.swing.JButton getDownload(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  Tải xuống");
 		btn.setIcon(new javax.swing.ImageIcon(
-				Handle.class.getResource("../../../resources/icons/downloads.png")));
+				Handle.class.getResource("../../../../resources/icons/downloads.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -102,7 +104,7 @@ public class Handle {
 	public static javax.swing.JButton getPrint(javax.swing.JButton btn) {
 		btn = new javax.swing.JButton("  In");
 		btn.setIcon(
-				new javax.swing.ImageIcon(Handle.class.getResource("../../../resources/icons/printing.png")));
+				new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/printing.png")));
 		setColor(btn);
 		return btn;
 	}
@@ -126,8 +128,11 @@ public class Handle {
 	}
 	
 	public static javax.swing.JButton getFind(javax.swing.JButton btn) {
-		btn = new javax.swing.JButton(new javax.swing.ImageIcon(Handle.class.getResource("../../../resources/icons/find.png")));
+		btn = new javax.swing.JButton(new javax.swing.ImageIcon(Handle.class.getResource("../../../../resources/icons/find.png")));
 		setColor(btn);
+		btn.addActionListener(e -> {
+			new FindReader().setVisible(true);
+		});
 		return btn;
 	}
 

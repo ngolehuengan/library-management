@@ -108,12 +108,6 @@ public class ManageService {
 		Handle.setColor(adjourn);
 
 		find = Handle.getFind(find);
-		find.addActionListener(e -> {
-			new FindReader().setVisible(true);
-		});
-		
-		choose = new javax.swing.JButton("Chọn");
-		Handle.setColor(choose);
 
 		handleOpt.add(print);
 	}
@@ -142,5 +136,4 @@ public class ManageService {
 	public static javax.swing.JButton penalty;
 	public static javax.swing.JButton adjourn;
 	public static javax.swing.JButton find;
-	public static javax.swing.JButton choose;
 }
