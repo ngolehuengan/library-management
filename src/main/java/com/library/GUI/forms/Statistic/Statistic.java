@@ -1,7 +1,5 @@
 package main.java.com.library.GUI.forms.Statistic;
 
-import main.java.com.library.GUI.handle.Handle;
-
 public class Statistic {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
 		statistic = new javax.swing.JPanel();
@@ -20,14 +18,16 @@ public class Statistic {
 		splitPane.setLeftComponent(menuSide);
 
 		btnBorrow = new javax.swing.JButton("THỂ LOẠI YÊU THÍCH");
-		Handle.setColor(btnBorrow);
+		btnBorrow.setForeground(new java.awt.Color(255, 255, 255));
 		btnBorrow.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnReturn = new javax.swing.JButton("TÀI LIỆU TRẢ TRỄ");
-		Handle.setColor(btnReturn);
+		btnReturn.setForeground(new java.awt.Color(255, 255, 255));
+		btnReturn.setBackground(new java.awt.Color(0, 153, 51));
 
 		btnReceipt = new javax.swing.JButton("ĐỘC GIẢ NỢ TIỀN");
-		Handle.setColor(btnReceipt);
+		btnReceipt.setForeground(new java.awt.Color(255, 255, 255));
+		btnReceipt.setBackground(new java.awt.Color(0, 153, 51));
 
 		menuSide.add(btnBorrow);
 		menuSide.add(btnReturn);
@@ -79,8 +79,15 @@ public class Statistic {
 		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
-		search = Handle.getSearch(search);
-		searchField = new javax.swing.JTextField(15);
+		search = new javax.swing.JButton("Tìm kiếm");
+		search.setBackground(new java.awt.Color(0, 153, 51));
+		search.setForeground(new java.awt.Color(255, 255, 255));
+		searchField = new javax.swing.JTextField();
+		searchField.setColumns(20);
+
+		view = new javax.swing.JButton("Xem");
+		view.setForeground(new java.awt.Color(255, 255, 255));
+		view.setBackground(new java.awt.Color(0, 153, 51));
 
 		handleBase.add(searchField);
 		handleBase.add(search);
@@ -89,11 +96,13 @@ public class Statistic {
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
-		print = Handle.getPrint(print);
+		print = new javax.swing.JButton("  In");
+		print.setIcon(new javax.swing.ImageIcon(
+				Statistic.class.getResource("../../../../../resources/icons/printing.png")));
+		print.setBackground(new java.awt.Color(0, 153, 51));
+		print.setForeground(new java.awt.Color(255, 255, 255));
 
 		handleOpt.add(print);
-		
-		view = Handle.getView(view);
 	}
 
 	// Private

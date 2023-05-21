@@ -19,10 +19,9 @@ public class Slip {
 		splitPane.setLeftComponent(menuSide);
 
 		btnHistory = new javax.swing.JButton("LỊCH SỬ MƯỢN TRẢ");
-		Handle.setColor(btnHistory);
+		btnHistory.setForeground(new java.awt.Color(255, 255, 255));
 		btnHistory.setBackground(new java.awt.Color(0, 102, 0));
 
-<<<<<<< HEAD
 		btnLoan = new javax.swing.JButton("MƯỢN");
 		Handle.setColor(btnLoan);
 
@@ -30,15 +29,6 @@ public class Slip {
 		Handle.setColor(btnPenalty);
 
 		btnReceipt = new javax.swing.JButton("THU TIỀN");
-=======
-		btnLoan = new javax.swing.JButton("PHIẾU MƯỢN");
-		Handle.setColor(btnLoan);
-
-		btnPenalty = new javax.swing.JButton("PHIẾU PHẠT");
-		Handle.setColor(btnPenalty);
-
-		btnReceipt = new javax.swing.JButton("PHIẾU THU TIỀN");
->>>>>>> parent of 83dfa60 (dcm)
 		Handle.setColor(btnReceipt);
 
 		menuSide.add(btnHistory);
@@ -94,8 +84,13 @@ public class Slip {
 
 	// Handle
 	private static void handle() {
-		delete = Handle.getDelete(delete);
-		view = Handle.getView(view);
+		delete = new javax.swing.JButton("Xóa");
+		delete.setForeground(new java.awt.Color(255, 255, 255));
+		delete.setBackground(new java.awt.Color(0, 153, 51));
+
+		view = new javax.swing.JButton("Xem");
+		view.setForeground(new java.awt.Color(255, 255, 255));
+		view.setBackground(new java.awt.Color(0, 153, 51));
 	}
 
 	// Private

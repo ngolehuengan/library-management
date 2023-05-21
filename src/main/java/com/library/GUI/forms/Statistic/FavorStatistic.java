@@ -31,7 +31,8 @@ public class FavorStatistic {
 		tableDate.setBackground(new java.awt.Color(204, 255, 204));
 		tableHandle.add(tableDate, java.awt.BorderLayout.WEST);
 		lblDate = new javax.swing.JLabel("Tháng: ");
-		txtDate = new javax.swing.JTextField(10);
+		txtDate = new javax.swing.JTextField();
+		txtDate.setColumns(10);
 		tableDate.add(lblDate);
 		tableDate.add(txtDate);
 		
@@ -44,7 +45,8 @@ public class FavorStatistic {
 		tableSum.setBackground(new java.awt.Color(204, 255, 204));
 		tableHandle.add(tableSum, java.awt.BorderLayout.EAST);
 		lblSum = new javax.swing.JLabel("Tổng số lượt mượn: ");
-		txtSum = new javax.swing.JTextField(10);
+		txtSum = new javax.swing.JTextField();
+		txtSum.setColumns(10);
 		tableSum.add(lblSum);
 		tableSum.add(txtSum);
 	}

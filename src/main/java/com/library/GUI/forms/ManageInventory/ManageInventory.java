@@ -1,6 +1,6 @@
 package main.java.com.library.GUI.forms.ManageInventory;
 
-import main.java.com.library.GUI.handle.Handle;
+import main.java.com.library.GUI.forms.ManageBook.ManageBook;
 
 public class ManageInventory {
 	public static void init(javax.swing.JTabbedPane tabbedPane) {
@@ -20,11 +20,12 @@ public class ManageInventory {
 		splitPane.setLeftComponent(menuSide);
 
 		btnImport = new javax.swing.JButton("NHẬP");
-		Handle.setColor(btnImport);
+		btnImport.setForeground(new java.awt.Color(255, 255, 255));
 		btnImport.setBackground(new java.awt.Color(0, 102, 0));
 
 		btnLiquidate = new javax.swing.JButton("THANH LÝ");
-		Handle.setColor(btnLiquidate);
+		btnLiquidate.setForeground(new java.awt.Color(255, 255, 255));
+		btnLiquidate.setBackground(new java.awt.Color(0, 153, 51));
 
 		menuSide.add(btnImport);
 		menuSide.add(btnLiquidate);
@@ -65,8 +66,13 @@ public class ManageInventory {
 		handleBase.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleBase, java.awt.BorderLayout.WEST);
 
-		add = Handle.getAdd(add);
-		delete = Handle.getDelete(delete);
+		add = new javax.swing.JButton("Thêm");
+		add.setForeground(new java.awt.Color(255, 255, 255));
+		add.setBackground(new java.awt.Color(0, 153, 51));
+
+		delete = new javax.swing.JButton("Xóa");
+		delete.setForeground(new java.awt.Color(255, 255, 255));
+		delete.setBackground(new java.awt.Color(0, 153, 51));
 
 		handleBase.add(add);
 		handleBase.add(delete);
@@ -75,23 +81,47 @@ public class ManageInventory {
 		handleOpt.setBackground(new java.awt.Color(204, 255, 204));
 		handle.add(handleOpt, java.awt.BorderLayout.EAST);
 
-		print = Handle.getPrint(print);
-		upload = Handle.getUpload(upload);
-		download = Handle.getDownload(download);
+		print = new javax.swing.JButton("  In");
+		print.setIcon(
+				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/printing.png")));
+		print.setBackground(new java.awt.Color(0, 153, 51));
+		print.setForeground(new java.awt.Color(255, 255, 255));
+
+		upload = new javax.swing.JButton("  Đăng tải");
+		upload.setBackground(new java.awt.Color(0, 153, 51));
+		upload.setForeground(new java.awt.Color(255, 255, 255));
+		upload.setIcon(
+				new javax.swing.ImageIcon(ManageBook.class.getResource("../../../../../resources/icons/upload.png")));
+
+		download = new javax.swing.JButton("  Tải xuống");
+		download.setIcon(new javax.swing.ImageIcon(
+				ManageBook.class.getResource("../../../../../resources/icons/downloads.png")));
+		download.setForeground(new java.awt.Color(255, 255, 255));
+		download.setBackground(new java.awt.Color(0, 153, 51));
 
 		handleOpt.add(upload);
 		handleOpt.add(download);
 		handleOpt.add(print);
 
-		save = Handle.getSave(save);
-		reset = Handle.getReset(reset);
-		view = Handle.getView(view);
+		save = new javax.swing.JButton("Lưu");
+		save.setBackground(new java.awt.Color(0, 153, 51));
+		save.setForeground(new java.awt.Color(255, 255, 255));
+
+		reset = new javax.swing.JButton("Reset");
+		reset.setBackground(new java.awt.Color(0, 153, 51));
+		reset.setForeground(new java.awt.Color(255, 255, 255));
+
+		view = new javax.swing.JButton("Xem");
+		view.setForeground(new java.awt.Color(255, 255, 255));
+		view.setBackground(new java.awt.Color(0, 153, 51));
 
 		addCthd = new javax.swing.JButton("Thêm CTHĐ");
-		Handle.setColor(addCthd);
+		addCthd.setBackground(new java.awt.Color(0, 153, 51));
+		addCthd.setForeground(new java.awt.Color(255, 255, 255));
 
 		deleteCthd = new javax.swing.JButton("Xóa CTHĐ");
-		Handle.setColor(deleteCthd);
+		deleteCthd.setForeground(new java.awt.Color(255, 255, 255));
+		deleteCthd.setBackground(new java.awt.Color(0, 153, 51));
 	}
 
 	// Private

@@ -31,7 +31,8 @@ public class ReturnLateStatistic {
 		tableDate.setBackground(new java.awt.Color(204, 255, 204));
 		tableHandle.add(tableDate, java.awt.BorderLayout.WEST);
 		lblDate = new javax.swing.JLabel("Ngày: ");
-		txtDate = new javax.swing.JTextField(10);
+		txtDate = new javax.swing.JTextField();
+		txtDate.setColumns(10);
 		tableDate.add(lblDate);
 		tableDate.add(txtDate);
 		
