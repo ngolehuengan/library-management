@@ -15,18 +15,15 @@ public class Student {
     public Student() {
         
     }
-    public ArrayList setStudent(String studentID, String className, String departmentName) {
-        ArrayList<Integer> wrongList = new ArrayList<Integer>();
-        if(studentID.length() != 10 || studentID.isEmpty()) wrongList.add(1);
-        if(className.length() >10 || className.isEmpty()) wrongList.add(2);
-        if(departmentName.length() > 50 ) wrongList.add(3);
-        if(wrongList.size() == 0){
-            this.studentID = studentID;
-            this.className = className;
-            this.departmentName = departmentName;
-        }
-        return wrongList;
+    
+
+    public Student(String studentID, String className, String departmentName) {
+        this.studentID = studentID;
+        this.className = className;
+        this.departmentName = departmentName;
     }
+
+
     public Student(String className, String departmentName) {
         this.className = className;
         this.departmentName = departmentName;
