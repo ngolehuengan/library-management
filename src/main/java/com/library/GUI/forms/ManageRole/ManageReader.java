@@ -258,6 +258,14 @@ public class ManageReader {
 		});
 
 		save.addActionListener(e -> {
+			txtCmnd.setBorder(Handle.colorDisabled());
+			txtName.setBorder(Handle.colorDisabled());
+			txtDate.setBorder(Handle.colorDisabled());
+			txtPhone.setBorder(Handle.colorDisabled());
+			txtAddress.setBorder(Handle.colorDisabled());
+			txtEmail.setBorder(Handle.colorDisabled());
+			txtMs.setBorder(Handle.colorDisabled());
+			txtClass.setBorder(Handle.colorDisabled());
 			if (txtName.isEnabled()) {
 				String name = txtName.getText();
 				Boolean studentLogic = roleSv.isSelected(); // "Sinh viên" : "Cán bộ giảng viên";
