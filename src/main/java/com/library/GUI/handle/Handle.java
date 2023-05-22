@@ -1,7 +1,15 @@
 package main.java.com.library.GUI.handle;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.Icon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.apache.poi.ss.usermodel.CellValue;
 
 import main.java.com.library.BLL.ReadExcel;
 import main.java.com.library.GUI.forms.ManageService.FindReader;
@@ -25,38 +33,43 @@ public class Handle {
 					// lấy file
 					java.io.File f = imgChooser.getSelectedFile();
 					// hiển thị hình lên frame
+
+					// ImageIcon imageIcon = new ImageIcon(new
+					// ImageIcon("icon.png").getImage().getScaledInstance(20, 20,
+					// Image.SCALE_DEFAULT));
+					// label.setIcon(imageIcon);
 					img.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(f.getAbsolutePath()).getImage()
 							.getScaledInstance(125, 100, java.awt.Image.SCALE_DEFAULT)));
 				}
 			}
 		});
 	}
+
 	public static void uploadReader(javax.swing.JButton btn) {
-		removeClickListener(btn); //xóa active
+		removeClickListener(btn); // xóa active
 		btn.addMouseListener(new java.awt.event.MouseAdapter() {
 			@Override
 			public void mouseClicked(java.awt.event.MouseEvent e) {
 				if (e.getClickCount() == 2) {
-				// Change image book using dialog
-				fileChooser = new javax.swing.JFileChooser();
-				fileFilter = new javax.swing.filechooser.FileNameExtensionFilter("Exel", "xlsx");
-				fileChooser.setFileFilter(fileFilter);
-				fileChooser.setMultiSelectionEnabled(false);
+					// Change image book using dialog
+					fileChooser = new javax.swing.JFileChooser();
+					fileFilter = new javax.swing.filechooser.FileNameExtensionFilter("Exel", "xlsx");
+					fileChooser.setFileFilter(fileFilter);
+					fileChooser.setMultiSelectionEnabled(false);
 
-				if (fileChooser.showDialog(fileChooser, "Choose File") == javax.swing.JFileChooser.APPROVE_OPTION) {
-					// lấy file
-					java.io.File f = fileChooser.getSelectedFile();
-					try {
-						Map results = ReadExcel.importReader(f.getAbsolutePath());
-						StringBuilder sb =new  StringBuilder();
-						
-						
-						javax.swing.JOptionPane.showMessageDialog(null, sb.toString(), "Kết quả",
-						javax.swing.JOptionPane.ERROR_MESSAGE);
-					} catch (IOException e1) {
-						
-					} 
-				}
+					if (fileChooser.showDialog(fileChooser, "Choose File") == javax.swing.JFileChooser.APPROVE_OPTION) {
+						// lấy file
+						java.io.File f = fileChooser.getSelectedFile();
+						try {
+							Map results = ReadExcel.importReader(f.getAbsolutePath());
+							StringBuilder sb = new StringBuilder();
+
+							javax.swing.JOptionPane.showMessageDialog(null, sb.toString(), "Kết quả",
+									javax.swing.JOptionPane.ERROR_MESSAGE);
+						} catch (IOException e1) {
+
+						}
+					}
 				}
 
 			}

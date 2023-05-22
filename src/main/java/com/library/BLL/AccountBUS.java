@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 import main.java.com.library.DAL.AccountDAL;
 
-
 public class AccountBUS {
     public static Vector login(Account account) throws Exception {
         Vector<Integer> login = new Vector<>();
@@ -18,13 +17,13 @@ public class AccountBUS {
         // String username = account.getUsername();
         // boolean hasAccent = username.matches(".*[éèêëàáâäæãåā].*");
         // if (hasAccent) {
-        //     throw new Exception("Username contains accented characters");
+        // throw new Exception("Username contains accented characters");
         // }
-        
+
         // // Check username length
         // int maxUsernameLength = 20;
         // if (username.length() > maxUsernameLength) {
-        //     throw new Exception("Username is too long");
+        // throw new Exception("Username is too long");
         // }
         AccountDAL AccountDAL = new AccountDAL();
         login = AccountDAL.login(account);
@@ -38,26 +37,22 @@ public class AccountBUS {
         return Account.insertAccount(account);
     }
 
-
-    public boolean updateAccount(Account account) throws Exception{
+    public boolean updateAccount(Account account) throws Exception {
         AccountDAL Account = new AccountDAL();
         return Account.updateAccount(account);
     }
-    
 
-
-
-    public boolean storeAccount(Account account) throws Exception{
+    public boolean storeAccount(Account account) throws Exception {
         AccountDAL Account = new AccountDAL();
         return Account.storeAccount(account);
     }
 
-    public boolean reStoreAccount(Account account) throws Exception{
+    public boolean reStoreAccount(Account account) throws Exception {
         AccountDAL Account = new AccountDAL();
         return Account.reStoreAccount(account);
     }
 
-    public boolean deleteAccount(Account account) throws Exception{
+    public boolean deleteAccount(Account account) throws Exception {
         AccountDAL Account = new AccountDAL();
         return Account.deleteAccount(account);
     }
@@ -76,6 +71,3 @@ public class AccountBUS {
     }
 
 }
-    
-
-

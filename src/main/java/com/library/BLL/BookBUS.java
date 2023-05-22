@@ -115,16 +115,16 @@ public class BookBUS {
         }
         e.setAuthor(at);
 
-//        PublisherDAO plsdao = new PublisherDAO();
-//        Publisher pls = e.getPublisher();
-//        Publisher db = plsdao.getByName(pls.getName());
-//        if (db != null) {
-//            pls = db;
-//        } else {
-//            plsdao.insert(pls);
-//            pls = plsdao.getByName(pls.getName());
-//        }
-//        e.setPublisher(pls);
+        PublisherDAO plsdao = new PublisherDAO();
+        Publisher pls = e.getPublisher();
+        Publisher db = plsdao.getByName(pls.getName());
+        if (db != null) {
+            pls = db;
+        } else {
+            plsdao.insert(pls);
+            pls = plsdao.getByName(pls.getName());
+        }
+        e.setPublisher(pls);
         return e;
     }
 

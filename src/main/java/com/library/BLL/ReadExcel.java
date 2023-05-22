@@ -51,6 +51,7 @@ public class ReadExcel {
                         cols = tmp;
                 }
             }
+
             String name = "";
             boolean studentLogic = true;
             String ID = "";
@@ -122,11 +123,12 @@ public class ReadExcel {
                     phone = "0" + row.getCell(10).getStringCellValue();
 
                 }
+
+                
                 ArrayList<Integer> errorInfo = new ArrayList<Integer>();
                 Reader reader = new Reader();
                 PersonalInfo info = new PersonalInfo();
-                errorInfo = PersonalInfoBUS.checkPersonalInfo(citizenID, name, birthday, Boolean.toString(gender),
-                        phone, address, email);
+                errorInfo = PersonalInfoBUS.checkPersonalInfo(citizenID, name, birthday, Boolean.toString(gender),phone, address, email);
                 if (errorInfo.size() == 0) {
                     info = new PersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address, email);
                 } else {

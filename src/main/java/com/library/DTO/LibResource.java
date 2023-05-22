@@ -9,14 +9,13 @@ public class LibResource {
     private Document document;
     private double price;
     private int totalQuantity;
-    private int availableQuantity;
+    private int availableQuantity = totalQuantity;
     private boolean borrowable = true;
 
     public LibResource(Document document, double price, int totalQuantity) {
         this.document = document;
         this.price = price;
         this.totalQuantity = totalQuantity;
-        this.availableQuantity = totalQuantity;
     }
 
     public LibResource(int ID, Document document, double price, int totalQuantity, int availableQuantity, boolean borrowable) {

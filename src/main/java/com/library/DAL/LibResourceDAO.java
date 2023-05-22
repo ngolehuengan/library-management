@@ -26,11 +26,9 @@ public class LibResourceDAO extends ConnectDB {
 // -----------------------------------------------------------------------------    
 // sql: INSERT INTO LIBRARY_RESOURCE(dcm_code,price) VALUES ()
     public boolean insert(LibResource e) {
-        int rs = executeUpdate("INSERT INTO LIBRARY_RESOURCE(dcm_code,price,total_quantity,available_quantity) VALUES ("
+        int rs = executeUpdate("INSERT INTO LIBRARY_RESOURCE(dcm_code,price) VALUES ("
                 + "'" + e.getDocument().getCode() + "',"
-                      + e.getPrice() + ","
-                      + e.getTotalQuantity() + ","
-                      + e.getAvailableQuantity() + ")");
+                      + e.getPrice() + ")");
         if (rs > 0) {
             return true;
         }
