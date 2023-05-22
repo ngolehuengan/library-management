@@ -1,6 +1,8 @@
 package main.java.com.library.GUI.forms.ManageBook;
 
 import java.util.Vector;
+import main.java.com.library.BLL.LibResourceBUS;
+import main.java.com.library.DTO.LibResource;
 import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 
@@ -119,7 +121,7 @@ public class ManageBookAll {
 
 		table = new javax.swing.JTable();
 		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new javax.swing.table.DefaultTableModel(new Vector(), TableHeader.allDocument()) {
+		table.setModel(new javax.swing.table.DefaultTableModel(getVectorDisplay(vtDTO), TableHeader.allDocument()) {
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return false;
@@ -134,17 +136,18 @@ public class ManageBookAll {
 		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
 
 		// Action
-		ManageBook.add.addActionListener(e -> {
-			Handle.removeClickListener(imgPnl);
-			chckbxInvalid.setEnabled(false);
-		});
-
+//		ManageBook.add.addActionListener(e -> {
+//			Handle.removeClickListener(imgPnl);
+//			chckbxInvalid.setEnabled(false);
+//		});
+//
 		ManageBook.edit.addActionListener(e -> {
 			Handle.removeClickListener(imgPnl);
 			chckbxInvalid.setEnabled(true);
 		});
 
 		ManageBook.delete.addActionListener(e -> {
+			new LibResourceBUS().delete(vtDTO.get(table.getSelectedRow()));
 			Handle.removeClickListener(imgPnl);
 			chckbxInvalid.setEnabled(false);
 			if (txtNumber.getText().equals("0")) {
@@ -160,19 +163,101 @@ public class ManageBookAll {
 		});
 
 		ManageBook.save.addActionListener(e -> {
+			new LibResourceBUS().edit(vtDTO.get(table.getSelectedRow()).getID(), chckbxInvalid.isSelected());
+			refreshTable();
 			Handle.removeClickListener(imgPnl);
 			chckbxInvalid.setEnabled(false);
+			img.setIcon(Handle.setDefaultImg());
+			txtId.setText("");
+			cbbCate.setSelectedIndex(0);
+			txtTitle.setText("");
+			txtValue.setText("");
+			txtNumber.setText("");
+			txtExist.setText("");
+			chckbxInvalid.setSelected(false);
 		});
 
 		ManageBook.reset.addActionListener(e -> {
 			if (chckbxInvalid.isEnabled()) {
 				img.setIcon(Handle.setDefaultImg());
-				chckbxInvalid.setSelected(false);
+				displayDetail(vtDTO.get(table.getSelectedRow()));
+			}
+		});
+
+		ManageBook.view.addActionListener(e -> {
+			refreshTable();
+		});
+
+		table.addMouseListener(new java.awt.event.MouseAdapter() {
+			@Override
+			public void mouseClicked(java.awt.event.MouseEvent e) {
+				displayDetail(vtDTO.get(table.getSelectedRow()));
+			}
+		});
+
+	}
+
+	// Private
+	@SuppressWarnings({ "serial", "unchecked" })
+	private static void refreshTable() {
+		vtDTO = new LibResourceBUS().getTable();
+		table.setModel(new javax.swing.table.DefaultTableModel(getVectorDisplay(vtDTO), TableHeader.allDocument()) {
+			@Override
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
 			}
 		});
 	}
 
-	// Private
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static Vector getVectorDisplay(Vector<LibResource> list) {
+		Vector table = new Vector();
+		for (int i = 0; i < list.size(); i++) {
+			LibResource e = list.get(i);
+			Vector row = new Vector();
+			row.add(i + 1);
+			if (e.getDocument().getType().equalsIgnoreCase("Book")) {
+				row.add("Sách");
+			} else if (e.getDocument().getType().equalsIgnoreCase("Copy")) {
+				row.add("Bản in");
+			} else if (e.getDocument().getType().equalsIgnoreCase("Theses")) {
+				row.add("Luận văn");
+			} else {
+				row.add("Khác");
+			}
+			row.add(e.getDocument().getCode());
+			row.add(e.getDocument().getTitle());
+			row.add(e.getPrice());
+			row.add(e.getTotalQuantity());
+			row.add(e.getAvailableQuantity());
+			if (e.isBorrowable()) {
+				row.add("Cho phép");
+			} else {
+				row.add("Không");
+			}
+			table.add(row);
+		}
+		return table;
+	}
+
+	private static void displayDetail(LibResource e) {
+		txtId.setText(e.getDocument().getType());
+		if (e.getDocument().getType().equalsIgnoreCase("Book")) {
+			cbbCate.setSelectedIndex(1);
+		} else if (e.getDocument().getType().equalsIgnoreCase("Copy")) {
+			cbbCate.setSelectedIndex(2);
+		} else if (e.getDocument().getType().equalsIgnoreCase("Theses")) {
+			cbbCate.setSelectedIndex(3);
+		} else {
+			cbbCate.setSelectedIndex(4);
+		}
+		txtTitle.setText(e.getDocument().getCode());
+		txtValue.setText(Double.toString(e.getPrice()));
+		txtNumber.setText(Integer.toString(e.getTotalQuantity()));
+		txtExist.setText(Integer.toString(e.getAvailableQuantity()));
+		chckbxInvalid.setSelected(e.isBorrowable());
+	}
+
 	private static javax.swing.JSplitPane splitPane;
 	private static javax.swing.JPanel details;
 	private static javax.swing.JPanel detailsInfo;
@@ -197,4 +282,5 @@ public class ManageBookAll {
 	private static javax.swing.JPanel tablePnl;
 	private static javax.swing.JTable table;
 	private static javax.swing.JPanel tableHandle;
+	private static Vector<LibResource> vtDTO = new LibResourceBUS().getTable();
 }
