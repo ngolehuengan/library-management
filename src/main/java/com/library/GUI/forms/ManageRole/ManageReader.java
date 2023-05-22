@@ -234,7 +234,12 @@ public class ManageReader {
 		});
 
 		delete.addActionListener(e -> {
-			if (txtName.isEnabled()) {	
+			 {	
+				Reader reader = new Reader();
+				reader.setID(selectRow);
+				ReaderBUS.hideReader(reader);
+				System.out.println(selectRow);
+
 				txtName.setEnabled(false);
 				roleSv.setEnabled(false);
 				roleCbgv.setEnabled(false);
@@ -264,6 +269,15 @@ public class ManageReader {
 
 		save.addActionListener(e -> {
 			if (txtName.isEnabled()) {
+				txtCmnd.setBorder(Handle.colorDisabled());
+				txtName.setBorder(Handle.colorDisabled());
+				txtDate.setBorder(Handle.colorDisabled());
+				txtPhone.setBorder(Handle.colorDisabled());
+				txtAddress.setBorder(Handle.colorDisabled());
+				txtEmail.setBorder(Handle.colorDisabled());
+				txtMs.setBorder(Handle.colorDisabled());
+				txtClass.setBorder(Handle.colorDisabled());
+
 				String name = txtName.getText();
 				Boolean studentLogic = roleSv.isSelected(); // "Sinh viên" : "Cán bộ giảng viên";
 				String ID = txtMs.getText();
@@ -548,6 +562,10 @@ public class ManageReader {
 				}
 			}
 		});
+		upload.addActionListener(e->{
+			Handle.uploadReader(upload);
+		});
+
 }
 	
 

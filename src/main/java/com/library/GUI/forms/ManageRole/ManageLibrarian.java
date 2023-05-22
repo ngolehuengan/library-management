@@ -1,5 +1,12 @@
 package main.java.com.library.GUI.forms.ManageRole;
 
+import java.util.ArrayList;
+
+import main.java.com.library.BLL.AccountBUS;
+import main.java.com.library.BLL.PersonalInfoBUS;
+import main.java.com.library.BLL.librarianBUS;
+import main.java.com.library.DTO.Account;
+import main.java.com.library.DTO.PersonalInfo;
 import main.java.com.library.GUI.handle.Handle;
 
 public class ManageLibrarian {
@@ -141,11 +148,17 @@ public class ManageLibrarian {
 		});
 		table.setAutoCreateRowSorter(true);
 		scrollPane.setViewportView(table);
-
 		tableHandle = new javax.swing.JPanel();
 		tableHandle.add(view);
 		tableHandle.setBackground(new java.awt.Color(204, 255, 204));
 		tablePnl.add(tableHandle, java.awt.BorderLayout.SOUTH);
+		table.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {},
+		new String[] { "STT", "MÃ THỦ THƯ", "HỌ TÊN", "TÊN TÀI KHOẢN", "CMND/CCCD", "Email" }) {
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex) {
+		return false;
+	}
+});
 
 		// Action
 		add.addActionListener(e -> {
@@ -159,6 +172,9 @@ public class ManageLibrarian {
 			txtPhone.setEnabled(true);
 			male.setEnabled(true);
 			female.setEnabled(true);
+
+
+
 
 			txtName.setText("");
 			txtUser.setText("");
@@ -206,6 +222,89 @@ public class ManageLibrarian {
 		});
 
 		save.addActionListener(e -> {
+
+			if (txtName.isEnabled()) {
+				txtCmnd.setBorder(Handle.colorDisabled());
+				txtName.setBorder(Handle.colorDisabled());
+				txtDate.setBorder(Handle.colorDisabled());
+				txtPhone.setBorder(Handle.colorDisabled());
+				txtAddress.setBorder(Handle.colorDisabled());
+				txtEmail.setBorder(Handle.colorDisabled());
+				txtUser.setBorder(Handle.colorDisabled());
+
+				String name = txtName.getText();
+				String userName = txtUser.getText();
+				String citizenID = txtCmnd.getText();
+				String birthday = txtDate.getText();
+				String address = txtAddress.getText();
+				String email = txtEmail.getText();
+				String phone = txtPhone.getText();
+				boolean gender = male.isSelected();
+
+				//  Biến boolean để lưu trạng thái của Border
+				boolean hasError = false;
+				ArrayList<Integer> errorInfo = new ArrayList<Integer>();
+				ArrayList<Integer> errorAccount = new ArrayList<Integer>();
+				PersonalInfo info = new PersonalInfo() ;
+				Account account = new Account();
+				
+				errorInfo = PersonalInfoBUS.checkPersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address,email);
+				try {
+					errorAccount = AccountBUS.checkAccount(userName);
+				} catch (Exception e1) {
+
+					e1.printStackTrace();
+				}
+				 
+				if(errorAccount.contains(1)){
+					txtUser.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorAccount.contains(2)){
+					StringBuilder sb =new  StringBuilder();
+					sb.append("Tài khoản đã tồn tại vui lòng sử dụng tài khoản khác");
+					javax.swing.JOptionPane.showMessageDialog(null, sb.toString(), "ERROR",
+					javax.swing.JOptionPane.ERROR_MESSAGE);
+					hasError = true;
+				}
+				if (errorInfo.contains(1)) {
+					txtCmnd.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorInfo.contains(2)) {
+					txtName.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorInfo.contains(3)) {
+					txtDate.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorInfo.contains(4)) {
+					txtPhone.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorInfo.contains(5)) {
+					txtAddress.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorInfo.contains(6)) {
+					txtEmail.setBorder(Handle.colorError());
+					hasError = true;
+				}
+				if (errorAccount.size() == 0 && errorInfo.size() == 0 ){
+					info = new PersonalInfo(citizenID, name, birthday, Boolean.toString(gender), phone, address, email);
+					account = new Account(userName, userName, 2);
+					try {
+						System.out.println("vao roi");
+						librarianBUS.insertLibrarian(account, info);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+
+			}
+
 			txtName.setEnabled(false);
 			txtUser.setEnabled(false);
 			restore.setEnabled(false);

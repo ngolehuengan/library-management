@@ -3,7 +3,10 @@ package main.java.com.library.BLL;
 import main.java.com.library.DTO.Account;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import main.java.com.library.DAL.AccountDAL;
 
@@ -27,9 +30,10 @@ public class AccountBUS {
         login = AccountDAL.login(account);
         return login;
     }
-// true if complete
-// false if can't create account
-    public boolean createAccount(Account account) throws Exception{
+
+    // true if complete
+    // false if can't create account
+    public static boolean createAccount(Account account) throws Exception {
         AccountDAL Account = new AccountDAL();
         return Account.insertAccount(account);
     }
@@ -57,12 +61,20 @@ public class AccountBUS {
         AccountDAL Account = new AccountDAL();
         return Account.deleteAccount(account);
     }
-    public static void main(String[] args) throws Exception {
-        AccountBUS acc = new AccountBUS();
-        Account taiKhoan = new Account("ghousdf", "t", 4);
-        taiKhoan.setPassword("tinhcute");
-        acc.updateAccount(taiKhoan);
+
+    public static ArrayList checkAccount(String userName) throws Exception{
+        ArrayList<Integer> errorList = new ArrayList<Integer>();
+        Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
+        Matcher matcher = pattern.matcher(userName);
+        boolean hasSpecialChar = matcher.find();
+        if (userName.isEmpty() || hasSpecialChar || userName.length()>20 || userName.length() <6){
+            errorList.add(1);
+        }
+        AccountDAL Account = new AccountDAL();
+        if(Account.accountExists(userName)) errorList.add(2);
+        return errorList;
     }
+
 }
     
 

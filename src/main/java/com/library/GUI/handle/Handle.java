@@ -1,5 +1,9 @@
 package main.java.com.library.GUI.handle;
 
+import java.io.IOException;
+import java.util.Map;
+
+import main.java.com.library.BLL.ReadExcel;
 import main.java.com.library.GUI.forms.ManageService.FindReader;
 
 public class Handle {
@@ -24,6 +28,37 @@ public class Handle {
 					img.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon(f.getAbsolutePath()).getImage()
 							.getScaledInstance(125, 100, java.awt.Image.SCALE_DEFAULT)));
 				}
+			}
+		});
+	}
+	public static void uploadReader(javax.swing.JButton btn) {
+		removeClickListener(btn); //xóa active
+		btn.addMouseListener(new java.awt.event.MouseAdapter() {
+			@Override
+			public void mouseClicked(java.awt.event.MouseEvent e) {
+				if (e.getClickCount() == 2) {
+				// Change image book using dialog
+				fileChooser = new javax.swing.JFileChooser();
+				fileFilter = new javax.swing.filechooser.FileNameExtensionFilter("Exel", "xlsx");
+				fileChooser.setFileFilter(fileFilter);
+				fileChooser.setMultiSelectionEnabled(false);
+
+				if (fileChooser.showDialog(fileChooser, "Choose File") == javax.swing.JFileChooser.APPROVE_OPTION) {
+					// lấy file
+					java.io.File f = fileChooser.getSelectedFile();
+					try {
+						Map results = ReadExcel.importReader(f.getAbsolutePath());
+						StringBuilder sb =new  StringBuilder();
+						
+						
+						javax.swing.JOptionPane.showMessageDialog(null, sb.toString(), "Kết quả",
+						javax.swing.JOptionPane.ERROR_MESSAGE);
+					} catch (IOException e1) {
+						
+					} 
+				}
+				}
+
 			}
 		});
 	}
@@ -154,4 +189,6 @@ public class Handle {
 	// -----------------------------------Private----------------------------------------
 	private static javax.swing.JFileChooser imgChooser;
 	private static javax.swing.filechooser.FileNameExtensionFilter imgFilter;
+	private static javax.swing.JFileChooser fileChooser;
+	private static javax.swing.filechooser.FileNameExtensionFilter fileFilter;
 }

@@ -37,7 +37,7 @@ public class ReaderDAL {
     public static boolean storeReader(Reader reader){
         connect = new MyConnectUnit();
         try {
-            ResultSet result = connect.excuteQuery("CALL SP_READER_UpdateHide("+Integer.toString(reader.getID())+","+"false"+");");
+            ResultSet result = connect.excuteQuery("CALL SP_READER_UpdateHide("+Integer.toString(reader.getID())+","+"true"+");");
         } catch (Exception e) {
             // TODO: handle exception
         }

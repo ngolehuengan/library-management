@@ -11,65 +11,59 @@ import main.java.com.library.GUI.components.TableHeader;
 import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookBook {
-	@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
-	public static void init(javax.swing.JComponent pnlCards) {
-		// --Books Tab = Details + Table
-		splitPane = new javax.swing.JSplitPane();
-		pnlCards.add(splitPane, "pnlBook");
 
-		// ---Details
-		details = new javax.swing.JPanel();
-		splitPane.setLeftComponent(details);
-		details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết",
-				javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
-		details.setLayout(new java.awt.BorderLayout(0, 0));
+    @SuppressWarnings({"unchecked", "rawtypes", "serial"})
+    public static void init(javax.swing.JComponent pnlCards) {
+        // --Books Tab = Details + Table
+        splitPane = new javax.swing.JSplitPane();
+        pnlCards.add(splitPane, "pnlBook");
 
-		// ----Details: Info
-		detailsInfo = new javax.swing.JPanel();
-		details.add(detailsInfo, java.awt.BorderLayout.CENTER);
+        // ---Details
+        details = new javax.swing.JPanel();
+        splitPane.setLeftComponent(details);
+        details.setBorder(new javax.swing.border.TitledBorder(null, "Thông Tin Chi Tiết",
+                javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, null, null));
+        details.setLayout(new java.awt.BorderLayout(0, 0));
 
-		// -----Details: Image
-		imgPnl = new javax.swing.JPanel();
-		imgPnl.setBackground(new java.awt.Color(204, 204, 204));
-		imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
-		imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
-		img = new javax.swing.JLabel(Handle.setDefaultImg());
-		imgPnl.add(img, java.awt.BorderLayout.CENTER);
+        // ----Details: Info
+        detailsInfo = new javax.swing.JPanel();
+        details.add(detailsInfo, java.awt.BorderLayout.CENTER);
 
-		// -----Details: InfoForm
-		lblIsbn = new javax.swing.JLabel("ISBN");
-		txtIsbn = new javax.swing.JTextField(15);
-		txtIsbn.setEnabled(false);
+        // -----Details: Image
+        imgPnl = new javax.swing.JPanel();
+        imgPnl.setBackground(new java.awt.Color(204, 204, 204));
+        imgPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
+        imgPnl.setLayout(new java.awt.BorderLayout(0, 0));
+        img = new javax.swing.JLabel(Handle.setDefaultImg());
+        imgPnl.add(img, java.awt.BorderLayout.CENTER);
 
-		lblTitle = new javax.swing.JLabel("Nhan đề");
-		txtTitle = new javax.swing.JTextField(15);
-		txtTitle.setEnabled(false);
+        // -----Details: InfoForm
+        lblIsbn = new javax.swing.JLabel("ISBN");
+        txtIsbn = new javax.swing.JTextField(15);
+        txtIsbn.setEnabled(false);
 
-		lblCate = new javax.swing.JLabel("Thể loại");
-		cbbCate = new javax.swing.JComboBox();
-		cbbCate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbCate.setEnabled(false);
+        lblTitle = new javax.swing.JLabel("Nhan đề");
+        txtTitle = new javax.swing.JTextField(15);
+        txtTitle.setEnabled(false);
 
-		lblAuthor = new javax.swing.JLabel("Tác giả");
-		txtAuthor = new javax.swing.JTextField(15);
-		txtAuthor.setEnabled(false);
+        lblCate = new javax.swing.JLabel("Thể loại");
+        cbbCate = new javax.swing.JComboBox();
+        cbbCate.setModel(new javax.swing.DefaultComboBoxModel(getCategoryCBB()));
+        cbbCate.setEnabled(false);
 
-		lblNxb = new javax.swing.JLabel("Nhà xuất bản");
-		cbbNxb = new javax.swing.JComboBox();
-		cbbNxb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbNxb.setEnabled(false);
+        lblAuthor = new javax.swing.JLabel("Tác giả");
+        txtAuthor = new javax.swing.JTextField(15);
+        txtAuthor.setEnabled(false);
 
-		lblYear = new javax.swing.JLabel("Năm xuất bản");
-		cbbYear = new javax.swing.JComboBox();
-		cbbYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "test" }));
-		cbbYear.setEnabled(false);
+        lblNxb = new javax.swing.JLabel("Nhà xuất bản");
+        cbbNxb = new javax.swing.JComboBox();
+        cbbNxb.setModel(new javax.swing.DefaultComboBoxModel(getPublisherCBB()));
+        cbbNxb.setEnabled(false);
 
-		lblDescript = new javax.swing.JLabel("Mô tả");
-		txtDescript = new javax.swing.JTextArea(7, 1);
-		txtDescript.setLineWrap(true);
-		txtDescript.setEnabled(false);
-		scrollPane = new javax.swing.JScrollPane();
-		scrollPane.setViewportView(txtDescript);
+        lblYear = new javax.swing.JLabel("Năm xuất bản");
+        cbbYear = new javax.swing.JComboBox();
+        cbbYear.setModel(new javax.swing.DefaultComboBoxModel(getYearCBB()));
+        cbbYear.setEnabled(false);
 
 		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
 		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80).addGroup(gl_details

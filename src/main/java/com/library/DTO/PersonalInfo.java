@@ -18,6 +18,9 @@ public class PersonalInfo {
     public PersonalInfo() {
         
     }
+    public PersonalInfo(String citizenID2, String name, String birthday2, String string, String phone, String address2,
+            String email2) {
+    }
     // 1 : Căn cước hoặc chứng minh nhân dân không hợp lệ
     private boolean checkCitizenID(String citizenID ){
         if (citizenID.length() != 12 && citizenID.length() != 9){

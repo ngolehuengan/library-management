@@ -51,7 +51,7 @@ public class ReaderBUS {
         }
 
     }
-    public boolean hideReader(Reader reader){
+    public static boolean hideReader(Reader reader){
         ReaderDAL.storeReader(reader);
         return true;
     }

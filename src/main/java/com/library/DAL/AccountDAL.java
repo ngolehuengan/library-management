@@ -28,7 +28,7 @@ public class AccountDAL {
         ResultSet result = connect.excuteQuery("CALL SP_Account_Insert(\""+account.getUsername()+"\",\""+account.getPassword()+"\","+Integer.toString(account.getRole())+");");
         return true;
     } catch (Exception e) {
-        return false;
+        throw new Exception("hic");
     } finally{
         connect.Close();
     }
@@ -123,8 +123,21 @@ public class AccountDAL {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        
+    
         return listAccount;
+    }
+    public  boolean accountExists(String userName){
+        connect = new MyConnectUnit();
+        boolean exists = false;
+        try {
+            ResultSet results = connect.excuteQuery("SELECT COUNT(*) FROM ACCOUNT WHERE user_name = \""+userName+"\"");
+            results.next();
+            if(results.getInt(1) != 0) exists = true;
+            System.out.println(results.getInt(1));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return exists;
     }
 
 }   
