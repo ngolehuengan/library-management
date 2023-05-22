@@ -1,6 +1,7 @@
 package main.java.com.library.BLL;
 
 import java.sql.Date;
+import java.text.ParseException;
 
 /**
  *
@@ -35,6 +36,18 @@ public class Check {
         } catch (Exception ex) {
             return false;
         }
+    }
+
+    public static boolean isDateF(String text) {
+        try {
+            java.util.Date dt = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(text);
+            if (dt.after(new java.util.Date(System.currentTimeMillis()))) {
+                return true;
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     public static boolean isInteger(String text) {

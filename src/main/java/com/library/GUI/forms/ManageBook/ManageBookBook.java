@@ -12,7 +12,7 @@ import main.java.com.library.GUI.handle.Handle;
 
 public class ManageBookBook {
 
-    @SuppressWarnings({"unchecked", "rawtypes", "serial"})
+    @SuppressWarnings({ "unchecked", "rawtypes", "serial" })
     public static void init(javax.swing.JComponent pnlCards) {
         // --Books Tab = Details + Table
         splitPane = new javax.swing.JSplitPane();
@@ -65,56 +65,61 @@ public class ManageBookBook {
         cbbYear.setModel(new javax.swing.DefaultComboBoxModel(getYearCBB()));
         cbbYear.setEnabled(false);
 
-		javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
-		gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80).addGroup(gl_details
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(gl_details.createSequentialGroup()
-						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblIsbn).addComponent(lblCate).addComponent(lblTitle))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(cbbCate).addComponent(txtTitle).addComponent(txtIsbn)))
-				.addGroup(gl_details.createSequentialGroup()
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(lblAuthor).addComponent(lblNxb).addComponent(lblYear)
-								.addComponent(lblDescript))
-						.addGap(24)
-						.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(scrollPane).addComponent(cbbYear).addComponent(txtAuthor)
-								.addComponent(cbbNxb))))
-				.addGap(10, 80, 80));
-		gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(10, 80, 80)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_details.createSequentialGroup()
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblIsbn).addComponent(txtIsbn))
-								.addGap(5, 15, 24)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblTitle).addComponent(txtTitle))
-								.addGap(5, 15, 24)
-								.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(lblCate).addComponent(cbbCate))))
-				.addGap(5, 15, 24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblAuthor).addComponent(txtAuthor))
-				.addGap(5, 15, 24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblNxb).addComponent(cbbNxb))
-				.addGap(5, 15, 24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(lblYear).addComponent(cbbYear))
-				.addGap(5, 15, 24)
-				.addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-						.addComponent(lblDescript).addComponent(scrollPane))
-				.addGap(10, 80, 80));
-		detailsInfo.setLayout(gl_details);
+        lblDescript = new javax.swing.JLabel("Mô tả");
+        txtDescript = new javax.swing.JTextArea(7, 1);
+        txtDescript.setLineWrap(true);
+        txtDescript.setEnabled(false);
+        scrollPane = new javax.swing.JScrollPane();
+        scrollPane.setViewportView(txtDescript);
 
-		// -----Details: Handle
+        javax.swing.GroupLayout gl_details = new javax.swing.GroupLayout(detailsInfo);
+        gl_details.setHorizontalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80).addGroup(gl_details
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(gl_details.createSequentialGroup()
+                        .addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24)
+                        .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblIsbn).addComponent(lblCate).addComponent(lblTitle))
+                        .addGap(24)
+                        .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbbCate).addComponent(txtTitle).addComponent(txtIsbn)))
+                .addGroup(gl_details.createSequentialGroup()
+                        .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblAuthor).addComponent(lblNxb).addComponent(lblYear)
+                                .addComponent(lblDescript))
+                        .addGap(24)
+                        .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(scrollPane).addComponent(cbbYear).addComponent(txtAuthor)
+                                .addComponent(cbbNxb))))
+                .addGap(0, 80, 80));
+        gl_details.setVerticalGroup(gl_details.createSequentialGroup().addGap(0, 80, 80)
+                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(imgPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(gl_details.createSequentialGroup()
+                                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblIsbn).addComponent(txtIsbn))
+                                .addGap(24)
+                                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblTitle).addComponent(txtTitle))
+                                .addGap(24)
+                                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblCate).addComponent(cbbCate))))
+                .addGap(24)
+                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblAuthor).addComponent(txtAuthor))
+                .addGap(24)
+                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNxb).addComponent(cbbNxb))
+                .addGap(24)
+                .addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblYear).addComponent(cbbYear))
+                .addGap(24).addGroup(gl_details.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                        .addComponent(lblDescript).addComponent(scrollPane)));
+        detailsInfo.setLayout(gl_details);
+
+        // -----Details: Handle
         detailsHandle = new javax.swing.JPanel();
         detailsHandle.add(ManageBook.save);
         detailsHandle.add(ManageBook.reset);
@@ -262,8 +267,7 @@ public class ManageBookBook {
         disableAll();
     }
 
-    @SuppressWarnings({ "unused", "unchecked", "rawtypes" })
-	private static Vector getCategoryCBB() {
+    private static Vector getCategoryCBB() {
         Vector vt = new Vector();
         for (int i = 0; i < vtCate.size(); i++) {
             vt.add(vtCate.get(i).getName());
@@ -271,8 +275,7 @@ public class ManageBookBook {
         return vt;
     }
 
-    @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
-	private static Vector getPublisherCBB() {
+    private static Vector getPublisherCBB() {
         Vector vt = new Vector();
         for (int i = 0; i < vtNxb.size(); i++) {
             vt.add(vtNxb.get(i).getName());
@@ -280,8 +283,7 @@ public class ManageBookBook {
         return vt;
     }
 
-    @SuppressWarnings({ "rawtypes", "unused", "unchecked" })
-	private static Vector getYearCBB() {
+    private static Vector getYearCBB() {
         Vector vt = new Vector();
         for (int i = thisYear; i > 1800; i--) {
             vt.add(i);
@@ -289,8 +291,7 @@ public class ManageBookBook {
         return vt;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	private static Vector getVectorDisplay(Vector<Book> list) {
+    private static Vector getVectorDisplay(Vector<Book> list) {
         Vector table = new Vector();
         for (int i = 0; i < list.size(); i++) {
             Book e = list.get(i);
@@ -309,8 +310,7 @@ public class ManageBookBook {
         return table;
     }
 
-    @SuppressWarnings({ "serial", "unchecked" })
-	private static void refreshTable() {
+    private static void refreshTable() {
         vtDTO = new BookBUS().getTable();
         table.setModel(new javax.swing.table.DefaultTableModel(getVectorDisplay(vtDTO), TableHeader.book()) {
             @Override
@@ -320,8 +320,7 @@ public class ManageBookBook {
         });
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	private static void addBook() {
+    private static void addBook() {
         if (Handle.confirm()) {
             int bug = 0;
 
@@ -361,8 +360,7 @@ public class ManageBookBook {
         }
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	private static void updateBook() {
+    private static void updateBook() {
         if (Handle.confirm()) {
             int bug = 0;
             if (txtTitle.getText().isBlank()) {
@@ -491,12 +489,10 @@ public class ManageBookBook {
     private static javax.swing.JScrollPane scrollPane;
     private static javax.swing.JTable table;
     private static javax.swing.JPanel tableHandle;
-    @SuppressWarnings("unchecked")
-	private static Vector<Category> vtCate = new DocumentBUS().getCategory();
-    @SuppressWarnings("unchecked")
-	private static Vector<Publisher> vtNxb = new DocumentBUS().getPublisher();
-    @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
-	private static Vector<Integer> vtYear = new Vector();
+    private static Vector<Category> vtCate = new DocumentBUS().getCategory();
+    private static Vector<Publisher> vtNxb = new DocumentBUS().getPublisher();
+    private static Vector<Integer> vtYear = new Vector();
     private static Vector<Book> vtDTO = new BookBUS().getTable();
     private static final int thisYear = 2023;
+
 }
